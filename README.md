@@ -9,8 +9,8 @@ I started this course back in 2016 and enjoyed it, but was unable to finish it b
 Special thanks to [Ivanic](https://github.com/ivanicspeter92/2016-aalto-c/tree/master) for uploading the exercises to github.
 
 You can find the course material here:
-- [English]()
-- [Finnish]()
+- [English](https://swawrzyn.github.io/aalto-c-mooc/en/home/)
+- [Finnish](https://swawrzyn.github.io/aalto-c-mooc/fi/home/)
 
 ## Requirements
 - gcc
