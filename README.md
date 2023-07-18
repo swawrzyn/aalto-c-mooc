@@ -1,5 +1,7 @@
 # AALTO C Course
 
+**THIS REPO IS A WORK IN PROGRESS**
+
 ## Description
 
 This is the Aalto C MOOC course from 2016 preserved and available for use offline.
