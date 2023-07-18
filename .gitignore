@@ -1,0 +1,7 @@
+*.dSYM
+**/src/main
+**/test/test
+mockoutput
+tmc_available_points.txt
+tmc_test_results.xml
+valgrind.log

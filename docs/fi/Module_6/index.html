@@ -1,0 +1,1068 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>C-MOOC - C-MOOC
+- Module 6
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/pygments.css">
+
+    <style>
+    #content { margin-bottom: 20px; text-align: justify; }
+    #content img { margin-top: 25px; margin-bottom: 25px; }
+    #content li { margin-top:6px; margin-bottom: 6px; }
+    #content h2 { padding-top: 20px; }
+
+    .codehilitetable { width: 100%; margin-top: 15px; margin-bottom: 15px;}
+    .linenos { width: 20px }
+    .codehilite{ width:100%; height: auto; }
+
+    .task-sidenav-link { padding-left: 0.5em; }
+    .content-sidenav-link { text-decoration: underline; }
+    .content-block, .task-description-block { margin-bottom: 40px; }
+
+    </style>
+</head>
+<body>
+
+<!-- navbar, common to all pages -->
+<div class="navbar navbar-default" role="navigation">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+
+      <li><a href="../home/index.html">Koti</a></li>
+
+      
+      <li class="global-links"><a href="https://tmc.mooc.fi/mooc">TMC</a></li>
+      
+      <li><a href="../instructions/index.html">Ohjeet</a></li>
+
+      
+      <li><a href="../Module_1/index.html">M1: Johdanto</a></li>
+      
+      <li><a href="../Module_2/index.html">M2: Osoittimet</a></li>
+      
+      <li><a href="../Module_3/index.html">M3: Dynaaminen muisti</a></li>
+      
+      <li><a href="../Module_4/index.html">M4: Bitit ja taulukot</a></li>
+      
+      <li><a href="../Module_5/index.html">M5: Kehittyneita piirteita</a></li>
+      
+      <li><a href="index.html">M6: Yhteenvetoa</a></li>
+      
+
+    </ul>
+  </div>
+</div><!-- navbar -->
+
+
+<!-- Unique content of a page goes here -->
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-lg-3">
+			<div class="sidebar">
+                <ul class="nav">
+
+                    <li><img src="../static/aalto-elec-s.jpg" class="img-responsive"></li>
+                    <li><a href="http://mooc.fi/courses/2016/aalto-c">C-MOOC - MOOC.fi</a></li>
+                </ul>
+                
+
+    
+<ul class="nav bs-sidenav">
+    <b>Jump to:</b>
+    
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#01_pointers">
+        1. Yhteenveto: osoittimet
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#02_arrays">
+        2. Yhteenveto: taulukot
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#03_strings">
+        3. Yhteenveto: merkkijonot
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-1-fi">
+            <b>Task:</b> 01_polisher (3)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#04_memory">
+        4. Yhteenveto: muistinhallinta
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#05_structures">
+        5. Yhteenveto: tietorakenteet
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-2-fi">
+            <b>Task:</b> 02_parser (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#06_io">
+        6. Yhteenveto: I/O - virrat
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-06-fi">
+            <b>Task:</b> 06_election (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#07_bits">
+        7. Yhteenveto: binäärioperaattorit
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-3-fi">
+            <b>Task:</b> 03_mac (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-4-fi">
+            <b>Task:</b> 04_dungeon (5)
+        </a>
+    </li>
+    
+    </a></li>
+    
+</ul>
+
+
+
+
+			</div>
+		</div>
+
+
+		<div class="col-lg-7" id="content">
+
+		    
+		    
+
+		    
+
+    <p>
+<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+	<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0; float:right;">
+</a>
+</p>
+
+    
+        
+        <div class="content-block" id="01_pointers">
+    <h1 class="content-title">Yhteenveto: osoittimet</h1>
+    <div class="content-body">
+    
+      <p>Tietyn muuttujan osoittimen saa <em>osoiteoperaattorilla</em> (<code>&amp;</code>). Tämä
+on siis muistiosoite jota voi käyttää vastaavan tyyppisessä
+osoitinmuuttujassa tai muussa vastaavassa paikassa. Esimerkiksi:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">var</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">pointer</span><span class="p">;</span>
+<span class="n">pointer</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">var</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">var2</span> <span class="o">=</span> <span class="o">*</span><span class="n">pointer</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>Osoitinmuuttujan tyyppi riippuu aina osoitettavasta objektista, vaikka
+osoitinmuuttujan sisältö on sinällään aina muistiosoite, kuten yllä
+olevassa esimerkissä nähdään.</p>
+<p>Osoittimeen voi vittata <em>viittausoperaattorilla</em>
+(<code>*</code>). Viittausoperaattori hakee siihen yhdistetyn osoittimen
+osoittaman arvon lausekkeessa käytettäväksi tai esimerkiksi muuttujaan
+sijoitettavaksi. Yllä olevassa esimerkissä nähdään näiden kahden
+operaattorin välinen suhde, ja kuinka ne tavallaan ovat toistensa
+vastakohtia: kun osoiteoperaattorilla on haettu osoitin johonkin
+muuttujaan, viittausoperaattorilla voidaan sen jälkeen palata takaisin
+kyseiseen arvoon. Osoiteoperaattori lisää yhden tähden kohteensa
+tietotyyppiin, kun taas viittausoperaattori poistaa yhden tähden
+kohteensa tietotyypistä.</p>
+<p>Osoittimia voidaan ketjuttaa: on mahdollista että meillä on osoittimen
+osoitin kokonaislukuun. Tällainen tietotyyppi olisi <code>int**</code>. Samalla
+mekanismilla voidaan rakentaa myös kaksiulotteisia taulukoita.</p>
+<p>Tietotyyppejä määritellessä <code>int *var</code>, <code>int * var</code> ja <code>int* var</code>
+toimivat samoin, eli välimerkkejä voi olla tähden molemmin
+puolin. Tietenkin on hyvä noudattaa ohjelmassa kuitenkin yhdenmukaista
+tyyliä tämän suhteen.</p>
+<p><a href="http://fi.wikibooks.org/wiki/C/Pointteriluntti">Pointteriluntti</a> on kätevä yhteenveto osoittimien perusasioista.</p></p>
+<p>Osoittimista oli enemmän asiaa <a href="../Module_2/index.html#pointers">modulissa 2</a>.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="02_arrays">
+    <h1 class="content-title">Yhteenveto: taulukot</h1>
+    <div class="content-body">
+    
+      <p>Taulukko on jono tietyn tyyppisiä objekteja jotka sijaitsevat
+peräkkäin muistissa. Taulukko voi olla staattisesti määritelty tietyn
+kokoiseksi:</p>
+<p><code>int array[5];</code></p>
+<p>Taulukkoon voi myös viitata osoitinmuuttujan avulla:</p>
+<p><code>int *array2;</code></p>
+<p>Jälkimmäisessä tapauksessa tila taulukolle voidaan varata
+dynaamisesti, jolloin taulukon kokokin voidaan määrätä
+dynaamisesti. Osoittimen voi toki myös laittaa osoittamaan
+staattisesti varattuun taulukkoon:</p>
+<p><code>array2 = array;</code></p>
+<p>Vaikka nämä kaksi muuttujaa ovat eri tyyppisiä, osoittimeksi sijoitus
+sujuu taulukosta mutkattomasti.</p>
+<p>Taulukon yksittäiseen jäseneen viitataan <em>indeksointioperaattorilla</em>:
+esimerkiksi <code>array[2] = 10;</code> asettaa taulukon kolmannen jäsenen
+sisällön kokonaisluvuksi 10. Taulukon indeksointi alkaa aina
+0:sta. Indeksioperaattori toimii samalla tavalla myös osoittimen avulla
+määriteltyyn taulukkoon, ja itse asiassa indeksi on oikeastaan vain
+viittausoperaatio tiettyyn kohtaan taulukkoa. Edellä olevan voisi
+sanoa myös: <code>*(array + 2) = 10;</code></p>
+<p>Viittausoperaattorin tapaan indeksointioperaattori siis tipauttaa
+taulukon tyypistä yhden tähden pois:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">array2</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">array2</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</pre></div>
+</td></tr></table>
+
+<p>Osoiteoperaattoria voi siis käyttää yhdessä indeksoinnin kanssa,
+jolloin tuloksena syntyy jälleen osoitin, joka ei tosin enää
+välttämättä osoita taulukon alkuun, vaan viitattuun alkioon siinä:
+<code>int *pa = &amp;array[1];</code> saa osoittimen <em>pa</em> viittaamaan taulukon
+toiseen alkioon.</p>
+<p>Lisää tietoa taulukoista <a href="../Module_2/index.html#03_arrays">modulissa 2</a>.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="03_strings">
+    <h1 class="content-title">Yhteenveto: merkkijonot</h1>
+    <div class="content-body">
+    
+      <p>Merkkijonot ovat yleinen erikoistapaus taulukoista, jotka
+merkkijonojen tapauksessa muodostuvat <em>char</em> - tyyppisistä
+merkeistä. Merkkijonon loppu tunnistetaan erityisestä
+0-merkistä. C-kielessä on määritelty erityinen syntaksi merkkijonojen
+esittämiseen seuraavaan tapaan:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;a string&quot;</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>Tällaisella syntaksilla esitetyt vakiomerkkijonot sisältävät aina
+automaattisesti nollamerkin merkkijonon perässä. Merkkijonolle täytyy
+varata tilaa samoin kuin muillekin taulukoille, ja kun merkkijonolle
+varataan tilaa, tulee muistaa jättää tilaa nollamerkillekin, joka vie
+yhten tavun muistista muiden merkkien tapaan.</p>
+<p>Yllä olevassa esimerkissä merkkijono kopioitiin taulukkoon, joka
+varattiin pinosta str-muuttujan esittelyn yhteydessä. Tällaista
+merkkijonoa voi muokata sijoituksen jälkeen. Jos sen sijaan
+viitattaisiin osoittimen kautta merkkijonoon: <code>char *str = "a
+string";</code>, merkkijonon muokkaaminen ei ole mahdollista, ja aiheuttaa
+ohjelman keskeytymisen ajon aikana, koska vakiomerkkijonot sijaitsevat
+kirjoitussuojatulla alueella muistissa. Tästä syystä ohjelmassa
+olisikin hyvä käyttää <em>const</em>-määrettä: <code>const
+char *str = "a string";</code>. Tällöin virheellinen käyttö huomataan jo
+käännösvaiheessa.</p>
+<p>Merkkijonojen käsittelyn helpottamiseksi C:n standardikirjastossa on
+muutamia hyödyllisiä funktioita, jotka saa käyttöönsä sisällyttämällä
+ohjelmaan <em>strings.h</em> - otsakkeen. Esimerkiksi <em>strlen</em> on melko
+yleinen funktio, joka palauttaa annetun merkkijonon pituuden
+(poislukien lopussa olevan 0-merkin). <em>strlen</em> - funktiota ei tule
+sekoittaa <em>sizeof</em> - määreeseen, joka kertoo annetun tietotyypin
+vaatiman tilan muistista.</p>
+<p><a href="../Module_2/index.html#06_strings">Modulissa 2</a> oli lisää asiaa merkkijonoista ja niiden käsittelyyn
+laadituista funktioista.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-1-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 01_polisher: Koodinsiistijä (3 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Palautellaan mieliin merkkijonojen käsittelyä</p>
+<p>Toteuta koodinsiistijä C-kielisille ohjelmille, joka poistaa kommentit
+ja korjaa rivien sisennykset ohjelmalohkojen mukaisesti.</p>
+<h2>a) Lue tiedosto</h2>
+<p>Toteuta funktio <code>char *read_file(const char *filename)</code>, joka lukee
+annetun tiedoston dynaamisesti varattuun muistiin. Funktio palauttaa
+osoittimen muistilohkoon joka sisältää luetun tiedoston, tai NULL jos
+tiedoston avaamisessa sattuu virhe.</p>
+<h2>b) Poista kommentit</h2>
+<p>Toteuta funktio <code>char *remove_comments(char *input)</code>, joka poistaa
+C-kommentit ohjelmasta, joka on tallennettu osoitteeseen
+<em>input</em>. Huomaa että kyseessä on dynaamisesti varattu puskuri, eli se
+joka (a)-kohdassa varattiin. Funktio palautaa osoittimen kommenteista
+siivottuun ohjelmaan. Voit joko varata uuden muistilohkon muokattua
+ohjelmaa varten, tai muokata ohjelmaa suoraan <em>input</em> - parametrissa
+saamassasi muistissa.</p>
+<p>Muistutuksena vielä C:n kommenttisäännöt, jotka sinun pitää siivota:</p>
+<ul>
+<li>
+<p>Komenttilohkot, jotka alkavat merkeillä <code>/*</code> ja päättyvät
+    merkkeihin <code>*/</code>. Nämä lohkot voivat olla usean rivin
+    pituisia. Sinun tulee poistaa vain nämä lohkot: jos esimerkiksi
+    lohkon loppua seuraa rivinvaihto, se jää edelleen ohjelmaan.</p>
+</li>
+<li>
+<p>Rivikommentit, jotka alkavat merkeillä <code>//</code> ja päättyvät
+    rivinvaihtoon.</p>
+</li>
+</ul>
+<p>Funktiota kutsuva ohjelma on vastuussa vain siitä osoittimesta, jonka
+funktio palauttaa. Jos varaat uutta muistia funktion sisällä, sinun
+tulee huolehtia tarpeettoman muistin vapauttamisesta.</p>
+<h2>c) Sisennä koodi</h2>
+<p>(<strong>Huom:</strong> Tämä tehtäväkohta saattaa olla vaikeampi kuin kaksi edellistä,
+sekä jotkut seuraavista tehtävistä. Jos tuntuu vaikealta, palauta
+kaksi edellistä kohtaa TMC:hen, jotta saat niistä pisteet ja palaa
+myöhemmin tähän tehtävään jos aikaa jää)</p>
+<p>Toteuta funktio <code>char *indent(char *input, const char *pad)</code>, joka
+lisää tarvittavat sisennyket <em>input</em> - puskurin sisältämään koodiin,
+ja palauttaa osoittimen muokattuun ohjelmaan
+paluuarvonaan. Sisennystyyli annetaan merkkijonona parametrissa <em>pad</em>:
+parametri voi sisältää esimerkiksi merkkijonon, jossa on neljä
+välilyöntiä, jolla ilmaistaan että sisennyksen tapahtuvat neljän
+askelilla. Yhtälailla parametri voi sisältää mitä muuta tahansa:
+<em>pad</em> - parametrin sisältöä toistetaan rivin alkuun yhtä monta kertaa
+kuin sisennystasoja kyseisellä rivillä on. Mikäli rivillä on olemassa
+oleva, välimerkkeistä tai tabeja koostuva sisennys, se tulee unohtaa,
+ja korjata sisennys <em>pad</em> - parametrissa ilmaistun kaltaiseksi.</p>
+<p>Voit olettaa että uusi ohjelmalohko alkaa aina aaltosululla <code>{</code> ja
+loppuu aina aaltosulkuun <code>}</code>, ja muita sisennyssääntöjä ei
+ole. Sisennystaso kasvaa vasta aaltosulkumerkin jälkeen ja loppuu
+ennen lohkon lopettavaa aaltosulkua.</p>
+<p>Kuten aiemmassakin kohdassa, mikäli päädyt varaamaan uuden puskurin
+muokattavaa merkkijonoa varten, funktion tulee vapauttaa tarpeeton
+muisti. Kutsuva funktio pitää huolen vain siitä muistilohkosta, joka
+palautetaan paluuarvossa. Kannattaa huomioida myös että sisennetty
+ohjelma saattaa tarvita enemmän muistia kuin alkuperäinen.</p>
+<p>Alla on esimerkki, jossa sisennysfunktio on ajettu
+tehtäväpohjassa olevalle <em>'src/testfile.c'</em> - tiedostolle. Esimerkissä
+on käytetty neljää välilyöntiä <em>pad</em> - parametrissa. Kuten aina,
+kannattaa ensi testata ohjelmaasi käyttäen src/main.c:tä, ennenkuin
+lähetät sen TMC:n käsiteltäväksi.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span class="c1">// This is a test file</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* comment</span>
+<span class="cm">    block */</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;juu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Another comment</span>
+        <span class="k">while</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;jaa</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="04_memory">
+    <h1 class="content-title">Yhteenveto: muistinhallinta</h1>
+    <div class="content-body">
+    
+      <p>(<a href="../Module_3/index.html#02_dynamic">Moduli 3</a>)</p>
+
+<p>Usein on tarpeellista varata ohjelman tarvitsema muisti dynaamisesti,
+esimerkiksi kun tarvittavan muistin määrä ei ole tiedossa ohjelmaa
+kirjoittaessa, esimerkiksi koska se riippuu käyttäjän syötteestä tai
+jostain muusta ulkoisesta tekijästä. Muistin varaus tehdään <em>malloc</em> -
+kutsulla, jonka parametrina kerrotaan kuinka monta tavua
+tarvitaan. Paluuarvonaan onnistunut <em>malloc</em> - kutsu palauttaa
+osoittimeen varattuun muistilohkoon, kuten seuraavassa nähdään.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="o">*</span><span class="n">buffer</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">buffer</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* allocation failed */</span> <span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Käytännössä virtuaalimuistia käyttävissä järjestelmissä muistin varaus
+epäonnistuu hyvin harvoin, koska käyttöjärjestelmä pystyy
+sivuttamaan osan muistia tarvittaessa levylle. Pienissä sulautetuissa
+järjestelmissä tilanne voi olla erilainen.</p>
+<p><em>realloc</em> - funktiolla voi muuttaa aiemmin varatun muistialueen kokoa.</p>
+<p>Jotta muistin tarve voidaan laskea, täytyy olla tieto siitä kuinka
+paljon käytetyt tietorakenteet ja tietotyypit tarvitsevat
+tilaa. <em>sizeof</em> - operaattori kertoo annetun tietotyypin tilatarpeen
+kyseisessä arkkitehtuurissa. Sitä tulee käyttää, vaikka kaverilta
+olisikin kuullut kyseisen tietotyypin koon, koska monet tietotyypit
+C:ssä ovat sellaisia että niiden koko saattaa vaihdella eri
+arkkitehtuurien välillä. Kun varataan tilaa taulukolle, tulee kyseisen
+tietotyypin vaatima tila luonnollisesti kertoa taulukkoon mahtuvien
+alkioiden lukumäärällä.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">float</span> <span class="o">*</span><span class="n">array</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">);</span> <span class="c1">// array of 10 float numbers</span>
+</pre></div>
+</td></tr></table>
+
+<p>Dynaamisesti varattu muisti täytyy vapauttaa sitten kun sitä ei enää
+tarvita, jottei kuluteta järjestelmän resursseja turhaan. <em>Valgrind</em>
+on hyödyllinen työkalu, joka kertoo mikäli ohjelma vuotaa muistia, eli
+ei vapauta kaikkea varaamaansa muistia, sekä auttaa jäljittämään monia
+muita muistinhallintaan liittyviä ongelmia.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="05_structures">
+    <h1 class="content-title">Yhteenveto: tietorakenteet</h1>
+    <div class="content-body">
+    
+      <p>(<a href="../Module_3/index.html#04_structures">Moduli 3</a>)</p>
+
+<p>Tietorakenteet ovat tietotyyppejä jotka koostuvat useista nimetyistä
+kentistä, joilla kullakin on jokin määritelty tietotyyppi. Nämä
+tietotyypit voi olla jotain C:n perustietotyypeistä, taulukoita,
+tietorakenteita, tai vaikkapa funktio-osoittimia. Tässä yksi
+esimerkki:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">example</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>  <span class="c1">// single integer</span>
+    <span class="kt">char</span> <span class="n">string</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>  <span class="c1">// character array of 20 characters</span>
+    <span class="k">struct</span> <span class="n">other</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>  <span class="c1">// pointer to another structure</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>Kun tietorakennetta käytetään sellaisenaan, sen jäseniin voidaan
+viitata jäsenoperaattorilla (<code>.</code>). Toisaalta, jos lausekkeessa onkin
+osoitin tietorakenteeseen, silloin kenttiin viitataan nuolella
+(<code>-&gt;</code>). Näiden kahden välistä eroa kannattaa tarkastella tarkkaan, ja
+kokeilla vaikka erilaisia esimerkkejä, jolloin hahmottuu kumpaa tulee
+missäkin tilanteessa käyttää. Edellämainittujen vaihtoehtojen
+valinta riippuu siis siitä, onko operaattorin vasemmalla puolella
+oleva tietotyyppi osoitin vain ei. Operaattorin oikealla puolella
+olevien kenttien tyyppi ei vaikuta siihen kumpaa käytetään. Tämä
+esimerkki pyrkii havainnollistamaan asiaa:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">example</span> <span class="n">ex1</span><span class="p">;</span>
+<span class="n">ex1</span><span class="p">.</span><span class="n">ptr</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="n">example</span> <span class="o">*</span><span class="n">ex2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ex1</span><span class="p">;</span> <span class="c1">// make ex2 point to ex1</span>
+<span class="n">ex2</span><span class="o">-&gt;</span><span class="n">ptr</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-2-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_parser: Komentoriviparseri (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Perehdytään komentoriviargumentteihin, ja palautellaan
+  mieliin linkitetyn listan toimintaa.</p>
+<p>Komentoriviargumentteja käytetään ohjaamaan komentoriviltä käynnistettävän
+ohjelman toimintaa. Lyhyt yhteenveto komentoriviargumenteista ja
+komentorivioptioiden tyypillisestä toiminnasta annettiin
+<a href="../Module_4/index.html#03_cmdline">modulissa 4</a>. Tässä tehtävässä toteutetaan funktiot annettujen
+komentorivioptioiden käsittelemiseksi.</p>
+<p>Ohjelmasi tulee komentorivioptiot normaalin mallisesta
+merkkijonotaulukosta (<em>argv</em>), ja sijoittaa havaitut komentorivioptiot
+linkitettyyn listaan, joka koostuu <em>option</em> -
+tietorakenteista. <em>argv</em> - taulukko sisältää siis ohjelmalle annetut
+komentoriviargumentit, ja taulukossa on <em>argc</em> alkiota.</p>
+<p>Komentorivioption tunnistaa siitä, että se alkaa viivamerkillä
+(<code>-</code>). Viivamerkkiä seuraa yksi kirjainmerkki, jolla option
+tunnistaa. Tällainen optio lisätään linkitettyyn listaan uudeksi
+alkioksi, ja vastaava kirjainmerkki sijoitetaan <em>options</em> -
+tietorakenteen <em>optchar</em> - kenttään. Mikäli optiota seuraa merkkijono,
+joka ei ala viivalla, kyseessä on parametri kyseiselle optiolle, joka
+tulee tallentaa samaan tietorakenteeseen. Tehtäväpohjassa tuleva
+tietorakenne ei vielä sisällä kenttää tälle, joten <strong>sinun tulee
+määritellä itse tarvittava lisäkenttä (tai kentät)
+tietorakenteeseen</strong>. Jos optiota seuraa suoraan toinen optio,
+kyseisellä optiolla ei ole määriteltyä parametria, ja optio tulkitaan
+vain annetuksi (se voi olla esimerkiksi on/off - vipu, jolla säädetään
+ohjelman toimintaa jotenkin).</p>
+<p>Mikäli komentorivillä on merkkijono, joka ei ole edellä annetun option
+parametri, se tulee vain sivuuttaa.</p>
+<p>Linkitettyjen listojen toimintaa voi kerrata <a href="../Module_3/index.html#06_linkedlist">modulista 3</a>.</p>
+<h2>a) Parsi optiot</h2>
+<p>Toteuta funktio <em>get_options</em>, joka käsittelee komentoriviä vastaavan
+merkkijonotaulukon ja rakentaa sen perusteella edellä kuvatun
+kaltaisen linkitetyn listan, varaten tarvittavan muistin
+dynaamisesti. Jokaista optiota tulee siis vastata yksi alkio
+linkitetyssä listassa.</p>
+<p>Lisäksi sinun tulee toteuttaa funktio <em>free_options</em>, joka vapauttaa
+edellä mainitun funktion varaaman muistin.</p>
+<h2>b) Tiedustele optioita</h2>
+<p>Toteuta funktio <em>is_option</em> joka palauttaa nollasta poikkeavan arvon,
+mikäli paramterissa <em>optc</em> annettu optio löytyy linkitetystä listasta
+<em>opt</em>. Mikäli optiota ei löydy, palautetaan 0.</p>
+<p>Toteuta lisäksi funktio <em>get_optarg</em>, joka palauttaa optiota <em>optc</em>
+vastaavan optioparametrin. Mikäli optioparametria ei oltu määritelty,
+tai mikäli optio ei ylipäätään löydy linkitetystä listasta,
+palautetaan NULL.</p>
+<p><em>src/main.c</em> esittää kuinka funktioita käytetään. Voit testata
+ ohjelmaa komentoriviltä käynnistämällä ja antaa erilaisia
+ optioita. Käännetty ohjelma löytyy <em>src</em>-hakemistosta nimellä
+ "main". Mikäli et halua käyttää komentoriviä, voit myös muokata
+ main-funktiota esimerkiksi kysymään "komentoriviargumentteja"
+ <em>scanf</em>-funktiota käyttäen.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="06_io">
+    <h1 class="content-title">Yhteenveto: I/O - virrat</h1>
+    <div class="content-body">
+    
+      <p>Ohjelman syöte ja tuloste tapahtuu I/O - virtojen kautta. Uuden
+I/O-virran voi avata <em>fopen</em> - kutsulla, ja se pitää sulkea <em>fclose</em> -
+kutsulla. Usein I/O - virta kohdistuu levyllä olevaan tiedostoon,
+mutta se voi osoittaa myös muihin laitteisiin, kuten käyttäjän
+komentorivinäkymään. Kaikissa ohjelmissa on oletusarvoisesti auki
+kolme oletusvirtaa: standarditulostevirta (stdout),
+standardisyötevirta (stdin), ja standardivirhevirta (stderr).</p>
+<p><em>printf</em> - funktiolla voi tulostaa muotoiltua tulostetta
+ standarditulostevirtaan. Funktiolle voi antaa parametreja, jotka
+ tulostuvat muotoilumääreiden perusteella. <em>fprintf</em> on funktion
+ yleisempi muoto, jolla vastaavat tulosteet voi ohjata mihin tahansa
+ virtaan, esimerkiksi tiedostoon. Lisää tietoa esimerkiksi
+ muotoilumääreistä löytyi <a href="../Module_1/index.html#05_format">modulista 1</a>, ja virroista yleisesti
+ <a href="../Module_5/index.html">modulista 5</a>.</p>
+<p>Vastaavasti <em>scanf</em> - funktiolla luetaan käyttäjän syötettä
+komentoriviltä, ja <em>fscanf</em> - funktiolla yleisemmin mistä tahansa
+virrasta. Näissä funktioissa parametrit annetaan osoittimien kautta,
+jotta <em>scanf</em> - funktio voi muokata niiden arvoa.</p>
+<p>I/O - virrat ovat puskuroituja. Niihin kirjoitettu tieto ei
+välttämättä ilmesty heti näkyviin, eikä käyttäjän syöttämä tieto tule
+välttämättä heti ohjelmalle. Oletusarvoisesti noudatetaan
+rivipuskurointia, eli tieto toimitetaan, kun virtassa vaihdetaan riviä.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-06-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 06_election: Vaalijärjestelmä (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Palautellaan mieliin tiedoston käsittelyä, dynaamisia
+  taulukoita ja tietorakenteita, sekä järjestelyalgoritmien käyttöä.</p>
+<p>Toteuta vaalijärjestelmä, joka laskee äänet tiedostosta jossa kukin
+ääni on listattu omalla rivillään. Järjestelmään toteutetaan kaksi
+funktiota seuraavasti:</p>
+<p><strong>(a)</strong> funktio <em>read_votes</em> joka lukee äänet annetusta
+  tekstitiedostosta. Kukin ääni on annettu tiedostossa omalla
+  rivillään, ja siinä on enintää 39 merkkiä. Tiedostossa
+  <em>src/votes.txt</em> on lyhyt esimerkki. Tiedoston perusteella tulee
+  rakentaa dynaaminen taulukko, jonka kukin elementti on <em>votes</em> -
+  tietorakenne. Kukin erilainen tiedoston sisältämä nimi tulee
+  sisältyä vain kerran taulukkoon, ja tietorakenteen tulee ilmaista
+  kuinka monta kertaa kyseinen nimi esiintyi tiedostossa. Toisin
+  sanoen taulukossa on niin monta alkiota, kuin tiedostossa on
+  erilaisia nimiä. Taulukon loppu ilmaistaan alkiolla, jonka nimi on
+  tyhjä merkkijono. Annettu esimerkkitiedosto tuottaa siten
+  esimerkiksi taulukon jossa on neljä alkiota, sekä
+  loppualkio. Osoitin tuotettuun taulukkoon palautetaan funktion
+  paluuarvona.</p>
+<p>Kannattaa lisäksi huomioida, että taulukon sisältämien nimien <strong>ei
+tule sisältää rivinvaihtomerkkiä</strong>, jollainen tiedostosta löytyy
+jokaisen nimen perässä.</p>
+<p><strong>(b)</strong> funktio <em>results</em>, joka tulostaa äänestyksen tuloksen
+edellisen tehtäväkohdan tuottaman taulukon perusteella seuraavassa
+formaatissa:</p>
+<p><code>name: votes</code></p>
+<p>Lisäksi tulokset tulee listata äänimäärän mukaisessa järjestyksessä
+siten että eniten ääniä saanut nimi tulostetaan ensin. Tapauksissa
+joissa äänimäärä on sama, nimet tulostetaan
+aakkosjärjestyksessä. Kannattaa muistaa, että C:n
+stadndardikirjastossa on hyödyllisiä apufunktioita järjestämisen
+toteuttamiseksi (toki saa sen toteuttaa itsekin).</p>
+<p>Esimerkiksi kun ajetaan <em>main.c</em> - funktion sisältämä ohjelma
+tiedostolle <em>src/votes.txt</em>, seuraavaa pitäisi tulostua:</p>
+<pre>
+Trump: 4
+Clinton: 2
+Sanders: 2
+Cruz: 1</pre>
+
+<p>(Esimerkki on täysin fiktiivinen.)</p>
+<p>Kannattaa luoda omia testitiedostoja toteuttamiesi funktioiden
+testaamiseksi. Toteuta funktiot tiedostoon <em>election.c</em> sen pohjalta,
+mitä määrittelyt tiedostossa <em>election.h</em> sisältävät.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="07_bits">
+    <h1 class="content-title">Yhteenveto: binäärioperaattorit</h1>
+    <div class="content-body">
+    
+      <p>Binäärioperaattoreista oli enemmän tarinaa <a href="../Module_4/index.html#04_bits">modulissa 4</a>, mutta tässä
+pikainen yhteenveto.</p>
+<p>Kenties yleisimmät binäärioperaattorit ovat binäärinen <em>JA</em> (<code>&amp;</code>),
+binäärinen <em>TAI</em> (<code>|</code>), sekä bittisiirto-operaattorit molempiin suuntiin
+(<code>&lt;&lt;</code> ja <code>&gt;&gt;</code>). Binäärisiä operaattoreita ei tule sekoittaa loogisiin
+operaattoreihin (<code>&amp;&amp;</code> ja <code>||</code>), jotka palauttavat erilaisen
+lopputuloksen (arvon 1 tai 0).</p>
+<p>Binäärinen JA-operaattori soveltuu esimerkiksi tiettyjen bittien tilan
+testaamiseen isommasta kokonaisluvusta seuraavaan tyyliin:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&amp;</span> <span class="mh">0x10</span><span class="p">)</span>  <span class="p">{</span> <span class="cm">/* fifth bit is set */</span> <span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Tällä tavalla siis testataan onko viides bitti muuttujassa <em>val</em>
+asetettuna: mikäli se ei ole asetettuna, tuloksena on 0 (eli epätosi),
+muussa tapauksessa 0x10 (eli tosi).</p>
+<p>Binääristä TAI-operaattoria käytetään usein kahden eri binäärisen
+arvon yhdistämiseen: lopputuloksessa bitti on päällä silloin kun
+jommassa kummassa operandissa vastaava bitti on päällä, esimerkiksi
+seuraavasti:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">combined</span> <span class="o">=</span> <span class="mh">0xf1</span> <span class="o">|</span> <span class="mh">0x03</span><span class="p">;</span> <span class="c1">// result: 0xf3</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-3-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 03_mac: MAC-otsake (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Kerrataan binäärioperaatioita.</p>
+<p>Matalan tason protokollat pyrkivät tyypillisesti hyödyntämään
+tarvittavan tilan tehokkaasti, jotta protokolla aiheuttaisi
+mahdollisimman vähän turhaa tietoliikennettä. Tällä kertaa
+keskitytään 802.11 MAC-otsakkeeseen (eli WiFi-protokollaan) ja
+erityisesti otsakkeen kahteen ensimmäiseen tavuun, eli "Frame
+Control" - osioon.</p>
+<p>802.11 - otsakeesta löytyy tietoa esimerkiksi <a href="http://mrncciew.com/2014/09/27/cwap-mac-header-frame-control/">täältä</a>, joskin
+vastaava tieto löytyy myös muualtakin webistä. Frame Control -
+kentistä löytyy tarkempi kaavia kuvasta numerolla "3.3" kyseisellä
+sivulla (skrollaa hieman alaspäin). Tarvitset kaaviokuvaa parsiaksesi
+tehtävän vaatimat Frame Control - kentät.</p>
+<h2>a) Parsi otsake</h2>
+<p>Toteuta seuraavat funktiot, jotka kukin lukevat ja palauttavat yhden
+kentän MAC-otsakkeesta. Parsiaksesi kentät sinun tulee poimia
+vastaavat bitit MAC-otsakkeesta, esimerkiksi bittisiirtoja ja muita
+binäärioperaatioita käyttäen ja palauttaa lukuarvot seuraavassa
+kuvatun mukaisesti.</p>
+<p>Kaikki funktiot saavat parametrikseen osoittimen otsakkeen alkuun.</p>
+<ul>
+<li>
+<p><code>get_proto_version</code> joka palauttaa protokollaversion (Protocol
+    Version) otsakkeesta, eli sen tulee palauttaa arvoja välillä 0 - 3.</p>
+</li>
+<li>
+<p><code>get_type</code> joka palauttaa Type - kentän arvon (välillä 0 - 3)</p>
+</li>
+<li>
+<p><code>get_subtype</code> joka palauttaa Subtype - kentän arvon (välillä 0 - 15)</p>
+</li>
+<li>
+<p><code>get_to_ds</code>, <code>get_from_ds</code>, <code>get_retry</code>, <code>get_more_data</code> jotka
+    palauttavat kyseisten lipukkeiden arvon otsakkeessa. Funktiot
+    voivat palauttaa jonkun nollasta poikkeavan arvon mikäli kyseinen
+    bitti on asetettu, tai 0 jos kyseinen bitti ei ole asetettu.</p>
+</li>
+</ul>
+<h2>b) Kirjoita otsake</h2>
+<p>Toteuta seuraavat funktiot, joiden avulla tuotetaan otsake (tai osa siitä):</p>
+<ul>
+<li>
+<p><code>set_proto_version</code> joka asettaa Protocol Version kentän
+    <em>version</em> - parametrin ilmaisemalla tavalla.</p>
+</li>
+<li>
+<p><code>set_type</code> joka asettaa Type - kentän funktion parametrissa ilmaistulla
+    tavalla.</p>
+</li>
+<li>
+<p><code>set_subtype</code> joka asettaa Subtype - kentän funktion parametrissa
+    ilmaistulla tavalla.</p>
+</li>
+<li>
+<p><code>set_to_ds</code>, <code>set_from_ds</code>, <code>set_retry</code>, <code>set_more_data</code>, jotka
+    asettavat kyseiset lipukebitit joko päälle tai pois sen
+    perusteella onko parametrina annettu 0 (pois päältä) tai nollasta
+    poikkeava arvo (päällä).</p>
+</li>
+</ul>
+<p>Kutakin funktiota kutsuttaessa vain kyseinen osa otsakkeesta saa
+muuttua, ja muiden kenttien sisällön tulee säilyä ennallaan.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-4-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 04_dungeon: Luolapeli (5 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p>Konsolipohjaiset luolapelit ovat olleet merkittävä peligenre viime
+vuosikymmeninä. Tällaisia pelejä ovat esimerkiksi <a href="http://en.wikipedia.org/wiki/Rogue_(video_game)">Rogue</a>, <a href="http://www.nethack.org">Nethack</a>
+tai <a href="http://rephial.org">Angband</a>. Vaikka Xbox- ja iPad-sukupolvi on pitkälti unohtanut
+nämä pelit, palaamme hetkeksi tämän mainion pelityypin pariin.</p>
+<p>Tässä, hieman isommassa tehtävässä toteutetaan köyhän miehen versio
+luolaseikkailupelistä. Toteutettavasta pelistä tulee puuttumaan
+runsaasti esikuviensa ominaisuuksia, mutta voit tehtävän ratkaistuasi
+toki jatkaa pelin kehittämistä eteenpäin.</p>
+<p>Harjoituspohja sisältää enemmän valmista ohjelmakoodia kuin aiemmat
+tehtävät, ja monet funktioista on annettu jo valmiina. Sinun tulee
+vain toteuttaa toimivan pelin tarvitsemat puuttuvat funktiot alla
+olevien tehtäväkohtien mukaisesti. <em>src</em> - hakemisto sisältää
+seuraavat ohjelmamodulit:</p>
+<ul>
+<li>
+<p><strong>main.c</strong> sisältää pelin pääsilmukan, joka pyytää käyttäjältä
+    komentoa ja siirtää pelaajaa, sekä pelin sisältämiä hirviöitä
+    eteenpäin vastaavasti.</p>
+</li>
+<li>
+<p><strong>mapgen.c</strong> rakentaa pelin luolaston huoneineen ja niitä
+    yhdistävine käytävineen.</p>
+</li>
+<li>
+<p><strong>userif.c</strong> sisältää käyttöliittymätominnalisuuden, kuten kartan
+    piirtämisen ruudulle, sekä käyttäjän syötteeseen
+    reagoimisen. Oletuskonfiguraatiossa pelaaja näkee viiden ruudun
+    päähän, eikä tietystikään pysty näkemään seinien taakse. Voit
+    halutessasi muuttaa näitä ominaisuuksia vaikuttamatta testien
+    tuloksiin.</p>
+</li>
+<li>
+<p><strong>monster.c</strong> sisältää hirviöiden toimintalogiikan. Peli on
+    vuoropohjainen: aina kun pelaaja liikkuu, kaikki kartalla olevat
+    hirviöt liikkuvat niinikään pohjautuen algoritmeihin jotka tulet
+    toteuttamaan. Suurin osa tässä tehtävässä toteutettavista
+    funktioista tulee olemaan tässä tiedostossa.</p>
+</li>
+<li>
+<p><strong>dungeon.h</strong> sisältää ohjelman vaatimat määrittelyt, kuten
+    tarvittavat tietorakenteet, sekä modulien välisten julkisten
+    funktioiden rajapintamäärittelyt. Otsakkeessa ei siis ole kaikkia
+    em. tiedostojen funktioita, koska osa funktioista on yksityisiä
+    kyseiselle ohjelmamodulille.</p>
+</li>
+</ul>
+<p>Pelin pääasialliset tietorakenteet ovat seuraavat: <strong>Game</strong> sisältää
+pelitilanteen kokonaisuudessaan, ja näitä tietorakenteita on vain yksi
+kerrassaan pelin aikana. Tietorakenteessa on esimerkiksi viittaus
+pelikarttaan, sekä dynaaminen taulukko joka sisältää hirviöt. <strong>Map</strong>
+sisältää varsinaisen kartan kaksiulotteisessa taulukossa. <strong>Creature</strong>
+sisältää yhden hirviön tiedot, joita sisältyy <em>Game</em> - rakenteessa
+olevaan taulukkoon useita. <em>numMonsters</em> kertoo kuinka monta oliota
+tässä dynaamisessa taulukossa on.</p>
+<p>Mukana tuleva tehtäväpohja sisältää lisää tietoa esimerkiksi
+yksittäisten funktioiden toiminnasta. Voit muuttaa tehtäväkoodia
+monella tapaa vaikuttamatta tarkistusten lopputulokseen: voit
+esimerkiksi lisätä uuden tyyppisiä hirviöitä, vaihtaa kartan
+esitystapaa, muuttaa hirviöiden ominaisuuksia, jne. kunhan et muuta
+tai poista mukana tulevia tietorakenteiden kenttiä, joihin saatetaan
+viitata TMC-testeissä. Nämä testit keskittyvät vain muutamaan
+funktioon alla kuvattujen tehtäväkohtien mukaisesti. Muita funktioita
+voit muuttaa vapaasti.</p>
+<p>Peli käynnistetään ajamalla käännöksen tuottama <em>src/main</em> -
+tiedosto. Tämä ei kuitenkaan tee mitään järkevää ennenkuin olet
+toteuttanut tehtävän vaatimat funktiot.</p>
+<p>Alla on "kuvakaappaus" pelistä, jossa kaikki tehtäväkohdat on
+toteutettu. Hirviö 'D' lähestyy pelihahmoa '*' vasemmalta. '#' kuvaa
+seinää ja '.' lattiaa jota pitkin voi kävellä. Pelaajan nykyiset ja
+maksimi-osumapisteet (hit points) kerrotaan kartan alapuolella, jossa
+sijaitsee myös paikka komennolle.</p>
+<pre>
+    ...    
+   ##.##   
+   #...#   
+   #...#  #
+####...##..
+..D..*.....
+###########
+
+
+
+HP: 12(12)
+command &gt;</pre>
+
+<p>Pelissä on seuraavat komennot:</p>
+<ul>
+<li><code>n</code>: siirry pohjoiseen (ylös)</li>
+<li><code>s</code>: siirry etelään (alas)</li>
+<li><code>e</code>: siirry itään (oikealle)</li>
+<li><code>w</code>: siirry länteen (vasemmalle)</li>
+<li><code>q</code>: poistu pelistä</li>
+</ul>
+<p>Sinun tulee painaa enter:iä kunkin komennon jälkeen. Komentoja voi
+muuttaa tai lisätä: TMC-testit eivät välitä niistä.</p>
+<p>Monet testit on toteutettu käyttäen valmiiksi tallennettua karttaa
+tiedostossa <em>test/testmap</em>. Tätä tiedostoa ei kannata muuttaa, koska
+se vaikuttaisi paikallisiin testeihin, mutta ei palvelimen
+suorittamiin testeihin.</p>
+<h2>a) Voinko liikkua?</h2>
+<p>Toteuta funktio <code>int isBlocked(Game *game, int x, int y)</code> joka
+palauttaa 0, mikäli kyseinen sijainti kartalla on vapaa liikkumiseen,
+eli siinä ei ole seinää, eikä hirviötä. Mikäli liikkuminen kyseiseen
+kohtaan ei ole mahdollista edellä mainituista syistä, funktio
+palauttaa jonkun nollasta poikkeavan arvon. Funktion tulee palauttaa
+nollasta poikkeava arvo myös silloin, kun kyseinen sijainti sijaitsee
+kartan rajojen ulkopuolella. Useat seuraavista funktioista hyötyvät
+tämän funktion käytöstä. Funktio tulee toteuttaa tiedostoon
+<em>userif.c</em>.</p>
+<h2>b) Luo hirviöt</h2>
+<p>Toteuta funktio <code>void createMonsters(Game *game)</code> joka luo
+<em>opts.numMonsters</em> hirviötä ja sijoittaa ne satunnaisiin pisteisiin
+kartalla. Voit käyttää <a href="http://linux.die.net/man/3/rand">rand</a> - funktiota satunnaisten pisteiden
+generointiin. Hirviön voi sijoittaa vain paikkaan joka ei ole seinä,
+ja jossa ei ole jo ennestään hirviötä (eli kuten funktio <em>isBlocked</em>
+kertoo). Alusta kukin luotu hirviö asianmukaisesti antamalla niille
+nimi, karttasymbolimerkki, osumapisteet, jne. Hirviöllä tulee olla
+enemmän kuin 0 osumapistettä, ja alussa osumapisteitä (<em>hp</em>) tulee
+olla maksimimäärä (<em>maxhp</em>). Muutoin voit asettaa hirviön ominaisuudet
+haluamallasi tavalla, kunhan nimi on asetettu ja karttasymboli on
+jokin kirjain.</p>
+<h2>c) Siirry kohti pelaajaa</h2>
+<p>Toteuta funktio <code>void moveTowards(Game *game, Creature
+*monst)</code> joka siirtää hirviötä <em>monst</em> yhden askeleen kohti
+pelaajaa. Oletuksena annettu pelilogiikka toimii siten, että hirviö
+käyttää tätä funktiota siirtyäkseen kohti pelaajaa, ellei sillä ole
+alhaiset osumapisteet (jolloin se yrittää karkuun). TMC-testi
+tarkistaa seuraavat kriteerit:</p>
+<ul>
+<li>
+<p>Jos mahdollista, hirviön ja pelaajan välisen etäisyyden tulee
+    vähentyä kutsun seurauksena</p>
+</li>
+<li>
+<p>Hirviö ei voi siirtyä kerrallaan enempää kuin yhden askeleen kartalla</p>
+</li>
+<li>
+<p>Hirviö ei voi siirtyä seinän päälle</p>
+</li>
+<li>
+<p>Hirviö ei voi olla samassa ruudussa toisen hirviön kanssa</p>
+</li>
+<li>
+<p>Hirviö ei voi sijaita samassa ruudussa pelihahmon kanssa</p>
+</li>
+</ul>
+<p>Näiden rajoitteiden sisällä voit toteuttaa liikkumisalgoritmin
+haluamallasi tavalla. Voit olettaa että hirviöillä on taikavoimia,
+joilla he aistivat pelaajan sijainnin myös seinien läpi.</p>
+<h2>d) Karkaa pelaajalta</h2>
+<p>Toteuta funktio <code>void moveAway(Game *game, Creature *monst)</code>, joka
+siirtää hirviötä <em>monst</em> yhden askeleen poispäin pelaajan
+hahmosta. Oletusarvoisesti tätä funktiota kutsutaan kun hirviö on
+vähällä kuolla, eli sillä on vähän osumapisteitä. Testi tarkistaa
+seuraavat asiat:</p>
+<ul>
+<li>
+<p>Jos mahdollista, hirviön ja pelaajan välisen etäisyyden tulee
+    kasvaa kutsun seurauksena</p>
+</li>
+<li>
+<p>Hirviö ei voi siirtyä kerrallaan enempää kuin yhden askeleen kartalla</p>
+</li>
+<li>
+<p>Hirviö ei voi siirtyä seinän päälle</p>
+</li>
+<li>
+<p>Hirviö ei voi olla samassa ruudussa toisen hirviön kanssa</p>
+</li>
+<li>
+<p>Hirviö ei voi sijaita samassa ruudussa pelihahmon kanssa</p>
+</li>
+</ul>
+<p>Näiden rajoitteiden sisällä voit toteuttaa liikkumisalgoritmin
+haluamallasi tavalla.</p>
+<h2>e) Hirviön toiminta</h2>
+<p>Funktio <code>void monsterAction(Game *game)</code> käy läpi jokaisen elossa
+olevan hirviön ja suorittaa niillä jonkin toimenpiteen. Mikäli hirviö
+on pelaajan viereisessä ruudussa, sen tulee hyökätä pelaajan kimppuun
+käyttäen <em>attack</em> - funktio-osoittimen määräämää
+toiminnallisuutta. Muussa tapauksessa sen tulee liikkua johonkin
+suuntaan käyttäen <em>move</em> - funktio-osoittimen määräämää
+toiminnallisuutta. Kuollut hirviö (HP == 0 tai vähemmän) ei tee
+mitään.</p>
+<p><em>Creature</em>-rakenteessa olevat funktio-osoittimet <em>attack</em> ja <em>move</em>
+ määrittävät mitä hirviö kussakin tilanteessa tekee. Mikäli jompi
+ kumpi osoittimista on NULL, hirviö ei kyseisessä tilanteessa tee
+ mitään.</p>
+<p>Sinun tulee siis asettaa funktio-osoittimiin sopivat hyökkäys- ja
+liikkumisfunktiot kun luot hirviöitä. Tehtäväpohja sisältää yhden
+hyökkäystoiminnon, mutta voit määritellä muitakin.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+
+
+
+		</div>
+
+		<div class="col-lg-4"></div> <!-- forces middle column narrower -->
+
+	</div>
+
+</div>
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="../static/jquery.min.js"></script>
+<script src="../static/bootstrap.min.js"></script>
+</body>
+</html>

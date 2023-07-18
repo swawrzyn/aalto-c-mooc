@@ -1,0 +1,1727 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>C-MOOC - C-MOOC
+- Module 4
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/pygments.css">
+
+    <style>
+    #content { margin-bottom: 20px; text-align: justify; }
+    #content img { margin-top: 25px; margin-bottom: 25px; }
+    #content li { margin-top:6px; margin-bottom: 6px; }
+    #content h2 { padding-top: 20px; }
+
+    .codehilitetable { width: 100%; margin-top: 15px; margin-bottom: 15px;}
+    .linenos { width: 20px }
+    .codehilite{ width:100%; height: auto; }
+
+    .task-sidenav-link { padding-left: 0.5em; }
+    .content-sidenav-link { text-decoration: underline; }
+    .content-block, .task-description-block { margin-bottom: 40px; }
+
+    </style>
+</head>
+<body>
+
+<!-- navbar, common to all pages -->
+<div class="navbar navbar-default" role="navigation">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+
+      <li><a href="../home/index.html">Koti</a></li>
+
+      
+      <li class="global-links"><a href="https://tmc.mooc.fi/mooc">TMC</a></li>
+      
+      <li><a href="../instructions/index.html">Ohjeet</a></li>
+
+      
+      <li><a href="../Module_1/index.html">M1: Johdanto</a></li>
+      
+      <li><a href="../Module_2/index.html">M2: Osoittimet</a></li>
+      
+      <li><a href="../Module_3/index.html">M3: Dynaaminen muisti</a></li>
+      
+      <li><a href="index.html">M4: Bitit ja taulukot</a></li>
+      
+      <li><a href="../Module_5/index.html">M5: Kehittyneita piirteita</a></li>
+      
+      <li><a href="../Module_6/index.html">M6: Yhteenvetoa</a></li>
+      
+
+    </ul>
+  </div>
+</div><!-- navbar -->
+
+
+<!-- Unique content of a page goes here -->
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-lg-3">
+			<div class="sidebar">
+                <ul class="nav">
+
+                    <li><img src="../static/aalto-elec-s.jpg" class="img-responsive"></li>
+                    <li><a href="http://mooc.fi/courses/2016/aalto-c">C-MOOC - MOOC.fi</a></li>
+                </ul>
+                
+
+    
+<ul class="nav bs-sidenav">
+    <b>Jump to:</b>
+    
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#01_structure">
+        1. Lisää rakenteisista tietotyypeistä
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-01-fi">
+            <b>Task:</b> 01_anydata (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#02_multiarray">
+        2. Moniulotteiset taulukot
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-02-fi">
+            <b>Task:</b> 02_life (4)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#03_cmdline">
+        3. Komentoriviargumentit
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-03-fi">
+            <b>Task:</b> 03_strarray (4)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#04_bits">
+        4. Bittioperaatiot
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-04-fi">
+            <b>Task:</b> 04_ip (4)
+        </a>
+    </li>
+    
+    </a></li>
+    
+</ul>
+
+
+
+
+			</div>
+		</div>
+
+
+		<div class="col-lg-7" id="content">
+
+		    
+		    
+
+		    
+
+    <p>
+<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+	<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0; float:right;">
+</a>
+</p>
+
+    
+        
+        <div class="content-block" id="01_structure">
+    <h1 class="content-title">Lisää rakenteisista tietotyypeistä</h1>
+    <div class="content-body">
+    
+      <h2>Union</h2>
+<p><strong>Union</strong> on rakenteinen tietotyyppi joka voi sisältää valikoiman
+  toisilleen vaihtoehtoisia tietotyyppejä. Sen määrittely muistuttaa
+  struct-määrittelyä, mutta toiminta on erilainen. Unionimäärittelyn
+  sisällä esitetyt kentät sijaitsevat kaikki samassa kohtaa muistia,
+  eivät peräkkäin kuten structin tapauksessa. Kun yhteen kenttään
+  kirjoitetaan arvo, muidenkin kenttien sisältö todennäköisesti siis
+  muuttuu.</p>
+<p>Unioni on perinteistä tietorakennetta selvästi harvemmin käytetty
+tietotyyppi, mutta toisinaan sitä näkee käytettävän. Alla oleva
+esimerkki esittelee kuinka unionia käytetään. Siinä aletaan rakentaa
+kuvitteellista yksi-ulotteista(!) taulukkolaskentaohjelmaa, jossa on
+joukko soluja, jotka sisältävät jonkin arvon. Kukin solu voi sisältää
+joko lukuarvon (<em>num</em>), merkkijonon (<em>label</em>) tai laskukaavan
+(<em>form</em>). Koska solu voi sisältää vain jonkun näistä kerrallaan,
+unioni soveltuu tietotyypiksi jolla yhden solun sisältö
+esitetään. Unionin käyttö on tehokkaampaa kuin esimerkiksi structin,
+koska se vaatii tilaa vain sen verran, mitä sen suurikokoisin kenttä
+käyttää.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
+
+<span class="c1">// This structure stores an imaginary formula and two parameters</span>
+<span class="c1">// (here we assume that the operation and two parameters are defined</span>
+<span class="c1">// as small strings)</span>
+<span class="k">struct</span> <span class="n">formula</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">operation</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">param1</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">param2</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="p">};</span>
+
+<span class="k">union</span> <span class="n">u_types</span> <span class="p">{</span>
+    <span class="kt">float</span> <span class="n">num</span><span class="p">;</span>  <span class="c1">// single number value in spreadsheet cell</span>
+    <span class="kt">char</span> <span class="n">label</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>  <span class="c1">// text label in spreadsheet cell</span>
+    <span class="k">struct</span> <span class="n">formula</span> <span class="n">form</span><span class="p">;</span>  <span class="c1">// formula in spreadsheet cell</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>Kun unionityyppi on määritelty, sitä käytetään pitkälti samalla tavoin
+kuin perinteistä tietorakennetta. Alla olevassa esimerkissä käytämme
+edellä esiteltyä <em>u_types</em> - tyyppistä
+unionia. Taulukkolaskentaohjelmassamme on 10 solua, jotka nyt tässä
+tapauksessa varataan vain staattisesti pinosta (rivi 3). Määrittelemme
+valmiiksi myös yhden kaavan (rivi 4), jonka voi ajatella laskevan
+keskiarvon solujen A2 ja A3 välillä. Sen jälkeen kopiomme soluun 0
+merkkijonon "Header), soluun 1 edellä mainitun kaavan, sekä myöhemmin
+korvaamme kaavan lukuarvolla 5.</p>
+<p>Kuten mitä tahansa tietorakenteita, myös unioneista voi rakentaa
+sisäkkäisiä rakenteita joko toisten unionien tai struct:ien
+kanssa. Näinhän olemme tehneen <em>form</em> - kaavan kanssa. Rivillä 12
+nähdään kuinka tällaisiin kenttiin viitataan.</p>
+<p>On hyvä huomata, että kun rivillä 16 korvaamme solun 1 sisällön
+lukuarvolla 5, aiemmin mainittua kaavaa ei enää voi käyttää, koska
+samalle muistialueelle on kirjoitettu uutta sisältöä (eli
+liukuluku). Koska kaava muodostui merkkijonoista, merkkijonojen
+sisältö muuttuu tämän sijoituksen seurauksena merkityksettömäksi.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">union</span> <span class="n">u_types</span> <span class="n">sheet</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="k">struct</span> <span class="n">formula</span> <span class="n">avg</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;AVG&quot;</span><span class="p">,</span> <span class="s">&quot;A2&quot;</span><span class="p">,</span> <span class="s">&quot;A3&quot;</span> <span class="p">};</span>
+
+    <span class="c1">// Because t_label is an array, we need to use strcpy</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">sheet</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">label</span><span class="p">,</span> <span class="s">&quot;Header&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Direct assignment works because this is struct</span>
+    <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">form</span> <span class="o">=</span> <span class="n">avg</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;stored formula: %s(%s, %s)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">form</span><span class="p">.</span><span class="n">operation</span><span class="p">,</span>
+           <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">form</span><span class="p">.</span><span class="n">param1</span><span class="p">,</span> <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">form</span><span class="p">.</span><span class="n">param2</span><span class="p">);</span>
+
+    <span class="c1">// This will &quot;overwrite&quot; the formula (partly)</span>
+    <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">num</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Unionirakenteesta ei voi sellaisenaan selvittää minkä tyyppinen arvo
+siihen on kulloisellakin hetkellä tallennettu. Tätä varten
+ohjelmaan tarvitaankin jokin tapa pitää kirjaa siitä, mikä unionille
+esitetyistä vaihtoehtoisista tyypeistä on tallennettu. Tämä voi joskus
+olla ilmeistä ohjelmalogiikasta, tai sitten voidaan käyttää
+apumuuttujaa, jolla asia esitetään.</p>
+<h2>Enumeraatiovakiot</h2>
+<p>Enumeraatiovakioilla voidaan määritellä muuttujia, joiden arvo
+sisältää yhden vaihtoehtoisista vakioarvoista, joille on määrätty
+ohjelmassa selkeä (ihmisen ymmärtämä) symboli. Esimerkiksi alla
+määrittelemme tyypin <em>en_color</em>, jolla voidaan esittää jotain väriä.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">enum</span> <span class="n">en_color</span> <span class="p">{</span>
+    <span class="n">RED</span><span class="p">,</span>
+    <span class="n">GREEN</span><span class="p">,</span>
+    <span class="n">BLUE</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">printColor</span><span class="p">(</span><span class="k">enum</span> <span class="n">en_color</span> <span class="n">col</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="n">col</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nl">RED</span><span class="p">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;red</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nl">GREEN</span><span class="p">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;green</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nl">BLUE</span><span class="p">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;blue</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Tämä on ohjelmakoodissa paljon selkeämpää, kuin esimerkiksi koodata
+väritieto jollain ennalta sovitulla kokonaislukuarvolla. Käytännössä
+tämä onkin juuri se, mitä kääntäjä enumeraatioille tekee: se korvaa
+kyseisen symbolin kokonaisluvulla, jota ohjelmoijan ei kuitenkaan
+välttämättä tarvitse tietää. Oletusarvoisesti kääntäjä numeroi vakiot
+järjestyksessä 0:sta alkaen. Ohjelmakoodissa haluamme kuitenkin
+selkeyden vuoksi aina käyttää määrittelemiämme vakioita, kuten on
+esimerkiksi tehty <em>printColor</em> - funktiossa. Vakioarvoja ei voi
+sellaisenaan tulostaa (nehän ovat oikeasti vain kokonaislukuja), mutta
+niiden tulostamiseen voidaan toteuttaa oma funktio, kuten tässä on
+juurikin tehty.</p>
+<p>Ohjelmoija voi halutessaan itsekin määrätä enumeraatiota vastaavat
+kokonaislukuarvot, kuten esimerkiksi alla:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cm">/* Type Duration, some durations in seconds */</span>
+<span class="k">typedef</span> <span class="k">enum</span> <span class="p">{</span>
+    <span class="n">MINUTE</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span>
+    <span class="n">HOUR</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="n">MINUTE</span><span class="p">,</span>
+    <span class="n">DAY</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">*</span> <span class="n">HOUR</span>
+<span class="p">}</span> <span class="n">Duration</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>Enumeraatiovakioiden avulla voimme nyt parantaa
+taulukkolaskentaohjelmaamme kaivatulla lisäkentällä: enumeraatiolla,
+joka kertoo minkä tyyppinen arvo määriteltyyn unioniin on parasta
+aikaa tallennettu. Määrittelemme siis seuraavat vakioarvot:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">enum</span> <span class="n">en_types</span> <span class="p">{</span>
+    <span class="n">UNSPEC</span><span class="p">,</span>  <span class="c1">// union content is unspecified</span>
+    <span class="n">NUMBER</span><span class="p">,</span>  <span class="c1">// union stores a number</span>
+    <span class="n">LABEL</span><span class="p">,</span>   <span class="c1">// union stores a string number</span>
+    <span class="n">FORMULA</span>  <span class="c1">// union stores a formula</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>Yllä olevassa listassa on siis vaihtoehdot kullekin unionin
+mahdollisesti sisältämälle tyypille, sekä lisäkenttä <em>UNSPEC</em>, joka
+kertoo että kyseiseen soluun ei ole vielä tallennettu yhtään mitään.</p>
+<p>Alla koko tietokantaohjelma enumeraatioilla laajennettuna. Koska
+kutakin solua kohden tarvitaan nyt kaksi tietoa: varsinaisen arvon
+sisältävä unioni, sekä vakio joka kertoo solun tilan, joudumme
+määrittelemään vielä yhden uuden tason rakenteisia tietotyyppejä
+(<em>struct cell</em>). Nyt sisäkkäitä rakenteita alkaa ollakin jo aika
+monta, joten esimerkiksi kaavan tulostamisen kanssa (rivi 56) saa olla
+tarkkana että koko ketju tulee oikein kirjoitettua. Kullakin tasolla
+kenttiin viitataan samalla syntaksilla riippumatta siitä onko kyseessä
+struct vai union.</p>
+<p>Nyt ohjelma ensiksi alustaa taulukon tyhjäksi, eli kaikki solut
+UNSPEC-tilaan, sitten asettaa soluun 0 merkkijonon ja soluun 1 kaavan,
+ja lopuksi tulostaa koko taulukon. Kunkin solun tulostus riippuu siitä
+minkä tyyppinen arvo siihen on tallennettu.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</pre></div></td><td class="code"><div class="codehilite"><pre><span class="c1">// This structure stores an imaginary formula an two parameters</span>
+<span class="k">struct</span> <span class="n">formula</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">operation</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">param1</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">param2</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="p">};</span>
+
+<span class="k">union</span> <span class="n">u_types</span> <span class="p">{</span>
+    <span class="kt">float</span> <span class="n">num</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">label</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+    <span class="k">struct</span> <span class="n">formula</span> <span class="n">form</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">enum</span> <span class="n">en_types</span> <span class="p">{</span>
+    <span class="n">UNSPEC</span><span class="p">,</span>  <span class="c1">// union content is unspecified</span>
+    <span class="n">NUMBER</span><span class="p">,</span>  <span class="c1">// union stores a number</span>
+    <span class="n">LABEL</span><span class="p">,</span>   <span class="c1">// union stores a string number</span>
+    <span class="n">FORMULA</span>  <span class="c1">// union stores a formula</span>
+<span class="p">};</span>
+
+<span class="c1">// one cell in spreadsheet: stores the type of the cell (enum)</span>
+<span class="c1">// and the actual content (union, corresponding type indicated by enum)</span>
+<span class="k">struct</span> <span class="n">cell</span> <span class="p">{</span>
+    <span class="k">enum</span> <span class="n">en_types</span> <span class="n">type</span><span class="p">;</span>
+    <span class="k">union</span> <span class="n">u_types</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">cell</span> <span class="n">sheet</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="k">struct</span> <span class="n">formula</span> <span class="n">avg</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;AVG&quot;</span><span class="p">,</span> <span class="s">&quot;A2&quot;</span><span class="p">,</span> <span class="s">&quot;A3&quot;</span> <span class="p">};</span>
+
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// initialization: all fields unspecified</span>
+        <span class="n">sheet</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">UNSPEC</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Because label is an array, we need to use strcpy</span>
+    <span class="n">sheet</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">LABEL</span><span class="p">;</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">sheet</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">value</span><span class="p">.</span><span class="n">label</span><span class="p">,</span> <span class="s">&quot;Header&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Direct assignment works because this is struct</span>
+    <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">FORMULA</span><span class="p">;</span>
+    <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">value</span><span class="p">.</span><span class="n">form</span> <span class="o">=</span> <span class="n">avg</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">switch</span><span class="p">(</span><span class="n">sheet</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="nl">LABEL</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">sheet</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span><span class="p">.</span><span class="n">label</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">NUMBER</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">sheet</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span><span class="p">.</span><span class="n">num</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">FORMULA</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s(%s, %s)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+                   <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">value</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="n">operation</span><span class="p">,</span>
+                   <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">value</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="n">param1</span><span class="p">,</span>
+                   <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">value</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="n">param2</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">UNSPEC</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;--</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Koska enumeraatiot ovat käytännössä vain vakiomuotoisia
+kokonaislukuja, niitä voi käyttää myös <em>switch</em>-rakenteessa, kuten
+esimerkissämme on tehty.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-01-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 01_anydata: Jokudata (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Hankkia tuntumaa unioneiden käsittelyyn</p>
+<p>Tässä tehtävässä määritellään uusi tietotyyppi <em>AnyData</em>, joka voi
+pitää sisällään joko tavun (eli <em>char</em>), kokonaisluvun (<em>int</em>) tai
+<em>double</em> - tyyppisen liukuluvun. <em>AnyData</em> - tietotyyppi määritellään
+<em>typedef</em> määritelmän avulla, mikä on hyvä huomioida kun tietotyyppiä
+käytetään.</p>
+<p><em>AnyData</em> on rakenteinen tietotyyppi joka koostuu kahdesta kentästä:
+ <em>type</em> on enumeraatio, joka kertoo mikä kolmesta edellä mainitusta
+tyypistä rakenteeseen on kulloinkin tallennettu, sekä <em>value</em> on
+unionirakenne, johon on tallennettu kyseisen tyyppinen arvo. Näet
+otsakkeesta <em>anydata.h</em> kuinka tyyppi on tarkalleen ottaen
+määritelty. Lisäksi <em>type</em> - kenttään voi olla tallennettu arvo
+<em>UNDEF</em>, mikäli rakenteeseen ei ole vielä tallennettu mitää arvoa.</p>
+<p>Toteuta seuraavat osat:</p>
+<h2>a) Aseta arvo</h2>
+<p>Toteuta funktiot <em>setByte</em>, <em>setInt</em> ja <em>setDouble</em> jotka palauttavat
+uuden AnyData-tyyppisen objektin paluuarvonaan, perustuen annettuun
+tyyppiin ja arvoon, joka kyseisen funktion parametrissa on annettu.</p>
+<h2>b) Tulosta arvo</h2>
+<p>Toteuta funktio <em>printValue</em> joka tulostaa <em>AnyData</em>:n tallentaman
+arvon. Tulostusformaatti riippuu muuttujaan asetetun arvon
+tyypistä. Varsinaiseen tulostukseen sinun täytyy käyttää yhtä
+<em>anydata.c</em>:ssä valmiiksi annetuista funktioista (<em>printByte</em>,
+<em>printInt</em> tai <em>printDouble</em>), riippuen muuttujaan tallennetun arvon
+tyypistä.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="02_multiarray">
+    <h1 class="content-title">Moniulotteiset taulukot</h1>
+    <div class="content-body">
+    
+      <h2>Staattiset taulukot</h2>
+<p>Olemme toistaiseksi tarkastelleet vain yksiulotteisia taulukoita,
+mutta C:ssä voi myös olla moniulotteisia taulukoita. Keskitymme
+lähinnä kaksiulotteisiin taulukoihin esityksen helpottamiseksi, mutta
+toki ulottuvuuksia voi olla kuinka monta tahansa. Moniulotteisen
+taulukon voi rakentaa useammalla vaihtoehtoisella tavalla, jotka
+seuraavassa käydään läpi.</p>
+<p>Alla on esimerkki yksinkertaisesta 3x3 kokoisesta staattisesta
+kaksiulotteisesta taulukosta:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">},</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">}};</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+
+    <span class="c1">// Print the matrix in rectangular format</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">matrix</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Rivillä 4 määritellään <em>matrix</em> - kokonaistaulukko, jonka alkusisältö
+samalla alustetaan. Alustuslista näyttää sisäkkäisiltä
+yksiulotteisilta taulukoilta, joissa kussakin määritellään yksi
+taulukon rivi. Alustuslista havainnollistaa myös hyvin sen, että
+moniulotteinen taulukko on C:ssä käytännössä taulukko, jonka jäsenet
+ovat toisia taulukoita.</p>
+<p>Ylläoleva ohjelma tulostaa taulukon 3x3 - muotoon ruudulle kahden
+sisäkkäisen for-silmukan avulla. Esimerkistä nähdään että syntaksi on
+samanlainen kuin yksiulotteisissa taulukoissakin, nyt vain
+tarvitaan kahdet hakasulkeet taulukon indeksoimiseksi (tai useammat,
+mikäli ulottuvuuksia on useampia). Joistain toisista kielistä poiketen
+indeksit on sijoitettava eri hakasulkeiden sisään, eikä niitä
+esimerkiksi eroteta pilkulla.</p>
+<p>Edellä mainitun kaltainen taulukko sijoittuu peräkkäisiin paikkoihin
+muistissa. Se siis muistuttaa yhtä 9 alkion taulukkoa (ja voitaisiin
+helposti sellaisen pohjalta luoda).</p>
+<p><div style="text-align: center;"><img src="../static/pics/array-2d-static.jpg" align="middle"></div></p>
+
+<p>Kaksiulotteisen taulukon käyttäminen funktioparametrissa vaatii oman,
+hieman hankalan näköisen notaation. Alla oleva esimerkki näyttää miten
+se tämän esimerkin taulukon tapauksessa kävisi, funktiossa
+<em>printArray</em>. Tietotyypin määrittelyssä pitää kertoa "sisemmän"
+taulukon sarakkeiden määrä, jotta funktio osaa parsia muistissa olevan
+taulukon oikealla tavalla: funktion on tiedettävä mistä alkiosta alkaa
+uusi rivi. Sen sijaan ulomman taulukon koko ei ole tarvittava tieto,
+vaan ulompi taulukko toimii kuten C:n yksiulotteinen taulukko, myös
+kaikkine sudenkuoppineen: voit indeksoida sen yli ja aiheuttaa siten
+ongelmia ohjelman ajonaikaiselle toiminnaklle.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">void</span> <span class="nf">printArray</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[][</span><span class="mi">3</span><span class="p">])</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+    <span class="c1">// Print the matrix in rectangular format</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">},</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">}};</span>
+
+    <span class="n">printArray</span><span class="p">(</span><span class="n">matrix</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Toinen tapa rakentaa kaksiulotteinen taulukko on laatia taulukko
+osoittimia, jossa kukin osoitin vuorostaan viittaa taulukkoon. Tässä
+mallissa on ainakin pari etua: 1) funktiorajapinnassa voidaan käyttää
+tietotyyppinä toisen asteen osoitinta, joka sallii vaihtuvan kokoiset
+taulukot; 2) tarvittaessa taulukon eri rivit voivat olla eri kokoisia,
+eli niillä voi olla eri määrä alkioita. Tämä tulee usein kyseessä
+merkkijonotaulukoiden kanssa: nehän ovat kaksiulotteinen taulukko
+merkkejä.</p>
+<p>Alla olevassa esimerkissä laaditaan edellä kuvatun tapainen taulukko
+<em>arr_p</em>. Se asetetaan käyttäen aiemmin määrittelemäämme <em>matrix</em> -
+taulukkoa. Kukin <em>arr_p</em>:n alkio on osoitin yhteen taulukon
+riviin. Esimerkissä näkyy myös, kuinka tällaista taulukkoa käytetään
+funktion yhteydessä. Funktion parametreina on nyt myös taulukon koko
+molemmissa ulottuvuuksissa, koska periaatteessa se voi vaihdella
+dynaamisesti, eikä funktiossa välttämättä tiedetä sitä. Oheinen kuva
+esittää ohjelman asettamaa tilannetta muistissa.</p>
+<p><div style="text-align: center;"><img src="../static/pics/array-2d-static-dyn.jpg" align="middle"></div></p>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &amp;lt;stdio.h&amp;gt;</span>
+
+<span class="kt">void</span> <span class="nf">printArray</span><span class="p">(</span><span class="kt">int</span> <span class="o">**</span><span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">xs</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ys</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+    <span class="c1">// Print the matrix in rectangular format</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">ys</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">xs</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">},</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">}};</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">arr_p</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">arr_p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="n">printArray</span><span class="p">(</span><span class="n">arr_p</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>On hyvä huomioida, että <em>arr_p[0]</em> ja <em>matrix[0]</em> ovat eri
+tietotyyppejä. Tämä käy ilmi esimerkiksi silloin, kun vertailemme
+<em>sizeof</em> - operaattorin tuottamia kokoja kyseisille arvoille:
+<code>sizeof(arr_p[0])</code>:n palauttama koko on yhden osoittimen koko (eli 8
+tai 4 tavua järjestelmästä riippuen), kun taas <code>sizeof(matrix[0])</code> on
+kooltaan tyypillisesti 12 tavua (kolmen kokonaisluvun vaatima
+tila). Koska taulukon sijoittaminen osoitinmuuttujaan onnistuu
+helposti, rivillä 19 tehtävä sijoitus on mahdollinen vaikka kyseessä
+on kaksi eri tietotyyppiä. <em>printArray()</em> - funktio toimii vain
+<em>arr_p</em> - taulukon kanssa.</p>
+<h2>Dynaamisesti varatut moniulotteiset taulukot</h2>
+<p>Moniulotteisia taulukoita voidaan varata myös dynaamisesti keosta
+käyttäen <em>malloc</em> - funktiota. Tällöinkin taulukko voidaan laatia
+useilla vaihtoehtoisilla tavoilla, mutta tässä yhteydessä keskitymme
+suoraviivaiseen järjestelyyn: esimerkiksi kaksiulotteinen taulukko
+rakennetaan siten, että <strong>ensin varaamme tarpeeksi muistia taulukolle
+osoittimia.</strong> Nämä esittävät taulukon "rivejä". Tämän jälkeen kuhunkin
+alkioon <strong>sijoitetaan osoitin, joka saadaan uudella malloc-kutsulla,
+jossa varaamme tilaa taulukon yhdelle riville.</strong> <em>malloc</em> - kutsuja
+tehdään siis yksi kutakin riviä kohden, sekä lisäksi yksi taulukko ,
+johon nämä osoittimet talletetaan.</p>
+<p>Seuraavassa esimerkki siitä miten tämä tehdään:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="kt">void</span> <span class="nf">printArray</span><span class="p">(</span><span class="kt">int</span> <span class="o">**</span><span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">xs</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ys</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+    <span class="c1">// Print the matrix in rectangular format</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">ys</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">xs</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%2d &quot;</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="o">**</span><span class="n">arr_p</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">xdim</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">ydim</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+    <span class="c1">// first allocate array that points to arrays of rows</span>
+    <span class="c1">// (notice the data type in sizeof operation)</span>
+    <span class="n">arr_p</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">ydim</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">arr_p</span><span class="p">)</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// memory allocation failed</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">ydim</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">arr_p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">xdim</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">arr_p</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
+            <span class="c1">// memory allocation failed, release memory</span>
+            <span class="c1">// will have to go through previously allocated rows</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">free</span><span class="p">(</span><span class="n">arr_p</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+            <span class="p">}</span>
+            <span class="n">free</span><span class="p">(</span><span class="n">arr_p</span><span class="p">);</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">xdim</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// fill matrix with values, multiplication table</span>
+            <span class="n">arr_p</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">printArray</span><span class="p">(</span><span class="n">arr_p</span><span class="p">,</span> <span class="n">xdim</span><span class="p">,</span> <span class="n">ydim</span><span class="p">);</span>
+
+    <span class="c1">// release the memory</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">ydim</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">arr_p</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">arr_p</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Tällainen taulukko sijoittuisi muistiin jotenkin seuraavaan tapaan:</p>
+<p><div style="text-align: center;"><img src="../static/pics/array-2d.jpg" align="middle"></div></p>
+
+<p>Yllä olevassa esimerkissä <em>printArray()</em> toimii kuten aiemminkin
+toisen asteen osoittimien tapaukessa.</p>
+<p>Kun taulukkoa varataan, kannattaa olla tarkkana varattavan muistin
+määrän kanssa: edelleenkin meidän pitää tietää varattavan taulukon
+koko, ja kertoa se yhden alkion tarvitsemalla koolla. Nyt pitää vain
+muistaa, että ensimmäisessä varauksessa tietotyyppi onkin osoitin,
+eikä pelkästään kokonaisluku, mikä käy ilmi rivillä 22.</p>
+<p>Kannattaa myös huomioida mitä muuttujia kunkin muistinvarauksen
+yhteydessä käytetään, ja kuinka indeksointioperaattoreita käytetään
+kussakin yhteydessä. Rivillä 22 indeksointia ei käytetä ollenkaan, kun
+rivejä varten varataan tilaa. Tämän jälkeen käytämme (esimerkiksi
+rivillä 27) vain yhtä indeksiä, kun varataan riveille tilaa. Vasta kun
+varsinaisiin alkioihin sijoitetaan arvoja tai niitä käytetään muuten
+lausekkeissa, käytetään kahta indeksiä. Tämä voi tuntua
+monimutkaiselta, mutta kenties hahmottuu paremmin, kun palautat
+mieliin miten yksiulotteisen taulukon varaus toimi, ja mitä
+tietotyyppejä <em>arr_p</em> <code>(int**)</code>, <em>arr_p[1]</em> <code>(int *)</code>, ja
+<em>arr_p[1][1]</em> <code>(int)</code> oikeastaan ovat.</p>
+<p>On myös hyvä tiedostaa, että osoittimia voi pinota
+päällekkäin. <code>int**</code> on validi tietotyyppi: se on osoitin johonkin
+toiseen osoittimeen, joka loppujen lopuksi viittaa
+kokonaislukuun. Kuten yksiulotteisenkin taulukon tapauksessa, taulukon
+indeksointi on samalla viittaus osoittimeen. Siten <em>arr_p[i]</em>:n
+tietotyyppi onkin jo <code>int*</code>, koska <em>arr_p[i]</em> on sama kuin <code>*(arr_p +
+i)</code>, eli tietotyypistä tipahtaa yksi tähti pois. Vastaavasti
+<em>arr_p[j][i]</em>:stä tipahtaa jälleen yksi tähti pois (koska se on sama
+kuin <code>*(*(arr + j) + i)</code>), jolloin viittaammekin jo normaaliin
+kokonaislukuun.</p>
+<p>Samalla tavoin voimme yleistää useampiin ulottuvuuksiin: tähtien määrä
+tietotyypeissä vain kasvaa vastaavasti. Myös <code>int****</code> on toimiva
+tietotyyppi, joskin se harvoin ilmentää hyvää ohjelmointityyliä.</p>
+<h2>Merkkijonotaulukot</h2>
+<p>Yleinen esimerkki kaksiulotteisesta taulukosta on taulukko
+merkkijonoja, joka itse asiassa on kaksiulotteinen taulukko
+merkkejä. Tällöin taulukon eri rivien pituus voi vaihdella siihen
+tallennetun merkkijonon mukaan (tai sitten taulukkoa varatessa on
+oletettu jonkinlaista maksimipituutta kullekin merkkijonolle).</p>
+<p>Seuraavassa esimerkissä on merkkijonotaulukko, jossa on 12 jäsentä.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">months</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;January&quot;</span><span class="p">,</span> <span class="s">&quot;February&quot;</span><span class="p">,</span> <span class="s">&quot;March&quot;</span><span class="p">,</span> <span class="s">&quot;April&quot;</span><span class="p">,</span> <span class="s">&quot;May&quot;</span><span class="p">,</span>
+               <span class="s">&quot;June&quot;</span><span class="p">,</span> <span class="s">&quot;July&quot;</span><span class="p">,</span> <span class="s">&quot;August&quot;</span><span class="p">,</span> <span class="s">&quot;September&quot;</span><span class="p">,</span> <span class="s">&quot;October&quot;</span><span class="p">,</span>
+               <span class="s">&quot;November&quot;</span><span class="p">,</span> <span class="s">&quot;December&quot;</span> <span class="p">};</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">months</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Merkkijonot on varattu kirjoitussuojatusta osasta muistia
+vakiomerkkijonoina, joten on aiheellista käyttää <em>const</em> määrettä
+muuttujan määrittelyssä. Tämä kertoo kääntäjälle, että taulukon
+alkioihin ei voi kirjoittaa. Taulukon määrittelystä ei välttämättä
+heti ilmene että se olisi kaksiulotteinen taulukko, mutta lausekkeella
+<code>months[j][i]</code> voidaan viitata yksittäiseen merkkiin j:nnessä taulukon
+merkkijonossa.</p>
+<p>Koska rivillä 9 olevassa <em>printf</em> - funktiokutsussa käytetään <em>%s</em> -
+muotoilumäärettä, parametriksi oletetaan <code>char *</code> - tyyppistä
+arvoa. Siksi parametrissa riittää vain yksi indeksointioperaattori
+(koska esim. <code>months[i][0]</code> olisi tyypiltään <code>char</code>, eli yksi merkki).</p>
+<p>Yllä olevassa esimerkissä olisimme voineet määritellä merkkijonot myös
+muokattaviksi. Tällöin kuukaudet olisi pitänyt määritellä seuraavasti:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="n">months</span><span class="p">[</span><span class="mi">12</span><span class="p">][</span><span class="mi">20</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;January&quot;</span><span class="p">,</span> <span class="s">&quot;February&quot;</span><span class="p">,</span> <span class="s">&quot;March&quot;</span><span class="p">,</span> <span class="s">&quot;April&quot;</span><span class="p">,</span> <span class="s">&quot;May&quot;</span><span class="p">,</span>
+           <span class="s">&quot;June&quot;</span><span class="p">,</span> <span class="s">&quot;July&quot;</span><span class="p">,</span> <span class="s">&quot;August&quot;</span><span class="p">,</span> <span class="s">&quot;September&quot;</span><span class="p">,</span> <span class="s">&quot;October&quot;</span><span class="p">,</span>
+           <span class="s">&quot;November&quot;</span><span class="p">,</span> <span class="s">&quot;December&quot;</span> <span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>Tällöin merkkijonojen maksimipituus pitää antaa. Tämä vastaa
+rakenteeltaan staattista taulukkoa jollainen tämän luvun alussa
+esitettiin. Nyt merkkijonot sijaitsisivat peräkkäisissä osissa
+muistia, vieden kukin 20 tavua tilaa.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-02-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_life: Game of Life (4 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Harjoitella dynaamisesti varattavia kaksiulotteisia
+  taulukoita osana pientä peliä.</p>
+<p><a href="http://en.m.wikipedia.org/wiki/Conway%27s_Game_of_Life">Game of Life</a> on perinteinen "peli", jossa lähinnä tietokone pelaa
+muuntamalla kaksiulotteista pelikenttää tiettyjen sääntöjen
+perusteella. Game of Life:n kaksiulotteinen pelikenttä muodostuu
+soluista, jotka voivat olla kahdessa eri tilassa: elossa tai
+kuolleita. Pelikenttää päivitetään askel (eli sukupolvi) kerrallaan
+siten että kunkin solun tila voi muuttua riippuen sen naapurisolujen
+tilasta. Peli jatkuu näin periaatteessa ikuisesti, kunnes joku
+keskeyttää sen toiminnan.</p>
+<p>Kunkin solun tilaa säädetään seuraavien sääntöjen perusteella:</p>
+<ul>
+<li>
+<p>Jos <strong>elossa</strong> olevalla solulla on <strong>vähemmän kuin kaksi elossa
+    olevaa</strong> naapuria, solu <strong>kuolee</strong>.</p>
+</li>
+<li>
+<p>Jos <strong>elossa</strong> olevalla solulla on <strong>kaksi tai kolme elossa
+    olevaa</strong> naapuria, soluu säilyy hengissä.</p>
+</li>
+<li>
+<p>Jos <strong>elossa</strong> olevalla solulla on <strong>enemmän kuin kolme elossa
+    olevaa</strong> naapuria, solu <strong>kuolee</strong>.</p>
+</li>
+<li>
+<p>Mikäli <strong>kuolleella</strong> solulla on <strong>tasan kolme elossa olevaa</strong>
+    naapuria, solu <strong>muuttuu elolliseksi</strong></p>
+</li>
+</ul>
+<p>Myös kulmittaiset solut lasketaan naapureiksi, eli kullakin solulla
+(joka ei ole pelikentän reunassa) on 8 naapuria. Huomioi että
+pelikentän reunassa olevat solut pitää käsitellä erikoistapauksina:
+et saa yrittää käsitellä pelikentän ulkopuolella olevia alueita.</p>
+<p>Pelikentän tilamuutosten tulee tapahtua loogisesti saman aikaisesti,
+eli kunkin solun tilan tulee riippua edellisen sukupolven
+tilanteesta.</p>
+<p>Esimerkiksi seuraavan näköinen pelikenttä (jossa '*' merkitsee elävää
+solua) </p>
+<pre>
+..........
+.**.***...
+.**......*
+.*.*.....*
+........*.</pre>
+
+<p>tulisi seuraavassa sukupolvessa muuttua tämän näköiseksi:</p>
+<pre>
+.....*....
+.***.*....
+*...**....
+.*......**
+..........</pre>
+
+<p>Aiheeseen liittyvä <a href="http://en.m.wikipedia.org/wiki/Conway%27s_Game_of_Life">wikipedia-sivu</a> kertoo aiheesta lisätietoa.</p>
+<p>Tässä harjoituksessa sinun tulee toteuttaa seuraavat osat, joita
+tarvitaan pelin pyörittämiseen. <em>main</em> - funktio <em>src/main.c</em>:ssä
+sisältää pelin päärakenteen, josta kutsutaan toteuttamiasi funktioita
+sukupolvi kerrallaan kunnes päätät lopettaa pelin.</p>
+<p>Harjoituksessa on seuraavat osat:</p>
+<h2>a) Luo ja vapauta pelikenttä</h2>
+<p>Toteuta funktio <em>createField</em>, joka varaa tarvittavan muistin
+<em>Field</em> - tietorakenteelle, johon pelikenttä tallennetaan. Pelikentän
+koko määritellään parametreilla <em>xsize</em> ja <em>ysize</em>. Aluksi kukin
+kentän solu tulee asettaa <em>DEAD</em> - tilaan, sekä lisäksi sinun tulee
+asettaa <em>xsize</em> ja <em>ysize</em> - kentät tietorakenteessa saamiesi
+parametrien mukaisiksi.</p>
+<p>Tehtävän testit olettavat, että varaat ensin kaksiulotteisen alueen
+rivit <em>ysize</em> - parametrissa annetun koon mukaisesti, ja sen jälkeen
+kunkin rivin, joiden koko määritellään <em>xsize</em> - parametrissa.</p>
+<p>Sinun pitää lisäksi toteuttaa funktio <em>releaseField</em>, joka vapauttaa
+varaamasi muistin. On tärkeää että toteutat tämän funktion aikaisessa
+vaiheessa, koska tehtävän testit tulevat käyttämään sitä jatkossa
+muistin vapauttamiseen. Toisin sanoen Valgrind ei ole tyytyväinen (ja
+estää pisteiden saamisen) ennenkuin tämä funktio ei ole toteutettu.</p>
+<h2>b) Alusta kenttä</h2>
+<p>Toteuta funktio <em>initField</em>, joka muuttaa annetun määrän (<em>n</em>) soluja
+<em>ALIVE</em>-tilaan. Voit itse määrittää millä perusteella muutettavat
+solut valitaan. Yksi vaihtoehto on käyttää <em><a href="http://linux.die.net/man/3/rand">rand</a></em> - funktiota, ja
+valita solut satunnaisesti. Tärkeintä on että funktion jälkeen tasan
+<em>n</em> solua on vaihtanut tilaansa.</p>
+<h2>c) Tulosta kenttä</h2>
+<p>Toteuta funktio <em>printField</em> joka tulostaa kentän sen hetkisen tilan
+ruudulle. Kuolleet solut tulee merkata pisteellä ('.'), ja elossa
+olevat solut tähdellä ('*'). Solujen välissä ei ole tyhjiä välejä, ja
+kukin rivi loppuu rivinvaihtomerkkiin ('\n'), mukaanlukien viimeinen
+rivi. Tulosteen tulisi siis näyttää samanlaiselta, kuin yllä
+annetuissa esimerkeissä.</p>
+<h2>d) Käsittele sukupolvi</h2>
+<p>Toteuta funktio <em>tick</em> joka siirtää pelikentän tilaa yhden sukupolven
+verran eteenpäin noudattaen edellä annettuja sääntöjä. Muista, että
+kunkin solun tilan tulee riippua edellisestä sukupolvesta, eli kaikki
+solut muuttuvat loogisesti "samaan aikaan" (vaikka ohjelmassa joudut
+käsittelemään ne yksi kerrallaan). Voit joutua esimerkiksi
+tilapäisesti taltioimaan kaksi kopiota pelikentästä: edellisen
+sukupolven ja uuden sukupolven.</p>
+<p>(Mikäli varaat uutta muistia tässä funktiossa, muista huolehtia myös
+muistin vapautuksesta)</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="03_cmdline">
+    <h1 class="content-title">Komentoriviargumentit</h1>
+    <div class="content-body">
+    
+      <p>Perinteisille komentoriviltä (tai komentoskriptistä) käynnistettäville
+ohjelmille voi antaa lisätietoa komentoriviargumenttien
+avulla. Kun ohjelma käynnistetään, ajettavan binääritiedoston nimi
+annetaan komentorivillä. Samalla ohjelman nimen perään voi antaa
+vaihtuvan määrän argumentteja, joilla jotenkin ohjataan ohjelman
+toimintaa. Nämä argumentit välitetään ohjelmalle <em>main</em> - funktion
+parametreina.</p>
+<p>Toistaiseksi näkemissämme ohjelmissa <em>main</em> - funktiossa ei ole ollut
+parametreja, mutta funktiosta on olemassa myös toinen muoto, jossa on
+kaksi parametria: taulukko merkkijonoja, sekä tämän taulukon
+sisältämien merkkijonojen lukumäärä. Tätä funktion määrittelyä
+käytetään silloin, kun haluamme selvittää onko ohjelmalle annettu
+komentoriviargumenttejä käynnistyksen yhteydessä.</p>
+<p>Seuraava ohjelma saa <em>main</em> - funktion <em>argc</em> - argumenttiin
+annettujen komentoriviparametrien lukumäärän, sekä <em>argv</em> - taulukkoon
+annetut komentoriviparametrit.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;This program was called with %d parameters</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">argc</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;They were (including the program name itself):</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Järjestelmä parsii komentorivisyötteen siten, että kukin annettu
+komentoriviargumentti on nollaan päättyvä merkkijono, jotka siis
+annetaan <em>main</em> - funktiolle funktion argumenttina. Jos ajamme
+komentorivillä ohjelman <em>program</em>, jolle annamme kolme argumenttiä
+seuraavasti:</p>
+<pre>
+./program one two three</pre>
+
+<p><em>argc</em>:n arvo tulee olemaan 4, ja <em>argv</em>:n sisältö seuraavanlainen: <code>{
+ "./program", "one", "two", "three" }</code>. Ohjelman nimi siis sisältyy
+ merkkijonotaulukkoon sen ensimmäisenä argumenttina.</p>
+<p>Usein argumentteina annetaan komentorivioptioita, jotka voivat olla
+vapaassa järjestyksessä. Optiot alkavat yleensä viivamerkillä (<code>-</code>)
+jota seuraa yksi tai useampi merkki. Optiota voi lisäksi seurata
+parametri joka sitä määrittää. Esimerkiksi seuraavassa <em>tail</em> -
+komennossa:</p>
+<pre>
+tail -f -q -n 10 file.txt</pre>
+
+<p>on kolme optiota, joista 'f' ja 'q' - optioilla ei ole parametreja,
+mutta 'n' - optio saa parametrikseen numeron 10. Lopuksi
+komentorivillä annetaan vielä normaalina argumenttinä käsiteltävän
+tiedoston nimi. Optiot voi antaa vapaassa järjestyksessä. Optioiden
+käsittelyyn on C:n standardikirjastossa eräitä valmiita funktioita
+(esim. <em>getopt</em>), joita ei kuitenkaan tämä kurssin piirissä tarvita.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-03-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 03_strarray: Merkkijonotaulukko (4 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Harjoittele dynaamisesti varattavan taulukon käyttöä
+  dynaamisesti varattavien merkkijonojen kanssa</p>
+<p>Tässä harjoituksessa käsitellään taulukkoa, jossa on osoittimia
+merkkijonoihin, jotka on varattu dynaamisesti. Taulukon viimeinen
+alkio merkitään NULL-osoittimella, toisin sanoen tyhjässä taulukossa on
+siinäkin yksi alkio, nimittäin kyseinen NULL-osoitin.</p>
+<p>Sinun tulee toteuttaa seuraavat funktiot:</p>
+<h2>a) Alusta taulukko</h2>
+<p>Toteuta funktio <em>init_array</em>, joka varaa tilan ja alustaa
+merkkijonotaulukon siten, että siinä on ensimmäisenä alkiona
+NULL-osoitin.</p>
+<p>Toteuta lisäksi funktio <em>free_strings</em> joka vapauttaa taulukkoon
+tallennettujen merkkijonojen käyttämän tilan, sekä osoitintaulukon
+itsessään. Tässä tehtäväkohdassa merkkijonoja ei vielä ole taulukkoon
+tallennettu, mutta kannatta huomioida funktiota toteuttaessa, että
+seuraavissa kohdissa taulukkoon tulee myös merkkijonoja.</p>
+<p>Tehtävän testit käyttävät <em>free_strings</em> - funktiota tilan
+vapauttamiseen, joten se kannattaa toteuttaa heti alussa, koska muuten
+muistivuodoista johtuvat Valgrind-virheet estävät tehtävien läpäisyn.</p>
+<h2>b) Lisää merkkijono</h2>
+<p>Toteuta funktio <em>add_string</em> joka lisää annetun merkkijonon
+taulukkoon. Huomaa että parametrina tuleva merkkijono on <code>const char
+*</code> - tyypiä, mutta taulukon jäsenten tulee olla muokattavissa. Siksi
+pelkkä osoittimen kopiointi ei riitä, vaan sinun tulee kopioida koko
+merkkijono sille varattuun tilaan. Kun muutat taulukon kokoa, muista
+että sen lopusta tulee aina löytyä NULL-osoitin.</p>
+<h2>c) Muuta pieniksi</h2>
+<p>Toteuta funktio <em>make_lower</em> joka muuntaa kaikki taulukon
+merkkijonoissa olevat kirjainmerkit pieniksi kirjaimiksi. Tässähän
+voit käyttää hyväksi <em><a href="http://linux.die.net/man/3/tolower">tolower</a></em> - funktiota, joka muuntaa annetun
+merkin.</p>
+<h2>d) Järjestä taulukko</h2>
+<p>Toteuta funktio <em>sort_strings</em> joka järjestää taulukossa olevat
+merkkijonot aakkosjärjestykseen. Voit olettaa että <em><a href="http://linux.die.net/man/3/strcmp">strcmp</a></em> -
+funktiota tuottaa oikean järjestyksen. Muista että <em>strcmp</em> palauttaa
+sekä pienempiä että suurempia arvoja kuin 0, riippuen merkkijonojen
+keskinäisestä järjestyksestä: kun vertailuoperaatio on negatiiivinen,
+ensimmäisen merkkijonon tulee sijoittua ennen jälkimmäistä (ja
+päinvastoin).</p>
+<p>Olet myös harjoitellut alkioiden järjestämistä kierroksella 2. Voit
+todennäköisesti käyttää jossain määrin hyväksi silloin toteuttamaasi
+algoritmia.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="04_bits">
+    <h1 class="content-title">Bittioperaatiot</h1>
+    <div class="content-body">
+    
+      <h2>Binäärijärjestelmä</h2>
+<p>Kaksikantaisessa binäärijärjestelmässä lukuarvot merkitään ykkösten ja
+nollien avulla (eli bitteinä). Koska prosessoreissa ja
+digitaalipiireissä arvot esitetään kahtena eri jännitetasona,
+binäärijärjestelmä on perinteisesti tärkeä abstraktio varsinkin
+matalan tason (eli järjestelmää lähellä tapahtuvassa)
+ohjelmoinnissa. Tietokonejärjestelmissä kaikki arvot tallennetaankin
+bittiyhdistelmien kombinaationa, vaikka ohjelmoija ei tätä välttämättä
+usein näekään.</p>
+<p>Vaikka C-kieli (ja kaikki muutkin ohjelmointikielet) tarjoavat hyvät
+välineet kokonaislukujen tai liukulukujen käsittelyyn sellaisenaan,
+joskus -- varsinkin matalan tason ohjelmoinnissa -- on tarpeen
+käsitellä tietoa bittitasolla. Esimerkiksi tietoliikenne- ja
+laitteistorajapinnat saattavat vaatia yksittäisten bittien käsittelyä
+sen sijaan että aina käsiteltäisiin kokonaisia 8-, 16- tai 32-bittisiä
+arvoja.</p>
+<p>C-kielessä hankaluutena on se, että standardi ei tue binäärivakioiden
+esittämistä sellaisenaan, vaikka muuten kielessä onkin tuki bittitason
+operaatioihin. Jos haluamme esittää jonkun tietyn bittikombinaation,
+meidän onkin keksittävä sitä vastaava kokonaisluku, jota voidaan
+käyttää lausekkeissa. Tätä varten on usein helpompi käyttää
+heksadesimaali- (eli 16-kantaista) esitysmuotoa, koska tällöin kukin
+lukuarvon merkki vastaa aina neljän bitin yhdistelmää. Desimaaliluvun
+muuntaminen binääriluvuksi on usein
+vaikeampaa. Heksadesimaaliluvuissahan oli käytössä numeroiden 0-9
+lisäksi kirjaimet A-F, jolloin voidaan esittää 16 eri
+lukuarvoa. C-kielessä heksadesimaalivakiot erotetaan siten, että
+niiden edessä on <code>0x</code>. Esimerkiksi <code>0xB9</code> esittää yhtä 8-bittistä
+arvoa, joka desimaaliesityksenä olisi 185 ja binääriesityksenä (jota C
+ei siis sellaisenaan tue) 1011 1001.</p>
+<p>Alla oleva kaavio esittää joukon lukuarvoja desimaali-, heksdesimaali-
+ja binääriesityksenä.</p>
+<p><div style="text-align: center;"><img src="../static/pics/hex-bits.jpg" align="middle"></div></p>
+
+<p>Kaavio rajoittuu 8-bittisiin arvoihin, mutta suurempia lukuarvoja on
+helppo muodostaa yhdistelemällä heksadesimaaliarvoja ja niitä
+vastaavaa binääriesitystä. Esimerkiksi 16-bittinen (unsigned short)
+heksadesimaaliluku 0xD2A0 olisi binäärimuodossa 1101 0010
+1010 0000. Kyseisen lukuarvon muuntaminen desimaaliluvuksi onkin jo
+vaikeampaa päässälaskuna (mutta desimaaliesitys olisi 53920).</p>
+<p>Binääriesitystä luetaan samassa järjestyksessä kuin esimerkiksi
+desimaaliesitystä: vähiten merkitsevä bitti on oikealla ja eniten
+merkitsevä bitti vasemmalla. Kun bittiyhdistelmää muunnetaan
+kokonaisluvuksi, kunkin bitin "arvo" on kaksi kertaa suurempi kuin
+sitä oikealla puolella olevan bitin arvo. Kaavio havainnollistanee
+tätä parhaiten.</p>
+<h2>Bittitason operaattorit</h2>
+<p>Kun lukuarvoja käsitellään yksittäisten bittien tasolla, käytetään
+tyypillisesti bittitason operaatioita "ja", "tai", "ekslusiivinen
+tai", ja "ei" (eli komplementti). Koska C-kielessä pienin
+käytettävissä oleva tietotyyppi on 8-bittinen <em>char</em> (tai <em>unsigned
+char</em>), bittioperaatioissa käsitellään aina useamman bittin
+ryppäitä. Bittitason operaatioissa laskun kohteena olevia arvoja
+käydään läpi bitti kerrallaan, tuottamalla lopputulokseksi operaation
+synnyttämä bittikombinaatio.</p>
+<p>C-kielessä käytössä ovat seuraavat bittioperaattorit</p>
+<ul>
+<li>
+<p>bittitason <strong>JA (&amp;)</strong>: <code>À &amp; B</code> tuottaa tulokseen bitin 1 silloin kun
+    vastaavat bitit arvoissa A ja B ovat molemmat 1, muuten tuloksena
+    tulee 0. </p>
+</li>
+<li>
+<p>bittitason <strong>TAI (|)</strong>. <code>À | B</code> tuottaa tulokseen bitin 1 silloin
+    kun edes joko A:ssa tai B:ssä vastaava bitti on 1. Vain silloin
+    mikäli kyseinen bitti on sekä A:ssa että B:ssä 0, tulokseen
+    tulee 0-bitti.</p>
+</li>
+<li>
+<p>bittitason <strong>ekslusiivinen TAI (^)</strong>. <code>A ^ B</code> tuottaa tulokseen
+    bitin 1 silloin, kun A:ssa ja B:ssä vain toisessa vastaava bitti
+    on asetettuna, mutta toisessa ei. Tätä voi verrata 1-bittiseen
+    summalaskuun: jos molemissa arvoissa kyseinen bitti sisältää saman
+    arvon, lopputulokseen tulee 0 vastaavalle paikalle.</p>
+</li>
+<li>
+<p>yhden komplementti ("<strong>EI</strong>"): <code>~A</code> vaihtaa kohteena olevaan
+    arvon bittien tilan päinvastaiseksi.</p>
+</li>
+</ul>
+<p>On tärkeää huomatta, että yllä esitellyt bittitason operaattorit ovat
+eri operaattoreita, kun esimerkiksi vertailulausekkeissa tyypillisesti
+käytettävät loogiset operaattorit (<code>&amp;&amp;</code>, <code>||</code>, <code>!</code>). Loogiset
+operaattorit tuottavat aina joko kokonaisluvun 1 tai 0, kun taas
+bittioperaattorit tuottavat lukuarvon, joka muodostuu käsittelemällä
+operandien bittejä edellä kuvatuilla tavoilla. Bittioperaattorin ja
+loogisen operaattorin sekoittaminen ei välttämättä ilmene
+käännösvaiheessa mitenkään, koska kummassakin tapauksessa ne toimivat
+osana lausekkeita normaalisti, vaikka tuloksena onkin eri arvo.</p>
+<p>Alla olevat kaavio pyrkii havainnollistamaan, miten edellä mainitut
+operaattorit toimivat kahden <em>unsigned char</em> tyyppisen arvon (0x69 ja
+0xCA) välillä.</p>
+<p><div style="text-align: center;"><img src="../static/pics/bit-ops.jpg" align="middle"></div></p>
+
+<p>C koodissa vastaavat operaatiot voisivat toimia esimerkiksi
+seuraavalla tavalla:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="mh">0x69</span><span class="p">;</span>  <span class="c1">// 01101001</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">b</span> <span class="o">=</span> <span class="mh">0xca</span><span class="p">;</span>  <span class="c1">// 11001010</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a &amp; b = %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">);</span>
+
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">|</span> <span class="n">b</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a | b = %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+
+    <span class="n">b</span> <span class="o">^=</span> <span class="n">a</span><span class="p">;</span>  <span class="c1">// b = b ^ a</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a ^ b = %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;~a = %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">~</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;~a &amp; 0xff = %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">~</span><span class="n">a</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Yllä oleva ohjelma tulostaisi:</p>
+<pre>
+a & b = 48
+a | b = eb
+a ^ b = a3
+~a = ffffff96
+~a & 0xff = 96</pre>
+
+<p>Operaation <code>~a</code> tulos näyttää yllättävältä, mutta liittyy siihen, että
+C-kielessä laskuoperaatioiden yhteydessä arvot käsitellään <em>int</em> -
+tyyppisenä kokonaislukuna ("integral promotion"): esimerkiksi <em>char</em>
+muutetaan siis tilapäisesti 32-bittiseksi yllä olevassa
+esimerkissä. Normaalisti muiden operaatioiden yhteydessä tätä ei
+useinkaan huomaa, mutta kun bittien tila vaihdetaan päinvastaiseksi,
+nämä lisätyt bitit vaikuttavat lopputulokseen. Toisaalta
+JA-bittioperaatiolla (rivi 17), voimme suodattaa "ylimääräiset" bitit
+jälleen pois.</p>
+<p>Edellä esiteltyjen loogisten operaattoreiden lisäksi toisinaan
+käytetään bittien <em>siirto-operaatioita</em>. Operaattori <code>&lt;&lt;</code> siirtää
+vasempana operandina olevan arvon bittejä oikealla puolella annetun
+määrän vasemmalle. Vastaavasti operaattori <code>&gt;&gt;</code> siirtää bittejä
+annetun määrän oikealle. Operaatioiden tuloksena lukualueelta pois
+siirrettyjen bittien sisältämä tietosisältö menetetään. Toiselta
+puolelta tilalle tulee aina 0-bittejä. Esimerkiksi <code>A &lt;&lt; 1</code> siirtää
+A:n bittejä yhden askelen vasemmalle, ja <code>A &lt;&lt; 4</code> neljä askelta
+vasemmalle.</p>
+<p>Alla oleva kaavio havainnollistaa miten nämä operaatiot toimivat:</p>
+<p><div style="text-align: center;"><img src="../static/pics/bit-shift.jpg" align="middle"></div></p>
+
+<p>Edellä mainittuja operaatioita käytetään alla olevassa funktiossa
+<em>printBits</em>, joka käyttä bittisiirto-operaatioita yhdessä loogisen
+JA-operaation kanssa tulostaakseen annetun <em>unsigned char</em> tyyppisen
+arvon binääriesityksenä.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">void</span> <span class="nf">printBits</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// (1 &lt;&lt; i) generates value where only i&#39;th bit is set</span>
+    <span class="c1">// value &amp; (1 &lt;&lt; i)) is non-zero only if i&#39;th bit is set in value</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="p">))</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="mh">0x69</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;0x69 = &quot;</span><span class="p">);</span>
+    <span class="n">printBits</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">0x69 &lt;&lt; 2 = &quot;</span><span class="p">);</span>
+    <span class="n">printBits</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Ohjelma tulostaa:</p>
+<pre>
+0x69 = 01101001
+0x69 << 2 = 10100100</pre>
+
+<h2>Bittimaskit</h2>
+<p>Kun ohjelmassa käsitellään yksittäisiä bittejä tai niiden yhdistelmiä,
+puhutaan "bittimaskeista". Tyypillisesti näitä käytetään JA tai TAI -
+operaatioiden yhteydessä. Esimerkiksi JA-operaatiolla voidaan testata,
+onko jokin tietty bitti päällä vai ei. Voidaan esimerkiksi olettaa
+että jossain muuttujassa kullekin bitille on määritelty jokin
+erikoismerkitys, jonka olemassaoloa halutaan testata.</p>
+<p>Alla tämänkaltainen esimerkki:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="mh">0x36</span><span class="p">;</span>  <span class="c1">// 00110110</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="mh">0x2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Second bit is set, true in this case</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="mh">0x1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// First bit is set, not true in this case</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="mh">0xf0</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// are any of the highest four bits set?</span>
+        <span class="c1">// convert the highest four bits to integer</span>
+        <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="mh">0xf0</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// b == 3</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Yllä olevien if-lauseiden ehdot ovat tosia vain silloin, kun
+muuttujassa <em>a</em> vastaavat bitit on asetettuna.</p>
+<p>Usein puhutaan "lipuista", kun yhden muuttujan kutakin bittiä
+käytetään ilmaisemaan jonkun ehdon tai ominaisuuden voimassaoloa. Näin
+saamme pakattua esimerkiksi <em>unsigned char</em> - tyyppiseen arvoon
+kahdeksan eri lippua, jotka esittävät jotain ominaisuutta
+ohjelmassa. Esimerkiksi tietoliikenneprotokollissa, joissa pyritään
+käyttämään käytettävissä olevan kapasiteetti mahdollisimman
+tehokkaasti, käytetään usein tätä mekanismia pakkaamaan informaatiota
+pieneen tilaan.</p>
+<p>Esimerkkinä lippujen käytöstä voimme tarkastella seuraavaa ohjelmaa,
+joka käsittelee tiedostoa. Tiedostolle on määritelty
+käyttöoikeudet, esimerkiksi voidaanko siitä lukea, voidaanko
+tiedostoon kirjoittaa tai voidaanko se suorittaa. Hyvää tyyliä on
+lisäksi määritellä vakiomuuttujat esittämään eri bittiarvoja, jolloin
+ohjelmakoodi on selkeämpi ymmärtää, kuin että heksadesimaalilukuja
+käytettäisiin sellaisenaan. Ohjelmassa huomataan, kuinka
+TAI-operaatiolla voidaan yhdistää bittimaskeja.</p>
+<p>Kun käyttöoikeuksia tulostetaan, käytämme %x - muotoilumäärettä, jotta
+luvut tulostuvat heksadesimaalimuotoisina. Tällöin bittien sisältö on
+helpompi hahmottaa.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">MyFlags</span><span class="p">;</span>
+
+<span class="c1">// Owner permissions</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">CanRead</span> <span class="o">=</span> <span class="mh">0x1</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">CanWrite</span> <span class="o">=</span> <span class="mh">0x2</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">CanExecute</span> <span class="o">=</span> <span class="mh">0x4</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">CanDelete</span> <span class="o">=</span> <span class="mh">0x8</span><span class="p">;</span>
+
+<span class="c1">// Group permissions</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">GroupCanRead</span> <span class="o">=</span> <span class="n">CanRead</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">;</span>       <span class="c1">// 0x10</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">GroupCanWrite</span> <span class="o">=</span> <span class="n">CanWrite</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">;</span>     <span class="c1">// 0x20</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">GroupCanExecute</span> <span class="o">=</span> <span class="n">CanExecute</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// 0x40</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">GroupCanDelete</span> <span class="o">=</span> <span class="n">CanDelete</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">;</span>   <span class="c1">// 0x80</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="n">MyFlags</span> <span class="n">perms</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">File</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">File</span> <span class="n">fileA</span><span class="p">;</span>
+    <span class="n">fileA</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;File 1&quot;</span><span class="p">;</span>
+    <span class="n">fileA</span><span class="p">.</span><span class="n">perms</span> <span class="o">=</span> <span class="n">CanRead</span> <span class="o">|</span> <span class="n">CanWrite</span><span class="p">;</span> <span class="c1">// can read and write, but not execute</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;flags 1: %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fileA</span><span class="p">.</span><span class="n">perms</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">fileA</span><span class="p">.</span><span class="n">perms</span> <span class="o">&amp;</span> <span class="n">CanRead</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;reading is possible</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">fileA</span><span class="p">.</span><span class="n">perms</span> <span class="o">&amp;</span> <span class="n">GroupCanRead</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Group cannot read, so we can&#39;t get here</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;group reading is possible</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">fileA</span><span class="p">.</span><span class="n">perms</span> <span class="o">|=</span> <span class="n">GroupCanRead</span><span class="p">;</span> <span class="c1">// now also group can read</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;flags 2: %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fileA</span><span class="p">.</span><span class="n">perms</span><span class="p">);</span>
+
+    <span class="c1">// zeroing CanWrite and GroupCanWrite</span>
+    <span class="n">fileA</span><span class="p">.</span><span class="n">perms</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="n">CanWrite</span> <span class="o">|</span> <span class="n">GroupCanWrite</span><span class="p">);</span>
+
+    <span class="c1">// print the final state of flags</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;flags 3: %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fileA</span><span class="p">.</span><span class="n">perms</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Yllä oleva ohjelma tulostaa seuraavaa:</p>
+<pre>
+flags 1: 03
+reading is possible
+flags 2: 13
+flags 3: 11</pre>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-04-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 04_ip: IP-otsake (4 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Harjoittele binäärioperaatioita</p>
+<p>IP-protokollaa käytetään miltei kaikessa tämän päivän
+Internet-kommunikaatiossa. <a href="http://en.wikipedia.org/wiki/IPv4">Wikipediassa</a> on tiivis perustietopaketti
+IP-protokollasta ja sen ominaisuuksista. Internetissä tieto kulkee
+paketeissa, joiden alussa on 20 tavua pitkä <em>IP-otsake</em>. <a href="http://en.wikipedia.org/wiki/IPv4#Header">Otsakkeen
+rakenne</a> on dokumentoitu wikipedia-artikkelissa. Otsakkeessa on
+haluttu pakata tarvittava tieto mahdollisimman tiiviseen tilaan
+kommunikoinnin tehostamiseksi, joten 16- ja 8-bittisten kenttien
+lisäksi otsakkeessa on kenttiä jotka vievät tai yhden tai muutaman
+bitin.</p>
+<p>Tehtävänäsi on toteuttaa funktio, joka rakentavat <em>struct
+ipHeader</em>:ssa annetuista otsaketiedoista 20 tavun mittaisen
+pakettiotsakkeen, ja toisaalta funktio, joka purkaa pakettiotsakkeen
+helpommin käsiteltävään edellä mainittuun C-tietorakenteeseen. Koska
+osa otsakkeen kentistä vie tilaa vain muutaman bitin, joudut
+soveltamaan binäärioperaatioita osaan otsakekentistä.</p>
+<p>Et voi vain kopioida tietorakennetta otsakkeeksi sellaisenaan, koska
+bittikentät eivät siirtyisi oikein. Lisäksi C saattaa lisätä
+tietorakenteen kenttien väleihin tyhjiä alueita (padding), joten
+varsinainen tietorakenne vie enemmän kuin 20 tavua tilaa muistista.</p>
+<p>Wikipedia-artikkelissä olevaa IP-otsaketta esittävää diagrammia
+luetaan seuraavasti: kukin rivi esittää 4 tavun (eli oktetin) alueen
+otsakkeesta. Kuvan vasemmassa laidassa ja ylälaidassa lasketaan näitä
+oktetteja, jotka yhteenlaskemalla tiedät kuinka monta tavua otsakkeen
+alkuun pitäisi lisätä jotta pääset käsittelemään kyseistä kohtaa
+otsakkeessa. Esimerkiksi <em>protocol</em>-kenttä löytyy 9:n tavun
+kohdalta. Jos tavuista muodostettu taulukko <em>buffer</em> esittää
+otsaketta, saat <em>protocol</em>-kentän lausekkella <code>buffer[9]</code>.</p>
+<p>Mukana tulevat tiedostot sisältävät valmiiksi toteutetut funktiot
+<em>printIp</em> ja <em>hexdump</em>, joita voit käyttää <em>main.c</em> - tiedostossa
+testataksesi toteutustasi.</p>
+<p><strong>Lisävinkkejä:</strong></p>
+<ul>
+<li>
+<p>Esimerkiksi alussa oleva <strong>Version</strong> - kenttä on vain 4 bittiä
+    pitkä. Se tarkoittaa että versio voi saada pelkästään arvoja 0:sta
+    15:een. Pitäisi siis miettiä miten tavun yläpäähän puristetut
+    bitit saadaan konvertoitua normaaliksi C-kokonaisluvuksi, joka
+    esittää lukua 0:n ja 15:n välillä.</p>
+</li>
+<li>
+<p><strong>IHL-kenttä</strong> esittää IP-otsakkeen kokonaispituutta koodattuna
+    neljään bittiin, mutta kenttä esittää pituuden neljän tavun
+    yksikköinä. C-rakenteessa pituus esitetään kuitenkin
+    tavuina. Esimerkiksi IHL-kentässä oleva bittiyhdistelmä 0110 (eli
+    desimaalina 6) tarkoittaa siis otsakkeen pituutena 6*4 = 24 tavua.</p>
+</li>
+<li>
+<p>Kannattaa kiinnittää huomiota C:n <strong><a href="http://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B#Operator_precedence">laskujärjestykseen</a></strong>
+    binäärioperaatioiden osalta. Bittisiirto-operaatiot <code>&lt;&lt;</code> ja <code>&gt;&gt;</code>
+    lasketaan esimerkiksi aritmeettisten operaattoreiden (esim. '+' ja
+    '-') jälkeen. Käytä siis sulkeita silloin kun niitä tarvitaan.</p>
+</li>
+<li>
+<p>Tietoliikenneprotokollissa 16-bittiset numerot koodataan
+    ns. <strong>big-endian - tavujärjestykseen</strong>. Tämä tarkoittaa, että kun
+    lukua ajatellaan kahden tavun yhdistelmänä, lukualueen eniten
+    merkitsevä tavu sijoitetaan muistiin (ja edelleen
+    tietoliikennepakettiin) ensiksi, ja vähemmän merkitsevä tavu sen
+    jälkeen. Joudut sijoittamaan tällaiset luvut otsakkeeseen tavu
+    kerrallaan, koska useat järjestelmät (mm. Intel-pohjaiset)
+    käyttävät sisäisesti päinvastaista tavujärjestystä, eli suora
+    kopiointi tuottaa väärän tuloksen.</p>
+</li>
+</ul>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+
+
+
+		</div>
+
+		<div class="col-lg-4"></div> <!-- forces middle column narrower -->
+
+	</div>
+
+</div>
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="../static/jquery.min.js"></script>
+<script src="../static/bootstrap.min.js"></script>
+</body>
+</html>

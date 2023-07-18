@@ -1,0 +1,1867 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>C-MOOC - C-MOOC
+- Module 5
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/pygments.css">
+
+    <style>
+    #content { margin-bottom: 20px; text-align: justify; }
+    #content img { margin-top: 25px; margin-bottom: 25px; }
+    #content li { margin-top:6px; margin-bottom: 6px; }
+    #content h2 { padding-top: 20px; }
+
+    .codehilitetable { width: 100%; margin-top: 15px; margin-bottom: 15px;}
+    .linenos { width: 20px }
+    .codehilite{ width:100%; height: auto; }
+
+    .task-sidenav-link { padding-left: 0.5em; }
+    .content-sidenav-link { text-decoration: underline; }
+    .content-block, .task-description-block { margin-bottom: 40px; }
+
+    </style>
+</head>
+<body>
+
+<!-- navbar, common to all pages -->
+<div class="navbar navbar-default" role="navigation">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+
+      <li><a href="../home/index.html">Home</a></li>
+
+      
+      <li class="global-links"><a href="https://tmc.mooc.fi/mooc">TMC</a></li>
+      
+      <li class="global-links"><a href="https://wiki.aalto.fi/display/C/C-ohjelmointi+vinkkiwiki">Vinkkiwiki</a></li>
+      
+      <li><a href="../instructions/index.html">Instructions</a></li>
+
+      
+      <li><a href="../Module_1/index.html">M1: Introduction</a></li>
+      
+      <li><a href="../Module_2/index.html">M2: Pointers</a></li>
+      
+      <li><a href="../Module_3/index.html">M3: Dynamic memory</a></li>
+      
+      <li><a href="../Module_4/index.html">M4: Arrays and Bits</a></li>
+      
+      <li><a href="index.html">M5: Advanced features</a></li>
+      
+      <li><a href="../Module_6/index.html">M6: Course summary</a></li>
+      
+
+    </ul>
+  </div>
+</div><!-- navbar -->
+
+
+<!-- Unique content of a page goes here -->
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-lg-3">
+			<div class="sidebar">
+                <ul class="nav">
+
+                    <li><img src="../static/aalto-elec-s.jpg" class="img-responsive"></li>
+                    <li><a href="http://mooc.fi/courses/2016/aalto-c">C-MOOC - MOOC.fi</a></li>
+                </ul>
+                
+
+    
+<ul class="nav bs-sidenav">
+    <b>Jump to:</b>
+    
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#01_io">
+        1. Input/Output
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-1-en">
+            <b>Task:</b> 01_filedump (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-2-en">
+            <b>Task:</b> 02_stats (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-3-en">
+            <b>Task:</b> 03_base64 (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#02_precompiler">
+        2. Preprocessor
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-4-en">
+            <b>Task:</b> 04_arraytool (3)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#03_arglists">
+        3. Variable length argument lists
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-5-en">
+            <b>Task:</b> 05_myprint (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#04_funcptr">
+        4. Function pointers
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-6-en">
+            <b>Task:</b> 05_sheet (4)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#05_funcs">
+        5. Some useful functions
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+</ul>
+
+
+
+
+			</div>
+		</div>
+
+
+		<div class="col-lg-7" id="content">
+
+		    
+		    
+
+		    
+
+    <p>
+<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+	<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0; float:right;">
+</a>
+</p>
+
+    
+        
+        <div class="content-block" id="01_io">
+    <h1 class="content-title">Input/Output</h1>
+    <div class="content-body">
+    
+      <p>In C input and output happens through <strong>I/O streams</strong>. I/O stream is
+an abstraction for delivery of ordered sequence of unstructured
+data. So far we have used two streams that are open by default in C
+programs: <strong>standard output</strong>, for printing text on the screen
+(<em>printf() function</em>), and <strong>standard input</strong>, for taking input from
+user. In addition to these, streams can be opened to other devices,
+for example to read and write to files, or for communication between
+devices or hosts, and so on.  The main operations for I/O stream are
+reading and writing a byte stream. In addition, a stream needs to be
+opened before use (apart from stdin, stdout, and error stream stderr),
+and closed after use.</p>
+<p>Stream input and output is <strong>buffered</strong>. Buffer is a memory area that
+temporary stores the bytes before delivering them forward. Buffers are
+commonly used to enhance system performance. As new input is
+available, it is first written to buffer, until data is delivered to
+user program. As program outputs data to stream, it first goes into
+buffer, until it can be delivered to the I/O resource (such as the
+terminal window in case of printing text to standard output
+stream. Because of the buffering, there may be delay between calling
+the output operation from program and the time the output actually
+shows up.</p>
+<p>I/O stream is accessed using <code>FILE*</code> data type. It is an abstract data
+type for accessing the stream using the specified functions in the C
+library. A new FILE<em> reference can be obtained using the <b>fopen</b>
+function that opens a named I/O stream (e.g. a file), and returns a
+<code>FILE*</code> pointer that allows accessing the I/O stream. After that the
+stream can be accessed by using the I/O functions. When the stream is
+not needed anymore, it should be closed with <b>fclose</b> function
+that disassociates the FILE</em> variable from the I/O stream, and
+releases the resources needed by stream management. I/O streams can be
+associated with any kind of I/O resource, but in the following we
+mostly work with files.</p>
+<p>Here are the basic functions to use a stream. These are defined in the
+<strong>stdio.h</strong> header. More information about the function can be found
+from the <a href="http://linux.die.net/man/3/fopen">man pages</a>.</p>
+<ul>
+<li>
+<p><code>FILE *fopen(const char *path, const char *mode)</code> opens the
+    given file for input and/or output. The <b>path</b> parameter is a
+    string that contains filename (possibly including path) of the
+    file to be opened. <b>mode</b> is also a string that consists of
+    combination of letters that define the mode in which file is
+    opened: <b>"r"</b> means the file is opened for reading;
+    <b>"w"</b> means the file is opened for writing (erasing the
+    previous content of file); <b>"r+"</b> opens the file for both
+    reading and writing. In these cases the file operation starts from
+    the beginning of file, but with "a" mode, the file can be opened
+    for writing starting from the end of the file, for example for
+    appending new content on top of previous one. "a+" does the same,
+    but allows also file reading. The function returns pointer to a
+    new FILE object that can be used by the following functions to
+    access the file, or NULL if opening the file did not succeed.</p>
+</li>
+<li>
+<p><code>int fclose(FILE *fp)</code> closes the given file, after which it
+    cannot be accessed anymore. The return value is 0 if closing was
+    succesful or constant EOF (that equals to -1) on failure.</p>
+</li>
+<li>
+<p><code>int fgetc(FILE *stream)</code> reads one character from file
+    <b>stream</b>. The character is returned as return parameter. If
+    the stream is at the end, or some other exceptional condition
+    occurs, the function returns special value <b>EOF
+    (end-of-file)</b>. EOF is a macro constant that is used for this
+    purpose by the different I/O functions. The return parameter is
+    integer instead of unsigned char, because fgetc needs to handle
+    full 8-bit value range from 0 to 0xff as legitimate values, and in
+    addition support EOF (which equals to -1).</p>
+</li>
+<li>
+<p><code>int fputc(int c, FILE *stream)</code>q writes character <b>c</b> to
+    file <b>stream</b>. The function returns the character written, or
+    EOF, if there was an error.</p>
+</li>
+</ul>
+<p>The following example shows a implementation of <b>writeString</b>
+function (very similar to <b>fputs</b> function) that writes given
+string to the indicated I/O stream. Writing ends when end of string is
+encountered. The main function opens file "testfile" for writing ("w"
+mode), and writes string <b>mystring</b> to the file. Finally the I/O
+stream is closed.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">writeString</span><span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">str</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// write characters until the end of string</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">fputc</span><span class="p">(</span><span class="o">*</span><span class="n">str</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span> <span class="o">==</span> <span class="n">EOF</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>  <span class="c1">// error in writing</span>
+        <span class="p">}</span>
+        <span class="n">str</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">mystring</span> <span class="o">=</span> <span class="s">&quot;One line written to file</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+    <span class="c1">// open &#39;testfile&#39; for writing (remove previous content)   </span>
+    <span class="kt">FILE</span> <span class="o">*</span><span class="n">f</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;testfile&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Opening file failed</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">writeString</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">mystring</span><span class="p">);</span>
+    <span class="n">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>I/O stream can consist of any binary data (not just text). In an ASCII
+(or otherwise) encoded text file the content is assumed to contain
+printable and readable characters that can be read into a string and
+shown as a string. A text file can be opened and read with any text
+editor, but opening a binary file in a text editor is not useful,
+because it will contain characters that cannot be printed. For
+investigating binary files other tools, such as <b>hexdump</b> should
+be used. Binary file can also contain number 0 in a legitimate meaning
+(not to terminate a string), and number 10 ('\n' in ASCII) likely has
+some other meaning than starting a new line.</p>
+<p>In addition to the basic functions, there are advanced functions for
+reading and writing data, as follows. Some of them are intended for
+text data, while others work with binary data.</p>
+<ul>
+<li>
+<p><code>size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)</code>
+    reads <b>nmemb</b> elements of <b>size</b> bytes into buffer
+    pointed by <b>ptr</b>, from file <b>stream</b>. This function in
+    suitable for reading also binary content: it does have any special
+    processing for special text characters such as line feeds. The
+    function returns the number of items read. If the file ended
+    before given number of items could be read, or if there was an
+    error, the return value is smaller than <b>nmemb</b>. <b>feof</b>
+    and <b>ferror</b> functions (see below) can be used to see the
+    reason for premature completion of read.</p>
+</li>
+<li>
+<p><code>size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE
+    *stream)</code> writes <b>nmemb</b> elements of <b>size</b> bytes from
+    buffer pointed by <b>ptr</b>. Like <em>fread()</em>, this function is
+    suitable for writing binary content. The function returns the
+    number of items written. If there was an error, the return value
+    is smaller than <b>nmemb</b>.</p>
+</li>
+<li>
+<p><code>char *fgets(char *s, int size, FILE *stream)</code> reads at most
+    <b>size-1</b> characters to the buffer pointed by <b>s</b> from
+    I/O stream <b>stream</b>. This function is intended for working
+    with text files. The function also reads at most one line, and
+    stops reading if there is a newline character in file (which is
+    included in the buffer). fgets automatically appends '\0' to the
+    end of the buffer. In other words, fgets is primarily intended to
+    operate with text files that can be converted into strings. The
+    function pointer to the string that was read, or NULL if we are at
+    the end of file, or if there was a failure in reading.</p>
+</li>
+<li>
+<p><code>int fputs(const char *s, FILE *stream)</code> writes string <b>s</b> to
+    file <b>stream</b>. Writing stops at the terminating '\0'
+    character in the string, which is not written to the file. This
+    function is suitable for working with strings and text files. The
+    function returns non-negative number if it is succesful, or EOF on
+    failure.</p>
+</li>
+<li>
+<p><code>long ftell(FILE *stream)</code> tells the current position in the
+    stream, as bytes from the beginning of the stream. As data is
+    being read or written from the stream, the position indicator
+    moves forward.</p>
+</li>
+<li>
+<p><code>int fseek(FILE *stream, long offset, int whence)</code> sets the file
+    position indicator to the given position (<b>offset</b>), counted
+    as bytes. If <b>whence</b> is SEEK_SET, the position is counted as
+    distance from the beginning of file, when it is SEEK_END, the
+    position is relative to the end of the file. Setting the position
+    works on files, but may not work on some other types of streams
+    (for example when accessing terminal with stdin or stdout).</p>
+</li>
+<li>
+<p><code>int fprintf(FILE *stream, const char *format, ...)</code> works
+    similarly to the printf function, but takes one additional
+    parameter, <b>stream</b>, and produces the formatted output to the
+    given file instead of the standard output stream that is typically
+    shown on the screen. The function returns the number of characters
+    printed if writing was succesful, or negative value if there was
+    an error.</p>
+</li>
+<li>
+<p><code>int fscanf(FILE *stream, const char *format, ...)</code> is similar to
+    the scanf function, except that it tries to read the input from
+    file <b>stream</b> instead of standard input. The function returns
+    the number of fields read, or EOF if there was an error or end of
+    file was reached before the specified fields could be read.</p>
+</li>
+<li>
+<p><code>int feof(FILE *stream)</code> returns non-zero if the file is at the
+    end (and no more reading can be done), or zero if the file is not
+    yet at the end. <b>Note:</b> the end-of-file state is only set
+    after an attempt to read "past" the end of file. Therefore, if you
+    have read all content of the file, but have not tried to read any
+    further, feof still returns 0.</p>
+</li>
+<li>
+<p><code>int ferror(FILE *stream)</code> returns non-zero if an error has
+    occurred in an earlier I/O operation, or zero if no error has
+    happened.</p>
+</li>
+<li>
+<p><code>int fflush(FILE *stream)</code> flushes the buffered data in output
+    stream buffer. Returns 0 on success or -1 on failure.</p>
+</li>
+</ul>
+<p>For standard input and standard output there are pre-defined streams
+<b>stdin</b> and <b>stdout</b>. For example, calling</p>
+<p><code>fprintf(stdout, "%d\n", an_int)</code></p>
+<p>is equivalent to calling printf with the same
+format specifiers and parameters. In addition there is a third stream
+that is open by default, <b>stderr</b> that is conventionally used for
+printing error outputs from programs.</p>
+<p>A text file can be read as follows. The program reads file "test.c"
+line by line, and shows each line on the standard output. It also uses
+the standard error stream for error messages.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">FILE</span> <span class="o">*</span><span class="n">f</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;test.c&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span> <span class="c1">// open file for reading</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Opening file failed</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">fgets</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">),</span> <span class="n">f</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">fputs</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">stdout</span><span class="p">)</span> <span class="o">==</span> <span class="n">EOF</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Error writing to stdout</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="n">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>For binary files, one should use <b>fread</b> and <b>fwrite</b> for
+reading and writing. These functions do not have any special treatment
+on nul characters or newlines. Below is an example of binary write of
+an integer array of 10 numbers, followed by reading the array from
+disk. The example demonstrates also the use of <b>feof</b> and
+<b>ferror</b> indicators.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span> <span class="p">};</span>
+    <span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;intarray&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">fp</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Could not open file</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">size_t</span> <span class="n">n</span> <span class="o">=</span> <span class="n">fwrite</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ferror</span><span class="p">(</span><span class="n">fp</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Error occurred</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="s">&quot;%lu items written</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>  <span class="c1">// same as printf</span>
+    <span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+
+    <span class="c1">// re-open file for reading, and read the integers</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;intarray&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">num2</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">num2</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
+
+    <span class="c1">// feof indicator should not be set yet, because we did not read</span>
+    <span class="c1">// past the end of file</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">feof</span><span class="p">(</span><span class="n">fp</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;prematurely reached end of file</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ferror</span><span class="p">(</span><span class="n">fp</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;error occurred</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="s">&quot;%lu items read</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+
+    <span class="c1">// should not read anything, because we should be at the end of file</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">num2</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">feof</span><span class="p">(</span><span class="n">fp</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="s">&quot;%lu items read, EOF indicator is set</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">num2</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>This code creates a file of 40 bytes (10 integers of 32 bits
+each). This is a binary file that cannot be understood by text editor,
+but hexdump shows the file content as follows:</p>
+<pre>
+$ ./a.out
+10 items written
+10 items read
+0 items read, EOF indicator is set
+
+$ hexdump -C intarray 
+00000000  01 00 00 00 00 00 00 00  fe ff ff ff 03 00 00 00  |................|
+00000010  0a 00 00 00 04 00 00 00  03 00 00 00 02 00 00 00  |................|
+00000020  03 00 00 00 09 00 00 00                           |........|
+00000028</pre>
+
+<p>Note that each integer takes four bytes, in little-endian byte order.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-1-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 01_filedump: File dump (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Practice basic file reading.</p>
+<p>Implement functions <strong>textdump</strong> and <strong>hexdump</strong> that will read
+the given file (the file name in <strong>filename</strong> parameter) and print
+its contents to the screen. Both functions return the number of bytes
+read, or -1 if there was error in opening the file. You will need to
+implement two output formats as follows:</p>
+<p>In <strong>Exercise (a)</strong> the file is output as text characters. If the
+read character is printable (as determined by the <b>isprint</b>
+function call), it should be printed as is. If the character is not
+printable, '?' should be printed instead.</p>
+<p>In <strong>Exercise (b)</strong> the file content should be printed as
+hexdump. Each byte is printed as hexadecimal number that uses exactly
+two characters on the screen. If the hexadecimal number is less than
+0x10, a leading zero is applied. Each hexadecimal number is followed
+by space. A line can have at most 16 hexadecimal numbers, after that a
+new line is started. Also the number at the end of the line should
+have a trailing space following it. Here is an example output:</p>
+<pre>
+0e 54 65 65 6d 75 20 54 65 65 6b 6b 61 72 69 30 
+30 30 30 30 41 00 00 14 45 4c 45 43 2d 41 31 31 
+30 30 00 00 00 00 00 00 00 </pre>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-2-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_stats: File statistics (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> More practice on file processing</p>
+<p>Implement functions to calculate the following metrics from a given
+file:</p>
+<h2>(a) Line count</h2>
+<p>Implement function <code>int line_count(const char *filename)</code>
+that calculates the number of lines in the given file, and returns the
+line count. If there is an error, the function should return -1. Empty
+file is considered to have no lines. If the last line of the file is
+not empty, it should be counted as a line even if it does not end in
+newline character.</p>
+<h2>(b) Word count</h2>
+<p>Implement function <code>int word_count(const char *filename)</code>
+that calculates the number of words in the given file and returns the
+word count. In this exercise we define word like this: Word is a
+substring that contains at least one <strong>alphabetic</strong> character. Two
+words are separated by one or more <strong>whitespace</strong> characters. If
+there is an error, the function should return -1. (Note that shell
+command 'wc -w' defines a "word" differently, and cannot be used to
+compare results with this function)</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-3-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 03_base64: Base64 (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective</strong>: Practice file input and output, with some bitwise
+  operations.</p>
+<p><strong>Note</strong>: This is may be the hardest task in module 5. If you are
+  unsure about how to approach the task, you may want to try
+  exercises 5.4 and 5.5 first, and then come back to this exercise
+  again.</p>
+<p>Base64 encoding is applied when binary content needs to be converted
+into printable format, for example for transmission as E-mail
+attachment. This exercise requires functions <strong>to_base64 (a)</strong>, that
+reads an file and writes it to another file in a Base64 encoded
+format; and <strong>from_base64 (b)</strong> that does the reverse operation, i.e.,
+reads a Base64 encoded file, and writes it as a decoded binary
+file. In other words, when you apply <em>to_base64()</em> and <em>from_base64</em>
+successively, the latter should produce a file that is an exact copy
+of the original file passed to <em>to_base64()</em>.</p>
+<p>The idea of Base64 is that the input file (or generally any string) is
+represented as 6-bit units that are encoded as printable characters
+(A-Z, a-z, 0-9, +, /). This can be done by processing the source file
+as units of <strong>three 8-bit numbers</strong> (that make 24 consecutive bits), and
+converting those to <strong>four 6-bit numbers</strong> (still the same 24 bits as
+binary format). Each of the 6-bit numbers are represented by a
+character according to table <a href="http://en.wikipedia.org/wiki/Base64#Examples">presented here</a>. The <a href="http://en.wikipedia.org/wiki/Base64">Wikipedia page</a> also
+has useful diagrams that illustrate the idea of the encoding.</p>
+<p>It is possible that the source file length is not divisible by 3. In
+such case the remaining bits must be set to 0, and the 6-bit
+characters that were not used are replaced by a padding character
+('='). The <a href="http://en.wikipedia.org/wiki/Base64">Wikipedia page</a> gives examples how this is done.</p>
+<p>The Wikipedia page also gives additional information, background and
+examples about the encoding. There are different variants of the
+encoding, but we will apply the original RFC 1421 format, in other
+words:</p>
+<ul>
+<li>
+<p><strong>Each encoded line must be 64 characters long</strong>, except the last line
+    that can be shorter. I.e., after 64 characters, there must be a
+    newline ('\n') character. In this exercise we will use a simple
+    newline, not CRLF, as many other implementations do. The last line
+    <strong>does not</strong> end in a newline character.</p>
+</li>
+<li>
+<p><strong>All line lengths must be divisible by 4</strong> (not counting the newline
+    character). If needed, <strong>padding characters</strong> ('=') must be appended
+    to make the line length of the last line correct.</p>
+</li>
+</ul>
+<p>Both functions, <em>to_base64()</em> and <em>from_base64()</em>, return the number
+of bytes read from the source file, or -1 if there was an error (file
+not found, etc.)</p>
+<p><strong>Hints for implementing to_base64():</strong></p>
+<ul>
+<li>
+<p>It is recommended that you start testing your implementation with
+    small source files with simple strings (such as "Man", as used in
+    Wikipedia example), and then gradually expanding your tests before
+    passing your code to TMC.</p>
+</li>
+<li>
+<p>Start from implementing the bitwise operations
+    (bit shift is needed, at least) that modify 3 incoming 8-bit units
+    into 4 outgoing 6-bit units (e.g., if you use '<em>char</em>' type
+    variables, there will be 4 '<em>char</em>'s, where the highest two bits
+    will always be zero in the output format).</p>
+</li>
+<li>
+<p>You will need to convert the 4 6-bit values into a printable
+    character, i.e. the actual number value needs to be assigned a
+    character value. The task template contains the Base64 characters in
+    correct order in string '<strong>encoding</strong>' (which can be seen as array
+    of 64 characters). It is most likely useful for you.</p>
+</li>
+<li>
+<p>When bit manipulations and conversion into printable character
+    seem to work, finally add padding and division into 64-character lines.</p>
+</li>
+</ul>
+<p>As always, you can use <em>src/main.c</em> for testing, and modify that file
+as needed.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="02_precompiler">
+    <h1 class="content-title">Preprocessor</h1>
+    <div class="content-body">
+    
+      <p>The preprocessor processes the C code before passing it to the actual
+C compiler that produces the binary object code. The preprocessor, for
+example, removes the comments from the code, and executes preprocessor
+directives, such as <code>#include</code> that includes definitions from
+another header file as part of the compilations. The output of
+preprocessor is still text-format source code. The preprocessor output
+can be checked using the <strong>gcc</strong> compiler with the <strong>-E</strong> flag.</p>
+<p>In the following we take a look at some of the most common preprocessor
+directives.</p>
+<h2>Basics</h2>
+<p>The preprocessor instructions begin with a hash character (#) and
+usually contain some parameters. So far we have seen mainly one
+preprocessor instruction, <code>#include</code>, that fetches another file as part
+of the C source file. In principle <strong>#include</strong> could be used with any
+other file, but they are supposed to be used with header files that
+contain only definitions of data types, constants and functions, and
+do not produce program code themselves. After the preprocessor phase
+all preprocessor directives have been replaced by C code that can be
+compiled by the actual compiler.</p>
+<p>A preprocessor directive begins from the start of the hash-marked line
+and ends at the end of line: each instruction takes exactly one line,
+and there is no trailing semicolon as in normal C statements. However,
+for long instructions, a line can be split with backslash (<code>\</code>)
+character at the end of the line. This means that the preprocessor
+directive continues on the next line.</p>
+<p>One of the most common preprocessor directives is the <code>#define</code>
+directive that defines a constant that will be replaced in source code
+with the text given as part of the #define instruction. The format of
+the <strong>#define</strong> declaration is: <code>#define NAME some text</code>, that
+will replace all following instances of NAME by "some text" before the
+code is compiled. A common use for #define is to define named
+constants, for example for numbers, that will be used elsewhere in the
+code. For example as in follows:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;string.h&gt;</span>
+
+<span class="cp">#define MAXSTRING 80</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="n">MAXSTRING</span><span class="p">];</span>
+    <span class="n">strncpy</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">&quot;string&quot;</span><span class="p">,</span> <span class="n">MAXSTRING</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>In the above example preprocessor replaces the MAXSTRING labels on
+line 6 and 7 by number 80, before passing the code to the actual C
+compiler. It is a common convention (but not mandatory) that constants
+and macros defined using #define use upper case names, to distinguish
+them from other variables in the code. In some other case it would be
+possible that a defined macro is transformed into a string, or a small
+piece of C code. The preprocessor just does the text replacement, and
+is not concerned with the types of the variables.</p>
+<p>(Alternatively, in the above case MAXSTRING could have been defined as
+constant global variable: <code>const int MAXSTRING = 80;</code>. The difference
+is, that then the type of the value is clearly defined, and the
+operation is done by the C compiler, not by the preprocessor).</p>
+<p>The #define declaration can be removed by <code>#undef
+NAME</code>. Following the #undef declaration, the NAME replacement
+cannot be used in code.</p>
+<p>The preprocessor supports conditional statement <b>#if</b> that contains
+a section of code until <b>#endif</b>. The if conditions and logical
+operations work as normally in C. In addition, there is <b>#elif</b>
+declaration for else if, and <b>#else</b>. The behavior of these
+conditions is much like before with normal C conditional statements,
+but these are evaluated in preprocessing phase, and not visible
+during actual compilation. Below is an example of using these.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#if (VERSION == 1)</span>
+<span class="cp">#include &quot;hdr_ver1.h&quot;</span>
+<span class="cp">#elif (VERSION == 2)</span>
+<span class="cp">#include &quot;hdr_ver2.h&quot;</span>
+<span class="cp">#else</span>
+<span class="cp">#error &quot;Unknown version&quot;</span>
+<span class="cp">#endif</span>
+</pre></div>
+</td></tr></table>
+
+<p>The <b>#error</b> declaration shown above raises a (compile) error
+with given message, and the compilation fails at this point. Note that
+the error is a compile-time error, and the conditions are evaluated
+before compilation. If we happened to have the right version above,
+the error will never appear in compiled code.</p>
+<p><code>#define</code> declarations for a name can also be given without a value,
+just to tell the preprocessor that a particular condition exists. This
+is commonly used with include guards. The purpose of include guard is
+to ensure that a particular C source file does not include the same
+header definitions multiple times, which would cause compile
+errors. This can sometimes happen, when there are nested include
+dependencies between multiple header files. <b>#ifdef</b> declaration
+can be used to test whether a particular name has been defined,
+regardless of its value. <b>#ifndef</b> is for the opposite test, and
+is true if a name has not been declared. Here is an example:</p></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#ifndef SOME_HEADER_H  </span><span class="c1">// at the beginning of file</span>
+<span class="cp">#define SOME_HEADER_H</span>
+
+<span class="c1">// some header content</span>
+
+<span class="cp">#endif </span><span class="c1">// at the end of the file</span>
+</pre></div>
+</td></tr></table>
+
+<p>The above #ifndef condition is true for the first time a particular
+header file is included as part of the C source (by #include
+directive). If the same header is included another time,
+<strong>SOME_HEADER_H</strong> is already defined, and the header content is not
+re-evaluated. In large software is not unusual that a header is
+included multiple times, because there can be nested header
+definitions that cause complicated dependencies between them.</p>
+<p>The preprocessor also has some readily defined macros that can be used
+in the C code. These can be useful for debugging
+purposes:</p>
+<ul>
+<li>
+<p><b><strong>DATE</strong></b> is substituted with the current (compile time)
+    date. This will be evaluated at compile time: if compilation is
+    successful, the date will not change before the next time the
+    program is recompiled.</p>
+</li>
+<li>
+<p><b><strong>TIME</strong></b> is substituted with the compile time time, with
+    behavior as above.</p>
+</li>
+<li>
+<p><b><strong>FILE</strong></b> is substituted with the name of the C source file
+    where the macro is located. This could be used, for example, in
+    implementing a common debugging macro (such as <b>assert</b>).</p>
+</li>
+<li>
+<p><b><strong>LINE</strong></b> is substituted with the line number of the
+    location of the macro. Again, this is useful in conjunction with
+    some debugging macro.</p>
+</li>
+</ul>
+<p>A simple test program could use these in the following way:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;This file was compiled on %s at %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">__DATE__</span><span class="p">,</span> <span class="n">__TIME__</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;We are in source file %s on line %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">__FILE__</span><span class="p">,</span> <span class="n">__LINE__</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>to output:</p>
+<pre>
+This file was compiled on Mar 12 2014 at 01:36:14
+We are in source file testi2.c on line 5</pre>
+
+<h2>Macros with parameters</h2>
+<p><b>#define</b> macros can also contain parameters. When such macro is
+used and expanded in code, the parameters are used as part of the
+expanded code. For example, we could have the following macro
+definition:</p>
+<pre>
+#define GROW_MEM(Var, Size) Var = realloc(Var, Size)</pre>
+
+<p>that could be used in the following way:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">GROW_MEM</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Whenever GROW_MEM macro is applied, the preprocessor replaces it with
+the given realloc statement, but replacing <b>Var</b> and <b>Size</b>
+with the parameters given. As this is preprocessor, this is pure text
+replacement, and the preprocessor does not do any type
+checks. However, if invalid parameters are given, the C compiler would
+not be able to compile the code, and produce compilation error.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-4-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 04_arraytool: Array tool (3 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Practice use of parametrized macros, for operating with
+  arrays (of generic type).</p>
+<p>This exercise does not contain other *.c files than main.c (and the
+test sources in test directory). Instead, the relevant code you'll
+need to implement is in src/arraytool.h header, where you need to
+place the following three macros:</p>
+<p><strong>Exercise (a): CHECK(cond, msg)</strong> that will check logical condition
+  <strong>cond</strong>, and if the condition fails, output string <strong>msg</strong> to
+  standard output stream. This is like the <strong>assert</strong> macro, but
+  does not terminate the execution of the program if condition
+  fails. Example: <code>CHECK(5 &gt; 10, "5 &gt; 10 failed\n");</code></p>
+<p><strong>Exercise (b): MAKE_ARRAY(type, n)</strong> that will create a dynamically
+  allocated array, that contains <strong>n</strong> obejcts of type
+  <strong>type</strong>. The macro returns pointer to the allocated
+  memory. Example: <code>void *ptr = MAKE_ARRAY(int, 10);</code></p>
+<p><strong>Exercise (c): ARRAY_IDX(type, array, i)</strong> that will access the
+  given <strong>array</strong> at index <strong>i</strong> (count starting from 0, as
+  always), with given <b>type</b>. Example: <code>ARRAY_IDX(int, ptr,
+  i) = i * 2;</code></p>
+<p>When the three macros are correctly implemented, src/main.c should
+allocate an int array for 10 members, initialize it, and print its
+contents. The main function also demonstrates the use of CHECK macro
+with failing condition.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="03_arglists">
+    <h1 class="content-title">Variable length argument lists</h1>
+    <div class="content-body">
+    
+      <p>Usually the number and type of arguments in C functions are
+fixed. However, there are situations when the exact number of
+parameters or their type cannot be determined. The most common example
+of this is the <em>printf</em>, and other functions that use format
+specifiers to handle other variables. The C language contains a mechanism
+for these cases.</p>
+<p>A function can be defined with variable length parameter list with the
+following notation:</p>
+<p><code>int printf(const char *fmt, ... )</code></p>
+<p>The above is the definition of the <em>printf</em> function. As we know by
+now, the first parameter is always a string. After that there is a
+variable number of other parameters, for which the type or number is
+not specified in function defintion. The implementation of <em>printf</em>
+determines the number of parameters based on the format string and the
+format specifiers included in it.</p>
+<p>The parameter list will be processed using the <strong>va_list</strong> data type,
+and using macros <strong>va_start</strong>, <strong>va_arg</strong> and <strong>va_end</strong>. These are
+defined in the <em>stdarg.h</em> header.</p>
+<p>Below is an example of function that calculates average from varying
+number of floating point numbers.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;stdarg.h&gt;</span>
+
+<span class="kt">double</span> <span class="nf">average</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="p">...</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">va_list</span> <span class="n">args</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">va_start</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">va_arg</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="kt">double</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">va_end</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;average: %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">average</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;another: %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">average</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p><em>va_start</em> initializes the handling of the parameter list, and tells
+ the argument after which the variable length list begins. In a function
+ with a variable parameter list there always needs to be at least one
+ fixed parameter.</p>
+<p>The function picks the arguments one at a time using the <em>va_arg</em>
+macro. The macro takes the <em>va_list</em> instance as the first parameter,
+and the expected data type as the second parameter. The application
+logic therefore needs to have some way to determine this. In our
+example this is easy, because we know that all numbers are <em>double</em>
+type. On the other hand, the <em>printf</em> function determines the type of
+the next argument based on the format specified types in the format
+string. After all arguments have been processed, the va_args state
+needs to be cleaned up using <em>va_end</em> macro.</p>
+<p>We can see from the <em>main</em> function that now we can call the <em>average</em>
+function with different number of parameters, as long as the function
+knows the number of arguments.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-5-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 05_myprint: Integer printer (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective</strong>: Learn variable length argument lists</p>
+<p>Implement function <strong>myprint</strong> that prints a variable number of
+integers to standard output stream following the format indicated by a
+given format string. The function can take variable number of
+arguments: <strong>the first argument is always a (constant) format string</strong>
+(as in <em>printf</em>), but the number of other arguments depends on the
+format string. Our output function is a simpler version of <em>printf</em>:
+it can only print integers. <em>myprint</em> differs from traditional
+<em>printf</em> by using character <code>&amp;</code> as the format specifier that should be
+substituted by the integer indicated at the respective position in the
+argument list. Because we only output integers, this simple format
+specifier will suffice.</p>
+<p>For example, this is one valid way of calling the function:
+<code>myprint("Number one: &amp;, number two: &amp;\n", 120, 1345);</code></p>
+<p><strong>The function should return an integer</strong>, that indicates how many
+  format specifiers (and integer arguments) were included in the given
+  format string.</p>
+<p>In this exercise you will get just empty C source files to fill
+in. Read the above description (and <em>main.c</em>) carefully to figure out
+how the function prototype should look like. You'll need to modify
+both <em>myprint.c</em> and <em>myprint.h</em>.</p>
+<p>If your implementation works correctly, the default main function (in
+<em>main.c</em>) should output the following:</p>
+<pre>
+Hello!
+Number: 5
+Number one: 120, number two: 1345
+Three numbers: 12 444 5555
+I just printed 3 integers</pre>
+
+<p><strong>Hint:</strong> As a reminder, <em><a href="http://linux.die.net/man/3/strchr">strchr</a></em> will return pointer to the next
+  instance of given character from a string, and <em><a href="http://linux.die.net/man/3/fputc">fputc</a></em> will output
+  one character at a time. You may or may not want to use these
+  functions.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="04_funcptr">
+    <h1 class="content-title">Function pointers</h1>
+    <div class="content-body">
+    
+      <p>So far we have considered functions as static entities that have a
+fixed name and a specified functionality. Because all code is located
+in its dedicated (read-only) virtual memory area, <strong>all functions can
+be referred to using an address</strong>. In fact, the function name can be
+seen as a global static pointer to the beginning of the function
+implementation. Pointers to the function implementation can also be
+stored to a variable of a specific kind. Such variables are called
+<strong>function pointers</strong>, and despite their special kind and syntax, they
+can be handled similarly to any other pointer.</p>
+<p>Below are a few examples of a function pointer definition, and the
+syntax used:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">funcAdd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// The following declares four variables for function pointers</span>
+    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">add_one</span><span class="p">)(</span><span class="kt">int</span><span class="p">)</span> <span class="o">=</span> <span class="n">funcAdd</span><span class="p">;</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">varaa</span><span class="p">)(</span><span class="kt">size_t</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">vapauta</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">);</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">varaa_uudestaan</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">,</span> <span class="kt">size_t</span><span class="p">);</span>
+    <span class="c1">// above pointers are now uninitialized</span>
+
+    <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">add_one</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="c1">// set the pointers to the addresses of functions in C library</span>
+    <span class="n">varaa</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">;</span>
+    <span class="n">vapauta</span> <span class="o">=</span> <span class="n">free</span><span class="p">;</span>
+    <span class="n">varaa_uudestaan</span> <span class="o">=</span> <span class="n">realloc</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Line 11 declares function pointer '<strong>add_one</strong>' that refers to
+function that returns an <em>int</em> value, and has one argument of <em>int</em>
+type. In addition, <em>add_one</em> is assigned to point to function
+<strong>funcAdd</strong>, that must have matching return value and one argument
+with matching type with the function pointer.</p>
+<p>Similarly, line 12 defines function pointer '<strong>varaa</strong>', that returns
+generic <em>void</em> pointer, and takes <em>size_t</em> - typed value as argument,
+line 13 defines function pointer '<strong>vapauta</strong>', and line 14 defines
+function pointer '<strong>varaa_uudestaan</strong>', that takes too arguments. The
+latter three function pointers are not yet initialized, and they point
+to unspecified address.</p>
+<p>Line 17 shows an example how a function pointer is used to call a
+function. Here calling '<em>add_one</em>' executes function '<em>funcAdd</em>', and
+causes integer '<em>b</em>' to become 2.</p>
+<p>Assignment to function pointers works as with any
+other pointer, as long as the pointed function has consistent type
+(both return type and arguments) with the
+respective function pointer. On lines 20-22, the function pointers are
+assigned a value. '<em>varaa</em>' is set to point to the <em>malloc()</em>
+implementation (that has matching return value and argument types),
+and '<em>vapauta</em>' and '<em>varaa_uudestaan</em>' are set to point to <em>free()</em>
+and <em>realloc()</em> implementations. They are not part of programmer's own
+source file, but because they have matching types, and they are linked
+as part of the program from the C library, this can be done.</p>
+<p>After the function pointers have been set, the functions can be called using
+the function pointers similarly to any normal function call. Below is an
+extension to the above example, where we changed our mind about the
+'vapauta' function pointer, and change it to point to our own function
+named '<strong>just_kidding</strong>' instead of the existing C library implementation of
+<em>free()</em>. Note that the two functions have same argument and return
+value types. After this we call each of these three functions: in
+practice we first allocate 100 bytes of memory, then increase the
+memory block by reallocation to 200 bytes, and finally try to free it.
+Freeing does not work properly, however, because 'vapauta' points to
+our mock implementation that just prints out a message instead of
+freeing anything.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">void</span> <span class="nf">just_kidding</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Did not release the memory block starting at %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">ptr</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">varaa</span><span class="p">)(</span><span class="kt">size_t</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">vapauta</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">);</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">varaa_uudestaan</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">,</span> <span class="kt">size_t</span><span class="p">);</span>
+    <span class="c1">// above pointers are now uninitialized</span>
+
+    <span class="c1">// set the pointers to the addresses of functions in C library</span>
+    <span class="n">varaa</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">;</span>
+    <span class="n">vapauta</span> <span class="o">=</span> <span class="n">free</span><span class="p">;</span>
+    <span class="n">varaa_uudestaan</span> <span class="o">=</span> <span class="n">realloc</span><span class="p">;</span>
+
+    <span class="n">vapauta</span> <span class="o">=</span> <span class="n">just_kidding</span><span class="p">;</span>
+
+    <span class="kt">void</span> <span class="o">*</span><span class="n">os</span> <span class="o">=</span> <span class="n">varaa</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>  <span class="c1">// i.e., malloc</span>
+    <span class="n">os</span> <span class="o">=</span> <span class="n">varaa_uudestaan</span><span class="p">(</span><span class="n">os</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>  <span class="c1">// i.e., realloc</span>
+    <span class="n">vapauta</span><span class="p">(</span><span class="n">os</span><span class="p">);</span>  <span class="c1">// i.e., free ..umm.. or actually not</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Function pointers are like any other data type: they can be passed as
+function parameters, or used as part of data structures.  When used as
+function parameters, function pointers allow a new degree of flexibility: in
+addition to just passing static values to functions, we can pass some
+specific functionality as parameter or structure field.  One example
+of this is the generic <strong>qsort</strong> function (defined in stdlib.h)
+that sorts a given array. qsort is given a pointer to function that
+implements a comparison between two values, as needed by the sort
+operation. This way the sort algorithm can be used with different data
+types. The qsort function is defined as follows:</p>
+<pre class="sh_c">
+void qsort (void *base, size_t nmemb, size_t size,
+            int (*compar)(const void *, const void *));
+</pre>
+
+<p><em>qsort()</em> operates on array starting from address <b>base</b>, having
+<b>nmemb</b> members. Each array element is <b>size</b> bytes long (we
+need to tell the size of one element, because function is generic and
+uses void<em> pointer). The fourth parameter is function pointer
+<b>compar</b>, to function that compares two values. The function
+pointer definition in the parameter list needs to contain return
+value, name of the parameter that is used inside the function
+implementation, and parameters of the function. qsort needs this
+function to put the array elements in order. The array can contain any
+data type, as long as the function implementing the comparison
+criteria is defined (and pointed by '</em>compar*' parameter). Below is an
+example that uses qsort to reorder an array of names into alphabetical
+order. The ordering is based on last name; if the last names are same,
+the first name defines order.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="k">struct</span> <span class="n">name</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">last</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">first</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">name_compare</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="k">struct</span> <span class="n">name</span> <span class="o">*</span><span class="n">name_a</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="k">const</span> <span class="k">struct</span> <span class="n">name</span> <span class="o">*</span><span class="n">name_b</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+
+    <span class="c1">// first compare the last names</span>
+    <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">name_a</span><span class="o">-&gt;</span><span class="n">last</span><span class="p">,</span> <span class="n">name_b</span><span class="o">-&gt;</span><span class="n">last</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="c1">// if last names are same, first names decide order</span>
+        <span class="k">return</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">name_a</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">,</span> <span class="n">name_b</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">name</span> <span class="n">array</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">{</span><span class="s">&quot;Kimalainen&quot;</span><span class="p">,</span> <span class="s">&quot;Kalle&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&quot;Mehilainen&quot;</span><span class="p">,</span> <span class="s">&quot;Maija&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&quot;Ampiainen&quot;</span><span class="p">,</span> <span class="s">&quot;Kerttu&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&quot;Ampiainen&quot;</span><span class="p">,</span> <span class="s">&quot;Antti&quot;</span><span class="p">}</span>
+    <span class="p">};</span>
+    <span class="n">qsort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">name</span><span class="p">),</span> <span class="n">name_compare</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s, %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">last</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">first</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Function pointer can be included as a structure member as well. This
+goes without surprises after the previous examples (structure
+'<em>monster</em>' contains a function pointer member '<em>attack</em>':</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="k">struct</span> <span class="n">monster</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">hitpoints</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">attack</span><span class="p">)(</span><span class="k">struct</span> <span class="n">monster</span> <span class="o">*</span><span class="p">,</span> <span class="k">struct</span> <span class="n">monster</span> <span class="o">*</span><span class="p">);</span> <span class="c1">// function pointer</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">punch</span><span class="p">(</span><span class="k">struct</span> <span class="n">monster</span> <span class="o">*</span><span class="n">me</span><span class="p">,</span> <span class="k">struct</span> <span class="n">monster</span> <span class="o">*</span><span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">damage</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s punches %s with %d damage</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">me</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">target</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">damage</span><span class="p">);</span>
+        <span class="n">target</span><span class="o">-&gt;</span><span class="n">hitpoints</span> <span class="o">-=</span> <span class="n">damage</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">damage</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">bite</span><span class="p">(</span><span class="k">struct</span> <span class="n">monster</span> <span class="o">*</span><span class="n">me</span><span class="p">,</span> <span class="k">struct</span> <span class="n">monster</span> <span class="o">*</span><span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">damage</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s bites %s with %d damage</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">me</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">target</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">damage</span><span class="p">);</span>
+        <span class="n">target</span><span class="o">-&gt;</span><span class="n">hitpoints</span> <span class="o">-=</span> <span class="n">damage</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">damage</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">monster</span> <span class="n">goblin</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;goblin&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">punch</span> <span class="p">};</span>
+    <span class="k">struct</span> <span class="n">monster</span> <span class="n">vampire</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;vampire&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">bite</span> <span class="p">};</span>
+
+    <span class="n">vampire</span><span class="p">.</span><span class="n">attack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">vampire</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">goblin</span><span class="p">);</span>
+    <span class="n">goblin</span><span class="p">.</span><span class="n">attack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">goblin</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vampire</span><span class="p">);</span>
+
+    <span class="c1">// goblin starts biting as well</span>
+    <span class="n">goblin</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">bite</span><span class="p">;</span>
+    <span class="n">goblin</span><span class="p">.</span><span class="n">attack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">goblin</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vampire</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>As in the case of local variable in the earlier example, the different
+functions can be called using the function pointers (on lines 28, 29
+and 33 above). Only the function call notation is now slightly
+different, because the function pointer is a member of a
+structure. Otherwise the function pointer works similarly to any other
+type, for example in structure initialization (lines 25 and 26) or in
+assignment (line 32).</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-6-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 05_sheet: Spreadsheet (4 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective</strong>: Practice use of function pointers. This exercise also
+  revisits various other recent topics such as typedefs, unions,
+  two-dimensional arrays, etc.</p>
+<p>This exercise implements a two-dimensional spreadsheet. Each cell in
+the spreadsheet can be in three possible states: a) unspecified,
+i.e., the cell has no defined content; b) it can hold a static value of
+<em>double</em> type; or c) it can hold a function that makes an calculation
+over specified area of the spreadsheet.</p>
+<p>The "function" is specified as a function pointer to your code that
+performs the intended calculation. All such functions take two
+coordinates as their arguments: location of the upper left corner of
+an area, and location of the lower right corner of an area. The
+functions should return a double-typed return value as a result of
+their calculation, that is shown as a value of the particular location
+in the spreadsheet.</p>
+<p>There are some readily given functions in the task template, that are
+only used from src/main. It is recommended that you use src/main to
+test your code before passing it to TMC tests.</p>
+<ul>
+<li>
+<p><strong>parse_command</strong> reads a short command from user that can set a
+    given sheet location to a static value or to one of the three
+    functions given in the template. The coordinates are represented
+    as two letters in the beginning of command. For example: "AA 6"
+    sets the upper left coordinate to value 6, and "BA sum CC EE" sets
+    location (1,0) to show the sum over a 3x3 area between coordinates
+    (2,2) and (4,4).</p>
+</li>
+<li>
+<p><strong>print_sheet</strong> outputs the content of the current spreadsheet.</p>
+</li>
+</ul>
+<p>Note that in order to either of the above functions to work correctly,
+you'll need to implement a few other functions they depend on.</p>
+<p>You'll need to implement this exercise in the following phases (in
+this respective order):</p>
+<h2>(a) Creating and releasing the spreadsheet</h2>
+<p>Implement the following functions:</p>
+<ul>
+<li>
+<p><strong>create_sheet</strong> that allocates the memory needed for the
+    spreadsheet, i.e., the <em>Sheet</em> structure, and the
+    two-dimensional array.</p>
+</li>
+<li>
+<p><strong>free_sheet</strong> that releases all memory allocated by
+    <em>create_sheet()</em></p>
+</li>
+<li>
+<p><strong>get_cell</strong> that accesses one cell with given coordinates in the
+    spreadsheet and returns a pointer to that. <em>get_cell()</em> should be
+    safe against indexing out of bounds: if invalid coordinates are
+    given, it should return NULL (instead of Valgrind errors).</p>
+</li>
+</ul>
+<p>Note that the tests use these functions in all of the following parts,
+so they need to be implemented first.</p>
+<h2>(b) Set content for the spreadsheet</h2>
+<p>Implement the following functions:</p>
+<ul>
+<li>
+<p><strong>set_value</strong> that sets the given location in the spreadsheet to a
+    double-typed constant value.</p>
+</li>
+<li>
+<p><strong>set_func</strong> that sets the given location in the spreadsheet to
+    contain the given function and its parameters.</p>
+</li>
+</ul>
+<p>Both functions should be safe against indexing out of bounds. In such
+case, they should do nothing.</p>
+<h2>(c) Evaluate cell content</h2>
+<p>Implement function <strong>eval_cell</strong> that returns double-typed value based
+on the cell content. If cell type is VALUE, the function should return
+this value. If cell type is FUNC, the function should call the
+function associated with the cell, and return the value returned by
+the function. If cell type is UNSPEC, or if the caller is indexing out
+of bounds, the function should return constant <em>NAN</em> (not-a-number),
+which is defined in the '<em>math.h</em>' header. (<em>Note: if you need to test
+whether a value is NAN, you should use <a href="http://linux.die.net/man/3/isnan">isnan()</a> macro.</em>)</p>
+<h2>(d) Three spreadsheet functions</h2>
+<p>Implement functions for calculating the maximum value over an area, a
+sum over an area, and count of specified cells over an area as
+follows:</p>
+<ul>
+<li>
+<p><strong>maxfunc</strong> will return the largest value inside an area with
+    upper left corner and lower right corner as given by arguments. If
+    the area contains unspecified cells, or out-of-bound coordinates,
+    they should be ignored.</p>
+</li>
+<li>
+<p><strong>sumfunc</strong> will return the sum of values inside an area with
+    upper left corner and lower right corner as given by arguments. If
+    the area contains unspecified cells, or out-of-bound coordinates,
+    they should be ignored.</p>
+</li>
+<li>
+<p><strong>countfunc</strong> that will return the number of cells within the
+    given area that contain specified content (value or function).</p>
+</li>
+</ul>
+<p>These functions are called by the <em>eval_cell()</em> function as needed based
+on spreadsheet content.</p>
+<p>Note that in all three above functions the target area may contain
+either values or functions. For cells that contain functions, the
+result of the given function needs to be used in calculation. In other
+words, the functions themselves may need to use <em>eval_cell()</em> and
+subsequently call other functions.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="05_funcs">
+    <h1 class="content-title">Some useful functions</h1>
+    <div class="content-body">
+    
+      <h2>Operations on characters</h2>
+<p>The <b>ctype.h</b> header contains functions for testing and handling
+the characters in the system. The functions can be used, for example,
+for testing whether a character is one of the alphabetical charcters,
+a number, or a whitespace character. The <b>ctype.h</b> functions can
+also be used to convert characters between uppercase and lowercase
+characters. The functions also take into account the localization
+settings (locales), and can operate correctly on scandinavian umlauts,
+which are not part of the traditional ASCII character set. A selection
+of functions for testing various conditions on a character are listed
+shortly below, and you can essentially find the same descriptions,
+along with some additional functions, from the related <a
+href="http://linux.die.net/man/3/isalpha">man pages</a>. All functions
+return non-zero (true) value if the character belongs to the tested
+group of characters, or zero (false) if it does not. All functions
+take one character as a parameter.</p>
+<ul>
+<li>
+<p><b>isalpha</b> tests whether a charater is alphabetic character.</p>
+</li>
+<li>
+<p><b>isdigit</b> tests whether a character is a digit (from 0 to 9).</p>
+</li>
+<li>
+<p><b>isblank</b> tests whether a character is space or tab.</p>
+</li>
+<li>
+<p><b>isspace</b> tests whether a character is space, tab, or any of
+    the other whitespace characters, such as newline.</p>
+</li>
+<li>
+<p><b>isalnum</b> tests whether a character is alphabetic or digit
+    (isalpha || isdigit).</p>
+</li>
+<li>
+<p><b>islower</b> tests whether a character is a lower case
+    alphabetic character.</p>
+</li>
+<li>
+<p><b>isupper</b> tests whether a character is an upper case
+    alphabetic character.</p>
+</li>
+</ul>
+<p>Below is an example of the use of <b>isalpha</b> function. The other
+functions listed above work similarly.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;ctype.h&gt;</span>
+
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">countLetters</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">string</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">isalpha</span><span class="p">(</span><span class="o">*</span><span class="n">string</span><span class="p">))</span>
+            <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">string</span><span class="o">++</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="s">&quot;abc 123 DEF&quot;</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;letters: %u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">countLetters</span><span class="p">(</span><span class="n">str</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>In addition, there are functions to convert a character to upper or
+lower case character. <b>toupper(int ch)</b> converts an alphabetic
+character to upper case and returns the converted character, or if
+conversion was not possible (e.g., for non-alphabetic character), it
+returns the character itself. <b>tolower(int ch)</b> converts and
+character to lower case with similar logic.</p>
+<h2>Operations on strings</h2>
+<p>We have used <b>printf</b> and scanf</b> starting from the first
+module, and this module showed that these functions are just a special
+case of <b>fprintf</b> and <b>fscanf</b>, operating specifically on
+stdout and stdin I/O streams. With fprintf and fscanf, formatted
+output and input could be targeted to any I/O stream or file.</p>
+<p>Yet another variant of formatted input and output are sscanf and
+sprintf functions, that take formatted input from given string, or
+produce formatted output to the given string. The function interfaces
+are as follows:</p>
+<ul>
+<li>
+<p><code>int sprintf(char *str, const char *format, ...)</code> is similar
+    to the other printf variants, but the first parameter <b>str</b>
+    is an array of characters allocated by the caller. The formatted
+    output will be written to this buffer instead of any output I/O
+    stream.</p>
+</li>
+<li>
+<p><code>int sscanf(const char *str, const char *format, ...)</code> reads
+    formatted input from string <b>str</b>, instead of an input I/O
+    stream, and sets the given arguments accordingly, as with the
+    other scanf variants. This function could also be used to convert
+    strings to integers (with '%d' format specification).</p>
+</li>
+<li>
+<p><code>long int strtol(const char *nptr, char **endptr, int base)</code>
+    (defined in stdlib.h) converts string <b>nptr</b> to integer that
+    is returned by the function. The string is assumed to contain
+    numbers, and parsing stops to first character that is not a
+    number. <b>endptr</b> is pointer to a <code>char *</code> type variable. When
+    function returns, this variable will point to the first character
+    that was not a number in string. If <b>*endptr</b> points to the
+    same location as <b>nptr</b> the string did not contain valid
+    numbers. <b>base</b> will tell the numeric system to be read: for
+    (the most common) decimal numbers it should be 10.</p>
+</li>
+<li>
+<p><b>atoi</b> is a simpler function for converting strings to
+    decimal numbers. Its use is not recommended, however, because
+    there is no way to detect if reading a number failed.</p>
+</li>
+</ul>
+<h2>Mathematical functions</h2>
+<p>Many mathematical functions are defined in <b>math.h</b> header. The
+functions operate on double-typed floating point numbers. To use these
+functions, <code>-lm</code> parameter needs to be added to the gcc
+command line (linking the code with mathematical library), for example
+in the Makefile used for building the executable. Below is a selection
+of functions with brief descriptions. More detailed information can be
+found, again, in <a href="http://linux.die.net/man/">man
+pages</a>.</p>
+<ul>
+<li>
+<p><b>round</b> rounds a number to the nearest integer.</p>
+</li>
+<li>
+<p><b>ceil</b> rounds a number to the next higher integer.</p>
+</li>
+<li>
+<p><b>floor</b> rounds a number to the next lower integer.</p>
+</li>
+<li>
+<p><b>pow</b> raises the value given as parameter to a given power.</p>
+</li>
+<li>
+<p><b>sqrt</b> calculates square root of a value.</p>
+</li>
+<li>
+<p><b>fabs</b> returns the absolute value of given value.</p>
+</li>
+<li>
+<p><b>exp</b> calculates base-e exponential function, raised to the power given.</p>
+</li>
+<li>
+<p><b>log</b> calculates natural logarithm of given value.</p>
+</li>
+<li>
+<p><b>cos</b> calculates cosine of given value (in radians).</p>
+</li>
+<li>
+<p><b>sin</b> calculates the sine of given value (in radians).</p>
+</li>
+<li>
+<p><b>tan</b> calculates the tangent of given value (in radians).</p>
+</li>
+</ul>
+<p>In addition, the <b>stdlib.h</b> header contains some mathematical
+functions for integers. In addition, it contains functions for
+generating pseudorandom numbers: <b>rand()</b> returns a pseudo-random
+integer between 0 and RAND_MAX (a large number). The pseudorandom
+generator can be initialized with a given seed using the
+<b>srand(seed)</b> call.</p>
+    </div>
+</div>
+
+        
+    
+
+
+
+		</div>
+
+		<div class="col-lg-4"></div> <!-- forces middle column narrower -->
+
+	</div>
+
+</div>
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="../static/jquery.min.js"></script>
+<script src="../static/bootstrap.min.js"></script>
+</body>
+</html>

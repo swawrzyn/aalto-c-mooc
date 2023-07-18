@@ -1,0 +1,2287 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>C-MOOC - C-MOOC
+- Module 1
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/pygments.css">
+
+    <style>
+    #content { margin-bottom: 20px; text-align: justify; }
+    #content img { margin-top: 25px; margin-bottom: 25px; }
+    #content li { margin-top:6px; margin-bottom: 6px; }
+    #content h2 { padding-top: 20px; }
+
+    .codehilitetable { width: 100%; margin-top: 15px; margin-bottom: 15px;}
+    .linenos { width: 20px }
+    .codehilite{ width:100%; height: auto; }
+
+    .task-sidenav-link { padding-left: 0.5em; }
+    .content-sidenav-link { text-decoration: underline; }
+    .content-block, .task-description-block { margin-bottom: 40px; }
+
+    </style>
+</head>
+<body>
+
+<!-- navbar, common to all pages -->
+<div class="navbar navbar-default" role="navigation">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+
+      <li><a href="../home/index.html">Koti</a></li>
+
+      
+      <li class="global-links"><a href="https://tmc.mooc.fi/mooc">TMC</a></li>
+      
+      <li><a href="../instructions/index.html">Ohjeet</a></li>
+
+      
+      <li><a href="index.html">M1: Johdanto</a></li>
+      
+      <li><a href="../Module_2/index.html">M2: Osoittimet</a></li>
+      
+      <li><a href="../Module_3/index.html">M3: Dynaaminen muisti</a></li>
+      
+      <li><a href="../Module_4/index.html">M4: Bitit ja taulukot</a></li>
+      
+      <li><a href="../Module_5/index.html">M5: Kehittyneita piirteita</a></li>
+      
+      <li><a href="../Module_6/index.html">M6: Yhteenvetoa</a></li>
+      
+
+    </ul>
+  </div>
+</div><!-- navbar -->
+
+
+<!-- Unique content of a page goes here -->
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-lg-3">
+			<div class="sidebar">
+                <ul class="nav">
+
+                    <li><img src="../static/aalto-elec-s.jpg" class="img-responsive"></li>
+                    <li><a href="http://mooc.fi/courses/2016/aalto-c">C-MOOC - MOOC.fi</a></li>
+                </ul>
+                
+
+    
+<ul class="nav bs-sidenav">
+    <b>Jump to:</b>
+    
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#01_intro">
+        1. Johdanto
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#02_first">
+        2. Ensimmäinen C-ohjelma
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-1-fi">
+            <b>Task:</b> 02-intro-1 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#03_types">
+        3. Tietotyypit ja muuttujat
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-2-fi">
+            <b>Task:</b> 02-intro-2 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#04_functions">
+        4. Funktiot
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-func-fi">
+            <b>Task:</b> 04_func (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#05_format">
+        5. Muotoiltu syöte ja tuloste
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-3-fi">
+            <b>Task:</b> 05-calc-1 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#06_conditional">
+        6. Ehtorakenteet
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-4-fi">
+            <b>Task:</b> 05-calc-2 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#07_loops">
+        7. Toistorakenteet
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-5-fi">
+            <b>Task:</b> 07-geometry-1 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-6-fi">
+            <b>Task:</b> 07-geometry-2 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-7-fi">
+            <b>Task:</b> 07-geometry-3 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-8-fi">
+            <b>Task:</b> 08-characters-1 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-9-fi">
+            <b>Task:</b> 08-characters-2 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-10-fi">
+            <b>Task:</b> 09-ships (4)
+        </a>
+    </li>
+    
+    </a></li>
+    
+</ul>
+
+
+
+
+			</div>
+		</div>
+
+
+		<div class="col-lg-7" id="content">
+
+		    
+		    
+
+		    
+
+    <p>
+<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+	<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0; float:right;">
+</a>
+</p>
+
+    
+        
+        <div class="content-block" id="01_intro">
+    <h1 class="content-title">Johdanto</h1>
+    <div class="content-body">
+    
+      <p>Yhteenveto materiaalin tuottajista:</p>
+<ul>
+<li>
+<p>Sisällöt: Pasi Sarolahti</p>
+</li>
+<li>
+<p>Web-sivu rakennetty Markus Holmströmin laatimilla skripteillä</p>
+</li>
+<li>
+<p>Kiitokset:</p>
+<ul>
+<li>TMC-kehittäjät (Matti Luukkainen, Jarmo Isotalo, Tony Kovanen,
+  Martin Pärtel) ovat tukeneet palautusjärjestelmän käyttöönotossa
+  ja auttaneet alkuun tehtävien laatimisessa.</li>
+<li>Jotkut osat kurssimateriaalista perustuvat Raimo Nikkilän
+  aiemmin vetämään kurssiin</li>
+<li>Nykyiset ja aiemmat kurssiassistentit ovat antaneet paljon
+  palautetta sisältöä koskien, laatineet tehtäviä ja tehneet
+  bugikorjauksia. Heihin kuuluvat mm. Riku Lääkkölä, Konsta
+  Hölttä, Markus Holmström, Essi Jukkala, Tero Marttila ja Aapo
+  Vienamo.</li>
+</ul>
+</li>
+</ul>
+<h2>Alkusanat</h2>
+<p>Tämä materiaali ei ole tarkoitettu kattavaksi C-referenssiksi, vaan
+päämääränä on tarjota riittävä informaatio tukemaan C-ohjelman
+opiskelua ohjelmointitehtävien kautta. Lisätietoa saa verkosta tai
+aiheeseen liittyvästä kirjallisuudesta. Usein käytetty oppikirja on
+<strong>"The C Programming Language"</strong> (2. painos), jonka ovat kirjoittanete
+Brian W. Kernighan and Dennis M. Ritchie. Myöhemmin saatetaan viitata
+tähän kirjaan lyhyesti K&amp;R:nä.</p>
+<p>Tärkeä osa C-kielen (ja ohjelmoinnin) opiskelua on tehdä runsaasti
+ohjelmointiharjoituksia, joita on sisällytetty materiaalin
+sekaan. Tehtävät on pyritty sijoittelemaan siten, että tiettyyn
+aihesisältöön liittyvä tehtävä löytyy tekstin läheltä. Tarkoitus on,
+että alat lukea sisältöä alusta järjestyksessä, ja teet tehtäviä sitä
+mukaa kun niitä tulee vastaan.</p>
+<p>Tehtäviä tehdään karkeasti ottaen seuraavan kaavan mukaan (katso
+<a href="../instructions/index.html">tarkemmat ohjeet</a> erilliseltä sivulta):</p>
+<ol>
+<li>Kirjoita koodi editorilla</li>
+<li>Käännä koodi käyttäen tehtäväpohjien mukana tulevia
+    Makefile:jä. Jos käännös tuottaa virheitä tai varoituksia,
+    hankkiudu niistä eroon korjaamalla koodiasi, kunnes varoituksia
+    tai virheitä ei enää tule.</li>
+<li>Suorita käännetty ohjelmasi ajamalla src/main - ohjelma jonka
+    kääntäjä on tuottanut tehtävähakemistoon. Mikäli ohjelma ei toimi
+    odotetulla tavalla, palaa kohtaan 1 ja korjaa ohjelmaa</li>
+<li>Aja paikalliset TMC-testit. Mikäli testit eivät mene läpi,
+    palaa kohtaan 1 ja korjaa ohjelmaa annettujen
+    virheilmoitusten perusteella. Paikalliset testit eivät välttämättä
+    toimi kaikilla alustoilla (esim. Windows). Mikäli paikallinen
+    testi ei toimi, siirry suoraan kohtaan 5.</li>
+<li>Jos paikalliset TMC-testit menivät läpi, lähetä koodisi
+    <a href="https://tmc.mooc.fi/mooc">TMC-serverille</a>. Se tarkastaa testit uudestaan, mahdollisesti eri
+    testejä käyttäen kuin paikallinen testi. Mikäli nämä testit
+    menevät onnistuneesti läpi, olet suorittanut tehtävän. Mikäli
+    testeistä tulee virheitä, palaa takaisin kohtaan 1.</li>
+</ol>
+<p>Kurssilla on yhteensä 84 tehtäväkohtaa. Osa tehtäväkohdista kytkeytyy
+toisiinsa ja muodostaa yhdessä yhden hieman isomman ohjelman.</p>
+<p>Ensimmäisessä modulissa käydään läpi C-kielen perusteet ja
+perusrakenteet. Näitä ovat <strong>perustietotyypit</strong>, <strong>funktiot</strong> ja
+<strong>kontrollirakenteet</strong>. Lisäksi katsomme lyhyesti kuinka tulostus ja
+syöte toimivat C-ohjelmassa. Materiaalissa on oletettu, että jotain
+pohjatietoa ohjelmoinnista on (esimerkiksi "Johdatus ohjelmointiin" -
+kurssi), mutta se on toisaalta pyritty kirjoittamaan niin, että
+aloittelevakin ohjelmoija pääsee kärryille.</p>
+<p><strong>Hauskaa koodailua!</strong></p>
+<h2>Johdantoa C-kieleen</h2>
+<p>C on proseduraalinen ohjelmointikieli, jossa ohjelmat rakentuvat
+funktioista ja datasta, joka organisoidaan tietorakenteiksi. C ei tue
+erillisiä nimiavaruuksia tai luokkia, joten kaikki funktiot ja muut
+nimetyt asiat (globaalit muuttujat, tietotyypit, jne.) ovat samassa
+globaalissa tietorakenteessa.</p>
+<p>C-ohjelma kirjoitetaan tekstimuotoiseen lähdekooditiedostoon, joka
+miltei aina käyttää .c - päätettä tiedostonimessään. Tyypillisesti
+ohjelma koostuu useista tällaisista tiedostoista, jotka saattavat olla
+jäsennelty useisiin hakemistoihin vähänkään isommassa
+ohjelmassa. Lisäksi on .h - päätteisiä otsaketiedostoja, joissa
+määritellään tietotyyppejä, tietorakenteita, funktiorajapintoja,
+jne. Näitä tiedostoja voi käsitellä millä tahansa <strong>tekstieditorilla</strong>
+(kuten <em>emacs</em>, <em>vi</em>, <em>kate</em>, jne.). Tämän lisäksi nykyään käytetään usein
+integroituja kehitysympäistöjä (IDE), jotka yhdistävät editorin ja
+muita kehitykseen tarvittavia työkaluja yhtenäisen graafisen
+käyttöliittymän alle. Tällaisia ovat esimerkiksi Microsoftin <em>Visual
+Studio</em>, Applen <em>XCode</em> tai <em>Netbeans</em>.</p>
+<p>Lähdekoodi ei toimi sellaisenaan, vaan se pitää kääntää
+<strong>kääntäjällä</strong>, joka muuttaa koodin tietokoneen ymmärtämäksi
+binääriformaatiksi. Kääntäjän tuottama ohjelma sovittuu alla olevaan
+tietokonearkkitehtuuriin. Siksi käännettyä ohjelmaa ei yleensä voi
+siirtää koneesta toiseen. Sen sijaan lähdekoodin on tarkoitus esittää
+ohjelma järjestelmästä riippumattomalla tavalla. Kun ohjelma
+siirretään uuteen järjestelmään, se pitää siis kääntää uudestaan
+lähdekoodista. Samoin, kun ohjelman lähdekoodia muutetaan, se pitää
+kääntää uudestaan. Tämä on merkittävä ero moniin korkeamman tason
+ohjelmointikieliin, kuten Pythoniin.</p>
+<p>C-ohjelman käännös koostuu seuraavista vaiheista:</p>
+<ul>
+<li>
+<p><strong>Esikäännös</strong>: Muuntaa ohjelman makrot, otsaketiedot,
+    jne. pelkistetyksi C-koodiksi, jota on tyypillisesti vaikeampi
+    lukea, mutta on edelleen tekstimuotoista. Esikääntäjän toiminnasta
+    tarkemmin myöhemmin kurssilla (Moduli 5).</p>
+</li>
+<li>
+<p><strong>Käännös</strong>: Muuntaa tekstimuotoisen ohjelman konekohtaiseksi
+    <em>objektitiedostoksi</em>, jonka ymmärtäminen on vaikeaa tavalliselle
+    pulliaiselle. Kutakin C-lähdetiedostoa kohden muodostetaan
+    vastaava objektitiedosto. Koska yleensä ohjelmat koostuvat useista
+    lähdetiedostoista, tuloksena syntyy myös useampia objektitiedostoja.</p>
+</li>
+<li>
+<p><strong>Linkkaus</strong>: Yhdistää objektitiedostot toimivaksi
+    ohjelmaksi. Lisäksi mukaan otetaan ulkopuolisia ohjelmakirjastoja,
+    joita ohjelma saattaa käyttää esimerkiksi laskutoimituksiin tai
+    grafiikkaan littyen. Eri C-ohjelmat käyttävät erilaisia kirjastoja
+    tarpeen mukaan, mutta kaikki ohjelmat käyttävät
+    standardikirjastoa, joka toteuttaa monia perustoimintoja
+    järjestelmään liittyen, kuten syöte, tulostus, tiedostonkäsittely
+    tai muistinhallinta.</p>
+</li>
+</ul>
+<p>Ohjelman suoritus alkaa aina <strong>main</strong> - funktiosta, jonka täytyy
+löytyä jostain mukaan linkatusta C-lähdetiedostosta.</p>
+<p>Näiden vaiheiden hahmottaminen on tärkeää, jotta osaa jäsennellä
+C-käännöksestä mahdollisesti tulevia virheilmoituksia. Tyypillisesti
+kääntäjä tekee kaikki vaiheet peräjälkeen automaattisesti, mutta sitä
+voi myös pyytää suorittamaan edellä mainitut askelet erikseen.</p>
+<p>Kaksi tällä hetkellä yleisintä kääntäjää ovat <em>gcc</em> ja <em>clang</em>, jotka
+tekevät saman asian, mutta tuottavat hieman erilaista tietoa
+esimerkiksi virhetilanteissa. Näitä voi käyttää joko komentoriviltä
+tai IDE:n kautta, tyypillisesti jotain käyttöliittymän nappulaa
+painamalla.</p>
+<p>C-kielestä löytyy paljon lisätietoa verkosta (tai kirjoista). Yksi
+lähtöpiste on <a href="http://en.wikipedia.org/wiki/C_(programming_language)">Wikipedia</a>, joka kertoo kielen historiasta ja muuta
+yleiskuvausta.</p>
+<p>Yleinen aloittelevien ohjelmoijien käyttämä tietolähde on myös
+<a href="http://stackoverflow.com/">Stack Overflow</a>, joka on vastauspalvelu erilaisiin ohjelmointiin
+liittyviin ongelmiin. Yhdessä Googlen (tai muiden hakupalvelujen)
+kanssa moniin ongelmiin saattaa löytyä ratkaisu siis pelkän
+verkkohaun kautta. Näiden käyttö saattaa kuitenkin olla petollista:
+yksittäisen ongelman ratkaisemisen lisäksi on tärkeää, että ymmärrät
+syvällisemmin mikä oli ongelma, ja miksi ratkaisu toimi. Koska Stack
+Overflowssa kuitenkin löytyy mielenkiintoisia tiedonjyväsiä,
+kiinnostavia kysymyksiä ja vastauksia on linkitettynä tähänkin
+materiaaliin sinne tänne.</p>
+<h2>TMC:n toiminta</h2>
+<p>Harjoitustehtävissä käytettävä TMC toimii seuraavalla tavalla:</p>
+<ul>
+<li>
+<p>Opiskelijan lähettämä lähdekoodi käännetään palvelimella olevalla
+    kääntäjällä. Tämä on usein eri kääntäjä tai ohjelmaversio kuin
+    paikallisella koneellasi käyttämä, joten varoitukset ja
+    virheilmoitukset saattavat näyttää erilaisilta.</p>
+</li>
+<li>
+<p>Lisäksi tehtäväpaketissa on kurssihenkilökunnan kirjoittama
+    tarkistinkoodi, joka on myös C:tä. Tarkistinkoodi kutsuu
+    opiskelijan toteuttamia funktioita ja vertailee tulosta
+    "mallitulokseen". Mikäli nämä poikkeavat, TMC ei hyväksy
+    ratkaisua.</p>
+</li>
+<li>
+<p>Kurssihenkilökunnan koodi ja opiskelijan koodi linkitetään
+    suoritettavaksi testiohjelmaksi. Lisäksi mukaan otetaan <em>check</em> -
+    kirjasto, joka sisältää työkaluja testauksen
+    helpoittamiseksi. Kirjastoa käytetään yleisemminkin
+    <em>yksikkötestaukseen</em> isommissakin ohjelmistoissa, jolloin halutaan
+    varmistaa että ohjelman funktiot toimivat halutulla tavalla.</p>
+</li>
+<li>
+<p>Palvelin ajaa ohjelman (<em>"test/test"</em>), joka tuottaa tulostetta,
+    jossa kerrotaan toimivatko opiskelijan funktiot odotetulla
+    tavalla, vai oliko niissä virheitä. Nämä tiedot toimitetaan
+    palvelimelle ja opiskelijan nähtäväksi.</p>
+</li>
+</ul>
+<p>Opiskelijan tuottama koodi on aina tehtäväpohjien <em>src</em> -
+hakemistossa, ja kurssihenkilökunnan koodi <em>test</em> -
+hakemistossa. Testiohjelmaan ei koskaan linkitetä mukaan
+<em>src/main.c</em> - tiedostoa, vaan se käyttää <em>test/test_source.c</em> -
+tiedostosta löytyvää <em>main()</em> - funktiota ohjelman
+käynnistämiseksi. Toisin sanoen voit muokata <em>src/main.c</em> - tiedostoa
+miten vain: testeri ei tiedä siitä mitään.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="02_first">
+    <h1 class="content-title">Ensimmäinen C-ohjelma</h1>
+    <div class="content-body">
+    
+      <p>Alla on hyvin yksinkertainen C-ohjelma. Se tulostaa yhden rivin
+tekstiä ja lopettaa sen jälkeen saman tien.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="cm">/* The following line will print out some text */</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hey! How are you?</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Ohjelman ensimmäinen rivi kertoo, että aiomme käyttää
+<strong>standardi-I/O</strong> - funktioita, jotka on toteutettu
+C:n standardikirjastossa. Otamme siis ohjelmaan mukaan <em>stdio.h</em> -
+otsaketiedoston, jossa kyseiset funktiot on määritelty. Näitä
+funktioita käytetään esimerkiksi tekstin tulostamiseen ruudulle, tai
+käyttäjän syötteen lukemiseen. Palaamme kirjaston toimintaan tarkemmin
+myöhemmin. Tämän rivin käsittelee <em>esikääntäjä</em>, mikä on ilmaistu
+rivin alussa olevalla <code>#</code> - merkillä.</p>
+<p>Kuten mainittua, jokaisen suoritettavan C-ohjelman täytyy sisältää
+<strong>main-funktio</strong>, jota järjestelmä kutsuu kun ohjelman suoritus
+käynnistyy. <em>main</em> - funktion määrittely näkyy rivillä 3. Palaamme
+hetken kuluttua siihen, mitä "<em>int</em>" ja "<em>void</em>" kyseisellä rivillä
+tarkoittavat.</p>
+<p><em>main</em> - funktion toteutus on sisällytetty <strong>ohjelmalohkoon</strong>, joka
+merkitään aaltosuluilla (riviltä 4 riville 7). Funktio (tai
+ohjelmalohko) sisältää lauseita, jotka suoritetaan
+järjestyksessä. Nämä muodostavat funktion toiminnan. <strong>Jokainen lause
+päättyy puolipisteeseen</strong>. Tässä funktiossa on siis vain yksi lause
+rivillä 6. Puolipisteen puuttuminen aiheuttaa aina käännösvirheen
+ohjelmaa käännettäessä.</p>
+<p>Rivi 5 ei ole C-kielen lause, vaan <strong>kommentti</strong>, joka dokumentoi
+ohjelmaa lukevalle koodarille ohjelman toimintaa. Kommentti alkaa
+merkeillä <code>/*</code> ja päättyy merkkeihin <code>*/</code>, ja se voi sijoittua
+useammalle riville. Esikäännösvaiheessa kaikki kommentit poistetaan,
+koska ne eivät vaikuta ohjelman toimintaan mitenkään. Tässä
+tapauksessa kommentti on mukana lähinnä esimerkin vuoksi (kokematonkin
+koodari todennäköisesti arvaa, mitä kommenttia seuraava rivi
+tekee). Monimutkaisemmissa ohjelmissa kommentteja kannattaa käyttää
+silloin kun ohjelmalogiikan toiminta ei välttämättä aukea ensi
+lukemalta. (valitettavasti kommentteja ei käytetä läheskään aina
+silloin kun siitä olisi hyötyä)</p>
+<p>Ohjelman ainoa C-kielinen lause rivillä 6 kutsuu standardikirjaston
+<strong>printf</strong> - funktiota, joka tulostaa tekstiä ruudulle. Tämä funktio
+on määritelty <em>stdio.h</em> otsakkeessa. Mikäli rivi 1 olisi unohtunut
+ohjelmasta, ohjelma ei kääntyisi, koska kääntäjä ei tällöin tietäisi
+<em>printf</em> - funktiosta mitään.</p>
+<p>Tulostettava teksti (eli merkkijono) on eristetty
+lainausmerkein. Lisäksi merkkijonon lopussa on <code>\n</code>, mikä kertoo
+järjestelmälle, että tulostetun huudahduksen perään täytyy siirtyä
+seuraavalle riville käyttäjän konsolilla.</p>
+<p><strong>Funktiokutsun</strong> tunnistaa ohjelmakoodissa siitä, että funktion
+<strong>nimen jälkeen seuraavat aina sulkeet</strong>. Sulkeiden sisällä on lista
+(pilkulla erotettuja) parametreja, jotka toimitetaan funktiolle. On
+myös mahdollista, että funktiolla ei ole parametreja lainkaan. Tässä
+tapauksessa <em>printf</em>-funktiokutsussa rivillä 6 oli siis yksi
+**parametri, joka oli merkkijono. C-kieli on 
+tarkka siitä että tätä rakennetta noudetaan.</p>
+<p>Kun ohjelma käännetään, ja tuloksena syntynyt koodi suoritetaan,
+ruudulle tulostuu (yllättäen?) teksti <em>"Hey! How are you?"</em>. Tässä
+kohtaa voit testata kääntäjän käyttämistä: kopioi ohjelma omaan
+tekstieditoriisi, tallenna tiedosto esimerkiksi nimellä "hello.c", ja
+käännä se. Jos käytät komentoriviä, voit esimerkiksi kokeilla komentoa</p>
+<p><code>gcc -o hello hello.c</code></p>
+<p>Kun nyt suoritat ohjelman kirjoittamalla "<code>./hello</code>", jotain pitäisi näkyä.</p>
+<p>IDE:n kanssa toimittaessa ei komentoriviä käytetä. Sen sijaan luot
+uuden ohjelmaprojektin, kirjoitat koodin kehittimen luomaan pohjaan
+(etsi sieltä main-funktio), ja painelet käynnistys- ja
+suoritus-nappuloita.</p>
+<p>Merkittävä piirre C:ssä -- esimerkiksi Pythonista poiketen -- on, että
+C-kääntäjä ei välitä ohjelman muotoilusta lainkaan (tosin esikääntäjä
+välittää, mutta siitä lisää myöhemmin). Voit esimerkiksi kirjoittaa
+pitkänkin rimpsun puolipisteellä erotettuja lauseita yhdelle
+riville. Tästä huolimatta on tärkeää, että ohjelmat on muotoiltu
+kauniilla ja johdonmukaisella tavalla, jotta niiden lukeminen olisi
+helppoa. Kun ohjelma kasvaa, ja jos se on huonosti muotoiltu, sen
+toimintaa on hyvin vaikea ymmärtää. Useimmiten saman koodin parissa
+työskentelee useampia ihmisiä, joten koodin luettavuus on tärkeää.</p>
+<p>Joitain hyviä ohjelmointikäytäntöjä:</p>
+<ul>
+<li>
+<p><strong>Sisennä koodi johdonmukaisesti</strong>: aina kun uusi ohjelmalohko alkaa,
+    lisää sisennystä. Kun lohko päättyy, vähennä sisennystä sama
+    määrä. Asia ei kiinnosta C-kääntäjää, mutta helpotat lähipiirisi
+    (esim. työkaverit, C-assarit) elämää sisentämällä koodin
+    selkeästi.</p>
+</li>
+<li>
+<p><strong>Nimeä</strong> funktiot, tietotyypit ja muuttujat johdonmukaisesti.</p>
+</li>
+<li>
+<p>Jaa ohjelma selkeisiin ja johdonmukaisiin funktioihin, jotka eivät
+    ole liian pitkiä</p>
+</li>
+<li>
+<p><strong>Käytä kommentteja</strong> silloin kun tarpeen, eli kun koodissa on
+    syheröistä logiikka joka ei välttämättä aukea ensi lukemalla</p>
+</li>
+</ul>
+<p>Suuri osa C-ohjelmointiin tarkoitetuista editoreista tai IDE:istä
+pyrkivät sisentäämään koodin automaattisesti. Toisinaan ohjelmoijan ja
+editorin käsitykset hyvästä sisennyksestä saattavat tosin poiketa
+toisistaan.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-1-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02-intro-1: Hei C! (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Testaa, että kehitysympäristösi toimii, ja voit palauttaa
+harjoituksia TMC:hen. Saat myös ensituntuman C-ohjelmointiin.</p>
+<p>Toteuta funktio <em>three_lines</em>, joka löytyy tiedostosta <em>source.c</em>
+TMC:n harjoituspohjassa. Funktion tulee tulostaa kolme riviä
+seuraavaan tyyliin (rivinumerot eivät ole osa tulostetta):</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre>January
+February
+March
+</pre></div>
+</td></tr></table>
+
+<p>Myös viimeisen rivin lopussa pitää olla rivinvaihto.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="03_types">
+    <h1 class="content-title">Tietotyypit ja muuttujat</h1>
+    <div class="content-body">
+    
+      <p>Tietokoneohjelma sijoittuu tietokoneen muistiin, johon se on
+tallennettu binäärisessä muodossa. Ohjelman toiminta muodostuu
+karkeasti ottaen <strong>1) koodista</strong>, joka sisältää ohjeet tietokoneen
+prosessorille ohjelman suorittamiseksi, sekä <strong>2) datasta</strong>, johon
+tallennetaan ohjelman suorituksen aikana käytettävää
+tilatietoa. C-ohjelmassa (ja monissa muissa ohjelmointikielissä) data
+esitetään <strong>muuttujien</strong> avulla. Kullakin muuttujalla on
+<strong>tietotyyppi</strong> joka kertoo minkälaisen lukujoukon muuttujalla voi
+esittää. Tietotyypin perusteella määräytyy myös se, kuinka monta
+bittiä muuttuja tarvitsee tietokoneen muistista.</p>
+<p>Ohjelmoija nimeää muuttujat, joihin viitataan myöhemmin
+ohjelmakoodissa. Nimen lisäksi ohjelmoija määrittää myös muuttujan
+tietotyypin. Nimi on melko vapaasti valittavissa: se voi sisältää
+aakkosia, numeroita ja alaviivan (_), joskaan ensimmäinen merkki ei
+saa olla numero. Kirjainmerkeissä isot ja pienet kirjaimet tulkitaan
+eri merkeiksi. Tietotyypin pitää olla jokin kääntäjän tuntemista
+tietotyypeistä. C:ssä on muutama perustietotyyppi, sekä lisäksi
+ohjelmoija voi määrittää uusia tietotyyppejä itse. C-kääntäjä
+tarkistaa tietotyyppien yhteensopivuuden ja oikean käytön jo
+käännösaikana: väärä tietotyyppi saattaa aiheuttaa käännösvaroituksen
+tai -virheen, mutta tietyissä tapauksissa jää huomaamatta. Alla
+esimerkki muuttujan "<em>numero</em>" määrittelystä. Muuttuja käyttää <em>int</em> -
+tietotyyppiä, joka esittää kokonaislukua:</p>
+<p><code>int numero;</code></p>
+<p>C-kielessä <strong>muuttujat on aina esiteltävä</strong> ennenkuin niitä voi käyttää
+muualla ohjelmakoodissa. Määrittelyn ansiosta kääntäjä osaa varata
+muuttujalle sen tarvitseman tilan tietotyypin perusteella.</p>
+<p>Toinen merkittävä C-kielen ominaispiirre on, että <strong>muuttujan alkuarvo
+on tuntematon</strong> esittelyn jälkeen. Emme siis tiedä edellä olevan rivin
+jälkeen mitään "<em>numero</em>" - muuttujan arvosta, ennenkuin se on
+ohjelmassa määritelty: se voi olla 0, tai se voi olla -3295957.</p>
+<h2>Kokonaisluvut</h2>
+<p>Suurin osa C-ohjelmissa käytetyistä muuttujista esittää
+kokonaislukuja, ja ovat jotain
+kokonaislukutietotyyppiä. Kokonaislukutietotyyppejä on useita, ja ne
+eroavat siinä, millaista lukujoukkoa ne voivat esittää, sekä siinä
+kuinka paljon tilaa ne tarvitsevat tietokoneen muistista. C-kielessä
+on valmiiksi määriteltynä seuraavat kokonaislukutietotyypit:</p>
+<ul>
+<li><strong>char</strong> -- koko 8 bittiä (eli yksi tavu), esittää joko etumerkillisiä
+    lukuja välillä -127 ja 127, tai etumerkittömiä lukuja välillä 0 ja 255.</li>
+<li><strong>short int</strong> -- 16 bittiä (2 tavua), etumerkillisiä lukuja
+    välillä -32767 to 32767, tai etumerkittömiä lukuja välillä 0 to 65535.</li>
+<li><strong>int</strong> -- vähintään 16 bittiä, mutta useimmiten 32 bittiä (4
+    tavua), etumerkillisiä lukuja välillä -(2<sup>31</sup> - 1) ja
+    2<sup>31</sup> - 1, tai etumerkittömiä lukuja välillä 0 to
+    2<sup>32</sup> - 1.</li>
+<li><strong>long int</strong> -- vähintään 32 bittiä, mutta voi olla 64 bittiä (8 tavua)</li>
+<li><strong>long long int</strong> -- 64 bittiä, etumerkillisiä lukuja välillä
+    -(2<sup>63</sup> - 1) ja 2<sup>63</sup> - 1, etumerkittömiä lukuja
+    välillä 0 ja 2<sup>64</sup> - 1.</li>
+</ul>
+<p>Kukin edellämainituista tyyppimäärittelyistä voi olla etumerkillinen
+tai etumerkitön. Etumerkittömyys ilmaistaan <code>unsigned</code> - avainsanalla
+ennen tietotyypin nimeä. Muuttujat ovat oletusarvoisesti
+etumerkillisiä (paitsi mahdollisesti <em>char</em> tyypin kanssa), mutta
+etumerkillisyyden voi myös ilmaista ohjelmassa halutessaan <code>signed</code> -
+avainsanalla.</p>
+<p>Yksi C-kielen ominaispiirre on, että monien perustietotyyppien varsinaista
+kokoa (ja siten mahdollista arvoaluetta) ei ole tarkkaan standardoitu,
+vaan se voi vaihdella eri tietokonealustoilla ja kääntäjillä. Tämän
+takia edellä olevassa listassa on myös käytetty hieman epämääräisiä
+ilmaisuja: emme esimerkiksi varmasti voi tiettää, minkä kokoinen
+tietotyyppi <em>int</em> on allaolevassa järjestelmässä.</p>
+<p><code>long int</code> ja <code>short int</code> voidaan ohjelmassa ilmaista lyhyemmin <code>long</code>
+and <code>short</code> - avainsanoilla, ja näin yleensä tehdäänkin.</p>
+<p>Alla on muutamia esimerkkejä muuttujien määrittelystä yllä olevia
+tietotyyppejä käyttäen. Esimerkistä käy ilmi myös se, että muuttujan
+esittelyn yhteydessä sille voidaan määritellä alkuarvo. Mikäli näin ei
+tehdä, kuten muuttujan <em>varC</em> yhteydessä rivillä 6, muuttujan arvo jää
+tuntemattomaksi. Emme voi olettaa sen olevan 0, tai mitään
+muutakaan. Määrittelemättömien muuttujien käyttö on yleinen virhe
+aloittelevilla C-ohjelmoijilla.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">varA</span> <span class="o">=</span> <span class="o">-</span><span class="mi">50</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">varB</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">varB2</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>  <span class="c1">// Error, exceeds the value range</span>
+    <span class="kt">int</span> <span class="n">varC</span><span class="p">;</span>  <span class="c1">// ok, but initial value is unknown</span>
+    <span class="kt">long</span> <span class="n">varD</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Yllä olevassa esimerkissä näkyy myös toisenlainen tapa ohjelman
+kommentointiin. Kun ohjelmarivillä on kaksi kenoviivaa (<code>//</code>), kaikki
+niiden perässä oleva teksti tulkitaan kommentiksi rivin loppuun
+asti. Seuraava rivi tulkitaan jälleen normaaliksi
+C-ohjelmakoodiksi. Koska C on muotoilun suhteen vapaamielinen,
+tällainen kommentti voidaan lisätä C-kielisen ohjelmarivin perään.</p>
+<p>Edellisessä esimerkissä kannattaa huomioida myös <strong>puolipisteiden
+käyttö</strong>. Jokainen muuttujan esittely on lause, jonka perään tulee
+laittaa puolipiste.</p>
+<p>Rivillä 5 yllä olevassa ohjelmassa sijoitetaan liian suuri luku
+<em>unsigned char</em> - tyyppiseen muuttujaan. Kääntäjä todennäköisesti
+varoittaa tästä, mutta kääntää siitä huolimatta ohjelman, ja se on
+mahdollista suorittaa. Ohjelman toiminta on kuitenkin suurella
+todennäköisyydellä virheellistä, koska muuttujaan on tallentunut väärä
+arvo. C-kääntäjä tekee parhaansa tuottaakseen suoritettavan ohjelman,
+mikä on monesti petollista, koska tässäkin tapauksessa ohjelma on
+selvästi virheellinen ja tulisi toimimaan väärin. <strong>Kääntäjän tuottamat
+varoitukset tuleekin aina ottaa vakavasti ja kyseiset rivit korjata.</strong></p>
+<p><em>Tiedoksi</em>: mikäli epävarmuus tietotyypin varsinaisesta koosta
+häiritsee, ja haluat eksplisiittisesti määritellä muuttujan koon,
+C99 - standardi sisältää seuraavat tietotyyppimäärittelyt. Nämä
+sisältyvät <em>stdint.h</em> - otsakkeeseen, joka tulee sisällyttää <code>#include
+&lt;stdint.h&gt;</code> - ohjeella ohjelman alussa:</p>
+<ul>
+<li><strong>uint8_t, int8_t</strong>: etumerkitön ja etumerkillinen 8-bittinen kokonaisluku.</li>
+<li><strong>uint16_t, int16_t</strong>: etumerkitön ja etumerkillinen 16-bittinen kokonaisluku.</li>
+<li><strong>uint32_t, int32_t</strong>: etumerkitön ja etumerkillinen 32-bittinen kokonaisluku.</li>
+<li><strong>uint64_t, int64_t</strong>: etumerkitön ja etumerkillinen 64-bittinen kokonaisluku.</li>
+</ul>
+<p><strong>Vakiot</strong> ovat kiinteitä arvoja, jotka ohjelmoija antaa ohjelmaa
+kirjoittaessaan. Kokonaislukuvakiot ovat oletusarvoisesti <em>int</em> -
+tietotyyppisiä, ellei toisin määritellä. Edellä olevassa ohjelmassa
+käytimmekin (desimaalimuotoisia) vakioita muuttujien alkuarvon
+määrittelyyn. Vaikka useimmiten käytetäänkin tuttuja
+desimaalivakioita, voidaan myös käyttää heksadesimaalilukuja (eli
+16-kantaista lukujoukkoa). Nämä merkitään käyttämällä <code>0x</code> -
+etuliitettä ennen varsinaista lukua. Heksadesimaaliluvuissa käytetään
+numeroiden 0-9 lisäksi merkkejä A, B, C, D, E ja F. Nämä voivat
+esiintyä vakiossa joko pienellä tai isolla kirjoitettuna (vaikka
+nimissä C erotteleekin isot ja pienet kirjaimet).</p>
+<p>Lisäksi voidaan käyttää oktaalivakioita, jotka ovat 8-kantaisia ja
+voivat siten sisältää lukuja 0-7. Oktaalivakiot merkitään
+0-etuliitteellä. Näitä kuitenkin näkee nykyään harvemmin käytettävän.</p>
+<p>Alla esimerkkejä erilaisten vakioiden käytöstä.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">short</span> <span class="n">a</span> <span class="o">=</span> <span class="mo">012</span><span class="p">;</span> <span class="cm">/* set variable a to octal 012, equal to decimal 10 */</span>
+<span class="kt">short</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">34</span><span class="p">;</span> <span class="cm">/* just using decimal number here */</span>
+<span class="kt">short</span> <span class="n">c</span> <span class="o">=</span> <span class="mh">0xffff</span><span class="p">;</span> <span class="cm">/* hexadecimal constant, equal to decimal 65535 */</span>
+</pre></div>
+</td></tr></table>
+
+<p>On oleellista huomioida, että erikantaiset vakiot ovat vain erilaisia
+esitysmuotoja samankaltaisille luvuille. Esimerkiksi <code>0xff</code> esittää
+samaa lukuarvoa kuin <code>255</code> tai <code>0377</code>.</p>
+<p>Mikäli vakiolla halutaan esittää <em>long</em> - muotoista pitkää
+kokonaislukua, tulee numeroarvon perään lisätä <code>L</code>. Esimerkiksi: <code>long
+la = 10000000000L;</code>.</p>
+<p>Vaikka C:n tietotyypit on staattisesti määritelty käännösaikana,
+C-kääntäjä pyrkii tekemään tarpeen mukaan tyyppimuunnoksia
+kokonaislukutyyppien välillä automaattisesti käännöksen
+yhteydessä. Tämä mahdollistaa <em>int</em> - tyyppisten vakioiden käyttämisen
+esimerkiksi <em>char</em> - tyyppisen muuttujan yhteydessä. Näiden kanssa
+tulee kuitenkin olla tarkkana, jotta muuttujalle määriteltyä lukuarvoa
+ei ylitetä, kuten edellä olleessa esimerkissä nähtiin. Tällöin
+tuloksena on epämääräisen lukuarvon päätyminen muuttujaan.</p>
+<h2>Liukuluvut</h2>
+<p>Jos halutaan esittää erityisen suuria lukuja, tai kokonaislukujen
+osia, tulee käyttää liukulukutyyppiä. Koska tietokoneen muisti on
+rajallinen ja koostuu diskreeteistä biteistä, rajatun kokoisilla
+liukuluvuilla ei voi esittää rajattoman suuria tai pieniä arvoja, vaan
+ne esittävät tiettyjä pisteitä jatkuvassa (ja todellisuudessa
+äärettömässä) lukuavaruudessa.</p>
+<p>Sisäisesti liukuluvun esitys tietokoneen muistissa koostuu kolmesta
+komponentistä:</p>
+<p>lukuarvo = (-1)<sup>etumerkki</sup> * 1.mantissa * 2<sup>eksponentti</sup></p>
+<p>Kullekin komponentille on varattu liukulukuesityksessä tietty määrä
+bittejä riippuen käytetystä liukulukutyypistä. Tämä määrittää sen,
+kuinka tarkasti liukulukuesitys pystyy lukuavaruuden esittämään.</p>
+<p>C-kääntäjä tuntee kolmenlaisia liukulukutyyppejä:</p>
+<ul>
+<li><strong>float</strong> -- 32 bittä (1b etumerkki + 23b mantissa + 8b eksponentti)</li>
+<li><strong>double</strong> -- 64 bittiä (1b etumerkki + 52b mantissa + 11b eksponentti)</li>
+<li><strong>long double</strong> -- 80 or 128 bittiä</li>
+</ul>
+<p>Koska bittejä on käytössä rajoitettu määrä, liukuluvuillakaan ei voi
+esittää kaikkia äärettömän reaalilukuavaruuden lukuja. Siksi
+liukuluvuilla toimitettujen laskutoimitusten tulokset saattavat
+pyöristyä arvoksi joka ei aivan täsmällisesti esitä matemaattisesti
+oikeaa tulosta. Tämä on hyvä ottaa huomioon esimerkiksi lukujen
+yhtäsuuruutta vertaillessa.</p>
+<p>Yleensä C-ohjelmassa käytetään oletusarvoisesti kokonaislukuja, ellei
+ole erityistä syytä käyttää liukulukuja. Kokonaislukujen käsittely on
+tyypillisesti prosessorille tehokkaampaa, vaikka liukuluvutkin
+pyörivät nykyarkkitehtuureissa varsin jouhevasti.</p>
+<p><strong>Lisätietoa</strong> liukuluvuista löytyy esimerkiksi aiheeseen liittyvästä <a href="http://en.wikipedia.org/wiki/Floating_point">Wikipedia
+-artikkelista</a>.</p>
+<p><strong>Liukulukuvakiot</strong> voivat olla joko perinteistä
+desimaalilukuformaattia (esim. 1.543), tai eksponenttiformaattia
+(esim. 1e-2), tai molempien yhdistelmä. Oletustyyppi
+liukulukuvakioilla on <em>double</em>, mutta vakion voi pakottaa myös
+<em>float</em>-tyyppiseksi lisäämällä <code>F</code> vakion perään. Alla esimerkkejä:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">float</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">0.534</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">e</span> <span class="o">=</span> <span class="mf">2e10</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">g</span> <span class="o">=</span> <span class="mf">0.111F</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<h2>Merkkivakiot</h2>
+<p>Tietokonejärjestelmässä merkit (esimerkiksi kirjaimet) ovat vain
+erilainen (256-kantainen) esitysmuoto samoille lukuarvoille, joita voi
+esittää esimerkiksi desimaalilukujen avulla. Merkkien lukuarvot
+esitetään perinteisesti
+<a href="http://en.wikipedia.org/wiki/ASCII">ASCII-koodauksella</a>, vaikkakin
+vaihtoehtoisia merkkikoodauksia on lukuisia. ASCII-taulukosta näkee
+miten erilaiset 8-bittiset arvot muuntuvat merkeiksi, ja mikä
+esimerkiksi vastaava desimaaliesitys olisi. Merkkivakioita voi käyttää
+samojen kokonaislukutyyppisten muuttujien kanssa kuin
+numerovakioitakin, ja ne erotellaan yksinkertaisilla lainausmerkeillä
+(<code>'</code>) esimerkiksi näin:</p>
+<p><code>int char_A = 'A';</code></p>
+<p>ASCII-taulusta näemme, että <em>'A'</em> vastaa desimaalilukua 65. Jos
+tulostaisimme muuttujan <em>char_A</em> arvon kokonaislukuja käyttäen,
+ruudulle ilmaantuisi numero 65. Jos tulostaisimme desimaaliluvun 66
+merkkikoodausta käyttäen, ruudulle ilmestyisi <em>'B'</em> (ilman
+lainausmerkkejä).</p>
+<p>Joskus on tarkkaa huomioida puhutaanko merkeistä vai
+lukuvakioista. Esimerkiksi ASCII-koodauksen mukainen merkkivakio <em>'1'</em>
+vastaa kokokonaislukua 49. Siten lainausmerkkien unohtaminen tai
+mukaanottaminen muuttaa esitetyn lukuarvon täysin toiseksi.</p>
+<p>Merkkivakioita käytetään esimerkiksi silloin, kun käyttäjälle
+tulostetaan tekstiä, tai käyttäjän syötteestä luetaan tekstiä.</p>
+<h2>Lausekkeet</h2>
+<p>Ohjelman toiminta ja sen lauseet sisältävät tyypillisesti lausekkeita,
+eli operaatioita jotka tuottavat jonkin tulokset. Lausekkeet on usein
+on sidottu toisiinsa käyttäen <strong>aritmeettisiä
+operaattoreita</strong>. Perusoperaattori on sijoitus (<code>=</code>), joka asettaa
+operaattorin vasemmalla puolella olevan muuttujan vastaamaan
+sijoituksen oikealla puolella olevassa <strong>lausekkeessa</strong> esitettyä
+arvoa. Vakiot voivat esiintyä vain sijoitusoperaattorin oikealla
+puolella. Sijoituksen oikealla puolella olevien lausekkeiden osana voi
+esiintyä myös muuttujia tai funktioita, eli toisin sanoen
+komponentteja, jotka tuottavat tuloksenaan jonkin arvon jota voi
+käyttää lausekkeen osana.</p>
+<p>Sijoitusoperaattori itseään voi myös käyttää osana lauseketta, joka on
+toisen sijoitusoperaattorin oikealla puolella. Tällöin
+sen arvo lausekkeessa vastaa oikeanpuolisen sijoituksen tulosta.</p>
+<p>Lausekkeita voi käyttää myös lauseissa joissa ei ole
+sijoitusoperaattoreita. Tällainen tilanne on yleensä funktiokutsut,
+joiden paluuarvo ei kiinnosta ohjelmaa. Funktioiden parametreissa voi
+käyttää mitä tahansa lausekkeita, joita muuallakin C-ohjelmassa.</p>
+<p>Alla oleva esimerkki esittää sijoitusoperaattorin käyttöä, ja miten se
+toimii silloin kun samassa lauseessa on useita sijoituslausekkeita.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">var</span><span class="p">;</span>  <span class="c1">// arvo on tuntematon</span>
+<span class="n">var</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>   <span class="c1">// nyt arvo tiedetään</span>
+<span class="n">var</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">varB</span> <span class="o">=</span> <span class="n">var</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>  <span class="c1">// molempiin muuttujiin tulee 30</span>
+</pre></div>
+</td></tr></table>
+
+<p>Suurin osa aritmeettisista operaattoreista toimii kuten normaalisti
+muillakin ohjelmointikielillä. Operaattoreita ovat esimerkiksi <strong>+
+(plus), - (miinus), * (kertolasku), / (jakolasku) ja %
+(jakojäännös)</strong>. Jakojäännösoperaattori toimii vain kokonaisluvuilla,
+mutta muita edellä mainittuja operaattoreita voi käyttää kaikkien
+numeeristen tyyppien kanssa. Laskujärjestys toimii kuten yleensä, eli
+kerto- ja jakolaskut arvioidaan ensin, ja suluilla voi ohjata
+laskujärjestystä. Alla joitain esimerkkejä:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">float</span> <span class="n">fa</span> <span class="o">=</span> <span class="mf">5.0</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="cm">/* &#39;5.0&#39; kertoo että käytetään liukulukuvakioita */</span>
+<span class="kt">int</span> <span class="n">ia</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="cm">/* lopputulos eri kuin edellä, koska nyt käytössä kokonaisluvut */</span>
+<span class="kt">char</span> <span class="n">cb</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span>
+<span class="kt">long</span> <span class="n">lc</span> <span class="o">=</span> <span class="n">cb</span> <span class="o">*</span> <span class="n">fa</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>Yllä olevasta esimerkistä nähdään kuinka lausekkeet voivat muodostua
+useasta operaattorista, ja ne voivat sisältää sekä vakioita että
+muuttujia. Esimerkistä nähdään myös kuinka C-kääntäjä tekee
+tyyppimuunnojset perustietotyyppien välillä automaattisesti.</p>
+<p>Yllä mainittujen operaattoreiden lisäksi C tarjoaa vaihtoehtoisen
+tavan yksinkertaisiin lisäys- ja vähennysoperaatioihin, jollaisia
+ohjelmissa ja esimerkiksi sen toisto-operaatioissa usein
+tarvitaan. Seuravaa esimerkki valaisee sitä kuinka näitä käytetään:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// a:n arvo on nyt 1, b:n arvo 0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">--</span><span class="p">;</span>  <span class="c1">// a:n arvo on taas 0, b:n arvo 1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">++</span><span class="n">a</span><span class="p">;</span>  <span class="c1">// a:n arvo on 1, b:n arvo on myös 1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">--</span><span class="n">a</span><span class="p">;</span>  <span class="c1">// a:n arvo on 0, niin myös b:n arvo</span>
+<span class="n">a</span> <span class="o">+=</span> <span class="mi">5</span><span class="p">;</span>   <span class="c1">// a:n arvo on 5</span>
+<span class="n">a</span> <span class="o">-=</span> <span class="mi">3</span><span class="p">;</span>   <span class="c1">// a:n arvo on 2</span>
+</pre></div>
+</td></tr></table>
+
+<p><code>++</code> ja <code>--</code> lisäävät ja vähentävät niihin liitetyn muuttujan arvoa
+yhdellä. Tämä yksiosainen (unäärinen) operaattori voi olla joko
+muuttujan jälkeen, tai sitä ennen. Ero on toiminnassa osana
+lauseketta, kuten yllä sijoituksessa. Kun operaattori on muuttujan
+jälkeen, lauseke käyttää muuttujan arvoa ennen muutosta. Kun
+operaattori on ennen muuttujaa, sen arvo muutetaan ennenkuin muuttujaa
+käytetään osana lauseketta.</p>
+<p>Riveillä 6 ja 7 on esimerkki toisesta unäärisestä
+operaattorivariaatiosta: <code>a += 5</code> merkitys on sama kuin <code>a = a + 5</code>,
+mutta se on nopeampi kirjoittaa. Tätä variaatiota voi käyttää yhteen-,
+vähennys-, kerto- ja jakolaskun kanssa samaan tyyliin. Sen sijaan <code>++</code>
+ja <code>--</code> ovat käytössä vain yhteen- ja
+vähennyslaskuissa. Operaattoreita <code>**</code> ja <code>//</code> ei ole
+olemassa. Potenssilaskua varten C:ssä ei ole sisäänlaskettua
+operaattoria, vaan se täytyy tehdä C:n standardikirjaston tarjoamaa
+funktiota käyttäen (kerrotaan myöhemmin).</p>
+<p>Alla vielä yksi esimerkki:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">varA</span><span class="p">;</span> <span class="cm">/* Value is unspecified now */</span>
+    <span class="n">varA</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="cm">/* value is set to 10 */</span>
+    <span class="n">varA</span><span class="o">++</span><span class="p">;</span> <span class="cm">/* value is 11 */</span>
+    <span class="n">varA</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span> <span class="cm">/* value is 22 */</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<h2>Tyyppimuunnoksista</h2>
+<p>C tekee implisiittisiä tyyppimuunnoksia perustietotyyppien välillä
+silloin kun se on mahdollista. Kun "suurempi" tietotyyppi sijoitetaan
+pienempään, tyyppimuunnoksen yhteydessä saattaa hukkua informaatiota,
+kuten aiemmassa esimerkissä nähtiin. Kun liukuluku sijoitetaan
+kokonaislukuun, mahdolliset kokonaisluvun murto-osat
+hukataan. C-kääntäjä varoittaa yleensä tällaisessa tilanteessa, mutta
+kääntää silti ohjelman.</p>
+<p>Tyyppimuunnoksen voi pakottaa tekemällä <strong>eksplisiittisen
+tyyppimuunnoksen</strong>. Tämä ilmaistaan lausekkeessa antamalla haluttu
+tyyppi sulkeiden sisällä osana lauseketta. Seuraavassa esimerkissa
+valoitetaan tätä toimintaa esimerkiksi liukulukujen yhteydessä.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">f</span> <span class="o">+</span> <span class="n">f</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">f</span> <span class="o">+</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">f</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>Yllä oleva ohjelma antaa <em>a</em>:n arvoksi 3, mutta <em>b</em>:n arvoksi
+tulee 2. Laskutoimitus <em>f + f</em> tehdään liukuluvuilla, jolloin
+lopputulos on oikea. Laskutoimitus <em>(int) f + (int) f</em> tarkoittaa,
+että f:n arvo muutetaan kokonaisluvuksi ennen yhteenlaskua. Näin
+tuloskin on eri. <strong>Eksplisiittisiä tyyppimuunnoksia tulisi välttää aina
+kun mahdollista</strong>, mutta joskus niitä saattaa "joutua" käyttämään, ja
+joskus niitä näkee osana muuta koodia.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-2-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02-intro-2: Tyypit kuntoon (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Ensituntuma C:n perustietotyyppien oikeaan käyttöön.</p>
+<p>Tehtäväpohja sisältää funktion <em>fix_types</em>, joka suorittaa kolme
+laskutoimitusta ja tulostaa niiden tulokset. Tarkoituksena olisi
+tulostaa ensimmäisen laskun tulos yhden desimaalin tarkkuudella, ja
+kahden jälkimmäisen laskutoimituksen tulos kokonaislukuna, mutta
+funktio palauttaa virheellisiä tuloksia.</p>
+<p>Korjaa funktiota siten, että se palauttaa oikeat
+lopputulokset. Odotettu tuloste on:</p>
+<p><code>5.3  8000000  66666</code></p>
+<p>Älä koske <em>printf</em> - riviin, vaan korjaa muuttujille määritellyt
+tietotyypit.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="04_functions">
+    <h1 class="content-title">Funktiot</h1>
+    <div class="content-body">
+    
+      <p>C-ohjelmat muodostuvat funktioista. Funktio sisältää yksittäisen
+loogisen osan ohjelmasta, ja sitä voidaan kutsua ohjelman muista
+osista (eli toisista funktioista). Funktio voi kutsua myös itse
+itseään -- tätä kutsutaan rekursioksi. Hyvin suunnitellussa ohjelmassa
+sama logiikka ei toistu moneen kertaan, vaan se on eristetty omaksi
+funktiokseen jota kutsutaan aina tarvittaessa. Hyvällä funktiolla on
+myös selkeä ja hyvin määritelty toiminta.</p>
+<p>Funktiolla on neljä pääosaa: <strong>nimi, paluuarvo, parametrilista</strong> ja
+<strong>funktion runko</strong>, jossa funktion toiminta määritellään käyttäen
+C-kielen lauseita ja kontrollirakenteita. Alla on esimerkki kahdesta
+lyhyestä funktiosta: <em>square()</em> kertoo saamansa parametrin <em>base</em>
+itsellään ja palauttaa paluuarvonaan tämän tuloksen. Funktio on
+määritelty riveillä 1-5.</p>
+<p>Ohjelmassa on lisäksi <em>main()</em> - funktio,
+josta ohjelman suoritus alkaa. Kaikissa C-ohjelmissa täytyy olla yksi
+(ja vain yksi) main-funktio. Tässä tapauksessa <em>main</em>-funktio vai
+esittelee kolme muuttujaa, ja alustaa ne <em>square</em> - funktiokutsuista
+saaduilla paluuarvoilla. Funktiokutsu voi olla osa lauseketta, ja
+funktion parameterit voivat koostua lausekkeista, kuten alla
+nähdään. Myös funktiokutsu itsessään voi olla osa lauseketta jota
+käytetään (ulomman) funktiokutsun parametrinä.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="nf">square</span><span class="p">(</span><span class="kt">int</span> <span class="n">base</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">base</span> <span class="o">*</span> <span class="n">base</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="n">square</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>  <span class="c1">// val becomes 9</span>
+    <span class="kt">int</span> <span class="n">val2</span> <span class="o">=</span> <span class="n">square</span><span class="p">(</span><span class="n">val</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>  <span class="c1">// val2 becomes 18 * 18</span>
+    <span class="kt">int</span> <span class="n">val3</span> <span class="o">=</span> <span class="n">square</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="n">val</span><span class="p">));</span>  <span class="c1">// val3 becomes (9*9) * (9*9)</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Riviltä 1 käy ilmi kuinka funktiomäärittely rakentuu. Ensiksi
+kerrotaan funktion <strong>paluuarvon tietotyyppi</strong>. Kuten muuttujilla, se voi
+olla yksi C:n perustietotyypeistä, tai käyttäjän itse määrittelemä
+tyyppi (joka opitaan tekemään myöhemmin). On mahdollista että
+funktiolla ei ole lainkaan paluuarvoa. Tällöin tietotyypin paikalle
+kirjoitetaan <code>void</code>.</p>
+<p>Tämän jälkeen annetaan <strong>funktion nimi</strong>. Funktion nimeä koskevat samat
+säännöt kuin muuttujienkin nimiä: kirjaimia ja numeroita voi antaa
+alaviivan lisäksi, mutta nimi ei saa alkaa numerolla. Isot ja pienet
+kirjaimet tulkitaan eri merkeiksi.</p>
+<p>Nimen jälkeen seuraa sulkujen sisässä lista funktion
+parametreja. Parametrien avulla funktion kutsuja säätelee funktion
+sisäistä toimintaa. Kullekin parametrilla määritellään tietotyyppi ja
+parametrin nimi (jälleen samat nimeämissäännöt pätevät). Jos
+funktiolla on useita parametreja, ne erotetaan pilkulla. Tässä
+tapauksessa <em>square</em> - funktiolla on vain yksi parametri. On myös
+mahdollista että funktiolla ei ole parametreja lainkaan. Tällöin
+parametrilistan paikalle kirjoitetaan <code>void</code>. Näin tehdään yllä
+olevassa esimerkissä <em>main</em>-funktion määrittelyssä.</p>
+<p>Funktion parametrit käyttäytyvät kuten muuttujat funktion määrittelyn
+sisällä. Niihin voi viitata lauseissa ja lausekkeita, ja niiden
+sisältöä voi muuttaa. Toisin kuin paikallisesti määritellyillä
+muuttujilla, funktioparametreilla on alkuarvo, joka määrittyy sen
+perusteella miten funktiota on kutsuttu.</p>
+<p>Parametrit ja muut mahdollisesti määritellyt muuttujat ovat <strong>näkyvissä
+vain funktion ohjelmalohkon sisällä</strong>, joka erotellaan
+aaltosuluin. Jos näihin yritetään viitata aaltosulkujen ulkopuolelta,
+kääntäjä antaa virheen, eikä tuota ajettavaa ohjelmaa.</p>
+<p>Funktion suoritus loppuu joko <strong>return</strong> - lauseeseen tai kun ohjelman
+suoritus tulee funktion loppuun. <em>return</em> - lauseen jälkeen annetaan
+lauseke (tai esimerkiksi vakio tai muuttuja), joka funktio palauttaa
+paluuarvonaan. Funktiossa voi olla useita <em>return</em> - lauseita,
+esimerkiksi ohjelman eri ehtohaaroissa. Mikäli funktiolla on
+määritelty paluuarvo, mutta suoritus loppuu funktion lopussa
+törmäämättä <em>return</em> - lauseeseen, funktion paluuarvo on
+määrittelemätön. Kääntäjä varoittaa tästä, mutta yrittää silti kääntää
+ohjelman. Tällainen tilanne tulisi tietysti korjata, ja <strong>funktion
+tulisi tällöin aina loppua return - lauseeseen</strong>.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-func-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 04_func: Vektorifunktio (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> perehtyä funktion kirjoittamiseen ja toisten
+kirjastofunktioiden kutsumiseen.</p>
+<p>Toteuta funktio nimeltään <strong>vectorlength</strong> joka laskee annetun
+kolmiulotteisen vektorin pituuden. Funktio saa kolme parametria, jotka
+esittävät vektorin alkioita eri ulottuvuuksissa. Funktio palauttaa
+vektorin pituuden. Kaikki luvut tulee käsitellä double-tyyppisinä liukulukuesityksinä.</p>
+<p>Mikäli vektorilaskut ovat ehtineet unohtua, esimerkiksi <a href="https://fi.wikipedia.org/wiki/Vektori">Wikipediassa</a>
+kerrotaan laskukaava. Tarvitset siis esimerkiksi neliöjuurilaskua,
+joka ei sisälly C-kielen perusoperaattoreihin, vaan sitä varten on
+<a href="http://linux.die.net/man/3/sqrt">sqrt</a> - funktio matematiikkakirjastossa, jota sinun tulee
+kutsua. <a href="http://linux.die.net/man/3/pow">pow</a> - funktiolla voi laskea potenssilaskuja. Katso tarkemmat
+tiedot funktioista linkitetyiltä manuaalisivuilta.</p>
+<p>Toteuta funktio <em>source.c</em> - tiedostoon. Tiedostossa on annettu
+valmiiksi viittaus <em>math.h</em> - otsaketiedostoon jossa
+matematiikkafunktiot on määritelty, mutta tässä tehtävässä
+joudut kirjoittelemaan kaiken muun itse. <em>Ohjelma ei aluksi edes
+käänny, ennenkuin olet toteuttanut vähintäänkin funktion rungon.</em></p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="05_format">
+    <h1 class="content-title">Muotoiltu syöte ja tuloste</h1>
+    <div class="content-body">
+    
+      <h2>Muotoiltu tuloste</h2>
+<p>C-ohjelma voi tulostaa tekstiä käyttäjän ruudulle kutsumalla
+järjestelmän mukana tulevassa C-standardikirjastossa määriteltyä
+<strong>printf</strong> - funktiota. <em>printf</em> - funktiossa on vähintään yksi
+parametri, lainausmerkeillä rajattu <strong>merkkijono</strong>, joka kertoo mitä
+tulostetaan. Lisäksi voi olla vaihteleva määrä muita parametreja,
+joita halutaan sisällyttävän tulosteeseen.</p>
+<p><em>printf</em> - funktiossa annettu merkkijono voi sisältää
+<strong>muotoilumääreitä</strong>, jotka korvataan parametrilistassa annetun
+lausekkeen arvolla. Muotoilumääreet alkavat aina <code>%</code> - merkillä. Alla
+yksinkertainen esimerkki.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;The number is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">number</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Huomaamme, että ohjelmassa määritellään kokonaislukumuuttuja <em>number</em>,
+jonka arvoksi asetetaan 50. Sitten kutsutaan <em>printf</em> - funktiota,
+jolle annetaan kaksi parametriä: merkkijono, sekä lauseke, joka
+sisältää pelkästään muuttujan <em>number</em>. Jälkimmäinen parametri voisi
+olla mikä tahansa lauseke (esimerkiksi funktiokutsu), joka palauttaa
+kokonaisluvun. Ensimmäinen parametri on aina merkkijono. Tässä
+tapauksessa <code>%d</code>:n paikalle korvautuu muuttujan <em>number</em> sen hetkinen
+arvo.</p>
+<p>Ohjelman ensimmäisellä rivillä sisällytetään <em>"stdio.h"</em> -
+otsaketiedostossa annetut määritelmät osaksi ohjelmaa. <em>stdio.h</em>
+sisältää C-standardikirjaston syöte- ja tulostusvirtaa koskevan
+määritelmät ja funktiorajapinnat. Myös <em>printf</em> - funktio on
+määritelty siellä.</p>
+<p>Ohjelma tulostaa ruudulle:</p>
+<p><code>The number is 50</code></p>
+<p>ja siirtää kursorin seuravalle riville. Uusi rivi aloitetaan vain
+silloin kun tulosteessa esiintyvät merkit <code>\n</code>. Mikäli tätä merkkiä ei
+esiinny, uutta riviä ei aloiteta, vaikka erillisiä <em>printf</em> - kutsuja
+olisi useita.</p>
+<p>Muotoilumääreitä tulee olla yhtä monta, kuin muotoilumerkkijonoa
+seuraavia parametreja <em>printf</em>-kutsussa. Muotoilumääreitä on
+erilaisia, riippuen tulostettavan arvon tietotyypistä ja halutusta
+esitysmuodosta. Muotoilumääreen tyypin tulee vastata parametrin
+tuottamaa tietotyyppiä. Esimerkiksi seuraavia on käytössä:</p>
+<ul>
+<li><strong>%d</strong>: (int) -- etumerkillinen kokonaisluku desimaaliesityksenä</li>
+<li><strong>%u</strong>: (unsigned int) -- etumerkitön kokonaisluku desimaaliesityksenä</li>
+<li><strong>%o</strong>: (unsigned int) -- kokonaisluku oktaaliesityksenä</li>
+<li><strong>%x, %X</strong>: (unsigned int) -- kokonaisluku
+    heksadesimaaliesityksenä, kirjaimet A-F joko pienillä (ensimmäinen
+    muoto) tai isoilla (jälkimmäinen) esitettynä. </li>
+<li><strong>%c</strong>: (int) -- yksittäinen merkki perustuen ASCII-koodaukseen
+    (kts. edellä).</li>
+<li><strong>%s</strong>: (char*) -- merkkijono. Näistä enemmän asiaa seuraavassa modulissa.</li>
+<li><strong>%f</strong>: (double) -- liukuluku muodossa
+    "n.nnnnnn". Oletusarvoisesti tulostetaan kuusi desimaalia.</li>
+<li><strong>%e, %E</strong>: (double) -- liukuluku eksponenttimuodossa ("n.nnnnnnE+-xx)</li>
+<li><strong>%g, %G</strong>: (double) -- joko %f tai %e - muoto, riippuen
+    eksponentin suuruudesta.</li>
+</ul>
+<p>Mikäli tulostettavan merkkijonon halutaan sisältävän %-merkin, pitää
+sijoittaa <code>%%</code> merkkijonoon, jotta voidaan erottaa se muista
+muotoilumääreistä.</p>
+<p>Muotoilumääreeseen voidaan lisäksi sisällyttää lisämääreitä, joilla
+voidaan säädellä tulosteen ulkoasua. Esimerkiksi seuraavia voidaan
+käyttää:</p>
+<ul>
+<li><strong>numero</strong> (esim: <code>%4d</code>): kertoo että korvatun tulosteen tulisi aina käyttää
+    vähintään annettu määrä merkkejä. Tätä voidaan käyttää tulosteen
+    parempaan muotoiluun, esimerkiksi taulukoksi, jossa sarakkeet
+    osuvat nätisti samalle kohdalle.</li>
+<li><strong>miinusmerkki</strong> numeron edellä (esim: <code>%-4d</code>): kun tuloste vaatii
+    vähemmän merkkejä kuin annettu, tulostaa sen annetun kentän
+    vasempaan reunaan. Oletusarvoisesti tuloste tasataan oikeaan reunaan.</li>
+<li><strong>plussamerkki</strong> numeron edellä (<code>%+4d</code>): numeerisissä tulosteissa sisällyttää
+    aina etumerkin ennen numeroarvoa, myös positiivisten lukujen
+    tapauksessa.</li>
+<li><strong>nollamerkki</strong> numeron edellä (<code>%04d</code>): numeerisissä tulosteissa täyttää
+    käyttämättömät merkit nollilla numeron edessä, kun tuloste muuten
+    käyttäisi vähemmän tilaa kuin annettu määrä merkkejä.</li>
+<li><strong>piste, jonka perässä numero</strong> (<code>%4.1f</code>): määrittelee kuinka
+    monta desimaalia näytetään liukuluvuissa. Pisteen edellä oleva
+    numero kertoo edelleen kuinka monta merkkiä tulosteen tulee
+    kokonaisuudessaan (vähintään) käyttää, ja sitä ei ole pakko antaa.</li>
+<li><strong>h tai l</strong> merkit (esim: <code>%ld</code>): Oletusarvoisesti kokonaisluvun
+    tyypiksi oletetaan <em>int</em> ja liukuluvun <em>double</em>. <code>h</code> ilmaisee,
+    että tulostus odottaa lausekkeen tyypiksi lyhyen tietotyypin
+    (<em>short</em> kokonaisluvulle tai <em>float</em> liukuluvule). <code>l</code> ilmaisee
+    vastaavasti että pitkä tietotyyppi on käytössä (<em>long</em> tai <em>long double</em>).</li>
+</ul>
+<p>Lisää yksityiskohtia löytyy esimerkiksi K&amp;R - kirjasta.</p>
+<p>Alla joitain esimerkkejä muotoillusta tulosteesta. Hakasuluilla ei
+tulosteessa ole mitään erityismerkitystä, mutta niitä käytetään
+korostamaan sitä, kuinka monta merkkiä tuloste käyttää.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">numA</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">numB</span> <span class="o">=</span> <span class="mf">2.54</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">numC</span> <span class="o">=</span> <span class="mf">0.000001</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;At least five characters long: [%5d]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">numA</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Length is six, one decimal shown: [%6.1f]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">numB</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Float number, aligned left: [%-10.2e]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">numC</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Number with leading zeros: [%05d]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">++</span><span class="n">numA</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Tämä tulostaa:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre>The following field is at least five characters long: [   10]
+The length is six, but just one decimal shown: [   2.5]
+Another floating point number, aligned left: [1.00e-06  ]
+Number with leading zeros: [00011]
+</pre></div>
+</td></tr></table>
+
+<p>Esimerkissä ei liene mitään kovin yllättävää, mutta rivillä 11
+esitellään vielä kerran kuinka unäärinen "lisää yksi" - operaattori
+toimii, kun se on annettu ennen muuttujaa. Lisäksi voi huomioida <code>\n</code>
+käytön jokaisen rivin lopussa. Mikäli sitä ei otettaisi mukaan, kaikki
+tulosteet ilmestyisivät samalle riville. <code>\n</code> vittaa erityiseen
+rivinvaihtomerkkiin (ASCII-koodi 10), joka aiheuttaa tulosteen
+siirtymisen seuraavalle riville. Ilman tällaista erikoiskoodia
+rivinvaihtomerkkiä olisi vaikea sisällyttää ohjelmakoodiin, mutta
+muitakin keinoja siihen löytyy (esim: <code>printf("%c", 10);</code>)</p>
+<p>Vastaavia erikoismerkkejä on muitakin:</p>
+<ul>
+<li>'\t': sarkain -- siirtää tulostetta yhden sarkainvälin eteenpäin</li>
+<li>'\': tulostaa yhden kenoviivan</li>
+<li>'\"': tulostaa hipsut (")</li>
+<li>'\'': tulostaa yksinkertaisen lainausmerkin</li>
+</ul>
+<p>Lisää erikoismerkkejä löytyy jälleen kirjallisuudesta tai verkosta.</p>
+<h2>Muotoiltu syöte</h2>
+<p>Käyttäjältä voi lukea syötettä käyttäen <strong>scanf</strong> - funktiota. Sekin
+on määritelty standardikirjastossa, ja vaatii toimiakseen
+<em>"stdio.h"</em> - otsaketiedoston sisällyttämisen ohjelmaan. Käyttäjän
+syöte parsitaan käyttäen samanlaisia muotoilumääreitä kuin <em>printf</em> -
+funktion yhteydessä, riippuen siitä odotetaanko numeroarvoja jossain
+tietyssä lukujärjestelmässä, merkkejä, vai jotain muuta.</p>
+<p>Alla esimerkki <em>scanf</em> - funktion käytöstä:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">ret_a</span><span class="p">,</span> <span class="n">ret_b</span><span class="p">;</span>
+
+    <span class="n">ret_a</span> <span class="o">=</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">ret_b</span> <span class="o">=</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%f,%f&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p><em>scanf</em> - funktio lukee käyttäjältä merkkejä, ja parsii ne annettuihin
+muuttujiin. Nämä muuttujat pitää ensin esitellä, kuten riveillä 5-7
+tehdään. Muuttujilla ei ole määriteltyä alkuarvoa, mutta tässä
+tapauksessa se ei haittaa.</p>
+<p>Rivillä 9 luetaan käyttäjältä etumerkillinen kokonaisluku muuttujaan
+<em>a</em>. Jälleen muotoilumääreen ja annetun muuttujan tyypin tulee vastata
+toisiaan. <em>scanf</em>-funktion paluuarvo sijoitetaan muuttujaan
+<em>ret_a</em>. Paluuarvo on tärkeä, koska se kertoo, kuinka monta
+muotoilumäärettä onnistuttiin onnistuneesti parsimaan. Jos tässä
+tapauksessa funktio palauttaa 0, parsiminen ei onnistunut, esimerkiksi
+koska käyttäjä ei ole syöttänyt numeerisiä merkkejä. Mikäli käyttäjän
+syöte ei vastaa odotettua muotoilumäärettä, <em>scanf</em>-funktio palaa
+välittömästi ja lopettaa parsimisen siihen paikkaan.</p>
+<p>Rivi 10 odottaa käyttäjältä kahta liukulukua, joiden välillä on
+pilkku. Funktio palauttaa 0, mikäli ensimmäistä liukulukua ei
+onnistuttu lukemaan, 1 mikäli ensimmäisen liukuluvun lukeminen
+onnistui, mutta toisen ei, tai 2, mikäli koko syöte onnistuttiin
+lukemaan.</p>
+<p>Koska <em>scanf</em>-funktio <strong>keskeyttää suorituksen</strong> heti kun syötteen
+lukeminen ei onnistu, on mahdollista että annettuja muuttujia ei
+asetetakaan ja esimerkiksi edellisessä esimerkissä niiden arvo jää
+tuntemattomaksi. Lisäksi on hyvä huomioida, että seuraava
+<em>scanf</em>-kutsu <strong>jatkaa lukemista siitä mihin edellinen jäi</strong>. Tämä saattaa
+joskus yllättää, jos edellisen kutsun parsiminen ei onnistunutkaan, ja
+parsiminen siksi keskeytetään.</p>
+<p><em>scanf</em>-funktio <strong>ohittaa tyhjät merkit</strong>, esimerkiksi välilyönnin,
+tabulaattorimerkin (<code>\t</code>) tai rivinvaihdon (<code>\n</code>). Poikkeuksena
+silloin, kun luetaan yksittäistä merkkiä (<code>%c</code> - muotoilumääre),
+jolloin näidenkin merkkien parsinta onnistuu.</p>
+<p>Tässä vaiheessa <strong>&amp;</strong> - merkin käyttö muuttujien edellä
+kummastuttaa. Tämä liittyy osoittimien toimintaan, joista lisää
+seuraavassa modulissa. Toistaiseksi voit vain olettaa, että tuo merkki
+tulee aina lisätä muuttujan nimen eteen, kun <em>scanf</em>-funktiota
+käytetään.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-3-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 05-calc-1: Summalasku (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> harjoittele muuttujien tulostamista ja syöttämistä.</p>
+<p>Toteuta funktio <em>simple_sum</em>, joka kysyy käyttäjältä kaksi
+kokonaislukua ja laskee niiden summan. Lopuksi funktio tulostaa summan
+seuraavassa muodossa:</p>
+<p><code>1 + 2 = 3</code></p>
+<p>Tulosteen lopussa tulee olla rivinlopetus ('<code>\n</code>'). Seuravassa
+esimerkki käyttäjän syötteestä (punaisella) ja sitä seuraavasta
+ohjelman tulosteesta (mustalla):</p>
+<pre>
+<font color="red">4 5</font>
+4 + 5 = 9</pre>
+
+<p><strong>Vinkki:</strong> Koska <em>scanf</em> ohittaa kaikki tyhjät merkit
+  muotoiluohjeiden välissä, ohjelma saa hyväksyä syötteet, joissa
+  kaksi kokonaislukua ovat eri riveillä, tai ne on erotettu useilla
+  välilyönneillä.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="06_conditional">
+    <h1 class="content-title">Ehtorakenteet</h1>
+    <div class="content-body">
+    
+      <h2>Lauseet ja ohjelmalohkot</h2>
+<p>Funktion runko koostuu lauseista, jotka loppuvat aina
+puolipisteeseen. <strong>Koostettu lause</strong> kokoaa yhteen ryhmän lauseita
+omaksi lohkokseen. Lohkon alku ja loppu merkitään aaltosuluilla <code>{</code> ja
+<code>}</code>. Tällainen lohko voidaan ajatella itsessään omaksi lauseekseen
+ohjelman parsimisen näkökulmasta. Määrittelyt (esimerkiksi muuttujat),
+jotka tehdään lohkon sisällä näkyvät vain lohkon loppuun
+asti. Sisäkkäisiä lohkoja voi olla ohjelmassa useita. Yleensä lohkoja
+käytetään yhdessä muiden ohjelman kontrollirakenteiden kanssa, kuten
+ehtolauseissa tai toistosilmukoissa, mutta niitä voi määritellä
+muutenkin keskellä funktion toteutusta.</p>
+<p>Alla oleva esimerkki esittelee lohkon toimintaa, ja sitä kuinka
+paikalliset muuttujat ovat käytettävissä:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="cm">/* Virhe! b:hen ei voi tässä kohtaa enää viitata */</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Yllä olevassa esimerkissä muuttuja <em>a</em> on näkyvillä koko funktiossa,
+mutta koska <em>b</em> määritellään vasta sisemmässä ohjelmalohkossa, se ei
+näy rivillä 9, koska siinä kohtaa sisempi lohko on jo suljettu. Siksi
+kääntäjä tekee käännösvirheen, eikä tuota ajettavaa ohjelmaa.</p>
+<h2>Vertailuoperaattorit ja loogiset operaattorit</h2>
+<p>Loogiset operaattorit, jollaisia vertailutkin ovat, <strong>tuottavat
+arvokseen aina 1 tai 0</strong>. Nämä ovat normaalia kokonaislukutietotyyppiä
+(<em>int</em>). Toisin kuin monissa muissa ohjelmointikielissä, C-kielessä ei
+ole totuusarvotyppiä, vaan totuusarvoja esitetään kokonaislukujen
+avulla: <strong>"epätosi" ilmaistaan arvolla 0, "tosi" millä tahansa muulla
+kokonaisluvulla</strong>.</p>
+<p>Vertailuoperaattorit ovat (ei niin yllättäen) seuraavat:</p>
+<ul>
+<li><code>&lt;</code> -- pienempi kuin</li>
+<li><code>&lt;=</code> -- pienempi tai yhtäsuuri kuin</li>
+<li><code>&gt;</code> -- suurempi kuin</li>
+<li><code>&gt;=</code> -- suurempi tai yhtäsuuri kuin</li>
+<li><code>==</code> -- yhtäsuuri (<strong>Tärkeää: Huomaa ero sijoitusoperaattoriin '='</strong>)</li>
+<li><code>!=</code> -- erisuuri kuin</li>
+</ul>
+<p>Seuraava esimerkki näyttää kuinka sijoitusoperaattorit toimivat:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">a_res</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a less than 5: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a_res</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a equal to 5: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Mikäli käyttäjä syöttää kokonaisluvun, se luetaan muuttujaan
+"<em>a</em>". Muuttuja "<em>a_res</em>" kertoo mikäli syötetty luku oli pienempi kuin 5:
+tässä tapauksessa muuttujan arvoksi sijoitetaan 1,
+muutoin 0. Vertailuoperaattoria voi käyttää normaalisti osana mitä
+tahansa muuta lauseketta, kuten on tehty rivillä 8 osana
+printf-funktiokutsua. Mikäli käyttäjä ei syöttänyt kokonaislukua,
+muuttujan "<em>ret</em>" arvo on 0, eikä edellämainittuja vertailuja tai
+tulosteita tehdä laisinkaan.</p>
+<p>Käyttäjän syöte (punaisella) ja ohjelman tuloste (mustalla) voisi
+näyttää esimerkiksi seuraavalta:</p>
+<pre>
+<font color="red">5</font>
+a less than 5: 0
+a equal to 5: 1</pre>
+
+<p>Lisäksi voidaan käyttää loogisia operaattoreita JA, TAI ja EI:</p>
+<ul>
+<li>JA-operaattori on <code>&amp;&amp;</code>: esimerkiksi lauseke <code>(a &lt; 5 &amp;&amp; b &gt; 6)</code> on
+    tosi (1) jos <em>a</em> on pienempi kuin 5 <strong>ja</strong> <em>b</em> on suurempi kuin 6.</li>
+<li>TAI-operaattori on  <code>||</code>: esimerkiksi lauseke <code>(a &lt; 5 || b &gt; 6)</code>
+    on tosi jos joko <em>a</em> on pienempi kuin 5 <strong>tai</strong> <em>b</em> on suurempi kuin 6.</li>
+<li>EI operaattori viittaa vain yhteen lausekkeeseen. <code>!</code> lausekkeen
+    edessä kääntää sen totuusarvon toiseksi. Esimerkiksi <code>!(a &lt; 5)</code>
+    kertoo etti "<em>a</em> ei ole pienempi kuin 5", eli se on suurempi tai
+    yhtäsuuri kuin 5.</li>
+</ul>
+<p>Näitä operaattoreita ja vertailuoperaattoreita voi tietysti yhdistellä
+mielin määrin. Sulkeiden kanssa kannattaa tällöin olla tarkkana, jotta
+loogiset ehdot testaavat varmasti oikeaa asiaa.</p>
+<p>Yleinen aloittelijan virhe C-kielessä on sekoittaa loogiset
+operaattorit <code>&amp;&amp;</code> ja <code>||</code> bittioperaattoreihin <code>&amp;</code> ja <code>|</code>. Kääntäjä ei
+huomauta asiasta mitään, koska lausekkeessa käytettynä molemmat
+tapaukset voidaan laskea -- ne vain tuottavat täysin eri
+lopputuloksen. Samanlainen virheen mahdollisuus on
+yhtäsuuruusvertailun (<code>==</code>) ja sijoituksen (<code>=</code>) kanssa. Tarkkana!</p>
+<h2>Ehtorakenteet</h2>
+<p>Ehtorakenteet ovat merkittävä osa mitä tahansa
+tietokoneohjelmaa. C:ssä ehtolauseet noudattavat rakennetta:</p>
+<pre>
+if (lauseke)
+  lause-1
+else
+  lause-2</pre>
+
+<p>Jos "<em>lauseke</em>" on tosi (eli lausekkeen tuottaman kokonaisluvun arvo
+on jotain muuta kuin 0), "<em>lause-1</em>" suoritetaan. Jos "<em>lauseke</em>" ei
+ole tosi (eli kokonaisluku on 0), "<em>lause-2</em>" suoritetaan.</p>
+<p>"<em>lauseke</em>" voi olla mikä tahansa C-kielinen lauseke. Se voi
+esimerkiksi sisältää funktiokutsun, jolloin funktion paluuarvo
+määrittelee ehtolauseen lopputuloksen. Myös sijoitusta voidaan käyttää
+if-lausekkeessa, koska lauseke käyttää sijoituksen lopputulosta osana
+laskentaa. Myös yksittäinen numerovakio on hyväksyttävä lauseke: <code>if
+(1)</code> suorittaisi aina "<em>lause-1</em>":n. Usein käytetty muoto on myös <code>if
+(a)</code>, joka testaa onko muuttujan <em>a</em> arvo jotain muuta kuin 0.</p>
+<p><em>lause-1</em> ja <em>lause-2</em> voivat olla ohjelmalohkoja, eli koostua tällöin
+useista lauseista, tai ne voivat sisältää yksittäisen lauseen, jolloin
+aaltosulkuja ei esiinny. Jälkimmäisessä tapauksessa täytyy muistaa
+päättää lause puolipisteeseen.</p>
+<p>Tässä jälleen esimerkki, joka valottaa edellä kerrottua</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">days</span><span class="p">,</span> <span class="n">years</span><span class="p">;</span> <span class="c1">// useita muuttujia voidaan esitellä pilkulla erotettuna</span>
+<span class="kt">int</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d %d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">days</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">years</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">days</span> <span class="o">&gt;</span> <span class="mi">365</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">years</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// tai: years = years + 1;</span>
+        <span class="n">days</span> <span class="o">-=</span> <span class="mi">365</span><span class="p">;</span>  <span class="c1">// tai: days = days - 365;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d days remaining until the next year</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">365</span> <span class="o">-</span> <span class="n">days</span><span class="p">);</span>
+
+    <span class="cm">/* Ei aaltosulkuja else-haarassa --</span>
+<span class="cm">       seuraava rivi suoritetaan kummassakin tapauksessa */</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;days: %d  years: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">days</span><span class="p">,</span> <span class="n">years</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid input!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Käyttäjän syöte (punainen) ja ohjelman tuloste voisivat esimerkiksi olla:</p>
+<pre>
+<font color="red">400 2</font>
+days: 35  years: 3</pre>
+
+<p>Yllä oleva esimerkki käyttää lohkoa if ehtojen jälkeen, mutta pelkkää
+yksittäistä lausetta sisemmässä else-haarassa (rivi 10). Tämä on
+teknisesti ottaen hyväksyttävää C:tä, mutta ei välttämättä hyvää ja
+johdonmukaista ohjelmointityyliä. Koodin lukija ei voi aina tietää
+onko aaltosulut jätetty pois tarkoituksella, vai kenties unohtuneet
+vahingossa. Siksi suositeltavaa on käyttää aaltosulkeita aina, mikä
+parantaa ohjelman luettavuutta. On ok, mikäli ohjelmalohko koostuu
+vain yhdestä lauseesta, kuten onkin tehty ulommassa else-haarassa
+rivillä 16.</p>
+<p>Edellä olevasta esimerkistä nähdään myös, <strong>kuinka tärkeää on sisentää
+koodi johdonmukaisesti ohjelmalohkojen mukaisesti</strong>. C-kääntäjä
+hyväksyisi ohjelman, jossa kaikki rivit alkaisivat vasemmasta reunasta,
+tai vaikka ohjelman joka olisi sullottu kokonaan yhdelle riville, mutta
+sellaisen lukeminen olisi hyvin työlästä.</p>
+<p><strong>else-haaran voi jättää kokonaan pois</strong>, mikäli sille ei ole käyttöä.</p>
+<p>Ehtorakenteessa voi olla useampia osia kuin kaksi. Tällöin käytetään
+"<em>else if</em>" muotoa osana ehtorakennetta, tähän tyyliin:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>  <span class="c1">// jos ei numero, a:n arvoksi jää 0</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;one</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;two</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;three</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="k">else</span>
+    <span class="nf">printf</span><span class="p">(</span><span class="s">&quot;some other number</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<h2>Switch</h2>
+<p><code>switch</code> - lause on toinen tapa tehdä moniosaisia ehtorakenteita,
+silloin kun vaihtoehdot ovat kokonaislukuvakioita. swich-lause evaluoi
+saamansa lausekkeen, ja vertailee sitä annettuihin vakioihin, jotka
+listataan <code>case</code> - sanalla seuraavaan tyyliin:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>  <span class="c1">// lue yksi merkki käyttäjältä</span>
+
+<span class="k">switch</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">case</span> <span class="sc">&#39;1&#39;</span><span class="o">:</span>  <span class="c1">// ASCII &#39;1&#39; on sama kuin kokonaisluku 49</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;user typed one</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+
+<span class="k">case</span> <span class="sc">&#39;2&#39;</span><span class="o">:</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;user typed two</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+
+<span class="k">case</span> <span class="sc">&#39;a&#39;</span><span class="o">:</span>
+<span class="k">case</span> <span class="sc">&#39;b&#39;</span><span class="o">:</span>
+<span class="k">case</span> <span class="sc">&#39;c&#39;</span><span class="o">:</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;user typed a, b or c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">break</span><span class="p">;</span>
+
+<span class="k">default</span><span class="o">:</span>
+   <span class="n">printf</span><span class="p">(</span><span class="s">&quot;user typed something else</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+   <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Ohjelma siis lukee käyttäjältä merkin rivillä 2. Muuttuja 'a' on
+8-bittinen kokonaisluku (<em>char</em>), johon tallennetaan käyttäjän
+kirjoittamaa merkkiä vastaava ASCII-koodi (Huomaa <code>%c</code> scanf:ssä, eikä
+esim. <code>%d</code>). Ohjelman tulkitsemisen kannalta voimme kuitenkin vain
+ajatella, että muuttujassa on tallessa jokin näppäimistöltä syötetty
+merkki.</p>
+<p><em>switch</em>-lausekkeessa rivillä 4 arvioidaan pelkästään muuttujan <em>a</em>
+sisältöä. Myös switch:iä tulee seurata ohjelmalohko, jossa on
+listattu joukko vaihtoehtoja (useat <em>case</em> rivit, jotka päättyvät
+kaksoispisteeseen). Ohjelman suorituksen voidaan ajatella "hyppäävän"
+sopivaa vaihtoehtoa esittävän <em>case</em>-lauseen kohdalle, ja siten
+kunkin <em>case</em>:n perässä voi seurata useita lauseita ilman että niitä
+on erotettu ohjelmalohkokseen. Aaltosulkujen käyttö on kuitenkin
+sallittua myös tässä tilanteessa. <em>break</em> - komento keskeyttää
+switch-lohkon suorittamisen, ja hyppää suoraan lohkon loppuun. Mikäli
+<em>break</em> unohtuu, suoritus jatkuu suoraan eteenpäin, vaikka välissä
+olisi joku toinen <em>case</em>-haara. Joskus tämä voidaan tehdä
+tarkoituksella, mutta usein myös <em>break</em> unohtuu, ja ohjelma toimii
+väärin, vaikka kääntäjä on siihen tyytyväinen.</p>
+<p>Edellä olevassa esimerkissä on tärkeää huomioida <strong>merkkivakioiden
+käyttäminen</strong> <em>case</em>-haaroissa, eli yksinkertaisten lainausmerkkien
+käyttö. Koska käyttäjältä luettiin merkki (<code>%c</code>), eikä kokonaislukua
+(<code>%d</code>), tämä on oleellinen ero.</p>
+<p>switch-rakenteen sijaan voitaisiin myös käyttää pitkää if..else
+if.. - rakennetta.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-4-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 05-calc-2: Laskin (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Harjoittele ehtorakenteita yhdessä syötteen ja tulosteen
+  kanssa.</p>
+<p>Toteuta funktio <em>simple_math</em>, joka kysyy kolmiosaisen syötteen
+käyttäjältä: numeron, operaattorin, ja numeron. Operaattorin tulee
+olla yksi seuraavista merkeistä: '+', '-', '*' tai '/'. Jos jotain
+muuta merkkiä yritetään käyttää operaattorina, funktion tulee tulostaa
+merkkijono <code>ERR</code>. Numerot ovat <strong>liukulukuja</strong>.</p>
+<p>Mikäli käyttäjän syöte ei noudata oikeanlaista
+numero-operaattori-numero - rakennetta, funktion tulee niinikään
+tulostaa <code>ERR</code>. Kun hyväksytty syöte on annettu, funktion tulee
+tulostaa annetun laskutoimituksen tulos <strong>yhden desimaalin
+tarkkuudella</strong>.</p>
+<p>Seuraavassa esimerkki ohjelman mahdollisesta syötteestä ja tulosteesta:</p>
+<pre>
+<font color="red">8 - 2</font>
+6.0
+
+<font color="red">8.3 / 5.1</font>
+1.6
+
+<font color="red">-3.456 - 2.31</font>
+-5.8
+</pre>
+
+<p><strong>Vinkki:</strong> Kiinnitä huomiota merkkivakioiden käyttöön, ja siihen
+  kuinka yksittäisiä merkkejä käytetään esimerkiksi <em>scanf</em> - funktion
+  yhteydessä.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="07_loops">
+    <h1 class="content-title">Toistorakenteet</h1>
+    <div class="content-body">
+    
+      <h2>While ja do-while</h2>
+<p><strong>while</strong> lause toistaa sitä seuraavaa lausetta tai ohjelmalohkoa
+niin kauan kuin <em>while</em>-lauseessa annettu ehto on tosi (eli lausekkeen
+arvo on erisuuri kuin 0). Esimerkiksi seuraava ohjelmanpätkä toistaa
+yksinkertaista silmukkaa kunnes muuttujan <code>a</code> arvo on 10 tai suurempi.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// muuttujan alustaminen tärkeää erityisesti tässä esimerkissä</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">a</span><span class="o">++</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p><em>while</em> - lauseen yhteydessä annettu lopetusehto testataan ennenkuin
+seuraava lause suoritetaan. Mikäli <em>while</em>:n lopetusehto on epätosi
+heti alussa, <em>while</em>:n "sisällä" olevaa lausetta tai ohjelmalohkoa ei
+suoriteta lainkaan.</p>
+<p>Tässä vielä esimerkki ohjelmalohkon käytöstä <em>while</em>:n yhteydessä.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;value of a is now %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="n">a</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Mikäli halutaan että lopetusehto testataan vasta lauseen tai
+ohjelmalohkon päätteeksi, voidaan käyttää <strong>do-while</strong> - rakennetta
+seuraavaan tapaan:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="k">do</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;value of a is now %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="n">a</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<p>Edellisessä esimerkissä muuttujan <code>a</code> arvo alustetaan 20:ksi. Siksi
+silmukasta hypätään ulos heti kun lopetusehto tarkistetaan. Koska
+<em>do..while</em> - rakenteessa tämä tapahtuu vasta lohkon jälkeen, ohjelma
+ehtii tulostaa yhden rivin ennen silmukasta poistumista.</p>
+<h2>For</h2>
+<p>Toinen tapa rakentaa toistoja ja ohjelmasilmukoita on käyttää <em>for</em> -
+rakennetta. Se on ilmaisuvoimaltaan samanlainen, kuin <em>while</em>, mutta
+joissain tilanteissa kenties kätevämpi. <em>for</em>-rakenne on
+seuraavanlainen:</p>
+<pre>
+for (lauseke_1; lauseke_2; lauseke_3)
+      lause
+</pre>
+
+<p>Yllä olevan <em>for</em>-rakenteen voi toteuttaa <em>while</em>:ä käyttämällä
+seuraavasti:</p>
+<pre>
+lauseke_1;
+while (lauseke_2) {
+     lause
+     lauseke_3;
+}
+</pre>
+
+<ul>
+<li>
+<p><strong>lauseke_1</strong> tekee tarvittavat alustukset ennenkuin silmukan
+    suoritus aloitetaan.</p>
+</li>
+<li>
+<p><strong>lauseke_2</strong> sisältää toistoehdon, joka testataan ennen kunkin
+    kierroksen alkua, myös heti alustusten jälkeen. Jos toistoehto on
+    epätosi, silmukasta poistutaan.</p>
+</li>
+<li>
+<p><strong>lauseke_3</strong> sisältää toimenpiteet jotka kunkin iteraation
+    päätteeksi tehdään. Tyypillisesti siinä esimerkiksi muutetaan
+    toistoehdossa käytetyn muuttujan arvoa.</p>
+</li>
+</ul>
+<p>C:lle tyypilliseen tapaan mitä tahansa lausekkeita voidaan käyttää
+yllä olevissa kohdissa. On siis mahdollista, että <em>lauseke_2</em>
+päivittää jotain muuttujaa samalla kun sitä käytetään toistoehdon
+tarkistukseen.</p>
+<p>Esimerkiksi äskeinen <em>while</em> - esimerkki voitaisiin kirjoittaa
+<em>for</em>:ia käyttäen seuraavaan tapaan.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;value of a is now %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Mitkä tahansa kolmesta lausekkeesta voivat olla tyhjiä. Esimerkiksi
+seuraavakin ohjelma vastaisi täysin yllä olevaa.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span> <span class="p">;</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;value of a is now %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="n">a</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Mikäli lopetusehto (eli <em>lauseke_2</em>) jätetään tyhjäksi, sen oletetaan
+olevan aina tosi. Tällä tavoin voidaan tehdä päättymättömiä
+silmukoita. Tällaisenkin silmukan voi keskeyttää käyttämällä
+esimerkiksi <code>return</code> - lausetta, joka poistuu funktiosta, tai
+<code>break</code> - lauseella.</p>
+<p>Useita silmukoita voi luonnollisesti suorittaa sisäkkäin.</p>
+<p>C99-standardista alkaen muuttujia voi esitellä osana for-lausetta,
+<em>lauseke_1</em>:ssä, esimerkiksi näin:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;value of a is now %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Tällainen muuttuja on käytettävissä vain for-silmukan sisällä.</p>
+<h2>break ja continue</h2>
+<p><strong>break</strong> - lauseella voidaan keskeytää toistorakenne vaikka annettu
+toistoehto olisi vielä tosi. Esimerkiksi seuraava esimerkki ei koskaan
+pääse 10:een asti, vaan keskeyttää 5:n kohdalla.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;value of a is now %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p><strong>continue</strong> - lause keskeyttää nykyisen iteraation suorituksen ja palaa
+silmukan alkuun saman tien. <em>for</em> - rakenteessa suoritetaan kuitenkin
+<em>lauseke_3</em> myös <em>continue</em>:n yhteydessä, ennen kuin siirrytään
+uudestaan alkuun. Seuraava esimerkki tulostaa vain parilliset numerot
+(<code>a % 2</code> laskee 2:n jakojäännöksen muuttujasta <em>a</em>):</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">a</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">continue</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;value of a is now %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-5-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 07-geometry-1: Kertotaulu (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Totuttele sisäisiin silmukoihin ja tulostuksen muotoiluun</p>
+<p>Toteuta funktio <em>multi_table</em> joka tulostaa määrätyn kokoisen
+kertotaulun taulukkomuodossa. Kertotaulun vaakakoko annetaan
+parametrissa <em>xsize</em> ja pystykoko parametrissa <em>ysize</em>. Kertotaulun
+vasen yläkulma alkaa luvusta 1. Kunkin luvun tulee käyttää neljän
+merkin verran tilaa ruudulta, ja numerot tulee tasata
+oikealle. Jokaisen rivin (mukaanlukien viimeinen rivi) tulee päättyä
+rivinvaihtoon ('\n'). Esimerkiksi funktiokutsun <em>multi_table(4,5)</em>
+tulisi saada aikaan seuraavanlainen tuloste:</p>
+<pre>
+   1   2   3   4
+   2   4   6   8
+   3   6   9  12
+   4   8  12  16
+   5  10  15  20</pre>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-6-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 07-geometry-2: Kolmio (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite</strong>: Lisää harjoittelua sisäkkäisillä silmukoilla, sekä
+  tutustumista ehtolausekkeisiin.</p>
+<p>Toteuta funktio <em>draw_triangle</em> joka piirtää neliömäisen
+ASCII-laatikon, jonka sisällä on kolmio.</p>
+<p>Laatikon tulee olla <em>size</em> merkkiä levä ja korkea, ja se tulee jakaa
+vasemman alakulman ja oikean yläkulman välillä siten, että vasemman
+yläkulman puoli täytetään merkeillä '.' (piste) ja oikean alakulman
+puoli merkeillä '#' (risuaita). Ensimmäisellä rivillä tulee olla yksi
+risuaita oikeassa yläkulmassa ja viimeisen rivin tulee täyttyä
+risuaidoista. Kaikkien rivien (mukaanlukien viimeinen rivi) tulee
+päättyä rivinvaihtomerkkiin ('\n').</p>
+<p>Kun kutsutaan <em>draw_triangle(5)</em>, tulisi tulla tällainen tuloste:</p>
+<pre>
+....#
+...##
+..###
+.####
+#####
+</pre>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-7-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 07-geometry-3: Pallo (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Jatketaan edelleen samalla teemalla, mutta tällä kertaa
+  tulosteen määrittelyyn tarvitaan erillistä funktiota.</p>
+<p>Toteuta funktio <code>void draw_ball(unsigned int radius)</code> joka tulostaa
+ASCII-neliön, jonka sisällä tähtimerkeistä ('*') muodostettu täytetty
+ympyrä.</p>
+<p>Laatikon pituus ja leveus on <strong>(2 * radius + 1)</strong>, missä <em>radius</em> on
+funktion saama parametri. Toisinsanoen laatikko on juuri riittävän suuri
+sisältääkseen ympyrän, jonka säde on <em>radius</em> - parametrissa annettu
+arvo.</p>
+<p>Tehtäväpohjassa on apufunktio <em>distance</em> jota voit käytää hyväksi
+ympyrän piirtämiseen. Funktio palauttaa koordinaattien (x,y)
+etäisyyden origosta, eli kun <strong>distance(x,y) &lt;= radius</strong>, koordinaatti
+(x,y) on ympyrän sisällä, kun ympyrän keskipiste on (0,0).</p>
+<p>Mikäli ruutu on ympyrän sisällä, tulosta merkki '*'. Mikäli ruutu on
+ympyrän ulkopuolella, tulosta merkki '.'.</p>
+<p>Esimerkiksi kun kutsutaan <em>draw_ball(3)</em>, ruudulle pitäisi tulla:</p>
+<pre>
+...*...
+.*****.
+.*****.
+*******
+.*****.
+.*****.
+...*...</pre>
+
+<p><strong>Vinkki:</strong> for-silmukan ei aina tarvitse alkaa nollasta, vaan
+  iteroitava muuttuja voi sisältää myös negatiivisia arvoja (mikäli
+  tietotyyppi sallii sen)</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-8-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 08-characters-1: ASCII-taulu (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Perehdytään ASCII-taulukkoon printf-tulosteiden eri
+  muotoilumääreiden avulla.</p>
+<p>Toteuta funktio <code>void ascii_chart(char min, char max)</code> joka tulostaa
+annetun osan ASCII-taulukosta. Funktion tulee käydä läpi luvut
+<em>min</em>:stä <em>max</em>:iin, sekä jokaiselle lukuarvolle tulostaa seuraavasti:</p>
+<ul>
+<li>
+<p>kolmen merkkiä leveä kenttä, joka tulostaa kyseisen luvun
+    desimaalimuodossa. Jos numeron on alle 100, se tulee tasata
+    oikealle.</p>
+</li>
+<li>
+<p>yksi välimerkki, jonka jälkeen neljä merkkiä leveä kenttä johon
+    tulostetaan sama lukuarvo heksadesimaalimuodossa. Kukin heksaluku
+    vie kaksi merkkiä, ja sen eteen tulee tulostaa merkit '0x'. Mikäli
+    heksaluku vie vain yhden merkin, eteen tulee sijoittaa '0' siten
+    jokaisessa luvussa on aina kaksi merkkiä.</p>
+</li>
+<li>
+<p>yksi välimerkki, jonka perään kyseistä lukua vastaava
+    ASCII-merkki. Tämä vie aina vain yhden merkin verran tilaa. <strong>Jotkut
+    merkkiarvot eivät ole tulostettavissa</strong>, eli niille ei ole
+    määritelty näkyvää tulostetta. Tällaisten merkkien tilalle tulee
+    tulostaa kysymysmerkki ('?'). Voi käyttää kirjastofunktiota <code>int
+    isprint(int c)</code> (<a href="http://linux.die.net/man/3/isprint" title="isprint manual page">man-sivu</a>) selvittääksesi onko merkki <em>c</em>
+    tulostettavissa vai ei. Jos funktio palauttaa 0, merkki ei ole
+    tulostettavissa.</p>
+</li>
+<li>
+<p>Lopuksi tulosta yksi tabulaattorimerkki ('\t') ennen seuraavaa
+    merkkiarvoa, paitsi jos rivillä on jo neljän luvun
+    tiedot. Neljännelle luvulle sinun tulee vaihtaa riviä, eli
+    tulostaa tabulaattorimerkin sijaan rivinvaihto ('\n')</p>
+</li>
+</ul>
+<p>Sinun tulee siis käydä läpi edellä mainitulla tavalla kaikki lukuarvot
+annetulla numerovälillä (sisältäen myös arvon <em>max</em>). Esimerkiksi
+funktiokutsun <em>ascii_chart(28,38)</em> tulisi aiheuttaa seuraavanlainen
+tuloste:</p>
+<pre>
+ 28 0x1c ?   29 0x1d ?   30 0x1e ?   31 0x1f ?
+ 32 0x20     33 0x21 !   34 0x22 "   35 0x23 #
+ 36 0x24 $   37 0x25 %   38 0x26 &
+</pre>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-9-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 08-characters-2: Salaviesti (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Lisää merkkien pyörittelyä, jotta ASCII-merkistön
+  toiminta tulee tutuksi. Samalla pientä johdattelua merkkijonoihin
+  (jotka tulevat seuraavassa modulissa).</p>
+<p>Toteuta funktio <code>void secret_msg(int msg)</code> joka purkaa ja salaa
+annetun viestin soveltaen yksinkertaista algoritmia. Salaviestit on
+numeroitu kokonaisluvulla, joka annetaan funktion parametrilla
+<em>msg</em>.</p>
+<p>Voit hakea salaviestin merkkejä yksi kerrallaan käyttäen
+funktiota <code>char get_character(int msg, unsigned int cc)</code>, joka on
+annettuna harjoituspohjassa (kyseinen funktio on toteutettu käyttäen
+taulukoita ja merkkijonoja, jotka tulevat vastaan vasta seuraavassa
+modulissa.). Parametri <em>msg</em> kertoo mistä viestistä on
+kysymys, ja on sama arvo, jonka olet saanut <em>secret_msg</em> - kutsun
+mukana. <em>cc</em> on haettavan merkin järjestysluku. Funktio palauttaa
+paluuarvonaan kyseisen merkin.</p>
+<p>Viestin sisältämät merkit on numeroitu nollasta alkaen. Sinun tulee
+kutsua <em>get_character</em> - funktiota kullekin viestille useamman kerran,
+kasvattaen aina merkkilaskuria, kunnes funktio palauttaa 0, mikä
+tarkoittaa että viesti on lopussa.</p>
+<p>Kun luet merkkejä, sinun tulee purkaa salaus ja <strong>tulostaa kukin
+merkki ruudulle</strong>, kunnes 0-merkki tulee vastaan. 0-merkkiä ei
+tulosteta.</p>
+<p>Salauksenpurku-algoritmi on seuraavanlainen: vähennät saamasi
+merkkiarvon desimaaliluvusta 158, eli 158 - <em>m</em>, missä <em>m</em> on
+<em>get_character</em> - funktiolta saamasi merkkiarvo. Tämän
+laskutoimituksen tulos tulostetaan siis merkkinä (ei esimerkiksi
+desimaalilukuna).</p>
+<p>Voit testata funktiota viesteillä, jotka on numeroitu 0:ksi ja 1:ksi
+<em>src/main.c</em>:ssä. Jos funktio toimii, näiden salaviestien tulisi
+muuntua lyhyiksi englanninkielisiksi lauseiksi. TMC-tarkistuksissa
+käytetään myös muita merkkijonoja.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-10-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 09-ships: Laivanupotus (4 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Rakenna hieman isompi ohjelma, joka koostuu muutamasta
+  funktiosta.</p>
+<p>Tässä tehtävässä toteutetaan yksinkertainen laivanupotuspeli. Pelin
+toteuttamisessa tarvitaan joitain C:n ominaisuuksia, joita ei ole
+vielä käyty läpi, joten osa tarvittavista funktioista on annettu
+valmiina. Sinun täytyy toteuttaa neljä funktiota saadaksesi pelin
+valmiiksi.</p>
+<p>Pelikenttä on 10x10 ruudun kokoinen, ja kukin laiva on 3 ruutua
+pitkä. Koordinaatit pysty- ja vaakasuuntaan merkataan välillä 0 ja 9:
+(0,0) on vasen yläruutu, ja (9,9) on oikea alaruutu. Peli päättyy kun
+kaikki laivat on upotettu.</p>
+<p>Pelikoodi on jaettu kahteen erilliseen C-kieliseen lähdetiedostoon,
+joita molempia tarvitaan pelin kääntämiseen. <strong>shiplib.c</strong> sisältää
+apufunktioita joilla käsitellään pelikenttää. Sinun täytyy kutsua
+näitä funktioita osana omien tehtäväfunkitoidesi toteutusta, mutta
+tätä tiedostoa ei kannata muuttaa. Lue koodin seassa olevia
+kommentteja selvittääksesi miten funktiot toimivat. Tiedosto
+<strong>ships.c</strong> sisältää funktiot jotka sinun tulee toteuttaa.</p>
+<p>Sinun tulee listata seuraavassa kuvatut neljä funktiota. Saat pisteen
+kunkin funktion toimivasta toteutuksesta.</p>
+<h2>a) Aseta laivat</h2>
+<p>Toteuta funktio <code>void set_ships(unsigned int num)</code> joka asettaa <em>num</em>
+alusta pelikartalle. Asettaaksesi yhden laivan johonkin
+karttapaikkaan, sinun tulee kutsua funktiota <em>place_ship</em>, jonka
+parametreiksi annat laivan sijainnin ja suunnan (katso lähdekoodista
+tarkempi kuvaus). Huomaa, että <em>place_ship</em> - funktio ei onnistu
+mikäli yrität asettaa alusta toisen päälle, tai ulos kartta-alueelta,
+joten sinun tulee tarkistaa funktion paluuarvo, jotta voit varmistua
+funktion onnistumisesta.</p>
+<p><strong>Vinkki:</strong> Voit käyttää C-kirjaston funktiota
+<a href="http://linux.die.net/man/3/rand">rand()</a>** valitaksesi laivalle
+satunnaisen sijainnin ja suunnan. Funktio palauttaa satunnaisen
+kokonaisluvun, jonka voit rajoittaa haluamallesi lukualueelle
+käyttämällä jakojäännös-operaatiota ('%'). Esimerkiksi <code>rand() % 10</code>
+tuottaa satunnaislukuja välillä 0 ja 9.</p>
+<h2>b) Tulosta pelikenttä</h2>
+<p>Toteuta funktio <code>void print_field(void)</code> joka tulostaa koko pelikentän
+ruudulle. Mikäli pelaaja ei vielä tunne ruudun sisältöä (eli ei ole
+ampunut sitä), '?' tulisi tulostaa. Mikäli ruutu on tunnettu, tuloste
+voi olla yksi kolmesta vaihtoehdosta:</p>
+<ul>
+<li>'.' jos paikassa ei ole laivaa</li>
+<li>'+' jos paikassa on laivan osa johon ei ole vielä osunut (tarvitaanko
+  tätä?)</li>
+<li>'#' jos paikassa on laivan osa johon on osuttu.</li>
+</ul>
+<p>Alussa kaikki ruudut ovat näkymättämiä, mutta ruutu muuttuu näkyväksi,
+kun siihen ammutaan.</p>
+<p>Tarvitset kahta funktiota: <strong>is_visible(x,y)</strong>, kertoo onko annettu
+ruutu näkyvissä, ja <strong>is_ship(x,y)</strong>, joka kertoo mikäli ruudussa on
+laiva ja onko siihen osunut. Lue <em>shiplib.c</em> - lähdekoodista tarkemmat
+kuvaukset funktioista.</p>
+<h2>c) Ammu</h2>
+<p>Toteuta funktio <code>int shoot(void)</code> joka kysyy kaksi etumerkitöntä
+kokonaislukua käyttäjältä välilyönnillä eroteltuna. Nämä esittävät
+koordinaatteja, joihin seuraavaksi ammutaan. Jos käyttäjä antaa
+virheellisen syötteen, tai koordinaatit eivät ole pelialueen sisässä,
+funktion tulee palauttaa -1. Jos annetussa sijainnissa on alus,
+sinun tulee kutsua funktiota <strong>hit_ship()</strong> merkataksesi sijainnin
+osutuksi ja palauttaa arvo 1. Mikäli sijainnissa ei ole alusta, sinun
+tulee palauttaa arvo 0. Molemmissa tapauksissa tulee ruutu merkata näkyväksi
+funktiota <strong>checked()</strong> kutsumalla.</p>
+<h2>d) Pelin päättyminen</h2>
+<p>Toteuta funktio <code>int game_over(unsigned int num)</code> joka palauttaa 1,
+mikäli kaikki laivat on upotettu, tai 0, mikäli kentällä on vielä
+laivan osia joihin ei ole osuttu. Parametri <em>num</em> kertoo kuinka monta
+laivaa kentällä on. Saat selville kunkin laivan
+tilanteen käyttämällä <strong>is_ship()</strong> - funktiota, ja koska tiedät että
+kukin laiva on 3 ruutua pitkä, tiedät kuinka monesta ruudusta tulee
+löytyä osuma.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+
+
+
+		</div>
+
+		<div class="col-lg-4"></div> <!-- forces middle column narrower -->
+
+	</div>
+
+</div>
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="../static/jquery.min.js"></script>
+<script src="../static/bootstrap.min.js"></script>
+</body>
+</html>
