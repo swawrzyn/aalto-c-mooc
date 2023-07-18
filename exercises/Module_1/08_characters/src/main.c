@@ -1,6 +1,6 @@
 #include "source.h"
 
-int main()
+int main(void)
 {
 	printf("\n--- ASCII table ---\n");
 	ascii_chart(28, 38);

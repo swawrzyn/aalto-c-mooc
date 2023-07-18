@@ -16,7 +16,7 @@ Suite* tmc_suite_create(const char *name, const char *points);
  * One can also register the test function normally and then call tmc_set_tcase_points.
  */
 #define tmc_register_test(suite, tf, points) _tmc_register_test((suite), (tf), "" # tf, points)
-void _tmc_register_test(Suite *s, TFun tf, const char *fname, const char *points);
+void _tmc_register_test(Suite *s, const TTest *tf, const char *fname, const char *points);
 
 
 /**

@@ -3,10 +3,10 @@
 #include <stdlib.h>
 #include "ships.h"
 
-int main()
+int main(void)
 {
 	// Re-seed random number generator using clock
-	srand((unsigned) time(NULL));
+	srand((unsigned)time(NULL));
 
 	// We play with 5 ships
 	unsigned int num = 5;
@@ -15,16 +15,22 @@ int main()
 	printf("ships set\n");
 
 	// Repeat until are ships are destroyed
-	while (!game_over(num)) {
+	while (!game_over(num))
+	{
 		printf("new turn\n");
 		print_field();
 		printf("Enter coordinates: ");
 		int i = shoot();
-		if (i < 0) {
+		if (i < 0)
+		{
 			printf("Invalid coordinates\n");
-		} else if (i == 0) {
+		}
+		else if (i == 0)
+		{
 			printf("Miss\n");
-		} else {
+		}
+		else
+		{
 			printf("Hit!\n");
 		}
 	}

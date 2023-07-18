@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "source.h"
 
-int main()
+int main(void)
 {
 	printf("\n--- Three lines ---\n");
 	three_lines();

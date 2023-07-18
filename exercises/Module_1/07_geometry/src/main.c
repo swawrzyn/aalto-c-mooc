@@ -1,6 +1,6 @@
 #include "source.h"
 
-int main()
+int main(void)
 {
 	printf("\n--- Multiplication table ---\n");
 	multi_table(4, 5);
