@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include "source.h"
 
 /* Count Alpha
@@ -6,8 +7,16 @@
  */
 int count_alpha(const char *str)
 {
-	(void)str;
-	return 0; // replace this
+	int count = 0;
+
+	while (*str) {
+		if (isalpha(*str) != 0) {
+			count++;
+		}
+
+		str++;
+	}
+	return count;
 }
 
 /* Count Substring

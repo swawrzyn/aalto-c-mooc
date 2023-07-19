@@ -9,5 +9,12 @@ int main(void)
 	int arr[] = { 3, 4, 7, 2, 8 };
 	sort(arr, 5);
 
+	int i;
+
+	for (i = 0; i < 5; i++) {
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
+
 	return 0;
 }
