@@ -1,4 +1,6 @@
+.vscode
 .DS_Store
+
 *.dSYM
 **/src/main
 **/test/test
