@@ -3,7 +3,7 @@
 #include <string.h>
 #include "source.h"
 
-int main()
+int main(void)
 {
 	/* Implement your own tests here. Free feel to modify. */
 

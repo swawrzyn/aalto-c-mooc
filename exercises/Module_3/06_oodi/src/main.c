@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "oodi.h"
 
-int main()
+int main(void)
 {
 	/* Feel free to modify
      * for example function for printing the current array content is useful */

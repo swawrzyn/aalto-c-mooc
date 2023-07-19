@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "source.h"
 
-int main()
+int main(void)
 {
 	/* testing exercise. Feel free to modify */
 	int a1[] = { 1, 2, 3, 4, 5 };

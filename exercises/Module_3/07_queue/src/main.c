@@ -15,7 +15,7 @@ const struct stud {
 	{ "666666", "Dennis Ritchie" }
 };
 
-int main()
+int main(void)
 {
 	/* testing exercise. Feel free to modify this function */
 

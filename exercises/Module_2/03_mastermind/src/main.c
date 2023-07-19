@@ -4,7 +4,7 @@
 #include <string.h>
 #include "source.h"
 
-int main()
+int main(void)
 {
 	/* 03-mastermind */
 	int sol[6], guess[6];

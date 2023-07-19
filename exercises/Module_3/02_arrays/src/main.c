@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "source.h"
 
-int main()
+int main(void)
 {
 	/* testing exercise. Feel free to modify */
 	int *array = dyn_reader(5);

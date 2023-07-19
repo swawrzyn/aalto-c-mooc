@@ -2,7 +2,7 @@
 #include <string.h>
 #include "source.h"
 
-int main()
+int main(void)
 {
 	/* Count alpha */
 	char *str = "How many alpha in this string?";

@@ -1,7 +1,7 @@
 #include <arpa/inet.h>
 #include "ipheader.h"
 
-int main()
+int main(void)
 {
 	/* Feel free to modify this function to test different things */
 

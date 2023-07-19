@@ -2,7 +2,7 @@
 #include <string.h>
 #include "source.h"
 
-int main()
+int main(void)
 {
 	/* Sort. Implement a function to print
      * the resulting array to see that it really works */

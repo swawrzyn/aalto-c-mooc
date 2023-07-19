@@ -2,7 +2,7 @@
 #include <string.h>
 #include "source.h"
 
-int main()
+int main(void)
 {
 	/* Korsoroi */
 	char buf[100], dest[200];

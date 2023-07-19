@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "fraction.h"
 
-int main()
+int main(void)
 {
 	/* Hint: if you have implemented only part of the functions,
        add comments around those that you didn't yet implement.
