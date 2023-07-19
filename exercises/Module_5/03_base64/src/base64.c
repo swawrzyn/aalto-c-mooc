@@ -4,8 +4,8 @@
  * (The last character is not part of the actual base64 set, but used for
  * padding). 
  */
-const char *encoding = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
-
+const char *encoding =
+	"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
 /* Open file named <src_file> for reading, and convert it to Base64 format,
  * which is written to file named <dst_file>.
@@ -15,9 +15,9 @@ const char *encoding = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123
  */
 int to_base64(const char *dst_file, const char *src_file)
 {
-    (void) dst_file;
-    (void) src_file;
-    return -1;
+	(void)dst_file;
+	(void)src_file;
+	return -1;
 }
 
 /* Open Base64-encoded file named <src_file> for reading, and convert it
@@ -28,7 +28,7 @@ int to_base64(const char *dst_file, const char *src_file)
  */
 int from_base64(const char *dst_file, const char *src_file)
 {
-    (void) dst_file;
-    (void) src_file;
-    return -1;
+	(void)dst_file;
+	(void)src_file;
+	return -1;
 }

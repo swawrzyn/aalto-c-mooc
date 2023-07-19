@@ -2,10 +2,9 @@ title: Summalasku
 task_id: 05-calc-1
 points: 1
 
-
 **Tavoite:** harjoittele muuttujien tulostamista ja syöttämistä.
 
-Toteuta funktio *simple_sum*, joka kysyy käyttäjältä kaksi
+Toteuta funktio _simple_sum_, joka kysyy käyttäjältä kaksi
 kokonaislukua ja laskee niiden summan. Lopuksi funktio tulostaa summan
 seuraavassa muodossa:
 
@@ -19,8 +18,7 @@ ohjelman tulosteesta (mustalla):
 <font color="red">4 5</font>
 4 + 5 = 9</pre>
 
-**Vinkki:** Koska *scanf* ohittaa kaikki tyhjät merkit
-  muotoiluohjeiden välissä, ohjelma saa hyväksyä syötteet, joissa
-  kaksi kokonaislukua ovat eri riveillä, tai ne on erotettu useilla
-  välilyönneillä.
-
+**Vinkki:** Koska _scanf_ ohittaa kaikki tyhjät merkit
+muotoiluohjeiden välissä, ohjelma saa hyväksyä syötteet, joissa
+kaksi kokonaislukua ovat eri riveillä, tai ne on erotettu useilla
+välilyönneillä.

@@ -3,7 +3,7 @@ task_id: 06_oodi
 points: 3
 
 **Objective:** Practice use of data structures, as a member of
-  dynamically allocated (and re-sized) array.
+dynamically allocated (and re-sized) array.
 
 Implement a simplified database for storing course grades. Each
 database record is specified as `struct oodi`, and the database is
@@ -26,8 +26,7 @@ implemented functions. You can also test and submit the exercise
 after each subtask, to make testing easier, and to gain part of the
 points.
 
-(a) Initialize student record
--------------------------------
+## (a) Initialize student record
 
 Implement function '**init_record**' that initializes an `struct oodi`
 instance pointed by parameter '**or**'. The structure does not need to
@@ -41,8 +40,7 @@ invalid student ID. Invalid student ID has more than 6 characters. You
 can assume that any other other student ID with 6 characters or less
 is valid.
 
-(b) Add new record
---------------------
+## (b) Add new record
 
 Implement function '**add_record**' that adds a new **struct oodi**
 record to the dynamic array, and reallocates the array as needed. The
@@ -56,8 +54,7 @@ The function returns address to the dynamic array after the
 addition. This may be same or different than the pointer given in
 '**array**' parameter.
 
-(c) Change grade
-------------------
+## (c) Change grade
 
 Implement function '**change_grade**' that changes the grade
 ('**newgrade**') and completion date ('**newdate**') in one of the

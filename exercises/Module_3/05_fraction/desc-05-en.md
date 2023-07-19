@@ -16,8 +16,7 @@ interface. **fraction.c** is nearly empty, and you will need to
 implement everything, starting from the definition of **struct
 fraction_st**.
 
-(a) Set value
----------------
+## (a) Set value
 
 Implement function `Fraction* setFraction(unsigned int numerator,
 unsigned int denominator)` that allocates a new Fraction from heap,
@@ -25,17 +24,16 @@ sets its value as given in parameters, and returns the created object.
 
 In addition, implement also the following simple functions
 
-  * `void freeFraction(Fraction* f)` that releases the memory used by
+- `void freeFraction(Fraction* f)` that releases the memory used by
   the Fraction.
 
-  * `unsigned int getNum(const Fraction *f)` that returns the
+- `unsigned int getNum(const Fraction *f)` that returns the
   numerator part of the fraction.
 
-  * `unsigned int getDenom(const Fraction *f)` that returns the
-  denominator part of the fraction. 
+- `unsigned int getDenom(const Fraction *f)` that returns the
+  denominator part of the fraction.
 
-(b) Compare values
---------------------
+## (b) Compare values
 
 Implement function `int compFraction(const Fraction *a, const
 Fraction *b)` that returns -1 if a < b, 0 if a == b, or 1 if a > b.
@@ -49,8 +47,7 @@ message incorrectly complaining about wrong result in them, the reason
 might be incorrect compare implementation. The tests on (c) and (d) on
 TMC server do not depend on your comparison code.
 
-(c) Add values
-----------------
+## (c) Add values
 
 Implement function `Fraction *add(const Fraction *a, Fraction *b)`
 that adds values '**a**' and '**b**', and returns the result in a new
@@ -61,8 +58,7 @@ reduced to smallest possible denominator.
 **Hint:** start by modifying the two numbers such that they have the
 same denominator.
 
-(d) Reduce value
-------------------
+## (d) Reduce value
 
 Implement function `void reduce(Fraction *val)`, that reduces the
 value to the smallest possible denumerator. For example, using this

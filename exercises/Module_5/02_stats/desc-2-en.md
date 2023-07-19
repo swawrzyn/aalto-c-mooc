@@ -2,14 +2,12 @@ title: File statistics
 task_id: 02_stats
 points: 2
 
-
 **Objective:** More practice on file processing
 
 Implement functions to calculate the following metrics from a given
 file:
 
-(a) Line count
-----------------
+## (a) Line count
 
 Implement function `int line_count(const char *filename)`
 that calculates the number of lines in the given file, and returns the
@@ -18,8 +16,7 @@ file is considered to have no lines. If the last line of the file is
 not empty, it should be counted as a line even if it does not end in
 newline character.
 
-(b) Word count
-----------------
+## (b) Word count
 
 Implement function `int word_count(const char *filename)`
 that calculates the number of words in the given file and returns the

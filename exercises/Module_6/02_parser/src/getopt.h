@@ -7,8 +7,8 @@
  * that the options are stored as linked list.
  */
 struct options {
-    char optchar;   
-    struct options *next;
+	char optchar;
+	struct options *next;
 };
 
 struct options *get_options(int argc, char *argv[]);

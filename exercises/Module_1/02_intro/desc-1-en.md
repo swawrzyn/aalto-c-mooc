@@ -1,5 +1,5 @@
 title: Hi C!
-task_id: 02-intro-1 
+task_id: 02-intro-1
 points: 1
 
 **Objective**: Test that your development environment works, and you

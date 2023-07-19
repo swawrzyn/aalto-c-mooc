@@ -2,10 +2,9 @@ title: Murtoluku
 task_id: 05_fraction
 points: 4
 
-
 Nyt harjoitellaan abstraktin datatyypin tekemistä toteuttamalla uusi
-numerotyyppi, murtoluku ([fraction]), joka koostuu *osoittajasta*
-(numerator) ja *nimittäjästä* (denominator). Esimerkiksi 2/3 ja 4/6
+numerotyyppi, murtoluku ([fraction]), joka koostuu _osoittajasta_
+(numerator) ja _nimittäjästä_ (denominator). Esimerkiksi 2/3 ja 4/6
 ovat murtolukuja, joissa 2 ja 4 ovat osittajia, ja 3 ja 6
 nimittäjiä. Nämä murtoluvut ovat myös yhtä suuria. Määrittelemme uuden
 tietotyypin **Fraction** esittämään murtolukuja.
@@ -16,14 +15,12 @@ Tässä tehtävässä sinun tulee toteuttaa seuraavat funktiot. Kustakin
 funktiokokonaisuudesta saa yhden pisteen, ja tehtävä on siten
 kokonaisuudessaan neljän pisteen arvoinen.
 
-Tehtävässä annetaan otsake *fraction.h*, joka määrittelee julkisen
+Tehtävässä annetaan otsake _fraction.h_, joka määrittelee julkisen
 rajapinnan, jonka kautta murtolukuja käsitellään. Sinun tulee
 toteuttaa funktiot ja tarvitsemasi tietorakenteet tiedostoon
-*fraction.c*.
+_fraction.c_.
 
-
-(a) Aseta arvo
----------------
+## (a) Aseta arvo
 
 Toteuta funktio `Fraction* setFraction(unsigned int numerator,
 unsigned int denominator)` joka varaa uuden murtoluvun dynaamisesti
@@ -33,36 +30,32 @@ osoitin siihen).
 
 Lisäksi sinun tulee toteuttaa seuraavat yksinkertaiset funktiot:
 
-  * `void freeFraction(Fraction* f)` joka vapauttaa murtoluvulle
-    varatun muistin.
+- `void freeFraction(Fraction* f)` joka vapauttaa murtoluvulle
+  varatun muistin.
 
-  * `unsigned int getNum(const Fraction *f)` joka palauttaa annetun
-    murtoluvun osoittajan.
+- `unsigned int getNum(const Fraction *f)` joka palauttaa annetun
+  murtoluvun osoittajan.
 
-  * `unsigned int getDenom(const Fraction *f)` joka palauttaa annetun
-    murtoluvun nimittäjän.
+- `unsigned int getDenom(const Fraction *f)` joka palauttaa annetun
+  murtoluvun nimittäjän.
 
-
-(b) Vertaile arvoja
---------------------
+## (b) Vertaile arvoja
 
 Toteuta funktio `int compFraction(const Fraction *a, const
-Fraction *b)` joka palauttaa -1, mikäli murtoluku *a* on pienempi kuin
-*b*, 0 mikäli murtoluvut ovat yhtä suuria, tai 1, mikäli murtoluku *a*
-on suurempi kuin *b*. Funktion tulee toimia oikein myös silloin kun
+Fraction *b)` joka palauttaa -1, mikäli murtoluku _a_ on pienempi kuin
+_b_, 0 mikäli murtoluvut ovat yhtä suuria, tai 1, mikäli murtoluku _a_
+on suurempi kuin _b_. Funktion tulee toimia oikein myös silloin kun
 nimittäjät ovat erisuuria.
 
 **Huom:** Seuraavia tehtäväkohtia koskevat testit
-  käyttävät tätä toteutustasi testaamaan funktioiden toimintaa. Siksi
-  sinun tulee toteuttaa tämä tehtäväkohta oikein, ennenkuin siirryt
-  tehtäväkohtiin (c) ja (d).
+käyttävät tätä toteutustasi testaamaan funktioiden toimintaa. Siksi
+sinun tulee toteuttaa tämä tehtäväkohta oikein, ennenkuin siirryt
+tehtäväkohtiin (c) ja (d).
 
-
-(c) Summalasku
-----------------
+## (c) Summalasku
 
 Toteuta funktio `Fraction *add(const Fraction *a, Fraction *b)` joka
-laskee murtolukujen *a* ja *b* summan, ja palauttaa tuloksena syntyvän
+laskee murtolukujen _a_ ja _b_ summan, ja palauttaa tuloksena syntyvän
 uuden murtoluvun paluuarvonaan. Palautettava tulos on uusi
 murtolukuobjekti, joka varataan dynaamisesti. Funktion tulee toimia
 oikein myös silloin kun summattavien lukujen nimittäjät poikkeavat
@@ -70,16 +63,14 @@ toisistaan. Lopputulosta ei tarvitse supistaa käyttämään pienintä
 mahdollista nimittäjää.
 
 **Vinkki:** kannattaa aloittaa muuntamalla summattavat murtoluvut
-  sellaisiksi, että ne käyttävät samaa nimittäjää.
+sellaisiksi, että ne käyttävät samaa nimittäjää.
 
-
-(d) Supista murtoluku
-------------------
+## (d) Supista murtoluku
 
 Toteuta funktio `void reduce(Fraction *val)`
 
 joka supistaa annetun murtoluvun pienimpään mahdolliseen
-nimittäjään. Esimerkiksi jos *val* esittää murtolukua 3/6, sen tulisi
+nimittäjään. Esimerkiksi jos _val_ esittää murtolukua 3/6, sen tulisi
 supistua murtoluvuksi 1/2. Pienimmän nimittäjän etsiminen onnistuu
 hakemalla pienin yhteinen tekijä osoittajalle ja
 nimittäjälle. Tehtäväpohjasta löytyy valmiiksi annettu funktio

@@ -2,24 +2,23 @@
 #include <stdlib.h>
 #include "polisher.h"
 
-
 int main(void)
 {
-    char *code = read_file("src/testifile.c");
-    if (!code) {
-        printf("No code read");
-        return -1;
-    }
-    printf("-- Original:\n");
-    fputs(code, stdout);
+	char *code = read_file("src/testifile.c");
+	if (!code) {
+		printf("No code read");
+		return -1;
+	}
+	printf("-- Original:\n");
+	fputs(code, stdout);
 
-    code = remove_comments(code);
-    printf("-- Comments removed:\n");
-    fputs(code, stdout);
+	code = remove_comments(code);
+	printf("-- Comments removed:\n");
+	fputs(code, stdout);
 
-    code = indent(code, "    ");
-    printf("-- After indenting:\n");
-    fputs(code, stdout);
-   
-    free(code);
+	code = indent(code, "    ");
+	printf("-- After indenting:\n");
+	fputs(code, stdout);
+
+	free(code);
 }

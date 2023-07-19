@@ -2,10 +2,9 @@ title: Array Sum
 task_id: 02_basics_2
 points: 1
 
-
 **Objective:** Practice address arithmetics with pointers.
 
-You should implement function int array_sum(int *array, int count)
+You should implement function int array_sum(int \*array, int count)
 that gets a pointer to the beginning of array of integers in
 consecutive slots in memory, and calculates the sum of the
 integers. The number of integers to be counted is given in parameter

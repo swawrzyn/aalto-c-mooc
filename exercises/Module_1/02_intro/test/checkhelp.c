@@ -12,7 +12,6 @@ void remove_nonascii(char *str)
 	}
 }
 
-
 void printchar(char *buf, char c)
 {
 	if (c == '\n') {

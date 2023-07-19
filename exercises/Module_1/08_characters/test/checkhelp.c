@@ -7,12 +7,11 @@
 void remove_nonascii(char *str)
 {
 	while (*str) {
-		if (*str & 0x80 || (!isspace((int) *str) && *str < 32))
+		if (*str & 0x80 || (!isspace((int)*str) && *str < 32))
 			*str = ' ';
 		str++;
 	}
 }
-
 
 void printchar(char *buf, char c)
 {
@@ -64,12 +63,12 @@ int mycompare(char *student, char *model, char *infostr)
 	return 0;
 }
 
-
 void read_stdout(char *buf, unsigned int size)
 {
 	fflush(stdout);
 	FILE *fp = fopen("mockoutput", "r");
 	buf[0] = '\0';
-	while ((fgets(buf + strlen(buf), size - strlen(buf), fp)) != NULL);
+	while ((fgets(buf + strlen(buf), size - strlen(buf), fp)) != NULL)
+		;
 	fclose(fp);
 }

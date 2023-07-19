@@ -2,13 +2,12 @@ title: Calculator
 task_id: 05-calc-2
 points: 1
 
-
 **Objective:** practice use of conditional statements and formatted
 input and output using scanf and printf.
 
 Write function `void simple_math(void)` that asks three values from
 the user: number, operator, and another number. Operator should be one
-of the following characters: '+', '-', '*' or '/'. If some other
+of the following characters: '+', '-', '\*' or '/'. If some other
 character is used as operator, the function should print "ERR"
 (without quotes). The numbers should be float type. If user does not
 type a valid number-operator-number combination, the function should

@@ -2,7 +2,6 @@ title: Number Swap
 task_id: 02_basics_1
 points: 1
 
-
 **Objective:** A simple basic example to practice the use of pointers.
 
 Implement function `number_swap(int *a, int *b)` that gets two

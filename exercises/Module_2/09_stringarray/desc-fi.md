@@ -2,9 +2,8 @@ title: Merkkijonotaulukko
 task_id: 09_stringarray
 points: 2
 
-
 **Tavoite:** Kurkistetaan taulukkoihin, joiden jäsenet ovat
-  merkkijonoja (eli taulukot ovat käytännössä kaksiulotteisia)
+merkkijonoja (eli taulukot ovat käytännössä kaksiulotteisia)
 
 Myös merkkijonoja voi käyttää taulukoissa. Koska merkkijono on
 merkeistä muodostuva taulukko, merkkijonotaulukko on taulukko
@@ -12,26 +11,22 @@ merkkijonoja, joista kukin on taulukko merkkejä. Tässä tehtävässä
 käsitellään merkkijonotaulukkoa, jossa taulukon loppu ilmaistaan
 NULL-osoittimella.
 
-
-a) Tulosta merkkijonotaulukko
----------------------
+## a) Tulosta merkkijonotaulukko
 
 Toteuta funktio `void print_strarray(char *array[])`, joka tulostaa
-jokaisen merkkijonon taulukossa *array* omalle rivilleen (eli jokaisen
+jokaisen merkkijonon taulukossa _array_ omalle rivilleen (eli jokaisen
 merkkijonon lopussa on rivinvaihto). Funktion parametrin esitysmuoto
-saattaa näyttää uudenlaiselta: Parametri *array* esittää taulukkoa,
+saattaa näyttää uudenlaiselta: Parametri _array_ esittää taulukkoa,
 jonka kukin alkio on tyyppiä `char *`. Käytät siis kutakin taulukon
 alkiota kuten merkkijonoa, esimerkiksi osana lausekkeita tai
 printf-funktion parametrinä. Muista että taulukon loppu merkitään
 NULL-osoittimella.
 
-
-b) Muunna merkkijono taulukoksi
-----------------------------
+## b) Muunna merkkijono taulukoksi
 
 Toteuta funktio `void str_to_strarray(char* string, char** arr)` joka
-muuntaa parametrinaan saamansa merkkijonon *string* taulukoksi
-merkkijonoja (muuttujaan *arr*). Alkuperäinen merkkijono voi sisältää
+muuntaa parametrinaan saamansa merkkijonon _string_ taulukoksi
+merkkijonoja (muuttujaan _arr_). Alkuperäinen merkkijono voi sisältää
 useita välilyönnillä erotettuja sanoja, ja funktion tehtävänä jakaa
 merkkijono siten, että kukin välilyönnillä erotettu sana muodostaa
 oman alkionsa taulukossa. Muista erottelun jälkeen kunkin merkkijonon

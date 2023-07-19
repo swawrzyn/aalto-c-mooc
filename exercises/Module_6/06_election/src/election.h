@@ -2,8 +2,8 @@
 #define AALTO_ELECTION_H
 
 struct votes {
-    char name[40];
-    unsigned int votes;
+	char name[40];
+	unsigned int votes;
 };
 
 struct votes *read_votes(const char *filename);

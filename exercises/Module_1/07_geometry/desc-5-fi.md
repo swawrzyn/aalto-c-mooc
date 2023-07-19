@@ -2,16 +2,15 @@ title: Kertotaulu
 task_id: 07-geometry-1
 points: 1
 
-
 **Tavoite:** Totuttele sisäisiin silmukoihin ja tulostuksen muotoiluun
 
-Toteuta funktio *multi_table* joka tulostaa määrätyn kokoisen
+Toteuta funktio _multi_table_ joka tulostaa määrätyn kokoisen
 kertotaulun taulukkomuodossa. Kertotaulun vaakakoko annetaan
-parametrissa *xsize* ja pystykoko parametrissa *ysize*. Kertotaulun
+parametrissa _xsize_ ja pystykoko parametrissa _ysize_. Kertotaulun
 vasen yläkulma alkaa luvusta 1. Kunkin luvun tulee käyttää neljän
 merkin verran tilaa ruudulta, ja numerot tulee tasata
 oikealle. Jokaisen rivin (mukaanlukien viimeinen rivi) tulee päättyä
-rivinvaihtoon ('\n'). Esimerkiksi funktiokutsun *multi_table(4,5)*
+rivinvaihtoon ('\n'). Esimerkiksi funktiokutsun _multi_table(4,5)_
 tulisi saada aikaan seuraavanlainen tuloste:
 
 <pre>

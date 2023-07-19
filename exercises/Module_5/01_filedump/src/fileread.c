@@ -8,10 +8,9 @@
  */
 int textdump(const char *filename)
 {
-    (void) filename;
-    return 0;
+	(void)filename;
+	return 0;
 }
-
 
 /* Prints the given file as hexdump, at most 16 numbers per line.
  * <filename> parameter is the name of the file.
@@ -20,6 +19,6 @@ int textdump(const char *filename)
  */
 int hexdump(const char *filename)
 {
-    (void) filename;
-    return 0;
+	(void)filename;
+	return 0;
 }

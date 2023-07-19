@@ -2,10 +2,8 @@ title: Command line parser
 points: 2
 task_id: 02_parser
 
-
 **Objective:** Get familiar with command line arguments, and refresh
-  your memory on linked lists.
-
+your memory on linked lists.
 
 Command line arguments are a common way to give parameters for a
 program. A short summary of command line arguments and typical use of
@@ -33,8 +31,7 @@ explained linked lists, if you need a refresher on them.
 
 [Module 3]: ../Module_3/index.html#06_linkedlist
 
-a) Parse options
--------------------
+## a) Parse options
 
 Implement function **get_options** that will process the command line
 arguments given to function, and return a pointer to the start of
@@ -44,8 +41,7 @@ linked list that contains the options. Each option on the command line
 You will also need to implement function **free_options** that
 releases the dynamic memory allocated for the linked list.
 
-b) Query options
--------------------
+## b) Query options
 
 Implement function **is_option** that will return non-zero if the
 given option character is in the options list, or zero if the option
@@ -57,7 +53,7 @@ not given, or if it did not have an argument, the function returns
 NULL.
 
 **src/main.c** demonstrates how these functions are used, assuming
-  that you execute it from command line, giving some arguments. If you
-  do not want to use the command line terminal, you will need to
-  modify the main function to provide a test sequence of command line
-  arguments.
+that you execute it from command line, giving some arguments. If you
+do not want to use the command line terminal, you will need to
+modify the main function to provide a test sequence of command line
+arguments.

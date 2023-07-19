@@ -1,16 +1,16 @@
 #include <stdlib.h>
 #include "source.h"
 
-
 /* Dynamic Array Reader */
 /* Parameters:
  * n: Number of values to be read
  * 
  * Returns: pointer to the dynamically allocated array
  */
-int *dyn_reader(unsigned int n) {
-    (void) n;
-    return NULL;  // replace this
+int *dyn_reader(unsigned int n)
+{
+	(void)n;
+	return NULL; // replace this
 }
 
 /* Add to array */
@@ -23,8 +23,8 @@ int *dyn_reader(unsigned int n) {
  */
 int *add_to_array(int *arr, unsigned int num, int newval)
 {
-    (void) arr;
-    (void) num;
-    (void) newval;
-    return NULL;  // replace this
+	(void)arr;
+	(void)num;
+	(void)newval;
+	return NULL; // replace this
 }

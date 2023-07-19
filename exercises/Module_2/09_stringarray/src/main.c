@@ -5,32 +5,32 @@
 
 int main()
 {
-    /* Implement your own tests here. Free feel to modify. */
+	/* Implement your own tests here. Free feel to modify. */
 
-    char string[] = "Test string, that is different";
-    char *array[] = {"This", "is", "a", "test", "string.", NULL};
-    char **arr = malloc(sizeof(char*)*6);
-    
-    // Save pointers for later use
-    char **save = arr, **begin = arr;
+	char string[] = "Test string, that is different";
+	char *array[] = { "This", "is", "a", "test", "string.", NULL };
+	char **arr = malloc(sizeof(char *) * 6);
 
-    for(int i=0; i<5; i++)
-        arr[i] = malloc(10);
-    arr[5]=NULL;
+	// Save pointers for later use
+	char **save = arr, **begin = arr;
 
-    // Test a.
-    print_strarray(array);
+	for (int i = 0; i < 5; i++)
+		arr[i] = malloc(10);
+	arr[5] = NULL;
 
-    // Test b.
-    str_to_strarray(string, arr);
-    print_strarray(arr);
+	// Test a.
+	print_strarray(array);
 
-    // Free array
-    while(*save){
-        free(*save);
-        save++;
-    }
-    free(begin);
+	// Test b.
+	str_to_strarray(string, arr);
+	print_strarray(arr);
 
-    return 0;
+	// Free array
+	while (*save) {
+		free(*save);
+		save++;
+	}
+	free(begin);
+
+	return 0;
 }

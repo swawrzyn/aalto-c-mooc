@@ -1,9 +1,9 @@
 
 // Cargo: what the vessel is carrying
 struct cargo {
-    const char *title;
-    int quantity;
-    double weight;
+	const char *title;
+	int quantity;
+	double weight;
 };
 
 // Define the vessel structure here

@@ -1,12 +1,11 @@
 #include "source.h"
 
-
 /* Print string */
 /* Parameters:
  * s: string to be printed */
 void es_print(const char *s)
 {
-    (void) s;
+	(void)s;
 }
 
 /* String length */
@@ -15,8 +14,8 @@ void es_print(const char *s)
  * Returns: length of the string */
 unsigned int es_length(const char *s)
 {
-    (void) s;
-    return 0; // replace this
+	(void)s;
+	return 0; // replace this
 }
 
 /* String copy */
@@ -27,9 +26,9 @@ unsigned int es_length(const char *s)
  */
 int es_copy(char *dst, const char *src)
 {
-    (void) dst;
-    (void) src;
-    return 0; // replace this
+	(void)dst;
+	(void)src;
+	return 0; // replace this
 }
 
 /* String tokenizer */
@@ -40,7 +39,7 @@ int es_copy(char *dst, const char *src)
  *          NULL if end of string reached */
 char *es_token(char *s, char c)
 {
-    (void) s;
-    (void) c;
-    return NULL; // replace this
+	(void)s;
+	(void)c;
+	return NULL; // replace this
 }

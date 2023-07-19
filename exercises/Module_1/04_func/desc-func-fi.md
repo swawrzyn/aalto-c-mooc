@@ -2,7 +2,6 @@ title: Vektorifunktio
 task_id: 04_func
 points: 1
 
-
 **Tavoite:** perehtyä funktion kirjoittamiseen ja toisten
 kirjastofunktioiden kutsumiseen.
 
@@ -22,8 +21,8 @@ tiedot funktioista linkitetyiltä manuaalisivuilta.
 [sqrt]: http://linux.die.net/man/3/sqrt
 [pow]: http://linux.die.net/man/3/pow
 
-Toteuta funktio *source.c* - tiedostoon. Tiedostossa on annettu
-valmiiksi viittaus *math.h* - otsaketiedostoon jossa
+Toteuta funktio _source.c_ - tiedostoon. Tiedostossa on annettu
+valmiiksi viittaus _math.h_ - otsaketiedostoon jossa
 matematiikkafunktiot on määritelty, mutta tässä tehtävässä
-joudut kirjoittelemaan kaiken muun itse. *Ohjelma ei aluksi edes
-käänny, ennenkuin olet toteuttanut vähintäänkin funktion rungon.*
+joudut kirjoittelemaan kaiken muun itse. _Ohjelma ei aluksi edes
+käänny, ennenkuin olet toteuttanut vähintäänkin funktion rungon._

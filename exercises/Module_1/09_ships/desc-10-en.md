@@ -2,7 +2,6 @@ title: Ship Sinker
 task_id: 09-ships
 points: 4
 
-
 **Objective:** Practice use of function calls as part of a (slightly)
 bigger program
 
@@ -26,8 +25,7 @@ you will need to implement.
 You will need to implement four functions as follows. You will gain a
 point for each of them, if implemented by the primary deadline.
 
-a) Place ships
------------------
+## a) Place ships
 
 Implement function `void set_ships(unsigned int num)` that places
 '**num**' ships to the game field. To place one ship at given
@@ -41,21 +39,20 @@ out of bounds, so you'll need to investigate its return value.
 **[rand()](http://linux.die.net/man/3/rand)** to pick a random
 location and direction for a ship. The function returns a random
 integer, which you can scale to the appropriate range using the
-*modulo* operation (`%`). For example, `rand() % 10` produces random
+_modulo_ operation (`%`). For example, `rand() % 10` produces random
 numbers between 0 and 9.
 
-b) Print gamefield
---------------------
+## b) Print gamefield
 
 Implement function `void print_field(void)` that prints the whole
 gamefield on screen. If a location **is not** yet visible to user, '?'
 should be printed. If the location **is** visible (i.e., it has been
 shot at already), there are three options to be printed:
 
-  * '.' if the location does not have a ship
-  * '+' if the location has a part of a ship that has not yet been hit (when is
-this needed?)
-  * '#' if the location has a part of a ship that has been hit 
+- '.' if the location does not have a ship
+- '+' if the location has a part of a ship that has not yet been hit (when is
+  this needed?)
+- '#' if the location has a part of a ship that has been hit
 
 Initially all sectors are invisible, and a sector becomes visible
 when the player shoots at it.
@@ -65,8 +62,7 @@ the given sector is visible to the player. **is_ship(x,y)** tells
 whether a location has a ship, and if it is hit. See the source code
 comments at 'shiplib.c' for more detailed descriptions of these functions.
 
-c) Shoot
------------
+## c) Shoot
 
 Implement function `int shoot(void)` that asks two unsigned numbers from the
 user, separated by space, that represent coordinates in the game
@@ -77,8 +73,7 @@ hit, and return 1. If the given location does not have ship, the
 function should return 0. In either case, the function should call
 function **checked()** that marks the location visible.
 
-d) End of game
------------------
+## d) End of game
 
 Implement function `int game_over(unsigned int num)` that returns 1 if
 all ships are sunk, or 0, if there are still ships to be hit. Parameter

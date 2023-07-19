@@ -2,6 +2,6 @@
 #define AALTO_C_STRARRAY
 
 void print_strarray(char **array);
-void str_to_strarray(char*, char**);
+void str_to_strarray(char *, char **);
 
 #endif

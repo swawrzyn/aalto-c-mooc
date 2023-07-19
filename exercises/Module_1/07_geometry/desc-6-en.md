@@ -2,7 +2,6 @@ title: Draw Triangle
 task_id: 07-geometry-2
 points: 1
 
-
 **Objective**: Practice use of nested loops in C code, together with a
 bit of conditional application logic.
 

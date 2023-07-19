@@ -2,7 +2,6 @@ title: File dump
 task_id: 01_filedump
 points: 2
 
-
 **Objective:** Practice basic file reading.
 
 Implement functions **textdump** and **hexdump** that will read

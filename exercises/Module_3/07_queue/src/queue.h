@@ -46,5 +46,4 @@ int Queue_drop(Queue *q, const char *id);
  */
 void Queue_delete(Queue *q);
 
-
 #endif

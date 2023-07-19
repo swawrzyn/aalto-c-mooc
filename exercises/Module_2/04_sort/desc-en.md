@@ -2,7 +2,6 @@ title: Sort
 task_id: 04_sort
 points: 1
 
-
 **Objective:** Further practice of array manipulation, this time with
 a bit more complicated case.
 

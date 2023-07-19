@@ -25,7 +25,7 @@ address. With longer lists they are different. Each new list member
 should be dynamically allocated, and linked to the end of the list by
 replacing the NULL pointer with the address of the new element (and
 updating the '**last**' pointer. The new element, in turn, will have
-NULL as its next pointer. 
+NULL as its next pointer.
 
 Walking forward along each member of the linked list happens by
 following the '**next**' pointers. After finding the last element
@@ -37,8 +37,7 @@ Some of the functions for handling the '**Queue**' type are already
 implemented, but the most important operations are missing. You should
 implement the following functions for the linked list.
 
-(a) Add student to queue
------------------
+## (a) Add student to queue
 
 Implement function '**Queue_enqueue**' that adds a new student with
 given student ID and name to the end of the queue. The function
@@ -54,8 +53,7 @@ queue.
 For easier debugging, it is advised that you test your code first
 using the main.c executable, before giving it to the TMC tester.
 
-(b) Remove the head of the queue
-------------------
+## (b) Remove the head of the queue
 
 Implement function '**Queue_dequeue**' that removes the first member
 of the queue, and releases all memory allocated for it. The function
@@ -63,8 +61,7 @@ returns 1, if something was removed; or 0 if nothing was removed,
 i.e., because the queue was already empty. This way, the whole queue
 can be removed by `while (Queue_dequeue(queue));`.
 
-(c) Drop a specific member from queue
----------------------------------------
+## (c) Drop a specific member from queue
 
 Implement function '**Queue_drop**' that removes the given student (as
 identified by student ID) from the queue, and releases memory

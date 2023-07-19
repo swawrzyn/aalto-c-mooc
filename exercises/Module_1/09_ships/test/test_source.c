@@ -43,7 +43,8 @@ START_TEST(test_set_ships)
 		}
 		if (count != i * 3) {
 			free_fields();
-			fail("[Task 1.9.a] With %u ships, expected %u occupied positions. You have: %u", i, i * 3, count);
+			fail("[Task 1.9.a] With %u ships, expected %u occupied positions. You have: %u",
+			     i, i * 3, count);
 		}
 	}
 	free_fields();
@@ -51,7 +52,7 @@ START_TEST(test_set_ships)
 
 END_TEST static void fill_func(unsigned param, struct field_st *f, char *r)
 {
-	int mshp[2][3] = { {'?', '?', '?'}, {'.', '+', '#'} };
+	int mshp[2][3] = { { '?', '?', '?' }, { '.', '+', '#' } };
 	unsigned v = param % 2;
 	unsigned s = (param / 2) % 3;
 	f->ship = mshp[1][s];
@@ -85,18 +86,18 @@ START_TEST(test_print_field)
 
 	int ret = mycompare(str, refbuf, infostr);
 	free_fields();
-	fail_unless(!ret,
-		    "[Task 1.9.b] Your output:\n%s\nReference output:\n%s\nReason: %s\n",
-		    str, refbuf, infostr);
-
+	fail_unless(
+		!ret,
+		"[Task 1.9.b] Your output:\n%s\nReference output:\n%s\nReason: %s\n",
+		str, refbuf, infostr);
 }
 
 END_TEST
-    int try_shoot(unsigned int px, unsigned int py, int expected,
-		  char *str)
+int try_shoot(unsigned int px, unsigned int py, int expected, char *str)
 {
-	char mshp[3][3] =
-	    { {'+', '#', '.'}, {'.', '+', '+'}, {'.', '+', '.'} };
+	char mshp[3][3] = { { '+', '#', '.' },
+			    { '.', '+', '+' },
+			    { '.', '+', '.' } };
 
 	create_field();
 
@@ -215,16 +216,15 @@ END_TEST
 
 START_TEST(test_shoot)
 {
-
-	int scoords[][3] =
-	    { {100, 100, -1}, {1, 1, '#'}, {2, 0, '.'}, {2, 1, '#'} };
+	int scoords[][3] = {
+		{ 100, 100, -1 }, { 1, 1, '#' }, { 2, 0, '.' }, { 2, 1, '#' }
+	};
 
 	char infostr[100];
 	for (int i = 0; i < 4; i++) {
 		memset(infostr, 0, sizeof(infostr));
-		if (!try_shoot
-		    (scoords[i][0], scoords[i][1], scoords[i][2],
-		     infostr)) {
+		if (!try_shoot(scoords[i][0], scoords[i][1], scoords[i][2],
+			       infostr)) {
 			fail("[Task 1.9.c] %s", infostr);
 		}
 	}
@@ -261,7 +261,8 @@ END_TEST START_TEST(test_game_over)
 		int ret = game_over(n);
 		if (ret != 0) {
 			free_fields();
-			fail("[Task 1.9.d] Game was reported over when %u ship positions were not hit.", n * 3 - orcount);
+			fail("[Task 1.9.d] Game was reported over when %u ship positions were not hit.",
+			     n * 3 - orcount);
 		}
 		while (y < 10) {
 			if (field[y][x].ship == '+') {
@@ -284,7 +285,7 @@ END_TEST START_TEST(test_game_over)
 
 END_TEST int main(int argc, const char *argv[])
 {
-	srand((unsigned) time(NULL));
+	srand((unsigned)time(NULL));
 	Suite *s = suite_create("Test-09-ships");
 
 	tmc_register_test(s, test_set_ships, "M1.09.a");

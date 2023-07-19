@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include "source.h"
 
-
 /* Number swap
  * Swap the content of integers add addresses a and b
  */
 void number_swap(int *a, int *b)
 {
-    (void) a;
-    (void) b;
+	(void)a;
+	(void)b;
 }
 
 /* Array Sum
@@ -17,9 +16,9 @@ void number_swap(int *a, int *b)
  */
 int array_sum(int *array, int count)
 {
-    (void) array;
-    (void) count;
-    return 0;  // placeholder, replace with actual code
+	(void)array;
+	(void)count;
+	return 0; // placeholder, replace with actual code
 }
 
 /* Array Reader */
@@ -29,7 +28,7 @@ int array_sum(int *array, int count)
  * returns: number of values read */
 int array_reader(int *vals, int n)
 {
-    (void) vals;
-    (void) n;
-    return 0;  // placeholder, replace with actual code
+	(void)vals;
+	(void)n;
+	return 0; // placeholder, replace with actual code
 }

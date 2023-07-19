@@ -2,7 +2,6 @@ title: Secret Message
 task_id: 08-characters-2
 points: 1
 
-
 **Objective:** More playing with character manipulation, loops and use of
 functions. Also, this works as a preliminary introduction to strings (actual
 content in module 2).
@@ -34,4 +33,3 @@ and the print the result as a character.
 You can test this with messages numbered 0 and 1 that are provided in
 src/main.c. If the function works, these messages should translate to readable
 short sentences (in English). The TMC tests have also other message numbers.
-

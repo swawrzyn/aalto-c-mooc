@@ -2,14 +2,13 @@ title: Järjestely
 task_id: 04_sort
 points: 1
 
-
 **Tavoite:** Lisää taulukkoharjoittelua, tällä kertaa alkoiden
-  järjestelyä.
+järjestelyä.
 
 Toteuta funktio `void sort(int *start, int size)` joka järjestää
-annetussa taulukossa (*start*) olevat kokonaisluvut nousevaan
+annetussa taulukossa (_start_) olevat kokonaisluvut nousevaan
 suuruusjärjestykseen (pienimmästä suurimpaan). Voit käyttää
-esimerkiksi *valintalajittelua* (selection sort): aloita etsimällä
+esimerkiksi _valintalajittelua_ (selection sort): aloita etsimällä
 taulukon pienin alkio, ja vaihda sen paikkaa taulukon ensimmäisen
 alkion kanssa. Sitten tarkastelen lopputaulukkoa toisesta alkiosta
 eteenpäin, ja jälleen vaihdan lopputaulukon pienimmän alkion taulukon

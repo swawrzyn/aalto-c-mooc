@@ -1,20 +1,15 @@
 #ifndef AALTO_ANYDATA_H
-#define	AALTO_ANYDATA_H
+#define AALTO_ANYDATA_H
 
-typedef enum {
-    UNDEF,
-    BYTE,            
-    INT,
-    DOUBLE
-} numType;
+typedef enum { UNDEF, BYTE, INT, DOUBLE } numType;
 
 typedef struct {
-    numType type;
-    union {
-        int ival;  // if INT
-        double dval;  // if DOUBLE
-        char bval;  // if BYTE
-    } value;
+	numType type;
+	union {
+		int ival; // if INT
+		double dval; // if DOUBLE
+		char bval; // if BYTE
+	} value;
 } AnyData;
 
 AnyData setDouble(double value);
@@ -25,4 +20,4 @@ void printValue(AnyData val);
 
 AnyData calcSum(AnyData *first, AnyData *last);
 
-#endif	/* AALTO_ANYDATA_H */
+#endif /* AALTO_ANYDATA_H */

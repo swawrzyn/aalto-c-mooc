@@ -2,7 +2,6 @@ title: Array Reader
 task_id: 02_basics_3
 points: 1
 
-
 **Objective:** Practice use of arrays and array notation together with
 scanf.
 

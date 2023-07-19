@@ -2,46 +2,42 @@ title: Code polisher
 points: 3
 task_id: 01_polisher
 
-
 **Objective:** Refresh your skills with string manipulation.
 
 Implement "code polisher" for C that removes comments and sets the
 line indentation correctly based on program blocks.
 
-a) Read file
----------------
+## a) Read file
 
 Implement function `char *read_file(const char *filename)` that reads
 the the given file into dynamically allocated memory. The function
 returns a pointer to a string containing the file contents, or NULL
 if opening the file fails.
 
-b) Remove comments
----------------------
+## b) Remove comments
 
 Implement function `char *remove_comments(char *input)` that removes C
-comments from program stored at **input**. Note that *input* points to
+comments from program stored at **input**. Note that _input_ points to
 dynamically allocated memory, for example as allocated in
 Task 6.1.a. The function returns pointer to the polished program. You
 may allocate a new memory block for the output, or modify the content
-directly in the *input* buffer.
+directly in the _input_ buffer.
 
 You'll need to process two types of comments:
 
-  * Traditional block comments delimited by `/*` and `*/`. These
-    comments may span multiple lines. You should remove only
-    characters starting from `/*` and ending to `*/` and for example
-    leave any following newlines untouched.
+- Traditional block comments delimited by `/*` and `*/`. These
+  comments may span multiple lines. You should remove only
+  characters starting from `/*` and ending to `*/` and for example
+  leave any following newlines untouched.
 
-  * Line comments starting with `//` until the newline character. In
-    this case also the newline character is removed.
+- Line comments starting with `//` until the newline character. In
+  this case also the newline character is removed.
 
 The calling code is responsible only for the pointer returned by the
 function: if you allocate a new buffer for the output, you'll need to
 release the input buffer before returning from the function.
 
-c) Indent code
------------------
+## c) Indent code
 
 (**Note:** This may be more difficult than the above two parts. If
 there are difficulties, it may be a good strategy to try other
@@ -51,17 +47,17 @@ Implement function `char *indent(char *input, const char *pad)` that
 adds proper indentation to the code given in buffer **input**. The
 style of one level of indentation is given in string **pad**: it could
 be, for example four space characters or a tab character, or something
-else. For each level of indentation, one sequence of *pad* string
+else. For each level of indentation, one sequence of _pad_ string
 should be added before the actual line content. Any possible existing
 indentation in the original file (i.e., space or tab characters before
 first non-space character) should be ignored and all indentation
-should be done using the string specified by the *pad* string.
+should be done using the string specified by the _pad_ string.
 
 You can assume that only compound blocks are used: any `{` in code
 increases the indentation level by one, and any `}` in code decreases
 the indentation level by one, and no other indentation rules are
-applied. Identation starts *after* the opening curly brace, and ends
-*before* the closing curly brace.
+applied. Identation starts _after_ the opening curly brace, and ends
+_before_ the closing curly brace.
 
 As with the above case, if you allocate a separate buffer for output,
 you'll need to release the original input buffer before returning from

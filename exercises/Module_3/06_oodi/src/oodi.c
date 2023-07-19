@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include "oodi.h"
 
-
 /* Exercise a: Initialize student record
  * 
  * Parameters:
@@ -16,15 +15,15 @@
  * course name
  * -- Remember to check that reserved space is not overwritten
  */
-int init_record(struct oodi *or, const char *p_student, const char *p_course,
-        unsigned char p_grade, struct date p_date)
+int init_record(struct oodi * or, const char *p_student, const char *p_course,
+		unsigned char p_grade, struct date p_date)
 {
-    (void) or;
-    (void) p_student;
-    (void) p_course;
-    (void) p_grade;
-    (void) p_date;
-    return 0;
+	(void) or ;
+	(void)p_student;
+	(void)p_course;
+	(void)p_grade;
+	(void)p_date;
+	return 0;
 }
 
 /* Exercise b: Add a new record to a dynamic array.
@@ -37,12 +36,13 @@ int init_record(struct oodi *or, const char *p_student, const char *p_course,
  * 
  * Returns: pointer to the array after adding the new item
  */
-struct oodi *add_record(struct oodi *array, unsigned int length, struct oodi newrec)
+struct oodi *add_record(struct oodi *array, unsigned int length,
+			struct oodi newrec)
 {
-    (void) array;
-    (void) length;
-    (void) newrec;
-    return NULL;
+	(void)array;
+	(void)length;
+	(void)newrec;
+	return NULL;
 }
 
 /* Exercise c: Change grade and date in existing record.
@@ -58,15 +58,16 @@ struct oodi *add_record(struct oodi *array, unsigned int length, struct oodi new
  * Returns: number of entries changed, i.e. either 1 or 0
  */
 int change_grade(struct oodi *array, unsigned int size, const char *p_student,
-        const char *p_course, unsigned char newgrade, struct date newdate)
+		 const char *p_course, unsigned char newgrade,
+		 struct date newdate)
 {
-    (void) array;
-    (void) size;
-    (void) p_student;
-    (void) p_course;
-    (void) newgrade;
-    (void) newdate;
-    return 0;
+	(void)array;
+	(void)size;
+	(void)p_student;
+	(void)p_course;
+	(void)newgrade;
+	(void)newdate;
+	return 0;
 }
 
 /* Exercise d: Delete array (and all memory allocated for it)
@@ -78,7 +79,7 @@ int change_grade(struct oodi *array, unsigned int size, const char *p_student,
  */
 int delete_array(struct oodi *array, unsigned int size)
 {
-    (void) array;
-    (void) size;
-    return 0;
+	(void)array;
+	(void)size;
+	return 0;
 }

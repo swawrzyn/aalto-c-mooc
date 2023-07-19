@@ -3,8 +3,8 @@
 #define SUNKEN '#'
 
 struct field_st {
-    char ship;
-    char vis;
+	char ship;
+	char vis;
 };
 
 /* given functions */

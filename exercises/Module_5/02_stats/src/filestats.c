@@ -1,6 +1,5 @@
 #include "filestats.h"
 
-
 /* Returns the line count in given file
  * 
  * Parameters:
@@ -10,10 +9,9 @@
  * The number of lines in file. */
 int line_count(const char *filename)
 {
-    (void) filename;
-    return 0;
+	(void)filename;
+	return 0;
 }
-
 
 /* Count the number of words in the file. Word has to include at least one
  * alphabetic character, and words are separated by whitespace.
@@ -25,6 +23,6 @@ int line_count(const char *filename)
  * number of words in the file */
 int word_count(const char *filename)
 {
-    (void) filename;
-    return 0;
+	(void)filename;
+	return 0;
 }

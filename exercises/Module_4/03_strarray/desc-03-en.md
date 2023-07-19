@@ -2,7 +2,6 @@ title: String array
 task_id: 03_strarray
 points: 4
 
-
 **Objective:** Practice the use of dynamically allocated arrays that
 consist of dynamically allocated strings.
 
@@ -11,8 +10,7 @@ dynamically allocated strings. The last element of the array is a NULL
 pointer, i.e., an 'empty' array consists of a single NULL
 member. Implement the following functions:
 
-a) Initialize array
-----------------------
+## a) Initialize array
 
 Implement function '**init_array**' that initializes the string array
 to have the initial NULL pointer, but nothing else. The space for the
@@ -26,8 +24,7 @@ will also be pointers to strings in the array. Implementing
 therefore for getting points for this and other parts of the
 exercise.
 
-b) Add string
-----------------
+## b) Add string
 
 Implement the function '**add_string**' that adds the given string to the
 array. Note that the source string is of type `const char*`, but the
@@ -36,16 +33,14 @@ pointer is not enough. As you resize (and likely reallocate) the
 array, remember that the last member should always be a NULL
 pointer.
 
-c) Make lower case
----------------------
+## c) Make lower case
 
 Implement the function **make_lower** that converts all strings in the
 array to lower case characters (<b><a
 href="http://linux.die.net/man/3/tolower">tolower</a></b> function
 converts a single character to lower case).
 
-d) Sort array
-----------------
+## d) Sort array
 
 Implement the function <b>sort_strings</b> that sorts the strings in the array
 to lexicographical order (as determined by the <b><a
@@ -53,5 +48,5 @@ href="http://linux.die.net/man/3/strcmp">strcmp</a></b> function). You
 have (probably) implemented one kind of sort function in Module 2, and a
 similar approach works also here. It is useful to know that '**strcmp**' can
 be used for determining the order: if the <b>strcmp</b> function
-returns *smaller than 0*, the first string is before the second; if it returns
-*larger than 0* the first string should be after the second.
+returns _smaller than 0_, the first string is before the second; if it returns
+_larger than 0_ the first string should be after the second.

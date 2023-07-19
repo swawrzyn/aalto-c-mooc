@@ -1,14 +1,11 @@
 #ifndef AALTO_MINESWEEPER_H
-#define	AALTO_MINESWEEPER_H
+#define AALTO_MINESWEEPER_H
 
-typedef enum {
-    DEAD,
-    ALIVE
-} State;
+typedef enum { DEAD, ALIVE } State;
 
 typedef struct {
-    unsigned int xsize, ysize;
-    State **cells;
+	unsigned int xsize, ysize;
+	State **cells;
 } Field;
 
 Field *createField(unsigned int xsize, unsigned int ysize);
@@ -21,4 +18,4 @@ void printField(const Field *f);
 
 void tick(Field *f);
 
-#endif	/* AALTO_MINESWEEPER_H */
+#endif /* AALTO_MINESWEEPER_H */

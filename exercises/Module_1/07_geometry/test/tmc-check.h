@@ -8,16 +8,17 @@
  *
  * One can also create the suite normally and then call tmc_set_suite_points.
  */
-Suite* tmc_suite_create(const char *name, const char *points);
+Suite *tmc_suite_create(const char *name, const char *points);
 
 /**
  * A shorthand to add a one function testcase with the given points into a suite.
  *
  * One can also register the test function normally and then call tmc_set_tcase_points.
  */
-#define tmc_register_test(suite, tf, points) _tmc_register_test((suite), (tf), "" # tf, points)
-void _tmc_register_test(Suite *s, const TTest *tf, const char *fname, const char *points);
-
+#define tmc_register_test(suite, tf, points) \
+	_tmc_register_test((suite), (tf), "" #tf, points)
+void _tmc_register_test(Suite *s, const TTest *tf, const char *fname,
+			const char *points);
 
 /**
  * Runs a test suite so that tmc_test_results.xml and tmc_test_points.txt are created.
@@ -31,7 +32,6 @@ void _tmc_register_test(Suite *s, const TTest *tf, const char *fname, const char
  * Normally this will be 0 even if test fail.
  */
 int tmc_run_tests(int argc, const char **argv, Suite *s);
-
 
 /***** Low-level API *****/
 
@@ -56,7 +56,6 @@ int tmc_print_available_points(FILE *f, char delimiter);
 int tmc_print_test_points(FILE *f);
 /** Prints lines with "[suite] suitename pointname1 pointname2" to given file */
 int tmc_print_suite_points(FILE *f);
-
 
 /* Checkhelp functions */
 void remove_nonascii(char *str);

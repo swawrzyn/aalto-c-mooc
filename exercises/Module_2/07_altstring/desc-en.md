@@ -2,7 +2,6 @@ title: New String (4)
 task_id: 07_altstring
 points: 4
 
-
 **Objective:** How do the string functions really work? This exercise
 might help understanding them.
 
@@ -15,8 +14,7 @@ Note that the above-discussed string functions defined in
 string.h **do not work with this exercise!** The char arrays given to
 the functions do not necessary contain the usual '\0' terminator.
 
-2.9.a Print string
-------------------
+## 2.9.a Print string
 
 Implement function `void es_print(const char *s)` that outputs string
 s until the first instance of the string terminating '#'. However, the
@@ -31,15 +29,13 @@ it will output:
 <pre>
 Auto ajoi</pre>
 
-2.9.b String length
--------------------
+## 2.9.b String length
 
 Implement function unsigned int `es_length(const char *s)` that
 returns the number of characters in array s before the terminating
 '#'. The hash character should not be included in count.
 
-2.9.c String copy
------------------
+## 2.9.c String copy
 
 Implement function `int es_copy(char *dst, const char *src)` that
 copies string '**src**' to the location pointed by '**dst**'. The
@@ -49,8 +45,7 @@ hash character, and remember that the destination string must also
 terminate with '#'. (Hint: you can test that the destination string
 looks correct by using the es_print function)
 
-2.9.d String tokenizer
-----------------------
+## 2.9.d String tokenizer
 
 Implement string tokenizer that can be used to split the given string
 into substrings, seprated by given character. The function format is

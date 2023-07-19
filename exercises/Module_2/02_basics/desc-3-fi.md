@@ -2,20 +2,19 @@ title: Taulukon lukija
 task_id: 02_basics_3
 points: 1
 
-
-**Tavoite:** Lisäharjoittelua taulukon käytöstä yhdessä *scanf*:n kanssa.
+**Tavoite:** Lisäharjoittelua taulukon käytöstä yhdessä _scanf_:n kanssa.
 
 Toteuta funktio `int array_reader(int *vals, int n)` joka lukee
-käyttäjältä kokonaislukuja *vals*-muuttujan osoittamaan
+käyttäjältä kokonaislukuja _vals_-muuttujan osoittamaan
 taulukkoon. Taulukon tarvitsema tila on jo valmiiksi varattu, ja
-parametri *n* kertoo taulukon maksimikoon. Numerot voi lukea
-*scanf*-funktiota käyttäen siten että niiden välissä on rivivaihto tai
+parametri _n_ kertoo taulukon maksimikoon. Numerot voi lukea
+_scanf_-funktiota käyttäen siten että niiden välissä on rivivaihto tai
 väli, tai mikä tahansa ns. whitespace-merkki, joka toimii
 oletusarvoisesti scanf-syötteen erottimena.
 
 Mikäli käyttäjä ei syötä numeroa (mikä nähdään scanf-paluuarvosta),
 taulukko ja funktion suoritus loppuu. Funktion tulee palauttaa
-taulukon lopullinen koko, joka siis voi olla pienempi kuin *n*, mutta
+taulukon lopullinen koko, joka siis voi olla pienempi kuin _n_, mutta
 ei koskaan suurempi.
 
 Alla esimerkki siitä kuinka funktiota voi testata:

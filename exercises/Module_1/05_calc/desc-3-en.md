@@ -2,7 +2,6 @@ title: Sum
 task_id: 05-calc-1
 points: 1
 
-
 **Objective:** practice use of formatted input and output.
 
 Write function `void simple_sum(void)` that asks two integers from the

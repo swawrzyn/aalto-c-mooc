@@ -2,38 +2,35 @@ title: Jokudata
 task_id: 01_anydata
 points: 2
 
-
 **Tavoite:** Hankkia tuntumaa unioneiden käsittelyyn
 
-Tässä tehtävässä määritellään uusi tietotyyppi *AnyData*, joka voi
-pitää sisällään joko tavun (eli *char*), kokonaisluvun (*int*) tai
-*double* - tyyppisen liukuluvun. *AnyData* - tietotyyppi määritellään
-*typedef* määritelmän avulla, mikä on hyvä huomioida kun tietotyyppiä
+Tässä tehtävässä määritellään uusi tietotyyppi _AnyData_, joka voi
+pitää sisällään joko tavun (eli _char_), kokonaisluvun (_int_) tai
+_double_ - tyyppisen liukuluvun. _AnyData_ - tietotyyppi määritellään
+_typedef_ määritelmän avulla, mikä on hyvä huomioida kun tietotyyppiä
 käytetään.
 
-*AnyData* on rakenteinen tietotyyppi joka koostuu kahdesta kentästä:
- *type* on enumeraatio, joka kertoo mikä kolmesta edellä mainitusta
-tyypistä rakenteeseen on kulloinkin tallennettu, sekä *value* on
+_AnyData_ on rakenteinen tietotyyppi joka koostuu kahdesta kentästä:
+_type_ on enumeraatio, joka kertoo mikä kolmesta edellä mainitusta
+tyypistä rakenteeseen on kulloinkin tallennettu, sekä _value_ on
 unionirakenne, johon on tallennettu kyseisen tyyppinen arvo. Näet
-otsakkeesta *anydata.h* kuinka tyyppi on tarkalleen ottaen
-määritelty. Lisäksi *type* - kenttään voi olla tallennettu arvo
-*UNDEF*, mikäli rakenteeseen ei ole vielä tallennettu mitää arvoa.
-	    
+otsakkeesta _anydata.h_ kuinka tyyppi on tarkalleen ottaen
+määritelty. Lisäksi _type_ - kenttään voi olla tallennettu arvo
+_UNDEF_, mikäli rakenteeseen ei ole vielä tallennettu mitää arvoa.
+  
 Toteuta seuraavat osat:
 
-a) Aseta arvo
----------------
+## a) Aseta arvo
 
-Toteuta funktiot *setByte*, *setInt* ja *setDouble* jotka palauttavat
+Toteuta funktiot _setByte_, _setInt_ ja _setDouble_ jotka palauttavat
 uuden AnyData-tyyppisen objektin paluuarvonaan, perustuen annettuun
 tyyppiin ja arvoon, joka kyseisen funktion parametrissa on annettu.
 
-b) Tulosta arvo
------------------
+## b) Tulosta arvo
 
-Toteuta funktio *printValue* joka tulostaa *AnyData*:n tallentaman
+Toteuta funktio _printValue_ joka tulostaa _AnyData_:n tallentaman
 arvon. Tulostusformaatti riippuu muuttujaan asetetun arvon
 tyypistä. Varsinaiseen tulostukseen sinun täytyy käyttää yhtä
-*anydata.c*:ssä valmiiksi annetuista funktioista (*printByte*,
-*printInt* tai *printDouble*), riippuen muuttujaan tallennetun arvon
+_anydata.c_:ssä valmiiksi annetuista funktioista (_printByte_,
+_printInt_ tai _printDouble_), riippuen muuttujaan tallennetun arvon
 tyypistä.

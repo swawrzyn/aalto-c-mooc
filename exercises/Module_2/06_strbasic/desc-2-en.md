@@ -2,7 +2,6 @@ title: Count Substring
 task_id: 06_strbasic_2
 points: 1
 
-
 **Objective:** Practice the use of string functions (although the
 exercise could be done without them as well).
 

@@ -2,9 +2,8 @@ title: Laivanupotus
 task_id: 09-ships
 points: 4
 
-
 **Tavoite:** Rakenna hieman isompi ohjelma, joka koostuu muutamasta
-  funktiosta.
+funktiosta.
 
 Tässä tehtävässä toteutetaan yksinkertainen laivanupotuspeli. Pelin
 toteuttamisessa tarvitaan joitain C:n ominaisuuksia, joita ei ole
@@ -28,51 +27,45 @@ kommentteja selvittääksesi miten funktiot toimivat. Tiedosto
 Sinun tulee listata seuraavassa kuvatut neljä funktiota. Saat pisteen
 kunkin funktion toimivasta toteutuksesta.
 
+## a) Aseta laivat
 
-a) Aseta laivat
----------------
-
-Toteuta funktio `void set_ships(unsigned int num)` joka asettaa *num*
+Toteuta funktio `void set_ships(unsigned int num)` joka asettaa _num_
 alusta pelikartalle. Asettaaksesi yhden laivan johonkin
-karttapaikkaan, sinun tulee kutsua funktiota *place_ship*, jonka
+karttapaikkaan, sinun tulee kutsua funktiota _place_ship_, jonka
 parametreiksi annat laivan sijainnin ja suunnan (katso lähdekoodista
-tarkempi kuvaus). Huomaa, että *place_ship* - funktio ei onnistu
+tarkempi kuvaus). Huomaa, että _place_ship_ - funktio ei onnistu
 mikäli yrität asettaa alusta toisen päälle, tai ulos kartta-alueelta,
 joten sinun tulee tarkistaa funktion paluuarvo, jotta voit varmistua
 funktion onnistumisesta.
 
 **Vinkki:** Voit käyttää C-kirjaston funktiota
-[rand()](http://linux.die.net/man/3/rand)** valitaksesi laivalle
+[rand()](http://linux.die.net/man/3/rand)\*\* valitaksesi laivalle
 satunnaisen sijainnin ja suunnan. Funktio palauttaa satunnaisen
 kokonaisluvun, jonka voit rajoittaa haluamallesi lukualueelle
 käyttämällä jakojäännös-operaatiota ('%'). Esimerkiksi `rand() % 10`
 tuottaa satunnaislukuja välillä 0 ja 9.
 
-
-b) Tulosta pelikenttä
----------------------
+## b) Tulosta pelikenttä
 
 Toteuta funktio `void print_field(void)` joka tulostaa koko pelikentän
 ruudulle. Mikäli pelaaja ei vielä tunne ruudun sisältöä (eli ei ole
 ampunut sitä), '?' tulisi tulostaa. Mikäli ruutu on tunnettu, tuloste
 voi olla yksi kolmesta vaihtoehdosta:
 
-  * '.' jos paikassa ei ole laivaa
-  * '+' jos paikassa on laivan osa johon ei ole vielä osunut (tarvitaanko
+- '.' jos paikassa ei ole laivaa
+- '+' jos paikassa on laivan osa johon ei ole vielä osunut (tarvitaanko
   tätä?)
-  * '#' jos paikassa on laivan osa johon on osuttu.
+- '#' jos paikassa on laivan osa johon on osuttu.
 
 Alussa kaikki ruudut ovat näkymättämiä, mutta ruutu muuttuu näkyväksi,
 kun siihen ammutaan.
 
 Tarvitset kahta funktiota: **is_visible(x,y)**, kertoo onko annettu
 ruutu näkyvissä, ja **is_ship(x,y)**, joka kertoo mikäli ruudussa on
-laiva ja onko siihen osunut. Lue *shiplib.c* - lähdekoodista tarkemmat
+laiva ja onko siihen osunut. Lue _shiplib.c_ - lähdekoodista tarkemmat
 kuvaukset funktioista.
 
-
-c) Ammu
--------
+## c) Ammu
 
 Toteuta funktio `int shoot(void)` joka kysyy kaksi etumerkitöntä
 kokonaislukua käyttäjältä välilyönnillä eroteltuna. Nämä esittävät
@@ -84,13 +77,11 @@ osutuksi ja palauttaa arvo 1. Mikäli sijainnissa ei ole alusta, sinun
 tulee palauttaa arvo 0. Molemmissa tapauksissa tulee ruutu merkata näkyväksi
 funktiota **checked()** kutsumalla.
 
-
-d) Pelin päättyminen
---------------------
+## d) Pelin päättyminen
 
 Toteuta funktio `int game_over(unsigned int num)` joka palauttaa 1,
 mikäli kaikki laivat on upotettu, tai 0, mikäli kentällä on vielä
-laivan osia joihin ei ole osuttu. Parametri *num* kertoo kuinka monta
+laivan osia joihin ei ole osuttu. Parametri _num_ kertoo kuinka monta
 laivaa kentällä on. Saat selville kunkin laivan
 tilanteen käyttämällä **is_ship()** - funktiota, ja koska tiedät että
 kukin laiva on 3 ruutua pitkä, tiedät kuinka monesta ruudusta tulee

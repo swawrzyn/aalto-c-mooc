@@ -2,18 +2,16 @@ title: Election system
 points: 2
 task_id: 06_election
 
-
 **Objective:** Refresh on file handling, dynamic arrays with
-  structures, and use of algorithms.
-
+structures, and use of algorithms.
 
 Implement an election system that calculates votes from given
 file. The system consists of two functions as follows:
 
-a) *read_votes* that reads votes from given text file. Vote consists a
+a) _read_votes_ that reads votes from given text file. Vote consists a
 name of no more than 39 characters, each given in a separate line. See
-file *src/votes.txt* for a short example. Based on the votes you
-should build a dynamic array where each element is a *votes*
+file _src/votes.txt_ for a short example. Based on the votes you
+should build a dynamic array where each element is a _votes_
 structure. Each name in the file should be represented only once in
 the array, and associated with the count of how many times that name
 was represented in file. In other words, the array has as many
@@ -25,7 +23,7 @@ elements, plus the ending element. This array is returned to the caller.
 Note that the names **should not include the newline character** that
 separates the votes in the file.
 
-b) *results* that outputs the results of voting, using the created
+b) _results_ that outputs the results of voting, using the created
 dynamic array, in the screen in the following format:
 
 `name: votes`
@@ -35,8 +33,8 @@ entry with most votes first. In cases where there are same number of
 votes, the names are ordered according to alphabetical order. Remember
 that C library contains handy helper functions for easy ordering of data.
 
-For example, the *main.c* function should output the following with
-given *src/votes.txt*:
+For example, the _main.c_ function should output the following with
+given _src/votes.txt_:
 
 <pre>
 Trump: 4
@@ -47,5 +45,5 @@ Cruz: 1</pre>
 (The example is purely fictional.)
 
 Feel free to generate your own test files when developing the
-functions. Implement functions to file *election.c* based on the
-definitions in *election.h*.
+functions. Implement functions to file _election.c_ based on the
+definitions in _election.h_.

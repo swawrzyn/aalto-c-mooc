@@ -2,9 +2,8 @@ title: Vector function
 task_id: 04_func
 points: 1
 
-
 **Objective:** get familiar with writing a function, and calling
-  another function.
+another function.
 
 Implement function titled **vectorlength** that calculates the length
 of the given three-dimensional euclidean vector. The function gets
@@ -23,8 +22,8 @@ specifications from the linked manual pages.
 [sqrt]: http://linux.die.net/man/3/sqrt
 [pow]: http://linux.die.net/man/3/pow
 
-Implement your function in file *source.c*. The file already has
-reference to *math.h* header that defines the math functions, but in
+Implement your function in file _source.c_. The file already has
+reference to _math.h_ header that defines the math functions, but in
 this exercise you will need to write everything else by
-yourself. *Initially, the program will not even compile, before you
-have implemented at least a placeholder for the function.*
+yourself. _Initially, the program will not even compile, before you
+have implemented at least a placeholder for the function._

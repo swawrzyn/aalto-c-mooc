@@ -12,7 +12,7 @@ void draw_triangle(unsigned int size)
 
 double distance(int x, int y)
 {
-    return sqrt(x * x + y * y);
+	return sqrt(x * x + y * y);
 }
 
 void draw_ball(unsigned int radius)

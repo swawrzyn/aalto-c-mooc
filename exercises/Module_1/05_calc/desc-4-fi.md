@@ -2,13 +2,12 @@ title: Laskin
 task_id: 05-calc-2
 points: 1
 
-
 **Tavoite:** Harjoittele ehtorakenteita yhdessä syötteen ja tulosteen
-  kanssa.
+kanssa.
 
-Toteuta funktio *simple_math*, joka kysyy kolmiosaisen syötteen
+Toteuta funktio _simple_math_, joka kysyy kolmiosaisen syötteen
 käyttäjältä: numeron, operaattorin, ja numeron. Operaattorin tulee
-olla yksi seuraavista merkeistä: '+', '-', '*' tai '/'. Jos jotain
+olla yksi seuraavista merkeistä: '+', '-', '\*' tai '/'. Jos jotain
 muuta merkkiä yritetään käyttää operaattorina, funktion tulee tulostaa
 merkkijono `ERR`. Numerot ovat **liukulukuja**.
 
@@ -32,5 +31,5 @@ Seuraavassa esimerkki ohjelman mahdollisesta syötteestä ja tulosteesta:
 </pre>
 
 **Vinkki:** Kiinnitä huomiota merkkivakioiden käyttöön, ja siihen
-  kuinka yksittäisiä merkkejä käytetään esimerkiksi *scanf* - funktion
-  yhteydessä.
+kuinka yksittäisiä merkkejä käytetään esimerkiksi _scanf_ - funktion
+yhteydessä.

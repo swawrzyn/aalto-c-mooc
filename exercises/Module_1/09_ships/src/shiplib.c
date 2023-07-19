@@ -10,7 +10,6 @@ extern unsigned int shiplen;
 
 struct field_st **field;
 
-
 /* Creates an empty game field that is <xsize> wide and <ysize> tall.
  * By default <xsize> and <ysize> are 10 squares.
  * Optimistically assumes that the function always succeeds.
@@ -27,7 +26,6 @@ void create_field(void)
 	}
 }
 
-
 /* Places a single ship on the game field. Each ship is 3 squares tall.
  * The ship is placed on location <xp>, <yp>.
  * <dir> determines whether the ship is horizontally or vertically aligned:
@@ -41,7 +39,8 @@ int place_ship(unsigned int xp, unsigned int yp, int dir)
 
 	// horizontal ship
 	if (dir == 0) {
-		if (yp >= ysize || xp >= xsize || xp + shiplen >= xsize)	// out of bounds?
+		if (yp >= ysize || xp >= xsize ||
+		    xp + shiplen >= xsize) // out of bounds?
 			return 0;
 
 		// check that the position is free

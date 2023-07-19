@@ -28,10 +28,10 @@ static PointsAssoc *points_assocs = NULL;
 static SuitePoints *suite_points = NULL;
 static PointsList *all_points = NULL;
 
-static void parse_points(const char *points, PointsList ** target_list);
+static void parse_points(const char *points, PointsList **target_list);
 static void add_to_point_set(const char *point, ssize_t len,
-			     PointsList ** target_list);
-static int points_list_contains(const PointsList * list, const char *point,
+			     PointsList **target_list);
+static int points_list_contains(const PointsList *list, const char *point,
 				ssize_t len);
 
 static int expexit;
@@ -46,10 +46,9 @@ void test_complete(void)
 	exit(expexit);
 }
 
-void tmc_set_tcase_points(TCase * tc, const char *tc_name,
-			  const char *points)
+void tmc_set_tcase_points(TCase *tc, const char *tc_name, const char *points)
 {
-	PointsAssoc *pa = (PointsAssoc *) malloc(sizeof(PointsAssoc));
+	PointsAssoc *pa = (PointsAssoc *)malloc(sizeof(PointsAssoc));
 	pa->tc = tc;
 	pa->tc_name = tc_name;
 	pa->points = points;
@@ -59,7 +58,7 @@ void tmc_set_tcase_points(TCase * tc, const char *tc_name,
 	parse_points(points, &all_points);
 }
 
-void _tmc_register_test(Suite * s, const TTest *tf, const char *fname,
+void _tmc_register_test(Suite *s, const TTest *tf, const char *fname,
 			const char *points)
 {
 	TCase *tc = tcase_create(fname);
@@ -69,10 +68,9 @@ void _tmc_register_test(Suite * s, const TTest *tf, const char *fname,
 	suite_add_tcase(s, tc);
 }
 
-void tmc_set_suite_points(Suite * s, const char *s_name,
-			  const char *points)
+void tmc_set_suite_points(Suite *s, const char *s_name, const char *points)
 {
-	SuitePoints *sp = (SuitePoints *) malloc(sizeof(SuitePoints));
+	SuitePoints *sp = (SuitePoints *)malloc(sizeof(SuitePoints));
 	sp->s = s;
 	sp->points = points;
 	sp->s_name = s_name;
@@ -111,8 +109,7 @@ void delete_all_points()
 	}
 }
 
-
-int tmc_run_tests(int argc, const char **argv, Suite * s)
+int tmc_run_tests(int argc, const char **argv, Suite *s)
 {
 	int i;
 	for (i = 1; i < argc; ++i) {
@@ -143,7 +140,7 @@ int tmc_run_tests(int argc, const char **argv, Suite * s)
 	return EXIT_SUCCESS;
 }
 
-int tmc_print_available_points(FILE * f, char delimiter)
+int tmc_print_available_points(FILE *f, char delimiter)
 {
 	const PointsList *pl = all_points;
 	while (pl != NULL) {
@@ -155,7 +152,7 @@ int tmc_print_available_points(FILE * f, char delimiter)
 	return 0;
 }
 
-int tmc_print_test_points(FILE * f)
+int tmc_print_test_points(FILE *f)
 {
 	const PointsAssoc *pa = points_assocs;
 	while (pa != NULL) {
@@ -166,7 +163,7 @@ int tmc_print_test_points(FILE * f)
 	return 0;
 }
 
-int tmc_print_suite_points(FILE * f)
+int tmc_print_suite_points(FILE *f)
 {
 	const SuitePoints *sp = suite_points;
 	while (sp != NULL) {
@@ -177,7 +174,7 @@ int tmc_print_suite_points(FILE * f)
 	return 0;
 }
 
-static void parse_points(const char *points, PointsList ** target_list)
+static void parse_points(const char *points, PointsList **target_list)
 {
 	const char *p = points;
 	const char *q = p;
@@ -203,10 +200,10 @@ static void parse_points(const char *points, PointsList ** target_list)
 }
 
 static void add_to_point_set(const char *point, ssize_t len,
-			     PointsList ** target_list)
+			     PointsList **target_list)
 {
 	if (!points_list_contains(*target_list, point, len)) {
-		PointsList *pl = (PointsList *) malloc(sizeof(PointsList));
+		PointsList *pl = (PointsList *)malloc(sizeof(PointsList));
 		pl->point = malloc(len + 1);
 		memcpy(pl->point, point, len);
 		pl->point[len] = '\0';
@@ -215,10 +212,10 @@ static void add_to_point_set(const char *point, ssize_t len,
 	}
 }
 
-static int points_list_contains(const PointsList * list, const char *point,
+static int points_list_contains(const PointsList *list, const char *point,
 				ssize_t len)
 {
-	const PointsList *pl = list;	// hack to clean up warnings
+	const PointsList *pl = list; // hack to clean up warnings
 	pl = all_points;
 	while (pl != NULL) {
 		if (strncmp(pl->point, point, len) == 0) {

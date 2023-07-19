@@ -7,10 +7,11 @@
 #include <math.h>
 #include "../src/source.h"
 
-char *ref =
-    "   1   2   3   4\n"
-    "   2   4   6   8\n"
-    "   3   6   9  12\n" "   4   8  12  16\n" "   5  10  15  20\n";
+char *ref = "   1   2   3   4\n"
+	    "   2   4   6   8\n"
+	    "   3   6   9  12\n"
+	    "   4   8  12  16\n"
+	    "   5  10  15  20\n";
 
 START_TEST(test_multi_table)
 {
@@ -22,7 +23,8 @@ START_TEST(test_multi_table)
 
 	char infostr[100] = "";
 	if (mycompare(stu, ref, infostr)) {
-		fail("[Task 1.4] Called multi_table(%u, %u). Your output:\n%s\nReference output:\n%s\nReason: %s\n", xs, ys, stu, ref, infostr);
+		fail("[Task 1.4] Called multi_table(%u, %u). Your output:\n%s\nReference output:\n%s\nReason: %s\n",
+		     xs, ys, stu, ref, infostr);
 	}
 }
 
@@ -39,7 +41,8 @@ START_TEST(test_draw_triangle)
 
 	char infostr[100] = "";
 	if (mycompare(stu, mod, infostr)) {
-		fail("[Task 1.5] Called draw_triangle(%d). Your output:\n%s\nReference output:\n%s\nReason: %s\n", size, stu, mod, infostr);
+		fail("[Task 1.5] Called draw_triangle(%d). Your output:\n%s\nReference output:\n%s\nReason: %s\n",
+		     size, stu, mod, infostr);
 	}
 }
 
@@ -47,7 +50,7 @@ END_TEST START_TEST(test_draw_ball)
 {
 	char stu[2048];
 	char *mod =
-	    "...*...\n.*****.\n.*****.\n*******\n.*****.\n.*****.\n...*...\n";
+		"...*...\n.*****.\n.*****.\n*******\n.*****.\n.*****.\n...*...\n";
 	int size = 3;
 	freopen("mockoutput", "w", stdout);
 	draw_ball(size);
@@ -55,13 +58,14 @@ END_TEST START_TEST(test_draw_ball)
 
 	char infostr[100] = "";
 	if (mycompare(stu, mod, infostr)) {
-		fail("[Task 1.6] Called draw_ball(%d). Your output:\n%s\nReference output:\n%s\nReason: %s\n", size, stu, mod, infostr);
+		fail("[Task 1.6] Called draw_ball(%d). Your output:\n%s\nReference output:\n%s\nReason: %s\n",
+		     size, stu, mod, infostr);
 	}
 }
 
 END_TEST int main(int argc, const char *argv[])
 {
-	srand((unsigned) time(NULL));
+	srand((unsigned)time(NULL));
 	// huhuu!!
 	Suite *s = suite_create("Test-07-geometry");
 

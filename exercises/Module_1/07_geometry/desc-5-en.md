@@ -2,7 +2,6 @@ title: Multiplication table
 task_id: 07-geometry-1
 points: 1
 
-
 **Objective:** Practice use of nested loops and formatted output
 
 Implement function `void multi_table(unsigned int xsize, unsigned int

@@ -2,7 +2,6 @@ title: Count Alpha
 task_id: 06_strbasic_1
 points: 1
 
-
 **Objective:** Get familiar with operating on a string, character by
 character until the end of the string.
 
