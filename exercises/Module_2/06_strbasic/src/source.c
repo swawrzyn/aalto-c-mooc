@@ -1,4 +1,6 @@
 #include <ctype.h>
+#include <string.h>
+#include <stdio.h>
 #include "source.h"
 
 /* Count Alpha
@@ -25,7 +27,19 @@ int count_alpha(const char *str)
  */
 int count_substr(const char *str, const char *sub)
 {
-	(void)str;
-	(void)sub;
-	return 0; // replace this
+	int count = 0;
+	char *ptr = NULL;
+
+	for (;;) {
+		ptr = strstr(str, sub);
+
+		if (ptr == NULL) {
+			break;
+		} else {
+			count++;
+			str = ptr + 1;
+		}
+	}
+
+	return count;
 }
