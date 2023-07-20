@@ -11,12 +11,14 @@ I started this course back in 2016 and enjoyed it, but was unable to finish it b
 Special thanks to [Peter Ivanics](https://github.com/ivanicspeter92/2016-aalto-c/tree/master) for uploading the exercises to github.
 
 You can find the course material here:
+
 - [English](https://swawrzyn.github.io/aalto-c-mooc/en/home/)
 - [Finnish](https://swawrzyn.github.io/aalto-c-mooc/fi/home/)
 
 **Keep in mind**: TMC(TestMyCode) is not available and any mention of it in the course material is for reference only. You are only able to run tests locally.
 
 ## Requirements
+
 - gcc
 - make
 - pkg-config
@@ -34,4 +36,4 @@ You can find the course material here:
 
 ## License
 
-This code and teaching material is provided by [Aalto University](https://www.aalto.fi) and the [University of Helsinki](https://www.helsinki.fi). All the material is licensed under Creative Commons BY-NC-SA.
+This code and teaching material is provided by [Aalto University](https://www.aalto.fi) and the [University of Helsinki](https://www.helsinki.fi). All the material is licensed under [Attribution-NonCommercial-ShareAlike 3.0 Unported](https://creativecommons.org/licenses/by-nc-sa/3.0/).
