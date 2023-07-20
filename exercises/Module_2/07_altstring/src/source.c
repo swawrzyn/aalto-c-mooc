@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stddef.h>
 #include "source.h"
 
 /* Print string */
@@ -5,7 +7,10 @@
  * s: string to be printed */
 void es_print(const char *s)
 {
-	(void)s;
+	while (*s != '#') {
+		printf("%c", *s);
+		s++;
+	}
 }
 
 /* String length */
@@ -14,8 +19,12 @@ void es_print(const char *s)
  * Returns: length of the string */
 unsigned int es_length(const char *s)
 {
-	(void)s;
-	return 0; // replace this
+	unsigned int count = 0;
+	while (*s != '#') {
+		count++;
+		s++;
+	}
+	return count;
 }
 
 /* String copy */
@@ -26,9 +35,17 @@ unsigned int es_length(const char *s)
  */
 int es_copy(char *dst, const char *src)
 {
-	(void)dst;
-	(void)src;
-	return 0; // replace this
+	int count = 0;
+	while (*src != '#') {
+		*dst = *src;
+		src++;
+		dst++;
+		count++;
+	}
+
+	*dst = '#';
+
+	return count;
 }
 
 /* String tokenizer */
@@ -39,7 +56,14 @@ int es_copy(char *dst, const char *src)
  *          NULL if end of string reached */
 char *es_token(char *s, char c)
 {
-	(void)s;
-	(void)c;
+	while (*s != '#') {
+		if (*s == c) {
+			*s = '#';
+			return s + 1;
+		} else {
+			s++;
+		}
+	}
+
 	return NULL; // replace this
 }
