@@ -7,15 +7,15 @@ hero:
   tagline: This is the starting point for the C programming course material and exercises.
   actions:
     - theme: brand
-      text: Get Started
+      text: Introduction
       link: /en/module-01/
-
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/swawrzyn/aalto-c-mooc
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
----
-
+  - title: Simple and minimal, always
+    details: Lorem ipsum...
+  - title: Another cool feature
+    details: Lorem ipsum...
+  - title: Another cool feature
+    details: Lorem ipsum...  

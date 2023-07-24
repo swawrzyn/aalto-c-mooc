@@ -61,6 +61,14 @@ export default {
               { text: "Tasks: Geometry", link: "/en/module-01/07t-geometry" },
             ],
           },
+          {
+            text: "08. Task: Characters",
+            link: "/en/module-01/08t-characters",
+          },
+          {
+            text: "09. Task: Ship Sinker",
+            link: "/en/module-01/09t-ships",
+          },
         ],
       },
       {"text": "Module 2: Pointers", link: "/en/module-02/"},
