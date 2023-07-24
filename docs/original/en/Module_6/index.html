@@ -1,0 +1,1019 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>C-MOOC - C-MOOC
+- Module 6
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/pygments.css">
+
+    <style>
+    #content { margin-bottom: 20px; text-align: justify; }
+    #content img { margin-top: 25px; margin-bottom: 25px; }
+    #content li { margin-top:6px; margin-bottom: 6px; }
+    #content h2 { padding-top: 20px; }
+
+    .codehilitetable { width: 100%; margin-top: 15px; margin-bottom: 15px;}
+    .linenos { width: 20px }
+    .codehilite{ width:100%; height: auto; }
+
+    .task-sidenav-link { padding-left: 0.5em; }
+    .content-sidenav-link { text-decoration: underline; }
+    .content-block, .task-description-block { margin-bottom: 40px; }
+
+    </style>
+</head>
+<body>
+
+<!-- navbar, common to all pages -->
+<div class="navbar navbar-default" role="navigation">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+
+      <li><a href="../home/index.html">Home</a></li>
+
+      
+      <li class="global-links"><a href="https://tmc.mooc.fi/mooc">TMC</a></li>
+      
+      <li class="global-links"><a href="https://wiki.aalto.fi/display/C/C-ohjelmointi+vinkkiwiki">Vinkkiwiki</a></li>
+      
+      <li><a href="../instructions/index.html">Instructions</a></li>
+
+      
+      <li><a href="../Module_1/index.html">M1: Introduction</a></li>
+      
+      <li><a href="../Module_2/index.html">M2: Pointers</a></li>
+      
+      <li><a href="../Module_3/index.html">M3: Dynamic memory</a></li>
+      
+      <li><a href="../Module_4/index.html">M4: Arrays and Bits</a></li>
+      
+      <li><a href="../Module_5/index.html">M5: Advanced features</a></li>
+      
+      <li><a href="index.html">M6: Course summary</a></li>
+      
+
+    </ul>
+  </div>
+</div><!-- navbar -->
+
+
+<!-- Unique content of a page goes here -->
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-lg-3">
+			<div class="sidebar">
+                <ul class="nav">
+
+                    <li><img src="../static/aalto-elec-s.jpg" class="img-responsive"></li>
+                    <li><a href="http://mooc.fi/courses/2016/aalto-c">C-MOOC - MOOC.fi</a></li>
+                </ul>
+                
+
+    
+<ul class="nav bs-sidenav">
+    <b>Jump to:</b>
+    
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#01_pointers">
+        1. Summary: Pointers
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#02_arrays">
+        2. Summary: Arrays
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#03_strings">
+        3. Summary: Strings
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-1-en">
+            <b>Task:</b> 01_polisher (3)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#04_memory">
+        4. Summary: Memory Management
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#05_structures">
+        5. Summary: Structures
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-2-en">
+            <b>Task:</b> 02_parser (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#06_io">
+        6. Summary: Formatted I/O
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-06-en">
+            <b>Task:</b> 06_election (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#07_bits">
+        7. Summary: Bitwise operations
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-3-en">
+            <b>Task:</b> 03_mac (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-4-en">
+            <b>Task:</b> 04_dungeon (5)
+        </a>
+    </li>
+    
+    </a></li>
+    
+</ul>
+
+
+
+
+			</div>
+		</div>
+
+
+		<div class="col-lg-7" id="content">
+
+		    
+		    
+
+		    
+
+    <p>
+<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+	<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0; float:right;">
+</a>
+</p>
+
+    
+        
+        <div class="content-block" id="01_pointers">
+    <h1 class="content-title">Summary: Pointers</h1>
+    <div class="content-body">
+    
+      <p>You can get address of an object using <strong>address operator</strong>,
+<code>&amp;</code>. This address is a pointer to the pointed object. For
+example:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">var</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">pointer</span><span class="p">;</span>
+<span class="n">pointer</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">var</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">var2</span> <span class="o">=</span> <span class="o">*</span><span class="n">pointer</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>The data type of a pointer depends on the type of pointed object, even
+though pointer content is just an address. Above example shows type
+declaration of a pointer to an integer (<code>int *</code>). The above
+example sets <b>pointer</b> to refer to variable <b>var</b>.</p>
+<p>The value behind a pointer can be accessed using an indirection (or
+derefencing) operator, <code>*</code>. When this operator is applied
+to an object, its data type changes from the original pointer to the
+type of the pointed object, in above example back to <b>int</b>.</p>
+<p>It can be thought that the dereference operator and address operator
+are opposites: address operator (&amp;) adds one star to the data type,
+while dereference operator (*) drops one star from the data type of
+the object.</p>
+<p>Pointers can be chained: it is possible to have a pointer to a pointer
+to an integer. The data type of such pointer is then
+<code>int**</code>.</p>
+<p>When declaring data types, <code>int <em>var</code>, <code>int</em>
+var</code> and <code>int * var</code> are equivalent -- there can be
+whitespace on either side of the pointer operator.</p></p>
+<p><a href="http://fi.wikibooks.org/wiki/C/Pointteriluntti">Pointteriluntti</a> is a nice summary in Finnish about the necessities in pointers.</p></p>
+<p>Pointer basics were discussed in <a
+href="../Module_2/index.html#pointers">Module 2</a>.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="02_arrays">
+    <h1 class="content-title">Summary: Arrays</h1>
+    <div class="content-body">
+    
+      <p>Array is a sequence of objects of certain type in consecutive
+locations in memory. Array can be defined as static, such as in the
+following for 5-element array: <code>int array[5];</code> or using a
+pointer, in which case the array needs to be allocated separately
+(e.g., using malloc): <code>int *array2;</code>. In the latter case,
+the pointer typically points to the first element of the array. Array
+can be easily assigned to pointer variable: <code>array2 =
+array;</code> after which pointer points to first element of
+array.</p>
+<p>A single array member can be accessed using the index operator:
+<code>a[2] = 10;</code> sets the third array member to 10 (as integer
+type). Array indexing starts from 0. Index operator can also be
+applied to pointer of same type, and it works similarly to a
+dereference (*) operator, but applied to indicated array element. Like
+deference, index operator "drops" one star from the data type:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">array2</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">array2</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</pre></div>
+</td></tr></table>
+
+<p>The address operator can be applied also together with array indexing:
+<code>int *pa = &amp;array[1];</code> makes pointer <b>pa</b> refer to the
+second array element.</p></p>
+<p>More information about arrays can be found in <a
+href="../Module_2/index.html#03_arrays">Module 2</a>.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="03_strings">
+    <h1 class="content-title">Summary: Strings</h1>
+    <div class="content-body">
+    
+      <p>A common special case of array are <b>strings</b>, character arrays
+that end in 0 as the last character. C supports special syntax for
+declaring strings inside quotes:</p></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;a string&quot;</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>This effectively adds the terminating nil character automatically to
+the end of the string. The 0 character always uses one element in the
+char array, which should be considered when allocating space for a
+string. When a string is constructed from individual characters, the
+terminating nil needs to be added separately.</p>
+<p>When string is not placed in an array, as above, it is allocated as a
+constant string, like this: <code>char *str = "a string";</code>. Modifying such
+string is not possible, and results in a run-time error. Therefore it
+usually better to use the <b>const</b> qualifier with such strings,
+to make the compiler notify about illegal use of the string: <code>const
+char *str = "a string";</code>.</p>
+<p>There are several helpful functions for operating with strings, as
+defined in the <b>strings.h</b> header. A commonly used one is
+<b>strlen</b> that returns the number of characters in a string
+(without the terminating nil). strlen should not be confused with the
+<b>sizeof</b> qualifier that returns the size of a given data type.</p>
+<p><a href="../Module_2/index.html#06_strings">Module 2</a>
+discussed about strings and string handling functions.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-1-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 01_polisher: Code polisher (3 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Refresh your skills with string manipulation.</p>
+<p>Implement "code polisher" for C that removes comments and sets the
+line indentation correctly based on program blocks.</p>
+<h2>a) Read file</h2>
+<p>Implement function <code>char *read_file(const char *filename)</code> that reads
+the the given file into dynamically allocated memory. The function
+returns a pointer to a string containing the file contents, or NULL
+if opening the file fails.</p>
+<h2>b) Remove comments</h2>
+<p>Implement function <code>char *remove_comments(char *input)</code> that removes C
+comments from program stored at <strong>input</strong>. Note that <em>input</em> points to
+dynamically allocated memory, for example as allocated in
+Task 6.1.a. The function returns pointer to the polished program. You
+may allocate a new memory block for the output, or modify the content
+directly in the <em>input</em> buffer.</p>
+<p>You'll need to process two types of comments:</p>
+<ul>
+<li>
+<p>Traditional block comments delimited by <code>/*</code> and <code>*/</code>. These
+    comments may span multiple lines. You should remove only
+    characters starting from <code>/*</code> and ending to <code>*/</code> and for example
+    leave any following newlines untouched.</p>
+</li>
+<li>
+<p>Line comments starting with <code>//</code> until the newline character. In
+    this case also the newline character is removed.</p>
+</li>
+</ul>
+<p>The calling code is responsible only for the pointer returned by the
+function: if you allocate a new buffer for the output, you'll need to
+release the input buffer before returning from the function.</p>
+<h2>c) Indent code</h2>
+<p>(<strong>Note:</strong> This may be more difficult than the above two parts. If
+there are difficulties, it may be a good strategy to try other
+exercises and come back to this later)</p>
+<p>Implement function <code>char *indent(char *input, const char *pad)</code> that
+adds proper indentation to the code given in buffer <strong>input</strong>. The
+style of one level of indentation is given in string <strong>pad</strong>: it could
+be, for example four space characters or a tab character, or something
+else. For each level of indentation, one sequence of <em>pad</em> string
+should be added before the actual line content. Any possible existing
+indentation in the original file (i.e., space or tab characters before
+first non-space character) should be ignored and all indentation
+should be done using the string specified by the <em>pad</em> string.</p>
+<p>You can assume that only compound blocks are used: any <code>{</code> in code
+increases the indentation level by one, and any <code>}</code> in code decreases
+the indentation level by one, and no other indentation rules are
+applied. Identation starts <em>after</em> the opening curly brace, and ends
+<em>before</em> the closing curly brace.</p>
+<p>As with the above case, if you allocate a separate buffer for output,
+you'll need to release the original input buffer before returning from
+the function (i.e., the caller assumes it is responsible only for the
+returned pointer). Note that because of indentation, the output
+may need more memory than input. Therefore, watch your use of memory,
+reallocate as needed.</p>
+<p>Below is an example of code in 'src/testifile.c' processed by the
+function (with four spaces as 'pad'). As always, it is recommended
+that you test the function using the src/main executable, with
+different files, before submitting your solution to TMC.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span class="c1">// This is a test file</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* comment</span>
+<span class="cm">    block */</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;juu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Another comment</span>
+        <span class="k">while</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;jaa</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="04_memory">
+    <h1 class="content-title">Summary: Memory Management</h1>
+    <div class="content-body">
+    
+      <p>(<a href="../Module_3/index.html#02_dynamic">Module 3</a>)</p>
+
+<p>Oftentimes memory needs to be allocated dynamically from heap, for
+example when the amount of needed memory is not known at the time of
+writing the program (e.g., depends on user input), or when a memory
+block needs to be shared between functions. <b>malloc</b> call is used
+for dynamic memory allocation. The malloc function takes the amount of
+needed bytes as parameter, and returns pointer to the allocated memory
+block, if it succeeds.</p></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="o">*</span><span class="n">buffer</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">buffer</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* allocation failed */</span> <span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p><b>realloc</b> function can be used resize an earlier allocated memory block.</p>
+<p>When allocating memory dynamically, awarness of needed space is
+important. The <b>sizeof</b> operator that tells the size of a data
+type is often needed for determining the required space. When
+allocating an array, the space needed is the size of one array element
+(determined by sizeof), multiplied by the number or elements.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">float</span> <span class="o">*</span><span class="n">array</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">);</span> <span class="c1">// array of 10 float numbers</span>
+</pre></div>
+</td></tr></table>
+
+<p>Dynamically allocated memory needs to be freed when not needed
+anymore, to avoid unnecessary use of system resources. Valgrind is a
+useful (and by now, familiar) tool that checks various memory handling
+issues, including leaks of unreleased memory.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="05_structures">
+    <h1 class="content-title">Summary: Structures</h1>
+    <div class="content-body">
+    
+      <p>(<a href="../Module_3/index.html#04_structures">Module 3</a>)</p>
+
+<p>Structures are compound data types that consist of multiple fields of
+different data types that typically relate to each other in some
+way. Structure members can be any any other data type, such as
+pointers, arrays, or other structures. Here is an example of defining
+a structure:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">example</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>  <span class="c1">// single integer</span>
+    <span class="kt">char</span> <span class="n">string</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>  <span class="c1">// character array of 20 characters</span>
+    <span class="k">struct</span> <span class="n">other</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>  <span class="c1">// pointer to another structure</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>When structure is used as a basic data type, its members are accessed
+with the member operator (<code>.</code>). When using a pointer to
+structure, the structure members are accessed using structure pointer
+operator (<code>-&gt;</code>). Note that selection of either one of
+these operators depends on whether structure itself is pointer or not,
+regardless of the types of the structure members. Therefore, the
+following code is correct:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">example</span> <span class="n">ex1</span><span class="p">;</span>
+<span class="n">ex1</span><span class="p">.</span><span class="n">ptr</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="n">example</span> <span class="o">*</span><span class="n">ex2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ex1</span><span class="p">;</span> <span class="c1">// make ex2 point to ex1</span>
+<span class="n">ex2</span><span class="o">-&gt;</span><span class="n">ptr</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-2-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_parser: Command line parser (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Get familiar with command line arguments, and refresh
+  your memory on linked lists.</p>
+<p>Command line arguments are a common way to give parameters for a
+program. A short summary of command line arguments and typical use of
+command line options was given in <a href="../Module_4/index.html#03_cmdline">Module 4</a>. We will now practice
+parsing the options given from the command line.</p>
+<p>Your code will read the command line options and store them in a
+linked list of <code>struct option</code> structures. In this exercise command
+line options start with '-', and are followed by alphabetical
+character. Command line option may have an optional argument (string),
+which is in the following element of the <code>argv</code> array if it does not
+begin with the '-' character that identifies a new option. Each option can
+only have at most a single argument. If an <code>argv</code> member is not an
+option or its argument, it should be ignored. You will need to store
+the possible option argument in a new <code>struct option</code> field that you
+will add to the structure.</p>
+<p><code>struct option</code> is not complete: it is missing the space for option
+argument, so <strong>you will need to expand the structure</strong>. The structure
+contains place for the option character and the <strong>next</strong> pointer to
+implement a linked list. Do not modify these fields. <a href="../Module_3/index.html#06_linkedlist">Module 3</a>
+explained linked lists, if you need a refresher on them.</p>
+<h2>a) Parse options</h2>
+<p>Implement function <strong>get_options</strong> that will process the command line
+arguments given to function, and return a pointer to the start of
+linked list that contains the options. Each option on the command line
+(and its optional argument) will be a separate node in the linked list.</p>
+<p>You will also need to implement function <strong>free_options</strong> that
+releases the dynamic memory allocated for the linked list.</p>
+<h2>b) Query options</h2>
+<p>Implement function <strong>is_option</strong> that will return non-zero if the
+given option character is in the options list, or zero if the option
+character could not be found.</p>
+<p>Also implement function <strong>get_optarg</strong> that returns the option
+argument if one was provided with the given option. If the option was
+not given, or if it did not have an argument, the function returns
+NULL.</p>
+<p><strong>src/main.c</strong> demonstrates how these functions are used, assuming
+  that you execute it from command line, giving some arguments. If you
+  do not want to use the command line terminal, you will need to
+  modify the main function to provide a test sequence of command line
+  arguments.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="06_io">
+    <h1 class="content-title">Summary: Formatted I/O</h1>
+    <div class="content-body">
+    
+      <p><b>printf</b> function can be used for providing formatted output,
+using <b>format conversion specifications</b>. The use of printf, and
+most common format specifiers were listed in <a
+href="http://src.aalto.fi/c/en/module-1.html#format-io">Module 1</a>,
+so here we will just give a few examples:</p></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Reserve 10 characters on screen for string (left aligned): %-10s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;float with 5 digits, one decimal: %5.1f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fl_var</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;unsigned long integer: %lu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">fl_var</span><span class="p">));</span><span class="o">&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</pre></div>
+</td></tr></table>
+
+<p><b>scanf</b> is used for querying input from user, based on similar
+format specifiers than printf. The scanf parameters are pointers to
+the variables to be modified, because otherwise modifying them would
+not be possible.</p>
+<p>printf and scanf, like all I/O, is buffered. For output in small
+programs (as in this course) buffering may not have visible effects in
+most cases, except for scanf that delivers the data only after a full
+line of input is given.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-06-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 06_election: Election system (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Refresh on file handling, dynamic arrays with
+  structures, and use of algorithms.</p>
+<p>Implement an election system that calculates votes from given
+file. The system consists of two functions as follows:</p>
+<p>a) <em>read_votes</em> that reads votes from given text file. Vote consists a
+name of no more than 39 characters, each given in a separate line. See
+file <em>src/votes.txt</em> for a short example. Based on the votes you
+should build a dynamic array where each element is a <em>votes</em>
+structure. Each name in the file should be represented only once in
+the array, and associated with the count of how many times that name
+was represented in file. In other words, the array has as many
+elements as the file has different names. The end of the array is
+indicated by an additional element that has empty string as a
+name. For example with the example file the array will have four
+elements, plus the ending element. This array is returned to the caller.</p>
+<p>Note that the names <strong>should not include the newline character</strong> that
+separates the votes in the file.</p>
+<p>b) <em>results</em> that outputs the results of voting, using the created
+dynamic array, in the screen in the following format:</p>
+<p><code>name: votes</code></p>
+<p>The results should be ordered based on the number of votes, having the
+entry with most votes first. In cases where there are same number of
+votes, the names are ordered according to alphabetical order. Remember
+that C library contains handy helper functions for easy ordering of data.</p>
+<p>For example, the <em>main.c</em> function should output the following with
+given <em>src/votes.txt</em>:</p>
+<pre>
+Trump: 4
+Clinton: 2
+Sanders: 2
+Cruz: 1</pre>
+
+<p>(The example is purely fictional.)</p>
+<p>Feel free to generate your own test files when developing the
+functions. Implement functions to file <em>election.c</em> based on the
+definitions in <em>election.h</em>.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="07_bits">
+    <h1 class="content-title">Summary: Bitwise operations</h1>
+    <div class="content-body">
+    
+      <p>More extensive coverage of bitwise operations is given in <a
+href="../Module_4/index.html#04_bits">Module 4</a>, but here is a quick
+summary:</p>
+<p>Result of bitwise AND (<code>&amp;</code>) has bits set only if
+corresponding bits are set on both sides of the AND operator. This can
+be used, for example, for testing a condition for certain bits (or bit
+mask). For example:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">&amp;</span> <span class="mh">0x10</span><span class="p">)</span>  <span class="p">{</span> <span class="cm">/* fifth bit is set */</span> <span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Result of bitwise OR (<code>|</code>) has bits set if corresponding
+bits are set on either side of the OR operator. This can be used for
+combining two bit sets -- simple addition cannot be used, as it may
+have wrong result. For example:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">combined</span> <span class="o">=</span> <span class="mh">0xf1</span> <span class="o">|</span> <span class="mh">0x03</span><span class="p">;</span> <span class="c1">// result: 0xf3</span>
+</pre></div>
+</td></tr></table>
+
+<p>Bit shift operations (<code>&lt;&lt;</code> and <code>&gt;&gt;</code>)
+transform bit pattern a given steps to either direction. These may be
+useful sometimes.</p>
+<p>It is important to notice the difference between bitwise AND
+(<code>&amp;</code>) and OR (<code>|</code>) operations and logical AND
+(<code>&amp;&amp;</code>) and OR (<code>||</code>) operations. Compiler does
+not warn about them, because both could be valid (it does not know),
+but logical and bitwise operations have different result.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-3-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 03_mac: MAC header (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Refresh your memory on how bitwise operations worked.</p>
+<p>Low-level protocol headers often try to make good use of every
+available bit, for efficient use of the communication medium. This
+time we will focus on the 802.11 MAC header (i.e., Wi-Fi), and
+specifically the first two octets in it, on the "Frame Control" part.</p>
+<p>The 802.11 header structure is illustrated <a href="http://mrncciew.com/2014/09/27/cwap-mac-header-frame-control/">here</a>, for example (there
+are also many other related resources in the web). The Frame Control
+fields are illustrated in the diagram labeled "3.3" further down on
+the page. You will need this diagram to be able to parse the different
+Frame Control fields, as needed in this exercise.</p>
+<h2>a) Parse header</h2>
+<p>Implement the following functions, that each read one header field
+from the MAC header. To parse the fields, you will need to pick the
+respective bits from the header, and possible apply bitwise shift, to
+make the resulting values match what is given below.</p>
+<ul>
+<li>
+<p><code>get_proto_version</code> that will return the protocol version from the
+    header (should return integer values 0-3)</p>
+</li>
+<li>
+<p><code>get_type</code> that will return the frame type (integer values 0-3)</p>
+</li>
+<li>
+<p><code>get_subtype</code> that will return frame subtype (integer values 0-15)</p>
+</li>
+<li>
+<p><code>get_to_ds</code>, <code>get_from_ds</code>, <code>get_retry</code>, <code>get_more_data</code> that will
+    return these respective flags from header. Any non-zero value will
+    be considered as set flag, and zero value means an unset flag.</p>
+</li>
+</ul>
+<h2>b) Set header</h2>
+<p>Implement the following functions for setting the header:</p>
+<ul>
+<li>
+<p><code>set_proto_version</code> that will set the protocol version header
+    field according to the <strong>version</strong> argument in the function.</p>
+</li>
+<li>
+<p><code>set_type</code> that will set the type field according to the <strong>type</strong>
+    argument in the function</p>
+</li>
+<li>
+<p><code>set_subtype</code> that will set the subtype field according to the
+    <strong>subtype</strong> argument in the function</p>
+</li>
+<li>
+<p><code>set_to_ds</code>, <code>set_from_ds</code>, <code>set_retry</code>, <code>set_more_data</code> that will
+    set the respective flags according to the <strong>flag</strong> argument in the
+    functions. If the <em>flag</em> argument is non-zero, the flag bit will be
+    set, if it is zero, the flag bit will be cleared.</p>
+</li>
+</ul>
+<p>The set_* functions should only modify the particular bits in the header,
+and the other fields in the header must not be modified by the
+functions.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-4-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 04_dungeon: Dungeon game (5 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p>The recent history knows a class of terminal-based dungeon crawling
+games such as <a
+href="http://en.wikipedia.org/wiki/Rogue_(video_game)">Rogue</a>, <a
+href="http://www.nethack.org">Nethack</a> and <a
+href="http://rephial.org">Angband</a>. Unfortunately, development of
+many of the original games has ceased by now, but this exercise tries
+to revive this magnificient traditional class of games.</p>
+<p>This exercise implements a simple poor man's version of a dungeon
+crawling game. As you will notice, it lacks several features compared
+to its original predecessors, but you are free to enhance the game in
+various ways you like.</p>
+<p>The exercise template contains more code than the earlier exercises so
+far. Many of the function implementations are already given, and you
+only need to implement functions identified in below subtasks. There
+are following source files under the <b>src</b> directory of the task
+template:</p>
+<ul>
+<li>
+<p><b>main.c</b> contains the main loop that asks a command from
+    user, and triggers actions for the user's character and the
+    monsters in the game.</p>
+</li>
+<li>
+<p><b>mapgen.c</b> generates the dungeon, including rooms and
+    corridors between them.</p>
+</li>
+<li>
+<p><b>userif.c</b> contains functions related to interacting with the
+    user: showing the visible sections of map, and acting on the user
+    input. In the current configuration, player can see five squares
+    far (pretty short-sighted game character), and (naturally) cannot
+    see behind walls, but you can change these parameters if you want.</p>
+</li>
+<li>
+<p><b>monster.c</b> has the logic for monsters on the game: the game
+    is turn-based: after each player movement, all monsters on the map
+    are moved, based on the algorithms that you will implement. Most
+    of the functions you need to implement for this exercise are in
+    this file.</p>
+</li>
+<li>
+<p><b>dungeon.h</b> contains definitions (e.g., structures) and
+    needed public function prototypes. The header does not contain all
+    functions: functions that are private to a particular module, are
+    not included.</p>
+</li>
+</ul>
+<p>The game uses a few main data structures: <b>Game</b> contains the
+main game state, and links to different components, such as
+two-dimensional map array, or dynamically allocated array of
+monsters. The game structure also contains the player character
+information. <b>Map</b> holds the pointer to two-dimensional map. This
+map is allocated such that the vertical dimension (mapHeight elements)
+is the first array, consisting of the rows of mapWidth
+elements. <b>Creature</b> contains information of one monster, and the
+Game structure contains a dynamically allocated array of these, with
+numMonsters indicating the number of Creature elements in the
+array.</p>
+<p>Additional information can be found embedded with the source code,
+such as descriptions of the functions. You can modify the code as you
+like: add new kinds of monsters, change the way the map is presented,
+add different types of characteristics for the monsters and the
+player, and so on, as long as you don't modify or remove the existing
+fields, that may be used by the TMC tests. The TMC tests only focus on
+certain functions, as identified below. Everything else is free for
+you to change.</p>
+<p>The game is played by running the <b>src/main</b> executable in the
+source directory. It won't be very interesting nor work correctly,
+though, before you have implemented the functions described in below
+tasks.</p>
+<p>Below is a screenshot of a game after all tasks below have been
+implemented (Monster 'D' approaching character '*' from left). Current
+(and max) hitpoints are shown above the command prompt.</p></p>
+<pre>
+    ...    
+   ##.##   
+   #...#   
+   #...#  #
+####...##..
+..D..*.....
+###########
+
+
+
+HP: 12(12)
+command &gt;</pre>
+
+<p>Currently the game has the following commands:</p>
+<ul>
+<li><code>n</code>: move north</li>
+<li><code>s</code>: move south</li>
+<li><code>e</code>: move east</li>
+<li><code>w</code>: move west</li>
+<li><code>q</code>: exit game</li>
+</ul>
+<p>Input is line buffered, so you'll need to press enter after the
+command. You can change or redo the command processing, if you wish
+-- TMC tests will not care about that.</p>
+<p>Many tests assume map as saved in file <b>test/testmap</b>, for
+example when testing monster movement. It is not advisable to modify
+this file: that might affect the outcome of local tests, but won't
+change the result of server-side tests.</p>
+<h2>a) Blocked position</h2>
+<p>Implement function <b>int isBlocked(Game *game, int x, int y)</b> that
+returns 0, if the given position on map is unoccupied: it is not wall,
+and is not occupied by a monster. Otherwise, the function returns a
+non-zero value. The function should also return non-zero value if the
+given coordinates are out of bounds of the map. This function will be
+useful helper in many of the other functions described below. The
+function placeholder can be found in <b>userif.c</b></p>
+<h2>b) Create monsters</h2>
+<p>Implement function <b>void createMonsters(Game *game)</b> that creates
+<b>opts.numMonsters</b> monsters, and places them on random positions
+in game area (use <a href="http://linux.die.net/man/3/rand">rand()</a>
+function to generate random numbers). The monsters must be placed on
+free positions that are not wall, and not occupied by other monsters
+[e.g., !isBlocked(..)]. Initialize also other monster details, such as
+name, the map sign shown on user interface, hitpoints, and so on. Each
+monster must have more than 0 hitpoints, and initial HP needs to be
+same as the maximum HP. Otherwise you can choose the monster details
+as you will (for example, to contain random values), but name must be
+set, and map sign must be an alphabetic character.</p>
+<h2>c) Move Towards</h2>
+<p>Implement function <b>void moveTowards(Game <em>game, Creature
+</em>monst)</b> that moves monster <b>monst</b> one step towards player's
+character. The default game logic uses this function to make the
+monsters move towards the character, unless they are low on
+hitpoints. The test will check the following:</p>
+<ul>
+<li>
+<p>If possible, the distance between monster and the character must
+    reduce as a result of this call</p>
+</li>
+<li>
+<p>The monster must not move more than one step on the map at a time</p>
+</li>
+<li>
+<p>The monster must not move over wall</p>
+</li>
+<li>
+<p>The monster must not move to same location with another monster</p>
+</li>
+<li>
+<p>The monster must not move to same location with the character</p>
+</li>
+</ul>
+<p>Within these restrictions, you can implement your movement algorithm
+as you will. You can assume that monsters have magical powers to
+detect the player character's location irrespective of the walls.</p>
+<h2>d) Move Away</h2>
+<p>Implement function <b>void moveAway(Game <em>game, Creature </em>monst)</b>
+that moves monster <b>monst</b> one step away from player's
+character. The default game logic invokes this behavior when monster
+is low on the hit points. The test will check the following:</p>
+<ul>
+<li>
+<p>If possible, the distance between monster and the character must
+    increase as a result of this call</p>
+</li>
+<li>
+<p>The monster must not move more than one step on the map at a time</p>
+</li>
+<li>
+<p>The monster must not move over wall</p>
+</li>
+<li>
+<p>The monster must not move to same location with another monster</p>
+</li>
+<li>
+<p>The monster must not move to same location with the character</p>
+</li>
+</ul>
+<p>Within these restrictions, you can implement your movement algorithm
+as you will.</p>
+<h2>e) Monster action</h2>
+<p><b>void monsterAction(Game *game)</b> is the function that will invoke
+an action for every monster still alive in the game. For each monster,
+if monster is in adjacent location with the character, it should try
+to attack the character. Otherwise, the monster should invoke the
+movement action (for example, moveTowards or moveAway). If monster is
+dead (HP==0 or less), no action is taken.</p>
+<p>Function pointers <b>attack</b> and <b>move</b> in <b>Creature</b>
+structure determine the action to be taken. Use these functions to
+invoke either of these monster actions, following the above logic. If
+either of the function pointers is NULL, the respective action is
+ignored.</p>
+<p>Note that you should have specified valid attack and movement
+behaviors (i.e., function pointers) when creating monsters. The game
+template provides one attack behavior, but you can define more as you
+will</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+
+
+
+		</div>
+
+		<div class="col-lg-4"></div> <!-- forces middle column narrower -->
+
+	</div>
+
+</div>
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="../static/jquery.min.js"></script>
+<script src="../static/bootstrap.min.js"></script>
+</body>
+</html>

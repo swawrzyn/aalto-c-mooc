@@ -1,0 +1,1631 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>C-MOOC - C-MOOC
+- Module 4
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/pygments.css">
+
+    <style>
+    #content { margin-bottom: 20px; text-align: justify; }
+    #content img { margin-top: 25px; margin-bottom: 25px; }
+    #content li { margin-top:6px; margin-bottom: 6px; }
+    #content h2 { padding-top: 20px; }
+
+    .codehilitetable { width: 100%; margin-top: 15px; margin-bottom: 15px;}
+    .linenos { width: 20px }
+    .codehilite{ width:100%; height: auto; }
+
+    .task-sidenav-link { padding-left: 0.5em; }
+    .content-sidenav-link { text-decoration: underline; }
+    .content-block, .task-description-block { margin-bottom: 40px; }
+
+    </style>
+</head>
+<body>
+
+<!-- navbar, common to all pages -->
+<div class="navbar navbar-default" role="navigation">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+
+      <li><a href="../home/index.html">Home</a></li>
+
+      
+      <li class="global-links"><a href="https://tmc.mooc.fi/mooc">TMC</a></li>
+      
+      <li class="global-links"><a href="https://wiki.aalto.fi/display/C/C-ohjelmointi+vinkkiwiki">Vinkkiwiki</a></li>
+      
+      <li><a href="../instructions/index.html">Instructions</a></li>
+
+      
+      <li><a href="../Module_1/index.html">M1: Introduction</a></li>
+      
+      <li><a href="../Module_2/index.html">M2: Pointers</a></li>
+      
+      <li><a href="../Module_3/index.html">M3: Dynamic memory</a></li>
+      
+      <li><a href="index.html">M4: Arrays and Bits</a></li>
+      
+      <li><a href="../Module_5/index.html">M5: Advanced features</a></li>
+      
+      <li><a href="../Module_6/index.html">M6: Course summary</a></li>
+      
+
+    </ul>
+  </div>
+</div><!-- navbar -->
+
+
+<!-- Unique content of a page goes here -->
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-lg-3">
+			<div class="sidebar">
+                <ul class="nav">
+
+                    <li><img src="../static/aalto-elec-s.jpg" class="img-responsive"></li>
+                    <li><a href="http://mooc.fi/courses/2016/aalto-c">C-MOOC - MOOC.fi</a></li>
+                </ul>
+                
+
+    
+<ul class="nav bs-sidenav">
+    <b>Jump to:</b>
+    
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#01_structure">
+        1. More structured data types
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-01-en">
+            <b>Task:</b> 01_anydata (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#02_multiarray">
+        2. Multidimensional arrays
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-02-en">
+            <b>Task:</b> 02_life (4)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#03_cmdline">
+        3. Command line arguments
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-03-en">
+            <b>Task:</b> 03_strarray (4)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#04_bits">
+        4. Bit operations
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-04-en">
+            <b>Task:</b> 04_ip (4)
+        </a>
+    </li>
+    
+    </a></li>
+    
+</ul>
+
+
+
+
+			</div>
+		</div>
+
+
+		<div class="col-lg-7" id="content">
+
+		    
+		    
+
+		    
+
+    <p>
+<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+	<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0; float:right;">
+</a>
+</p>
+
+    
+        
+        <div class="content-block" id="01_structure">
+    <h1 class="content-title">More structured data types</h1>
+    <div class="content-body">
+    
+      <h2>Union</h2>
+<p><strong>Union</strong> is a structured type that can contain different types of
+objects. Its definition looks similar to the definition of structure,
+but the difference is that <b>only one of the fields</b> can be stored
+at a time. Union reserves space only for a single object, and the
+compiler determines the amount of space needed based on the largest
+member in the union. Here is an example of an union definition, for an
+imaginary one-dimensional spreadsheet. Each cell of the spreadsheet
+can contain either a floating point number, a short string label, or a
+formula. For the formula, a separate structure is defined: union
+members can also be structures.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
+
+<span class="c1">// This structure stores an imaginary formula and two parameters</span>
+<span class="c1">// (here we assume that the operation and two parameters are defined</span>
+<span class="c1">// as small strings)</span>
+<span class="k">struct</span> <span class="n">formula</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">operation</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">param1</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">param2</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="p">};</span>
+
+<span class="k">union</span> <span class="n">u_types</span> <span class="p">{</span>
+    <span class="kt">float</span> <span class="n">num</span><span class="p">;</span>  <span class="c1">// single number value in spreadsheet cell</span>
+    <span class="kt">char</span> <span class="n">label</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>  <span class="c1">// text label in spreadsheet cell</span>
+    <span class="k">struct</span> <span class="n">formula</span> <span class="n">form</span><span class="p">;</span>  <span class="c1">// formula in spreadsheet cell</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>Below is a short, artificial example on how to use the union
+members. Our single-dimensional spreadsheet has 10 cells. This is done
+by using normal array based on the above specified union type. Each
+cell (array element) can have value that is either a floating point
+number, string label, or a formula. The below code
+directly continues from the above. It is worth paying attention on
+the referral to union members, e.g., on line 12: union members are
+accessed exactly like structure members, and when the member is itself
+a structure, there are multiple levels of structured members
+(separated with <code>.</code>).</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">union</span> <span class="n">u_types</span> <span class="n">sheet</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="k">struct</span> <span class="n">formula</span> <span class="n">avg</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;AVG&quot;</span><span class="p">,</span> <span class="s">&quot;A2&quot;</span><span class="p">,</span> <span class="s">&quot;A3&quot;</span> <span class="p">};</span>
+
+    <span class="c1">// Because t_label is an array, we need to use strcpy</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">sheet</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">label</span><span class="p">,</span> <span class="s">&quot;Header&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Direct assignment works because this is struct</span>
+    <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">form</span> <span class="o">=</span> <span class="n">avg</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;stored formula: %s(%s, %s)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">form</span><span class="p">.</span><span class="n">operation</span><span class="p">,</span>
+           <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">form</span><span class="p">.</span><span class="n">param1</span><span class="p">,</span> <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">form</span><span class="p">.</span><span class="n">param2</span><span class="p">);</span>
+
+    <span class="c1">// This will &quot;overwrite&quot; the formula (partly)</span>
+    <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">num</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>It is not generally possible to know which of the alternative types is
+currently stored in an union variable (apart from trivial examples as
+above). Therefore some additional method or variable is needed to
+track which type the union actually holds. Enumeration constants are a
+good fit for this.</p>
+<h2>Enumeration constants</h2>
+<p>Enumeration constants can be used to define variables that have one of
+the specified constants as a possible value. Here is an example of
+enumeration definition and its use:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">enum</span> <span class="n">en_color</span> <span class="p">{</span>
+    <span class="n">RED</span><span class="p">,</span>
+    <span class="n">GREEN</span><span class="p">,</span>
+    <span class="n">BLUE</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">printColor</span><span class="p">(</span><span class="k">enum</span> <span class="n">en_color</span> <span class="n">col</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="n">col</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nl">RED</span><span class="p">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;red</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nl">GREEN</span><span class="p">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;green</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="nl">BLUE</span><span class="p">:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;blue</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span> 
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Compiler translates enumeration constants to constant integers, and
+they can be used in all normal expressions or functions similarly as
+if a constant integer was used in their place. By default the
+enumeration constants are assigned increasing values starting from
+zero: 'RED' equals to 0, 'GREEN' is 1, and 'BLUE' is 2 in the above
+example, but typically the integer values should not be directly
+used. The integer values for enumerations can also be given
+explicitly, as shown below:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cm">/* Type Duration, some durations in seconds */</span>
+<span class="k">typedef</span> <span class="k">enum</span> <span class="p">{</span>
+    <span class="n">MINUTE</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span>
+    <span class="n">HOUR</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="n">MINUTE</span><span class="p">,</span>
+    <span class="n">DAY</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">*</span> <span class="n">HOUR</span>
+<span class="p">}</span> <span class="n">Duration</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>Using enumeration constants, we can extend the above union example
+with the following definitions, to keep track of actual type stored in
+union variables:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">enum</span> <span class="n">en_types</span> <span class="p">{</span>
+    <span class="n">UNSPEC</span><span class="p">,</span>  <span class="c1">// union content is unspecified</span>
+    <span class="n">NUMBER</span><span class="p">,</span>  <span class="c1">// union stores a number</span>
+    <span class="n">LABEL</span><span class="p">,</span>   <span class="c1">// union stores a string number</span>
+    <span class="n">FORMULA</span>  <span class="c1">// union stores a formula</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>The above specifies an enumeration constant <strong>en_types</strong> with four
+possible values: one for each of the union types specified above, and
+one value to indicate that the value is unspecified.</p>
+<p>Below is a modified example, where each array element is
+<strong>cell</strong> structure instead of plain union. The structure has member
+<strong>type</strong> to keep track the type of the value stored in the union,
+and member <strong>value</strong> that is the previously defined union. With the
+structure we can keep track of the actual data type stored in the
+union.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</pre></div></td><td class="code"><div class="codehilite"><pre><span class="c1">// This structure stores an imaginary formula an two parameters</span>
+<span class="k">struct</span> <span class="n">formula</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">operation</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">param1</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">param2</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="p">};</span>
+
+<span class="k">union</span> <span class="n">u_types</span> <span class="p">{</span>
+    <span class="kt">float</span> <span class="n">num</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">label</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+    <span class="k">struct</span> <span class="n">formula</span> <span class="n">form</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">enum</span> <span class="n">en_types</span> <span class="p">{</span>
+    <span class="n">UNSPEC</span><span class="p">,</span>  <span class="c1">// union content is unspecified</span>
+    <span class="n">NUMBER</span><span class="p">,</span>  <span class="c1">// union stores a number</span>
+    <span class="n">LABEL</span><span class="p">,</span>   <span class="c1">// union stores a string number</span>
+    <span class="n">FORMULA</span>  <span class="c1">// union stores a formula</span>
+<span class="p">};</span>
+
+<span class="c1">// one cell in spreadsheet: stores the type of the cell (enum)</span>
+<span class="c1">// and the actual content (union, corresponding type indicated by enum)</span>
+<span class="k">struct</span> <span class="n">cell</span> <span class="p">{</span>
+    <span class="k">enum</span> <span class="n">en_types</span> <span class="n">type</span><span class="p">;</span>
+    <span class="k">union</span> <span class="n">u_types</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">cell</span> <span class="n">sheet</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="k">struct</span> <span class="n">formula</span> <span class="n">avg</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;AVG&quot;</span><span class="p">,</span> <span class="s">&quot;A2&quot;</span><span class="p">,</span> <span class="s">&quot;A3&quot;</span> <span class="p">};</span>
+
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// initialization: all fields unspecified</span>
+        <span class="n">sheet</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">UNSPEC</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Because label is an array, we need to use strcpy</span>
+    <span class="n">sheet</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">LABEL</span><span class="p">;</span>
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">sheet</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">value</span><span class="p">.</span><span class="n">label</span><span class="p">,</span> <span class="s">&quot;Header&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Direct assignment works because this is struct</span>
+    <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">FORMULA</span><span class="p">;</span>
+    <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">value</span><span class="p">.</span><span class="n">form</span> <span class="o">=</span> <span class="n">avg</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">switch</span><span class="p">(</span><span class="n">sheet</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="nl">LABEL</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">sheet</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span><span class="p">.</span><span class="n">label</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">NUMBER</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">sheet</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span><span class="p">.</span><span class="n">num</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">FORMULA</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s(%s, %s)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+                   <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">value</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="n">operation</span><span class="p">,</span>
+                   <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">value</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="n">param1</span><span class="p">,</span>
+                   <span class="n">sheet</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">value</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="n">param2</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">UNSPEC</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;--</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Because of the new array structure, setting and accessing the values
+in the <strong>sheet</strong> array requires an additional indirection, as can be
+seen above (for example on lines 40 and 41): each array object is a
+cell structure, and each value field in cell structure is union, that
+requires additional field that indicates one of the types in
+union. Additionally, when setting the cell value based on one of the
+three possible data types, the <strong>type</strong> field of the structure needs
+to be updated, to keep track the actual type stored in the cell.</p>
+<p>The above example also shows that because enumerations are constant
+integers, they can be used as part of a switch statement. Using the
+switch statement we can conveniently output the content of each cell
+using correct output format specifiers.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-01-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 01_anydata: Any data (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Getting familiar with operating on unions.</p>
+<p>This exercise introduces a structured data type, <strong>AnyData</strong>, that can
+hold either byte (i.e., char), integer or double value (note that the
+structure is defined using <code>typedef</code>, and how it affects the type
+usage in declarations). AnyData is a structured type that consists two
+fields: <strong>type</strong> enumeration that indicates the actual type currently
+stored on the structure, and <strong>value</strong> union that contains the actual
+value in one of the above types. See <strong>anydata.h</strong> for the actual data
+type definition. In addition, there is type 'UNDEF' that means value
+does not contain any valid type.</p>
+<h2>a) Set value</h2>
+<p>Implement functions <strong>setByte</strong>, <strong>setInt</strong> and <strong>setDouble</strong>
+that will return a new AnyData object of given type, with value set as
+indicated by the function parameter.</p>
+<h2>b) Print value</h2>
+<p>Implement function printValue, that will output the value of
+AnyData. The output format depends on the type of value stored. For
+outputting each particular type, you should use one of the output
+functions given in 'anydata.c', depending on the actual AnyData type
+(<strong>printByte</strong>, <strong>printInt</strong>, or <strong>printDouble</strong>).</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="02_multiarray">
+    <h1 class="content-title">Multidimensional arrays</h1>
+    <div class="content-body">
+    
+      <h2>Static arrays</h2>
+<p>C supports also multidimensional arrays. In general, any number of
+array dimensions is possible, but here we focus just on
+two-dimensional arrays for clarity. Below is an example of a simple 3x3
+static array and how it can be used.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">},</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">}};</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+
+    <span class="c1">// Print the matrix in rectangular format</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">matrix</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Line 4 in the main function defines variable <strong>matrix</strong> that is
+a two-dimensional 3x3 array. It is also initialized at the same
+time: note the initialization list notation of nested arrays for each
+row of the table. The format of the initialization list also
+illustrates what multidimensional arrays really are in C: arrays made
+of arrays.</p>
+<p>After the initialization, the array is just printed on the screen as
+two-dimensional rectangle. The array is indexed similarly to
+one-dimensional array, but now there are two indexes in square brackets.</p>
+<p>The diagram below illustrates how C implements a static
+two-dimensional array as the above. There are three arrays of integer
+arrays that have three integers each. In this case, all 9 elements are
+located in adjacent locations in memory.</p>
+<p><div style="text-align: center;"><img src="../static/pics/array-2d-static.jpg" align="middle"></div></p>
+
+<p>Passing a static array as a function parameter has a special notation,
+as shown below. With a static two-dimensional array, the function
+parameter declaration must include the number of columns, so that the
+function can interpret the array data type correctly. The number of
+"first-dimension" members can be omitted: as with one-dimensional
+arrays, <code>int arr[]</code> is equal to <code>int *arr</code>, i.e., it can be handled as
+a pointer. The below example modifies the above by moving
+the array printing part into a dedicated function.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">void</span> <span class="nf">printArray</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[][</span><span class="mi">3</span><span class="p">])</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+    <span class="c1">// Print the matrix in rectangular format</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">},</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">}};</span>
+
+    <span class="n">printArray</span><span class="p">(</span><span class="n">matrix</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>A two-dimensional array can also be declared as an array of pointers
+(<strong>arr_p</strong> in below example), as shown below. This allows more
+flexible function interface, that will work with different sizes of
+arrays. Each pointer in the array points to the first member of
+a one-dimensional array.</p>
+<p><div style="text-align: center;"><img src="../static/pics/array-2d-static-dyn.jpg" align="middle"></div></p>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &amp;lt;stdio.h&amp;gt;</span>
+
+<span class="kt">void</span> <span class="nf">printArray</span><span class="p">(</span><span class="kt">int</span> <span class="o">**</span><span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">xs</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ys</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+    <span class="c1">// Print the matrix in rectangular format</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">ys</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">xs</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">},</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">}};</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">arr_p</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">arr_p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="n">printArray</span><span class="p">(</span><span class="n">arr_p</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>The elements in '<strong>arr_p</strong>' are of different data type than the
+first-degree elements of the "matrix" array: <code>sizeof(arr_p[0])</code>
+returns the length of one <code>int *</code> pointer (8 bytes for 64-bit
+address), but <code>sizeof(matrix[0])</code> is the length of an array consisting
+3 integers (12 bytes in most systems). Therefore, the <em>printArray()</em>
+function above cannot be directly called using the <em>matrix</em>
+parameter. Fortunately C allows implicit translation of a
+one-dimensional integer array (<code>matrix[i]</code>) into a integer pointer to
+the first member of array (<code>arr_p[i]</code>), as done on line 19
+above). After this operation calling <em>printArray()</em> function is
+possible.</p>
+<p>Because now <strong>arr</strong> is delivered as pointer of pointers, it accepts
+different dimensions of arrays. Therefore we added two new parameters
+to function interface, to indicate the actual dimensions of the
+array. Otherwise the function implementation might not know the
+dimensions.</p>
+<h2>Dynamic allocated multi-dimensional arrays</h2>
+<p>Similarly to one-dimensional arrays, dynamic multi-dimensional arrays
+are allocated dynamically from heap using (possibly multiple)
+<em>malloc()</em> calls (in comparison to single <em>malloc()</em> call).  A
+multidimensional array could be allocated in different ways, but here
+we focus on a straight-forward design: first, the high-level array is
+allocated, for storing a number of columns (i.e., one-dimensional
+arrays). Then, each column of the array is allocated with a separate
+<em>malloc()</em> call. The latter <em>malloc()</em> calls are similar to allocating a
+one-dimensional array. The first array holds a series of pointers to the
+beginning of one-dimensional arrays, and the second-degree arrays
+store the actual members. Here is an example:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="kt">void</span> <span class="nf">printArray</span><span class="p">(</span><span class="kt">int</span> <span class="o">**</span><span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">xs</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ys</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+    <span class="c1">// Print the matrix in rectangular format</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">ys</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">xs</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%2d &quot;</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="o">**</span><span class="n">arr_p</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">xdim</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">ydim</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+    <span class="c1">// first allocate array that points to arrays of rows</span>
+    <span class="c1">// (notice the data type in sizeof operation)</span>
+    <span class="n">arr_p</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">ydim</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">arr_p</span><span class="p">)</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// memory allocation failed</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">ydim</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">arr_p</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">xdim</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">arr_p</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
+            <span class="c1">// memory allocation failed, release memory</span>
+            <span class="c1">// will have to go through previously allocated rows</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">free</span><span class="p">(</span><span class="n">arr_p</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+            <span class="p">}</span>
+            <span class="n">free</span><span class="p">(</span><span class="n">arr_p</span><span class="p">);</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">xdim</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// fill matrix with values, multiplication table</span>
+            <span class="n">arr_p</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">printArray</span><span class="p">(</span><span class="n">arr_p</span><span class="p">,</span> <span class="n">xdim</span><span class="p">,</span> <span class="n">ydim</span><span class="p">);</span>
+
+    <span class="c1">// release the memory</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">ydim</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">arr_p</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">arr_p</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p><div style="text-align: center;"><img src="../static/pics/array-2d.jpg" align="middle"></div></p>
+
+<p>This example continues modifying the previous simple matrix example.
+The <em>printArray()</em> function is same as before, but it is now called
+with two-dimensional array that is allocated from heap.
+Now the data type of <strong>arr_p</strong> variable is <code>int **</code>, a pointer to
+pointer(s), because with arrays a pointer points to the beginning
+of array.</p>
+<p>The first degree array can be indexed using <code>arr_p[j]</code> (which is the
+same as <code>*(arr_p + j)</code>, as always). Because there is one
+<strong>defererence</strong>, one "star" of the data type goes away. Therefore the
+data type of <code>arr_p[j]</code> is <code>int *</code>, i.e., a one-dimensional
+array. This is why on line 22 the number of rows is multiplied by
+<code>sizeof(int *)</code> in a malloc call: <code>int *</code> is the type of single member
+in the first-degree array.</p>
+<p>Each of the <code>arr_p[j]</code> arrays can be indexed again with <code>arr_p[j][i]</code>
+(which is equivalent with <code>*(*(arr + j) + i)</code>). There is another
+dereference, and one "star" of the data type goes away. Therefore
+<code>arr_p[j][i]</code> is of type <code>int</code>.</p>
+<p>Variables <strong>ydim</strong> and <strong>xdim</strong> hold the array dimensions. In this
+variant, the first-degree dimension is represented by <strong>ydim</strong>, as for
+vertical lines, and second-degree is for horizontal dimensions, but
+this could be also the other way around.</p>
+<p>The same principle can be generalized into any number of dimensions:
+there could be three-dimensional arrays or four-dimensional
+arrays. The data types would just have more "stars" involved.</p>
+<h2>Arrays of strings</h2>
+<p>A common case of array of pointers is an array of strings. Essentially
+this is a two-dimensional array as well, because strings are arrays of
+characters. In this case the different columns of arrays can have
+different lengths. The following code represents the names of the
+months as an array:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">months</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;January&quot;</span><span class="p">,</span> <span class="s">&quot;February&quot;</span><span class="p">,</span> <span class="s">&quot;March&quot;</span><span class="p">,</span> <span class="s">&quot;April&quot;</span><span class="p">,</span> <span class="s">&quot;May&quot;</span><span class="p">,</span>
+               <span class="s">&quot;June&quot;</span><span class="p">,</span> <span class="s">&quot;July&quot;</span><span class="p">,</span> <span class="s">&quot;August&quot;</span><span class="p">,</span> <span class="s">&quot;September&quot;</span><span class="p">,</span> <span class="s">&quot;October&quot;</span><span class="p">,</span>
+               <span class="s">&quot;November&quot;</span><span class="p">,</span> <span class="s">&quot;December&quot;</span> <span class="p">};</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">months</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>In the above case the strings in the array are constant strings: they
+cannot be modified. Otherwise they are used as normal array members. A
+single character of the <strong>months</strong> array could be accessed using
+<code>months[j][i]</code>, where <strong>i</strong> indicates the character in month string
+<strong>j</strong>. Because <em>printf()</em> format specifier '%s' on above line 9
+assumes <code>char *</code> type, only the first-degree index is needed.</p>
+<p>The strings can also be defined as changeable strings in a similar way
+as in the basic case. Then the definition of months array, could be,
+for example:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="n">months</span><span class="p">[</span><span class="mi">12</span><span class="p">][</span><span class="mi">20</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;January&quot;</span><span class="p">,</span> <span class="s">&quot;February&quot;</span><span class="p">,</span> <span class="s">&quot;March&quot;</span><span class="p">,</span> <span class="s">&quot;April&quot;</span><span class="p">,</span> <span class="s">&quot;May&quot;</span><span class="p">,</span>
+           <span class="s">&quot;June&quot;</span><span class="p">,</span> <span class="s">&quot;July&quot;</span><span class="p">,</span> <span class="s">&quot;August&quot;</span><span class="p">,</span> <span class="s">&quot;September&quot;</span><span class="p">,</span> <span class="s">&quot;October&quot;</span><span class="p">,</span>
+           <span class="s">&quot;November&quot;</span><span class="p">,</span> <span class="s">&quot;December&quot;</span> <span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>The above definition declares <b>months</b> as an array of 12 strings,
+and for each string 20 bytes are reserved. We could omit 12 in the
+definition, and just use <code>char months[][20]</code>, because the compiler
+will see the needed array length from the initialization list, but the
+size of each string must be given, so that the compiler can build the
+array appropriately. The strings will be located on consecutive memory
+locations, 20 bytes each.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-02-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_life: Game of Life (4 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> practice allocating and manipulating dynamic
+  two-dimensional arrays.</p>
+<p>Conway's <a href="http://en.m.wikipedia.org/wiki/Conway%27s_Game_of_Life">Game of Life</a> is a traditional zero-player game that runs a
+cellular automaton based on an initial system state and a simple set of
+rules. Game of Life operates on a two-dimensional grid, where each
+cell can have two states: "dead" or "alive". The state of the grid
+progresses in discrete steps (or "ticks"), where each cell may change
+its state based on the states of its neighbors.</p>
+<p>The rules determining state changes on an individual cell are:</p>
+<ul>
+<li>
+<p>Any <strong>live</strong> cell with <strong>fewer than two live</strong> neighbours <strong>dies</strong></p>
+</li>
+<li>
+<p>Any <strong>live</strong> cell with <strong>two or three live</strong> neighbours <strong>lives</strong> on to the
+    next generation.</p>
+</li>
+<li>
+<p>Any <strong>live</strong> cell with <strong>more than three live</strong> neighbours <strong>dies</strong></p>
+</li>
+<li>
+<p>Any <strong>dead</strong> cell with <strong>exactly three live neighbours</strong> becomes a
+    <strong>live</strong> cell.</p>
+</li>
+</ul>
+<p>Also diagonal cells are considered neighbors, i.e., each cell (that is
+not on the edge of the field) has 8 neighbors. Remember to consider
+cells that are on the edge of the field: you should not access
+positions that are out of the bounds of the field.</p>
+<p>The state changes on each cell occur simultaneously. I.e., as you
+process the field one cell at a time, the intermediate changes made
+earlier during the current iteration must not affect the result.</p>
+<p>For example, a field with the following setting ('*' indicates live cell):</p>
+<pre>
+..........
+.**.***...
+.**......*
+.*.*.....*
+........*.</pre>
+
+<p>Will in the next generation be:</p>
+<pre>
+.....*....
+.***.*....
+*...**....
+.*......**
+..........</pre>
+
+<p>The <a href="http://en.m.wikipedia.org/wiki/Conway%27s_Game_of_Life">wikipedia page</a> on Conway's Game of Life gives further background,
+and examples of some interestingly behaving patterns.</p>
+<p>In this exercise you will implement the necessary components for Game
+of Life such that you should be able to follow the progress of the
+game field between generations. The main function in src/main.c has
+the core of the game, that generates the field and goes through the
+generations one by one using the functions you will implement.</p>
+<p>The exercise will have the following subtasks, each worth one point.</p>
+<h2>a) Create and release game field</h2>
+<p>Implement the function '<strong>createField</strong>' that allocates the needed space
+for the '<strong>Field</strong>' structure that holds the game field, and for a
+two-dimensional array of dimensions given in parameters '<strong>xsize</strong>'
+and '<strong>ysize</strong>'. Each cell in the field must be initialized to 'DEAD'
+state, as well as the 'xsize' and 'ysize' fields in the structure.</p>
+<p>Note: the tests assume that the rows (y-axis) of the field are
+the first dimension of the array (and allocated first), and the
+columns are the second dimension. I.e., the cells are indexed as
+[y][x].</p>
+<p>You will also need to implement the function '<strong>releaseField</strong>' that frees
+the memory allocated by <em>createField()</em>. The tests will use this
+function for all memory releases, so failing to implement this will
+result in Valgrind errors about memory leaks.</p>
+<h2>b) Initialize field</h2>
+<p>Implement the function '<strong>initField</strong>' that turns a given number of cells
+into 'ALIVE' state. You can decide the algorithm by which you set up
+the field, but the outcome must be that exactly '<strong>n</strong>' cells in the
+field are alive. One possibility is to use the '<strong><a href="http://linux.die.net/man/3/rand">rand</a></strong>' function
+to choose the live cells randomly.</p>
+<h2>c) Print field</h2>
+<p>Implement the function '<strong>printField</strong>' that outputs the current state of
+the field to the screen. Each dead cell is marked with '.' and each
+live cell is marked with '*'. There are no spaces between the cells,
+and each row ends in a newline ('\n'), including the last line. The
+output should look similar, as in the above examples in this task
+description.</p>
+<h2>d) Progress game field</h2>
+<p>Implement the function '<strong>tick</strong>' that advances the game field by one
+generation according to the rules given above. Note that all cells
+need to be evaluated "simultaneously". One way to do this is to
+maintain two game fields: one that holds the state before the transition,
+and another where you will build the next generation of the game field.</p>
+<p>(If you allocate new memory in this function, don't forget to
+release it.)</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="03_cmdline">
+    <h1 class="content-title">Command line arguments</h1>
+    <div class="content-body">
+    
+      <p>Command line parameters are a traditional form of passing instructions
+and information to the program when it is started from a command line
+terminal interface (or from a script). With graphical user interfaces
+and embedded mobile gadgets the command line parameters may not have
+much significance, but because they are a very common interface for
+controlling the application behavior in Unix systems, and timely to
+the theme of this module, we will discuss them briefly.</p>
+<p>Until this point we have seen several examples of a main function that
+does not have parameters. The main function also has an alternative
+form that allows passing the command line arguments that were given
+when program was started. The command line parameters are represented
+as an array of strings. The following small piece of code illustrates
+how they work:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;This program was called with %d parameters</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">argc</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;They were (including the program name itself):</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Here the main function comes with two parameters: <strong>argc</strong> tells the
+number of command line parameters, and <strong>argv</strong> is an array of
+strings, where each element contains one command line parameter. The
+program name itself is the first command line parameter, so there at
+least one array member is always included. For example, when user
+types the following on the command line:</p>
+<pre>
+./program one two three</pre>
+
+<p><strong>argc</strong> will be 4, and the <strong>argv</strong> array will have the following
+content: <code>{ "./program", "one", "two", "three" }</code>.</p>
+<p>A common format on command line is to use command line options that
+start with dash (-) and are followed by a single character. Such
+options can be standalone, or come with an additional parameter. For
+example, the <strong>tail</strong> command below:</p>
+<pre>
+tail -f -q -n 10 file.txt</pre>
+
+<p>has three options, 'f', 'q' and 'n'. 'f' and 'q' are without
+additional parameters, by 'n' comes with an integer parameter 10.
+Finally, there is a command line parameter that does not follow the
+option format. Typically the options can be given in any order.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-03-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 03_strarray: String array (4 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Practice the use of dynamically allocated arrays that
+consist of dynamically allocated strings.</p>
+<p>This exercise manipulates an array that contains pointers to
+dynamically allocated strings. The last element of the array is a NULL
+pointer, i.e., an 'empty' array consists of a single NULL
+member. Implement the following functions:</p>
+<h2>a) Initialize array</h2>
+<p>Implement function '<strong>init_array</strong>' that initializes the string array
+to have the initial NULL pointer, but nothing else. The space for the
+NULL pointer needs to be allocated dynamically. In other words: the
+array has one pointer member, that has NULL value.</p>
+<p>In addition, implement the function <strong>free_strings</strong> that releases the
+memory allocated for the array. Remember that in later phases there
+will also be pointers to strings in the array. Implementing
+<strong>free_strings</strong> is necessary for Valgrind tests to pass, and
+therefore for getting points for this and other parts of the
+exercise.</p>
+<h2>b) Add string</h2>
+<p>Implement the function '<strong>add_string</strong>' that adds the given string to the
+array. Note that the source string is of type <code>const char*</code>, but the
+array members should be modifiable. Therefore, just copying the string
+pointer is not enough. As you resize (and likely reallocate) the
+array, remember that the last member should always be a NULL
+pointer.</p>
+<h2>c) Make lower case</h2>
+<p>Implement the function <strong>make_lower</strong> that converts all strings in the
+array to lower case characters (<b><a
+href="http://linux.die.net/man/3/tolower">tolower</a></b> function
+converts a single character to lower case).</p>
+<h2>d) Sort array</h2>
+<p>Implement the function <b>sort_strings</b> that sorts the strings in the array
+to lexicographical order (as determined by the <b><a
+href="http://linux.die.net/man/3/strcmp">strcmp</a></b> function). You
+have (probably) implemented one kind of sort function in Module 2, and a
+similar approach works also here. It is useful to know that '<strong>strcmp</strong>' can
+be used for determining the order: if the <b>strcmp</b> function
+returns <em>smaller than 0</em>, the first string is before the second; if it returns
+<em>larger than 0</em> the first string should be after the second.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="04_bits">
+    <h1 class="content-title">Bit operations</h1>
+    <div class="content-body">
+    
+      <h2>Binary system</h2>
+<p>In binary (base-2) numeral system all numbers are presented with two
+symbols (<strong>bits</strong>), 0 or 1. Binary arithmetics have been traditionally
+significant in computer systems based on digital electronic circuitry,
+and therefore binary operations come across in low-level
+implementations. In computer, all numbers or datatypes are built from
+combinations of bits. Binary operations are also useful in packing
+information efficiently in small space, and for example, various
+low-level communication protocols rely on binary operations to
+efficiently transmit information over a communication link.</p>
+<p>Standard C does not support representing numbers in binary format
+(although there are extensions to support it in many compilers).
+Therefore, hexadecimal (base-16, i.e., base-2<sup>4</sup>) numbers are
+a often used together with binary numbers, because <strong>each hexadecimal
+digit can be represented with four bits</strong>, making them fairly handy
+format for binary operations. Hexadecimal system has 16 symbols: in
+addition to numbers 0 - 9, letters A to F are used to indicate decimal
+values 10 - 15. The table below illustrates the close connection
+between binary representation and hexadecimal representation.</p>
+<p><div style="text-align: center;"><img src="../static/pics/hex-bits.jpg" align="middle"></div></p>
+
+<p>Following the logic shown in the table one can also do conversions
+between longer hexadecimal numbers and their binary
+representation. For example, a 16-bit (unsigned short) hexadecimal
+number 0xD2A0 is 1101 0010 1010 0000 in binary format.</p>
+<h2>Bitwise operators</h2>
+<p>The bit patterns can be manipulated through bitwise operators. The
+following four bitwise operators are available:</p>
+<ul>
+<li>
+<p>bitwise <strong>AND (&amp;)</strong>: <code>A &amp; B</code> is 1 if both bit A and bit B
+    are 1. If either of them is 0, A &amp; B is 0 as well.</p>
+</li>
+<li>
+<p>bitwise <strong>OR (|)</strong>: <code>A | B</code> is 1 if either bit A or bit B is 1. If
+    both of them  are 0, A | B is 0.</p>
+</li>
+<li>
+<p>bitwise <strong>exclusive OR (^)</strong>: <code>A ^ B</code> is 1 if the state of bit A
+    is different from state of bit B. If both A and B are 1 or 0, then
+    A ^ B is 0.</p>
+</li>
+<li>
+<p>one's complement <strong>NOT</strong>: <code>~A</code> converts bit 1 to 0, and vice versa. </p>
+</li>
+</ul>
+<p>It is important to distinguish between the logical operators (e.g.,
+<code>&amp;&amp;</code>, <code>||</code> and <code>!</code>) and bitwise operators. The logical operators
+result in integer values 0 or 1, while bitwise operators do manipulations on
+bit level, meaning that the resulting value can be some other integer
+as well, depending how the individual bits were affected by the
+bitwise operation -- remembering that all numbers are built from
+combinations of bits.</p>
+<p>The below table shows an example of these operations in two
+unsigned char - type values, 0x69 and 0xCA.</p>
+<p><div style="text-align: center;"><img src="../static/pics/bit-ops.jpg" align="middle"></div></p>
+
+<p>The above examples can be written in C code as follows.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="mh">0x69</span><span class="p">;</span>  <span class="c1">// 01101001</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">b</span> <span class="o">=</span> <span class="mh">0xca</span><span class="p">;</span>  <span class="c1">// 11001010</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a &amp; b = %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">);</span>
+
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">|</span> <span class="n">b</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a | b = %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+
+    <span class="n">b</span> <span class="o">^=</span> <span class="n">a</span><span class="p">;</span>  <span class="c1">// b = b ^ a</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;a ^ b = %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;~a = %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">~</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;~a &amp; 0xff = %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">~</span><span class="n">a</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>This will print out:</p>
+<pre>
+a & b = 48
+a | b = eb
+a ^ b = a3
+~a = ffffff96
+~a & 0xff = 96</pre>
+
+<p>The outcome of <code>~a</code> may be surprising, and relates to <em>integral
+promotion</em>: C internally converts small integer data types (such as
+char or short) into the underlying architecture's "native" integer
+type before arithmetic operations, for optimized performance. In many
+cases this is not visible to the programmer because the high-end bits
+tend to remain zero, but here the bitwise negation turns the bits to
+1, which reveals the actual data length on printout. However, we can
+use bitwise AND to reset the higher-order bits, as done on line 17.</p>
+<p>In addition to the logical operators, bitwise <strong>shift operators</strong>
+can be applied to an expression. The <strong>&lt;&lt;</strong> operator shifts
+the bits left a given number of steps. For example <code>A &lt;&lt; 1</code> shifts the
+bits left by one step, and <code>A &lt;&lt; 4</code> shifts the bits left by four
+steps. Similarly, <code>A &gt;&gt; 1</code> shifts the bits right by one step, and
+<code>A &gt;&gt; 4</code> shifts the bits right by fours steps. When bits are
+shifted right by N positions, the rightmost N bits are lost, and the
+leftmost N bits will be set to 0. Correspondingly, when bits are
+shifted left by N positions, the N leftmost bits are lost, and N
+rightmost bits become 0. Below table illustrates a few bit shift
+operations.</p>
+<p><div style="text-align: center;"><img src="../static/pics/bit-shift.jpg" align="middle"></div></p>
+
+<p>The following program implements function <b>printBits</b> that uses
+the bit shift operations, together with logical AND to output a binary
+presentation of the given unsigned char value, and tests its use with
+a couple of values shown above.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">void</span> <span class="nf">printBits</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// (1 &lt;&lt; i) generates value where only i&#39;th bit is set</span>
+    <span class="c1">// value &amp; (1 &lt;&lt; i)) is non-zero only if i&#39;th bit is set in value</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="p">))</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="mh">0x69</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;0x69 = &quot;</span><span class="p">);</span>
+    <span class="n">printBits</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">0x69 &lt;&lt; 2 = &quot;</span><span class="p">);</span>
+    <span class="n">printBits</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>The program outputs:</p>
+<pre>
+0x69 = 01101001
+0x69 << 2 = 10100100</pre>
+
+<p>Bit masks are used to operate on selected bit or set of bits. State of
+bits can be investigated using the bitwise AND operator, and bit masks
+can be combined using the bitwise OR operator. The result of bitwise
+AND operation is true (non-zero) only if at least one of the indicated
+bits is set. The below example investigates state of a few bits, and
+converts the highest four bits in variable <strong>a</strong> into integer.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="mh">0x36</span><span class="p">;</span>  <span class="c1">// 00110110</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="mh">0x2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Second bit is set, true in this case</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="mh">0x1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// First bit is set, not true in this case</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="mh">0xf0</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// are any of the highest four bits set?</span>
+        <span class="c1">// convert the highest four bits to integer</span>
+        <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="mh">0xf0</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// b == 3</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Programs can use <strong>flags</strong> to represent some state in a system. A
+flag can either be on or off, i.e., it can be naturally represented
+with a single bit. Such presentation is also very efficient where
+space matters: a single char - type variable can store 8 different
+flags, because it consists of 8 bits. Bitwise operations can be used
+to evaluate and set the state of individual flags.</p>
+<p>The following example operates an imaginary file, that can have four
+types of permissions separately for the file owner and a "group". The
+permissions are presented by flags that can either be on or off, in
+different combinations. A single unsigned char is sufficient for
+representing read, write, execute and delete permissions, separately
+for an owner and a group.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">MyFlags</span><span class="p">;</span>
+
+<span class="c1">// Owner permissions</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">CanRead</span> <span class="o">=</span> <span class="mh">0x1</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">CanWrite</span> <span class="o">=</span> <span class="mh">0x2</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">CanExecute</span> <span class="o">=</span> <span class="mh">0x4</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">CanDelete</span> <span class="o">=</span> <span class="mh">0x8</span><span class="p">;</span>
+
+<span class="c1">// Group permissions</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">GroupCanRead</span> <span class="o">=</span> <span class="n">CanRead</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="mi">4</span><span class="p">;</span>       <span class="c1">// 0x10</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">GroupCanWrite</span> <span class="o">=</span> <span class="n">CanWrite</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="mi">4</span><span class="p">;</span>     <span class="c1">// 0x20</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">GroupCanExecute</span> <span class="o">=</span> <span class="n">CanExecute</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// 0x40</span>
+<span class="k">const</span> <span class="n">MyFlags</span> <span class="n">GroupCanDelete</span> <span class="o">=</span> <span class="n">CanDelete</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="mi">4</span><span class="p">;</span>   <span class="c1">// 0x80</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="n">MyFlags</span> <span class="n">perms</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">File</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">File</span> <span class="n">fileA</span><span class="p">;</span>
+    <span class="n">fileA</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;File 1&quot;</span><span class="p">;</span>
+    <span class="n">fileA</span><span class="p">.</span><span class="n">perms</span> <span class="o">=</span> <span class="n">CanRead</span> <span class="o">|</span> <span class="n">CanWrite</span><span class="p">;</span> <span class="c1">// can read and write, but not execute</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;flags 1: %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fileA</span><span class="p">.</span><span class="n">perms</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">fileA</span><span class="p">.</span><span class="n">perms</span> <span class="o">&amp;</span> <span class="n">CanRead</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;reading is possible</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">fileA</span><span class="p">.</span><span class="n">perms</span> <span class="o">&amp;</span> <span class="n">GroupCanRead</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Group cannot read, so we can&#39;t get here</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;group reading is possible</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">fileA</span><span class="p">.</span><span class="n">perms</span> <span class="o">|=</span> <span class="n">GroupCanRead</span><span class="p">;</span> <span class="c1">// now also group can read</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;flags 2: %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fileA</span><span class="p">.</span><span class="n">perms</span><span class="p">);</span>
+
+    <span class="c1">// zeroing CanWrite and GroupCanWrite</span>
+    <span class="n">fileA</span><span class="p">.</span><span class="n">perms</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="n">CanWrite</span> <span class="o">|</span> <span class="n">GroupCanWrite</span><span class="p">);</span>
+
+    <span class="c1">// print the final state of flags</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;flags 3: %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fileA</span><span class="p">.</span><span class="n">perms</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>The above program will output the following:</p>
+<pre>
+flags 1: 03
+reading is possible
+flags 2: 13
+flags 3: 11</pre>
+
+<h2>Byte order</h2>
+<p>The binary numbers larger than one byte (e.g., short integers or
+integers) can be encoded in different ways in different
+architectures. The programmer needs to take this into account if
+exporting data outside the local machine (for example, when storing to
+portable storage or writing data to network). The order of bytes may
+either be big-endian (the most significant byte is in smallest memory
+address, and the least significant byte is largest memory address), of
+it could be little-endian (the least significant byte is in smallest
+memory address). For example, the Intel-based architectures (i.e.,
+most current computers) are commonly little-endian, but many standards
+(e.g. for network protocols) require big-endian byte order. There are
+functions for byte order conversions (ntohs, ntohl, htons, htonl), but
+the conversion is can be made also by byte-by-byte assignments, and
+applying bit shift operations appropriately (see example below). Below
+is an example of 32-bit integer, and its representation in the two
+formats, when looking the same memory space on byte-by-byte level, and
+a piece of code that does conversion to big-endian byte order.</p>
+<p><div style="text-align: center;"><img src="../static/pics/byte-order.jpg" align="middle"></div></p>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mh">0xACDC1A2B</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">big_endian</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="n">big_endian</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span> <span class="o">&gt;&gt;</span> <span class="mi">24</span><span class="p">;</span>  <span class="c1">// AC</span>
+<span class="n">big_endian</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">num</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">;</span>  <span class="c1">// DC</span>
+<span class="n">big_endian</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">num</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">;</span> <span class="c1">// 1A</span>
+<span class="n">big_endian</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">num</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">;</span> <span class="c1">// 2B</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-04-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 04_ip: IP header (4 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Practice bit manipulation through practical real-world
+example.</p>
+<p>The IP (version 4) protocol is used in nearly all Internet
+communication today. <a href="http://en.wikipedia.org/wiki/IPv4">Wikipedia</a> contains a good basic information
+package about the IPv4 protocol. The Internet data is carried in
+packets that start by a 20-byte IP header. The
+<a href="http://en.wikipedia.org/wiki/IPv4#Header">IPv4 header format</a> is
+documented in the above-mentioned Wikipedia article. The header
+consists of a number of fields used by the two communicating ends of
+the IP protocol. The designers of the IP protocol have tried to use
+the header space as efficiently as possible, making use of every bit
+available. Therefore some header fields only take a few bits in a
+byte.</p>
+<p>This exercise is for practicing bit manipulation operations.
+You will need to parse an opaque buffer into a <em>struct
+ipHeader</em> structure, based on the header format described in the
+Wikipedia article. As the second part of the exercise you will need to
+do the reverse operation, from structure into a buffer.</p>
+<p>The diagram in the Wikipedia article is read in the following way: for
+each field, you can find the byte offset by calculating the sum of the
+"octet" row and column in the diagram. For example, the byte offset
+for the <em>protocol</em> field is 1 + 8 = 9, and you could find the
+value of this field by something like <code>buffer[9]</code> or
+<code>*(buffer + 9)</code>, assuming you use (unsigned) char pointers.</p>
+<p>The exercise template contains readily implemented functions
+<em>printIp</em> and <em>hexdump</em> that you can use from <em>main.c</em> to test
+your implementation.</p>
+<p><strong>Additional hints:</strong></p>
+<ul>
+<li>
+<p>The IP Header Length (IHL) is a 4-bit field encoding the header
+    length in 32-bit units. The structure field <em>ihl</em> includes the
+    header length in bytes. Therefore, you'll need to multiply the
+    value encoded in the 4-bits of IP header by 4, to convert it to
+    bytes. For example, header field value 6 corresponds to 24 bytes,
+    that should be written to the structure.</p>
+</li>
+<li>
+<p>Noticing the <a href="http://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B#Operator_precedence">precedence rules</a> with bit operations is important.
+    The bit shift operations <code>&lt;&lt;</code> and <code>&gt;&gt;</code> have lower precedence than
+    for example addition (+) and subtraction (-). Remember to use
+    parentheses when needed.</p>
+</li>
+<li>
+<p>16-bit numbers are encoded in big-endian byte order in the IP
+    header: the most significant byte is first, and the less
+    significant byte comes after that.</p>
+</li>
+</ul>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+
+
+
+		</div>
+
+		<div class="col-lg-4"></div> <!-- forces middle column narrower -->
+
+	</div>
+
+</div>
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="../static/jquery.min.js"></script>
+<script src="../static/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,1430 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>C-MOOC - C-MOOC
+- Module 2
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/pygments.css">
+
+    <style>
+    #content { margin-bottom: 20px; text-align: justify; }
+    #content img { margin-top: 25px; margin-bottom: 25px; }
+    #content li { margin-top:6px; margin-bottom: 6px; }
+    #content h2 { padding-top: 20px; }
+
+    .codehilitetable { width: 100%; margin-top: 15px; margin-bottom: 15px;}
+    .linenos { width: 20px }
+    .codehilite{ width:100%; height: auto; }
+
+    .task-sidenav-link { padding-left: 0.5em; }
+    .content-sidenav-link { text-decoration: underline; }
+    .content-block, .task-description-block { margin-bottom: 40px; }
+
+    </style>
+</head>
+<body>
+
+<!-- navbar, common to all pages -->
+<div class="navbar navbar-default" role="navigation">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+
+      <li><a href="../home/index.html">Home</a></li>
+
+      
+      <li class="global-links"><a href="https://tmc.mooc.fi/mooc">TMC</a></li>
+      
+      <li class="global-links"><a href="https://wiki.aalto.fi/display/C/C-ohjelmointi+vinkkiwiki">Vinkkiwiki</a></li>
+      
+      <li><a href="../instructions/index.html">Instructions</a></li>
+
+      
+      <li><a href="../Module_1/index.html">M1: Introduction</a></li>
+      
+      <li><a href="index.html">M2: Pointers</a></li>
+      
+      <li><a href="../Module_3/index.html">M3: Dynamic memory</a></li>
+      
+      <li><a href="../Module_4/index.html">M4: Arrays and Bits</a></li>
+      
+      <li><a href="../Module_5/index.html">M5: Advanced features</a></li>
+      
+      <li><a href="../Module_6/index.html">M6: Course summary</a></li>
+      
+
+    </ul>
+  </div>
+</div><!-- navbar -->
+
+
+<!-- Unique content of a page goes here -->
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-lg-3">
+			<div class="sidebar">
+                <ul class="nav">
+
+                    <li><img src="../static/aalto-elec-s.jpg" class="img-responsive"></li>
+                    <li><a href="http://mooc.fi/courses/2016/aalto-c">C-MOOC - MOOC.fi</a></li>
+                </ul>
+                
+
+    
+<ul class="nav bs-sidenav">
+    <b>Jump to:</b>
+    
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#01_pointers">
+        1. Pointers
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-1-en">
+            <b>Task:</b> 02_basics_1 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#02_pointers2">
+        2. Address arithmetics
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-2-en">
+            <b>Task:</b> 02_basics_2 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#03_arrays">
+        3. Arrays
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-3-en">
+            <b>Task:</b> 02_basics_3 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-master-en">
+            <b>Task:</b> 03_mastermind (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-en">
+            <b>Task:</b> 04_sort (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#06_strings">
+        4. Strings
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-1-en">
+            <b>Task:</b> 06_strbasic_1 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#04_qualifiers">
+        5. Helpful Qualifiers and Operators
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#05_precedence">
+        6. Precedence
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#07_strings2">
+        7. Strings
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-2-en">
+            <b>Task:</b> 06_strbasic_2 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-en">
+            <b>Task:</b> 07_altstring (4)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-en">
+            <b>Task:</b> 08_korso (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-en">
+            <b>Task:</b> 09_stringarray (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+</ul>
+
+
+
+
+			</div>
+		</div>
+
+
+		<div class="col-lg-7" id="content">
+
+		    
+		    
+
+		    
+
+    <p>
+<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+	<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0; float:right;">
+</a>
+</p>
+
+    
+        
+        <div class="content-block" id="01_pointers">
+    <h1 class="content-title">Pointers</h1>
+    <div class="content-body">
+    
+      <p>Pointers are a fundamental part of C programming, and typically necessary in any non-trivial software functionality. The ability to directly operate with pointers and memory is one of the differentiating factors between C and many other (higher-level) programming languages. Unfortunately, the ability to directly operate with (virtual) memory also introduces various ways for errors that are sometimes hard to trace.</p>
+<h2>Background</h2>
+<p>Variables declared in the program code allocate memory space that depends on the type of variable. For example, a <em>char</em> variable uses one byte (8 bits) of memory, and <em>int</em> (usually) uses four bytes (32 bits) in memory. For local variables the system allocates the needed memory space automatically when the variable is declared, and releases the memory when execution exits the program block or function where the variable was declared. After exiting a function or program block (the section framed with curly brackets), the compiler does not allow using the variables introduced inside the block, but returns an error in response to such attempt.</p>
+<p>Consider a simple example as in following:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">123456</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>The above function does not do anything else, but declares a few variables. After the four variable declarations, the content of memory is like follows:</p>
+<div align="center"><img src="../static/pics/pointer-basic.jpg"></div>
+
+<p>Variables <strong>a</strong> and <strong>b</strong> use one byte of memory each, and variable c takes 4 bytes. As the variables are declared, their initial values are set. If this was not done, the memory would be allocated in the similar way, but its content would be unspecified. Variable d is a pointer to a char-type value in memory, and it is initialized to point to the location of variable a using an address operator (&amp;). Even though it points to a char-type value, variable d takes four bytes from the memory, because it is a pointer: its value is a memory address (in this example we assume that addresses are 32 bits long). The picture also shows imaginary memory addresses allocated for the variables. Normally the programmer does not need to know about numeric addresses, but they are shown here to clarify the functionality of pointers. Despite this example, one should not generally make specific assumptions about how variables are placed in the memory, because compilers sometimes take liberties in memory usage.</p>
+<p>When function exits, the memory allocated for local variables is released. This is not a problem for the basic data types, because compiler raises an error if the program tries to use the variable from outside the scope it was declared. However, when referring to the variable via pointers, the compiler cannot protect the programmer from referring to invalid memory location. Therefore careless use of pointers may cause problems, for example when referring to memory that has already been released for other use.</p>
+<p>Like other types of variables, an uninitialized pointer has unknown value. Use of such pointer will likely cause the program to crash.</p>
+<h2>Pointer variable basics</h2>
+<p>The above example showed an example of how a pointer variable is declared and initialized in the case char data type, using the <code>*</code> (dereferencing) operator after the data type. Similar format can be used with other data types. There could be, for example, <code>int *e</code> or <code>float *f</code>. Despite different data types, all these variables allocate similar space in memory, because their content is actually a memory address that points to location that contains a value of given data type.</p>
+<p>C allows different uses of spacing for declaring pointers: <code>char* d;</code>, <code>char * d;</code>, and <code>char *d</code>; are all valid and equivalent notations. Usually it is good coding style to consistently use one of the above throughout the program.</p>
+<p>Let's extend the previous example by a few lines, and take one more pointer, <strong>e</strong>, into use:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">123456</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">e</span><span class="p">;</span>
+
+    <span class="n">e</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;*e: %d   e: %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">e</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+
+    <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;*d: %d   d: %p   *e: %d   a: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="o">*</span><span class="n">e</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;New value is greater than b!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Pointer variables can be assigned as any other variables, and such assignment (as on line 9 for variable '<strong>e</strong>') will copy the address. After the assignment, both '<strong>e</strong>' and '<strong>d</strong>' point to the same location (address of variable '<strong>a</strong>').</p>
+<p>The value referenced by a pointer can be accessed using <code>*</code> (dereferencing) operator, as shown for example on line 10 with the printf call. The deferencing operator can be used in any expression (part of function call, assignments, comparisons, ...). Because pointer '<strong>e</strong>' references to variable '<strong>a</strong>', the printf call outputs value 10 for the first field. The latter printf field ('%p') is an example of printing out the value of pointer in hexadecimal format (not very often needed).</p>
+<p>Line 12 uses the dereferencing operator to modify the value pointed by '<strong>d</strong>'. Because pointer '<strong>d</strong>' refers to variable '<strong>a</strong>', this causes the value of variable a to be changed.</p>
+<p>It may be sometimes difficult to distinguish dereferencing operator and multiplication: the difference is that latter is binary, and has operands on both sides, while derefence is unary, and works with single operand.</p>
+<p>Assuming the imaginary addresses shown in the picture, the above function will output (note that above we use a new printf formatting conversion, <strong>%p</strong> for addresses):</p>
+<pre>
+*e: 10   e: 0x1000
+*d: 13   d: 0x1000   *e: 13   a: 13
+New value is greater than b!</pre>
+
+<p>At the end of the main function, the content of variables looks like this:</p>
+<div align="center"><img src="../static/pics/pointer-basic-2.jpg"></div>
+
+<p>C compiler does not protect from invalid memory access during compile time, so the effects of invalid memory access can be only detected when running the program. Therefore pointers allow making programming errors that may sometimes be difficult to track. Let's further modify this example and add a few new lines that are <strong>incorrect</strong>, and will cause an error. This is to illustrate a very common class of C programming errors, invalid memory references.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="kt">long</span> <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">123456</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+
+    <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;*d: %d   d: %p   a: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;New value is greater than b!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;d: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+    <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;bye bye!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>When compiling this program, the following output appears:</p>
+<pre>
+$ gcc -Wall -std=c99 -pedantic testi2.c
+testi2.c: In function ‘main’:
+testi2.c:12: warning: assignment makes pointer from integer without a cast
+testi2.c:13: warning: format ‘%d’ expects type ‘int’, but argument 2 has type ‘char *’
+</pre>
+
+<p>Compiler produces an executable binary file, but shows two warnings during compiling the program. Warnings are a sign of a programming error, and if they show up, one should try to fix the code accordingly. Here the first warning shows up because an integer is incorrectly assigned into a pointer variable on line 12. The second warning says that '%d' format specifier should not be used with pointer on line 13. On line 13, <code>printf("d: %d\n", *d);</code> would have been correct, because the object behind pointer is integer: after dereferencing operator the object type changes to the actual type behind the pointer.</p>
+<p>Line 12 changes the value of pointer to 14, which is an unaccessible address for the program, and therefore will cause a failure when the program is run. Also the usage in printing the value of '<strong>d</strong>' is incorrect in the second <strong>printf</strong> call, because '<strong>d</strong>' is not integer. We should have used <strong>%p</strong> formatting conversion instead, that is used to show addresses in pointers.</p>
+<p>Despite the warnings, an executable is created. When it is executed, the following appears:</p>
+<pre>
+*d: 13   d: 1000   a: 13
+d: 14
+Segmentation fault: 11
+</pre>
+
+<p>The system does its best to execute the program. The first line shows that value of '<strong>a</strong>' has changed. The line also demonstrates how addresses can be shown using '%p' formatting conversion (although here we have very small address space for the example). The next line shows that the asignment operation seemingly works, and the value of pointer '<strong>d</strong>' can be printed to the screen, despite the warnings the compiler gave. When after this the program tries to modify the content behind pointer '<strong>d</strong>', it exits immediately in a system signal. "Segmentation fault" means that the program tried to access invalid address in memory. Operating system prevents this, and terminates program immediately. Therefore line 15 is not executed, and "bye bye" never appears on the screen.</p>
+<p>In the early part of the example, we also saw an address operator <code>&amp;</code>. The address operator is an unary operator returns address (that can be assigned to pointer variable) to the object (variable, array member, ...) that follows it.</p>
+<!-- The below video by Stanford University illustrates pointers in C:
+
+<a class="ahy" href="http://www.youtube.com/watch?feature=player_embedded&amp;v=6pmWojisM_E" height="300" target="_blank"><img src="../static/pics/pointerfun.png"></a> -->
+
+<h2>Pointers in functions</h2>
+<p>Pointers can be used much like other variables, and they can also be used as a parameters in function call, and return values for a function. The <code>scanf</code> function uses pointers as parameters, because the function needs to copy the value typed by user to the context where scanf was called, and pointer is practically the only way to do it. If a basic (non-pointer) data type is used directly as a function parameter, the function could not modify its value in the caller's context, because the parameters are passed as value, and copied for the function's local use.</p>
+<p>Below is a short example, '<strong>my_readint</strong>' function, that reads a character from user, converts it to integer, and copies its value to the location indicated by the pointer. The function returns 1, if it changed the pointed value, or 0, if it did not get a valid number, and therefore did not change the content of memory.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">my_readint</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">ret</span><span class="p">;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&gt;=</span><span class="sc">&#39;0&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="sc">&#39;9&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">c</span> <span class="o">-</span> <span class="sc">&#39;0&#39;</span><span class="p">;</span>   <span class="c1">// converting the character to integer</span>
+        <span class="o">*</span><span class="n">value</span> <span class="o">=</span> <span class="n">num</span><span class="p">;</span> <span class="c1">// write value where pointer refers to</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">ptr_a</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">my_readint</span><span class="p">(</span><span class="n">ptr_a</span><span class="p">))</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;reading succeeded: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+
+    <span class="c1">// here is another way to use the function</span>
+    <span class="n">my_readint</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>There are two calls to <strong>my_readint</strong> from the main function (lines 20 and 24). In both calls to <strong>my_readint</strong>, the parameter is set to point to the location of variable '<strong>a</strong>', but in two alternative ways (the latter just shows that address operator can be used as part of other expressions, such as function calls).</p>
+<p>Inside the function, argument '<strong>value</strong>' is a pointer to an integer, that was set by the caller of the function. The function reads a character from user, makes an assumption that user types a digit, and converts the ASCII digit into a integer number by subtracting ASCII code of '0' from the value entered by user (line 9). The resulting integer value is assigned to the memory location pointed by '<strong>value</strong>' (line 10), which in this case points to variable '<strong>a</strong>' in the main function. With pointers, a function can modify the variables and other memory outside the function, which would not be possible otherwise.</p>
+<p>Using pointers as parameters is useful, for example to be able to return values from inside the function by also other means than just return parameter. This is needed, if a function needs to return more than one values to the caller.</p>
+<p>Pointer can also be used as the return value type of a function, as seen in the below example. The example also illustrates the use of NULL pointer, which is a special pointer value that is used to indicate an error, unused pointer, or some other special case. Trying to refer to NULL pointer with dereference operator will always cause an error, but it is ok to assign NULL as a pointer variable value, or in conditions compare a pointer value with NULL for some special program action. NULL is not defined in C by default, but included in <strong>stddef.h</strong> header, which you'll need to include in order to use it.</p>
+<p>Below is an example of a function that reads an integer from the user to a given address, but only if the given pointer is not NULL. During normal operation, the function returns the pointer it got as a parameter. A NULL pointer is returned, if the function was unable to read the integer into the pointer. One error case is that the given pointer was NULL. This needs to be checked, because the program would crash due to an invalid memory access, if a NULL pointer was passed as a scanf parameter. Another error case is that scanf failed to read the number, for example due to invalid user input. Both cases result in the function returning NULL.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="o">*</span><span class="nf">read_int</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">number</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">ret</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">number</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Check the pointer before calling scanf</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span> <span class="c1">// If the pointer is invalid, the function exits</span>
+    <span class="p">}</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">number</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Check if an error occurred during reading</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">number</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-1-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_basics_1: Number Swap (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> A simple basic example to practice the use of pointers.</p>
+<p>Implement function <code>number_swap(int *a, int *b)</code> that gets two
+pointers to integers as parameters. The function should swap the
+content of pointed integers. For example after the following code,
+value of val1 should become 5, and value of val2 should become 4.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">val1</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="kt">int</span> <span class="n">val2</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">number_swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">val1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">val2</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">val1</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="n">val2</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Great, it worked!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="02_pointers2">
+    <h1 class="content-title">Address arithmetics</h1>
+    <div class="content-body">
+    
+      <h2>Address arithmetics</h2>
+<p>Plus and minus arithmetic operators can be used also on pointers. These cause the pointer to be moved either forward or backward by the given number of objects of the size of referenced data unit. Therefore, the adjustment in the address depends on the size of the data type behind the pointer.</p>
+<p>Here is an example that demonstrates address arithmetics in different formats:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>  <span class="c1">// allocate space for 50 consecutive integers</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">intPtr</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>  <span class="c1">// points to the beginning of array         </span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">*</span><span class="n">intPtr</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>  <span class="c1">// the latter is ordinary multiplication operator</span>
+       <span class="n">intPtr</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// move the pointer forward to next object in array </span>
+       <span class="n">i</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">intPtr</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>  <span class="c1">// reset intPtr to the beginning of array</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">intPtr</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>  <span class="c1">// deference to i-th object in array </span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>The function starts by allocating space for 50 integers (arrays are described <a href="#arrays">later</a> on this page), and setting a pointer '<strong>intPtr</strong>' to point at the beginning of this space (reference to array is a pointer to its first element). In the while loop, the function sets the location referred by intPtr based on integer variable i, multiplied by two (line 10). <code>intPtr++</code> on line 11 causes the pointer to move to the next integer in the array. We can repeat this 50 times, because we allocated space for 50 integers.</p>
+<p>After the array is set, '<strong>intPtr</strong>' is reset back to the beginning of the array (line 15), and a different form of loop is applied. Here we set the integer value based on the i-th object in the array (line 18): adding '<strong>i</strong>' to a pointer walks '<strong>i</strong>' steps forward in memory. It is possible to use dereference operator together with arithmetic calculations on pointers, as shown here, but the use of parenthesis is important in this case because of the <a href="#precedence">precedence rules</a>. As a result, this function will output even numbers from 100 to 2 in decreasing order, separated by space.</p>
+<p>In order for the address arithmetics to work correctly, it is important that the pointer data type is correct. Compiler will remind you about this, if incompatible pointers are used together.</p>
+<p>Pointers can be used in comparisons like other variables, but it should be noticed that in such case addresses are compared, not the values behind the pointers. For example the following code will tell that the pointers are different, but the values behind pointers are same.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">pa</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">pb</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">pa</span> <span class="o">==</span> <span class="n">pb</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Pointers are same</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="k">else</span>
+    <span class="nf">printf</span><span class="p">(</span><span class="s">&quot;Pointers are different</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">pa</span> <span class="o">==</span> <span class="o">*</span><span class="n">pb</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Values are same</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-2-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_basics_2: Array Sum (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Practice address arithmetics with pointers.</p>
+<p>You should implement function int array_sum(int *array, int count)
+that gets a pointer to the beginning of array of integers in
+consecutive slots in memory, and calculates the sum of the
+integers. The number of integers to be counted is given in parameter
+count. The sum is returned as the return value of the function.</p>
+<p>For example, the following code:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">valarray</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span> <span class="p">};</span>
+<span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">array_sum</span><span class="p">(</span><span class="n">valarray</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<p>should set ret to 1110.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="03_arrays">
+    <h1 class="content-title">Arrays</h1>
+    <div class="content-body">
+    
+      <p><a name="arrays"></a></p>
+<h2>Basics</h2>
+<p>Multiple values of a given data type in consecutive memory slots is called an array. When array is declared, its size is given so that the system to allocate enough memory for the array. In variable declaration, array size is indicated using square brackets.</p>
+<p>Below is a simple example of how to use arrays:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">short</span> <span class="n">apples</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">short</span> <span class="n">slots</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="kt">short</span> <span class="n">oranges</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  <span class="cm">/* Here we initialize the array */</span>
+    <span class="n">slots</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  <span class="cm">/* Output the values in array */</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;array element %d is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">slots</span> <span class="o">+</span> <span class="n">i</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>The program defines three variables: '<strong>apples</strong>' and '<strong>oranges</strong>' are normal short integers, but '<strong>slots</strong>' is an array that has four elements. The array size must be given as constant. As with other data types in C, the elements of an array are not initialized by default, so their initial values are unknown. After the three declarations the variables are placed in memory (roughly) in the following way:</p>
+<div align="center"><img src="../static/pics/array.jpg"></div>
+
+<p>In memory, the array takes the given number of consecutive slots, with size depending on the data type used. In case of short integer, each element takes 2 bytes (16 bits), so in total the four-element array uses eight bytes.</p>
+<p>Following the variable declarations the array is initialized in a for loop (line 7). The example shows the use of array notation (<code>slots[i]</code>) for accessing a particular array element. The first element is always indexed as 0. When indexing an array, any form of expression can be used (variable, constant, arithmetic operation, ...).</p>
+<p>Arrays and pointers have a close relationship, as can be seen in the last part of the above example. The '<strong>slots</strong>' array can be represented as a pointer to its first element, and the different elements of the array can be accessed using pointer arithmetics. The <strong>printf</strong> call on line 11 that outputs the contents of the array shows an example of the pointer arithmetic usage. Using <code>slots[i]</code> is equivalent with <code>*(slots + i)</code>. The program would show the following:</p>
+<pre>
+array element 0 is 1
+array element 1 is 2
+array element 2 is 3
+array element 3 is 4
+</pre>
+
+<p>C compiler does not check at compile time whether array index is within the array bounds, and the compiler allows indexes beyond 4 in above example. Such errors can be detected only when running the program, and even then they don't always clearly show up. If the for - loop had been wrong and processed indexes beyond 4, it would overwrite other content in the memory. The following small modification to above code (the for loops erroneusly go through 6 items):</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">short</span> <span class="n">apples</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">short</span> <span class="n">slots</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="kt">short</span> <span class="n">oranges</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+ <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+ <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  <span class="cm">/* Here we initialize the array */</span>
+     <span class="n">slots</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+ <span class="p">}</span>
+
+ <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  <span class="cm">/* Output the values in array */</span>
+     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;array element %d is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">slots</span> <span class="o">+</span> <span class="n">i</span><span class="p">));</span>
+ <span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>caused the value of 'apples' to become 5 in my test run. The compiler does not warn anything, and also the program seems to work, if one does not pay careful attention to the variable values. However, the memory neighbouring to the array is silently modified. For their near-invisible nature, these sort of errors have been commonly used in attacks that can turn the programming errors into security vulnerabilities. (<a href="http://en.wikipedia.org/wiki/Heartbleed">Heartbleed</a> is a recent example of a severe security vulnerability caused by buffer over-read bug, although in a bit different context)</p>
+<p>Like other kinds of variables, also array can also be initialized with declaration. Here are two ways of initializing an array:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">short</span> <span class="n">slots</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">45</span> <span class="p">};</span>
+<span class="kt">int</span> <span class="n">numbers</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">34</span> <span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>In first of the above lines, the array length is explicitly specified. When defined together with an initialization list, the array length does not need to be separately given, because the length of the initialization list indicates the length of the array. In such case, just empty square brackets are enough, as in the case of 'numbers' above. If initialization list is shorter than the explicitly given array length, the unspecified values are initialized to 0. This is true only if the initialization list contains at least one element.</p>
+<h2>Arrays in function</h2>
+<p>Arrays can be passed in function arguments, but the array operator is usually not used in that case. Arrays are rather passed using a pointer type, where the pointer refers to the first element in array. The length of the array cannot be read from the function parameter, but it needs to be indicated by some other means. Two common solutions are to either pass the length as another function parameter, or indicate the end of an array by some special value after the last element. In the latter case the allocated length of the array needs to have extra space for the end marker.</p>
+<p>Array cannot be returned as a function return parameter (at least without dynamic memory that will be introduced in module 3). If function should return an array, the space for the array needs to be allocated either outside the function, or it needs to be allocated dynamically.</p>
+<p>Here is an example of using array with function. It also shows how the <code>sizeof</code> operator can be used to determine the total size of the array in bytes (see <a href="#qualifiers">next section</a> for more information). One way of getting the number of elements in the array is to divide its total size by size of one element, as done in this example. The example shows, once more, how pointer type parameter is used to access the array inside the function.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">void</span> <span class="nf">show_table</span><span class="p">(</span><span class="kt">short</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// print the table using pointer arithmetics:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">i</span><span class="p">))</span>
+
+        <span class="c1">// Also this would produce same result:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="c1">// We could also do this for same effect, but pointer &#39;a&#39; is modified.</span>
+        <span class="c1">// Therefore, this cannot be used together with indexing, as above.</span>
+        <span class="c1">// Modification of pointer &#39;a&#39; is not visible outside the function.</span>
+        <span class="c1">//printf(&quot;%d &quot;, *a++);</span>
+    <span class="p">}</span>   
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">short</span> <span class="n">table</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;size: %lu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">table</span><span class="p">));</span> <span class="cm">/* print array size for fun */</span>
+
+    <span class="cm">/* below is one way to get the number of elements */</span>
+    <span class="c1">// sizeof(table) is 4 * sizeof(short) == 8;</span>
+    <span class="n">show_table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">table</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">short</span><span class="p">));</span>
+
+    <span class="c1">// in this case the above would be equivalent to:</span>
+    <span class="n">show_table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-3-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_basics_3: Array Reader (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Practice use of arrays and array notation together with
+scanf.</p>
+<p>Implement function <code>int array_reader(int *vals, int n)</code> that reads
+integer values using scanf into pre-allocated array ('<strong>vals</strong>'). The
+numbers read from input are separated with whitespace (space, tab,
+newline,...) that is the default field separator for scanf function,
+i.e., you should be able to use the basic scanf format string for
+decimal numbers. Parameter '<strong>n</strong>' gives the maximum length of the
+array, and the maximum number of values to be read. If user does not
+give a valid integer (as can be seen from return value of scanf), the
+array ends, even if the maximum size was not yet reached. The function
+returns the final size of the array at the end, which can be smaller
+that the incoming '<strong>n</strong>' parameter, if the user finished the input
+with non-valid integer.</p>
+<p>Below is an example how this function can be tested:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">array_reader</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d numbers read</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>For example, the following input should cause the first four array
+elements to become 5, 8, 2, and 7, and then terminate because the
+fifth field read is not a decimal number:</p>
+<pre>
+<font color="red">5 8 2 7 -</font></pre>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-master-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 03_mastermind: Mastermind (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Practice manipulation of arrays.</p>
+<p>Implement function <code>void mastermind(const int *solution, const int
+*guess, char *result, unsigned int len)</code> that compares integer array
+'<strong>guess</strong>' to array '<strong>solution</strong>'. Both arrays contain '<strong>len</strong>' integers
+from 0 to 9. The function outputs character array '<strong>result</strong>', that also has
+'<strong>len</strong>' characters, in the following way:</p>
+<ul>
+<li>
+<p>If arrays '<strong>solution</strong>' and '<strong>guess</strong>' have same number in Nth array location,
+    character array '<strong>result</strong>' will have '+' in Nth location.</p>
+</li>
+<li>
+<p>If array '<strong>guess</strong>' has number in Nth location that exists in
+    array '<strong>solution</strong>', but in different location, character array
+    '<strong>result</strong>' will have '*' in Nth location.</p>
+</li>
+<li>
+<p>If array '<strong>guess</strong>' has number in Nth location that does not
+    exist at all in array '<strong>solution</strong>', character array '<strong>result</strong>'
+    will have '-' in that location.</p>
+</li>
+</ul>
+<p>Note that arrays '<strong>solution</strong>' and '<strong>guess</strong>' are such that you
+should not modify (input parameters), and array '<strong>result</strong>' may not
+have any sane content when function is called, but you need to set it
+in the function.</p>
+<p>For example, when '<strong>len</strong>' is 6, '<strong>solution</strong>' is { 2, 6, 6, 3, 5, 3} and
+'<strong>guess</strong>' is {4, 5, 6, 1, 8, 9}, the function sets '<strong>result</strong>' to
+{'-', '*', '+', '-', '-', '-'}.</p>
+<p>The main function in main.c implements a simple <a href="http://en.wikipedia.org/wiki/Mastermind_(board_game)">Mastermind</a> game you
+can use to test your function.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 04_sort: Sort (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Further practice of array manipulation, this time with
+a bit more complicated case.</p>
+<p>Write function <code>void sort(int *start, int size)</code> that sorts the
+integers in the given array into an ascending order (from smallest to
+largest). You can use the selection sort algorithm: first find the
+smallest number in array, and swap it with the first element of the
+array. Then do the same starting from the second element of the array,
+moving on to third, fourth, etc. until the whole array is
+processed. Test the function with different arrays of different size.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="06_strings">
+    <h1 class="content-title">Strings</h1>
+    <div class="content-body">
+    
+      <h2>Basics</h2>
+<p>The C language does not have any particular string abstraction, but strings in C are just <strong>char</strong> type arrays that end in '\0' - character (that represents numeric value 0). The final 0-charater is not visible, but it still uses one byte of memory in the end of the string.</p>
+<p>String constants can be specified inside quotes, for example in the following way:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="o">*</span><span class="n">string_A</span> <span class="o">=</span> <span class="s">&quot;This is first string&quot;</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">string_B</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Another string&quot;</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">string_C</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="sc">&#39;O&#39;</span><span class="p">,</span><span class="sc">&#39;n&#39;</span><span class="p">,</span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="sc">&#39; &#39;</span><span class="p">,</span><span class="sc">&#39;m&#39;</span><span class="p">,</span><span class="sc">&#39;o&#39;</span><span class="p">,</span><span class="sc">&#39;r&#39;</span><span class="p">,</span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="sc">&#39;\0&#39;</span> <span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>The first and second example above are not identical: the first is a pointer to a string constant that <strong>cannot be modified</strong> (it is typically allocated from a read-only section in memory). The second and third definitions specify an array that <strong>can be modified later</strong>. When using double quotes, as in the first two cases, the final '\0' is added implicitly to the string even if not shown, but in the last alternative the '\0' character needs to be added separately, because the string is specified as an array of characters. Below is the same in graphical form -- string_A is actually a pointer that refers to a read-only part of the memory, the other two strings are directly allocated in the context of the function call. This also makes a difference when using the <strong>sizeof</strong> operator on these variables.</p>
+<div align="center"><img src="../static/pics/strings.jpg"></div>
+
+<p>Strings can be output using %s formatting specification in <strong>printf</strong>. For example:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="n">string_B</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;another string&quot;</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;My string is %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">string_B</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<p>In functions strings are represented as a pointer to the beginning of the character array -- similarly to handling any other arrays in functions. For example, here is a function that "encrypts" a string by incrementing all its character values by one:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">void</span> <span class="nf">encode</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">str</span><span class="p">)</span> <span class="p">{</span>  <span class="cm">/* Terminates when we come to \0 */</span>
+        <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="o">*</span><span class="n">str</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// modify the character behind pointer</span>
+        <span class="n">str</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// move the pointer to next character</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">message</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;It is going to rain tomorrow&quot;</span><span class="p">;</span>
+    <span class="n">encode</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;encoded: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">message</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>The while loop above repeats as long as the character referred by pointer is something else than '\0' (remember: in conditional statements 0 means false, everything else is true).</p>
+<p>Strings cannot be copied with a simple assignment operation. If a full string needs to be copied, it needs to be done character by character between two arrays. Function <strong>strcpy</strong> performs such string copy (see details below).</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-1-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 06_strbasic_1: Count Alpha (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Get familiar with operating on a string, character by
+character until the end of the string.</p>
+<p>Write function <code>int count_alpha(const char *str)</code> that counts the
+number of alphabetic characters in given string. You can use function
+<strong>int <a href="http://linux.die.net/man/3/isalpha">isalpha</a>(int character)</strong>
+defined in <strong>ctype.h</strong> header, to check whether a single given
+character is alphabetic (i.e. you need to add a correct <code>#include</code>
+directive in the beginning of your source file). <strong>isalpha</strong> returns
+non-zero if the given character is alphabetic, or zero if it is not
+alphabetic. The function should return the number of alphabetic
+characters.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="04_qualifiers">
+    <h1 class="content-title">Helpful Qualifiers and Operators</h1>
+    <div class="content-body">
+    
+      <h2>Size of variable or data type</h2>
+<p>The sizeof operator can be used to query the size of a data type or variable (the size of same data type may differ between different system architectures). Here is a short example illustrating the use of sizeof:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">short</span> <span class="n">a</span><span class="p">;</span>
+<span class="kt">short</span> <span class="o">*</span><span class="n">pa</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;size a: %lu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;size *pa: %lu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">pa</span><span class="p">));</span>
+</pre></div>
+</td></tr></table>
+
+<p>On my Mac the above code shows that <code>sizeof(a)</code> is 2 bytes, as expected for a short integer, and <code>sizeof(pa)</code> is 8 bytes, because it is a pointer, running on 64-bit address architecture. Note the format specifier on above <strong>printf</strong> calls: sizeof returns unsigned long integer.</p>
+<h2>Declaring new data types</h2>
+<p>Sometimes it is inconvenient to use long data type specifications repeatedly. With <code>typedef</code> declaration the program can specify new data types. The C library also specifies some commonly used type aliases for specific uses, such as <strong>size_t</strong>, an unsigned integer used for representing size of data objects in C. The return value of the <strong>sizeof</strong> operator is of <strong>size_t</strong> type. An alternative "mySize" type could be specified and used in the following way:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">mySize</span><span class="p">;</span>
+<span class="kt">long</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">mySize</span> <span class="n">a</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<p>Typedef may become useful especially later with data structures and abstract data types.</p>
+<h2>Constant parameters and variables</h2>
+<p>Parameters and variables can be declared as constant by the const qualifier. Such variables can be read, but they cannot be written to.</p>
+<p>Using the <code>const</code> qualifier is useful for documenting function interfaces: it tells that a particular function parameter is not going to be modified by the function. This is not mandatory, but helps the programmer defend against possible programming errors. An example of (an erroneous) function with a constant parameter, that the function tries to modify:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">void</span> <span class="nf">a_func</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="o">*</span><span class="n">param</span><span class="p">)</span>
+<span class="p">{</span>
+     <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="n">param</span><span class="p">;</span>
+     <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="cm">/* This is ok, because original parameter is not modified */</span>
+     <span class="o">*</span><span class="n">param</span> <span class="o">=</span> <span class="o">*</span><span class="n">param</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="cm">/* This is NOT ok, because of const qualifier */</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>The above function declaration indicates that the parameter "param" is not to be modified inside the function. Const qualifier also prevents modifying the values referred by a pointer. Therefore the compiler returns an error on the line that tries to modify the value behind "param" pointer.</p>
+<p>The const qualifier can also be used with variables. This makes the variable constant, that cannot be changed during the lifespan of the program. Note that in this case the variable needs to be initialized immediately. For example:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">const</span> <span class="kt">size_t</span> <span class="n">maxSize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="cm">/* global variable, can be used anywhere */</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">maxSize</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* do something */</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="05_precedence">
+    <h1 class="content-title">Precedence</h1>
+    <div class="content-body">
+    
+      <p><a name="precedence"></a></p>
+<p>Understanding the order of evaluation of different operators between is important, because that affects the outcome of expressions. If precedence rules are not properly understood, tracking down invalid behavior is difficult. For example, in the case of pointer arithmetics, a forgotten pair of parenthesis may lead to invalid caluclation, and invalid memory reference.</p>
+<p>An (incomplete) list of the order of evaluation between different operators is listed below. Table 2-1 on page 53 of the K&amp;R book gives a complete list of all the C operators and their precedence. When evaluating an expression, the operators on the top of the list are evaluated before the operators below them (some of the operators are introduced only in the next module).</p>
+<ol>
+<li><code>()</code> , <code>[]</code> , <code>-&gt;</code> , <code>.</code></li>
+<li><code>++</code> , <code>--</code> , <code>*</code> (pointer) , <code>&amp;</code> (address-of) , <code>(TYPE)</code> (type cast) , <code>sizeof</code> (associavity: right to left)</li>
+<li><code>*</code> , <code>/</code> , <code>%</code> (arithmetic operators)</li>
+<li><code>+</code> , <code>-</code> (arithmetic operators)</li>
+<li><code>&lt;</code> , <code>&lt;=</code> , <code>&gt;</code> , <code>&gt;=</code></li>
+<li><code>==</code> , <code>!=</code></li>
+<li><code>&amp;&amp;</code> (logical AND)</li>
+<li><code>||</code> (logical OR)</li>
+</ol>
+<p>In most cases the operators of similar precedence level are applied from left to right, but group 2 above makes on exception: the operators are associated from right to left.</p>
+<p>The precedence order explains why we needed parenthesis when accessing array by the means of pointer arithmetics:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">arr</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<p>accesses the third element in array 'arr', but</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">*</span><span class="n">arr</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>increases the first element in array by 2, because the dereference operator is evaluated before sum. When unsure, using extra pair of parenthesis is not harmful. If you want to ensure your code is clear and understandable, it is a good idea to avoid writing code that excessively depends on the order of evaluation: usually it is possible to split complex expressions in multiple parts, even if that may involve slightly more overhead.</p>
+<p>It is also useful to know that C does not specify the precedence of operands around an operator. For example, in <code>int val = funcA() + funcB();</code> the two functions could be executed in either order. If the two functions have mutual dependencies, for example, they modify a common variable, the outcome of the statement can be unpredictable, and produce different results in different environments.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="07_strings2">
+    <h1 class="content-title">Strings</h1>
+    <div class="content-body">
+    
+      <h2>Functions for string handling</h2>
+<p>The standard library contains functions that are helpful in operating with strings. They are defined in include header <strong><string.h></strong>, so if you want to use them, add <code>#include &lt;string.h&gt;</code> in your program. The detailed descriptions of the functions can be found in the Unix manual pages, that can be accessed by the "man" command in the command line shell, or use the man content provided in the <a href="http://linux.die.net/man/3/">web</a>.</p>
+<ul>
+<li><a href="http://linux.die.net/man/3/strlen">strlen</a> returns the length of a given string. The exact form of the function is <code>size_t strlen(const char *s)</code>, i.e., it takes a pointer to string as a parameter, and returns the number of characters in the return before the terminating nul character.</li>
+<li><a href="http://linux.die.net/man/3/strcmp">strcmp</a> compares two null-terminated strings. The exact form is <code>int strcmp(const char *s1, const char *s2)</code>. The function returns 0, if the strings are same, or non-zero if they are different.</li>
+<li><a href="http://linux.die.net/man/3/strcpy">strcpy</a> and <strong>strncpy</strong> copy a string to another location. The exact form is <code>char *strcpy(char *dst, const char *src)</code> or <code>char *strncpy(char *dst, const char *src, size_t n)</code>, where the string pointed by '<strong>src</strong>' is copied to location pointed by '<strong>dst</strong>'. The difference with latter is that it copies at most '<strong>n</strong>' characters, even if the original string was longer. This is useful to protect against overflow of the destination buffer. The destination buffer needs to be properly allocated before copying. The functions return the destination pointer.</li>
+<li><a href="http://linux.die.net/man/3/strcat">strcat</a> and <strong>strncat</strong> append a string after the other string, to make them a single concatenated string. The exact form is <code>char *strcat(char *s1, const char *s2)</code> or <code>char *strncat(char *s1, const char *s2, size_t n)</code>, where the string pointed by '<strong>s2</strong>' is appended to the end of string '<strong>s1</strong>'. Again, care should be taken to ensure that the destination buffer in '<strong>s1</strong>' has enough space. The latter form of the function helps in that, because the '<strong>n</strong>' parameter gives the upper limit to the number of characters to be appended.</li>
+<li><a href="http://linux.die.net/man/3/strchr">strchr</a> finds the first instance of given character in a string. The exact form is <code>char *strchr(const char *s, int c)</code>, where '<strong>c</strong>' is the character that is sought from string '<strong>s</strong>'. The function returns pointer to the first instance of the given character, or NULL if the character was not found in the string.</li>
+<li><a href="http://linux.die.net/man/3/strstr">strstr</a> tries to find the first instance of a substring in another string. The exact form is <code>char *strstr(const char *s1, const char *s2)</code>, where '<strong>s2</strong>' is the string that is sought from within string '<strong>s1</strong>'. The function returns the pointer to the start of the first instance of the substring within '<strong>s1</strong>', or NULL if fully matching substring was not found.</li>
+</ul>
+<p>Below is an example that demonstrates the above functions, and a few other aspects related to strings in practice.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">strings</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Paasikivi&quot;</span><span class="p">,</span> <span class="s">&quot;Kekkonen&quot;</span><span class="p">,</span> <span class="s">&quot;Koivisto&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;Ahtisaari&quot;</span><span class="p">,</span> <span class="s">&quot;Halonen&quot;</span> <span class="p">};</span>
+    <span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="n">i</span><span class="p">;</span>
+
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">-</span> <span class="n">strlen</span><span class="p">(</span><span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">left</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">strncat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">strings</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">left</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="n">left</span> <span class="o">-</span> <span class="n">strlen</span><span class="p">(</span><span class="n">strings</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;buffer: %s, length: %lu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">buffer</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>On line 6, variable '<strong>buffer</strong>' allocates a character array of 40 bytes, that can fit a string of 39 characters plus the terminating null character. '<strong>strings</strong>' is an array of strings, i.e., each element in the array is a pointer to constant string (i.e., a charater pointer). Multidimensional arrays will be discussed in more detail in module 4.</p>
+<p>Line 11 copies the first string ("Paasikivi") to '<strong>buffer</strong>' (including the terminating null). Variable '<strong>left</strong>' tracks the remaining space in the buffer: <code>sizeof(buffer)</code> is 40, and <code>strlen(strings[0])</code> is 9 (the terminating null is not included). sizeof(buffer) is always the same, regardless of the string content currently in buffer.</p>
+<p>Starting from line 14 the code iterates through the remaining 4 strings in the 'strings' array in while loop. Line 15 concatenates the string after the previous string content in 'buffer', replacing the earlier null terminator in the buffer, and adding a new null terminator at the end of the combined string. strncat is used, together with 'left' variable, to avoid overwriting the 40-byte buffer (<code>left - 1</code> is used, to leave space for the terminating null character). After each concatenated string, the left counter is decremented accordingly (line 16). If there is no space remaining in buffer, the while condition (<code>left &gt; 0</code>) causes the loop to terminate.</p>
+<p>Finally, on line 19 the resulting string in 'buffer' is shown to user, along with its length. The output looks like this:</p>
+<pre>
+buffer: PaasikiviKekkonenKoivistoAhtisaariHalon, length: 39</pre>
+
+<p>The last name did not fully fit to the buffer, but because we used strncat, we did not overwrite the buffer. Had we used <strong>strcat</strong> without the 'left' counter, we would have overwritten the buffer, and likely corrupted the memory.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-2-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 06_strbasic_2: Count Substring (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Practice the use of string functions (although the
+exercise could be done without them as well).</p>
+<p>Write function <code>int count_substr(const char *str, const char *sub)</code>
+that counts how many times string '<strong>sub</strong>' occurs in string
+'<strong>str</strong>', and return that as return value. For example, call
+<code>count_substr("one two one twotwo three", "two")</code> should return 3,
+because "two" occurs three times in the longer string. Note that the
+spaces do not have any special role in these string manipulation
+operations -- they are just normal characters like everything else.</p>
+<p><strong>Hint:</strong> Function <strong>strstr</strong> might be helpful here. It is also useful
+to observe that you can process partial strings by using a pointer to
+the middle of string (or any array in general). In such case the
+function ignores the characters before the pointer, and continues
+processing from the pointed location.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 07_altstring: New String (4) (4 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> How do the string functions really work? This exercise
+might help understanding them.</p>
+<p>For this task we assume a new kind of string that does not end at '\0'
+like the normal strings. Instead, the new string terminator is hash
+mark '#'. Therefore we need to re-implement some of the common string
+processing functions following the new string specifications.</p>
+<p>Note that the above-discussed string functions defined in
+string.h <strong>do not work with this exercise!</strong> The char arrays given to
+the functions do not necessary contain the usual '\0' terminator.</p>
+<h2>2.9.a Print string</h2>
+<p>Implement function <code>void es_print(const char *s)</code> that outputs string
+s until the first instance of the string terminating '#'. However, the
+hash character should not be printed. For example, if the function
+gets the following standard C string as input:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="s">&quot;Auto ajoi#kilparataa&quot;</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>it will output:</p>
+<pre>
+Auto ajoi</pre>
+
+<h2>2.9.b String length</h2>
+<p>Implement function unsigned int <code>es_length(const char *s)</code> that
+returns the number of characters in array s before the terminating
+'#'. The hash character should not be included in count.</p>
+<h2>2.9.c String copy</h2>
+<p>Implement function <code>int es_copy(char *dst, const char *src)</code> that
+copies string '<strong>src</strong>' to the location pointed by '<strong>dst</strong>'. The
+function should return the number of characters copied, excluding the
+hash character. The function must copy characters only until the first
+hash character, and remember that the destination string must also
+terminate with '#'. (Hint: you can test that the destination string
+looks correct by using the es_print function)</p>
+<h2>2.9.d String tokenizer</h2>
+<p>Implement string tokenizer that can be used to split the given string
+into substrings, seprated by given character. The function format is
+<code>char *es_token(char *s, char c)</code>, where '<strong>s</strong>' points to the string,
+and '<strong>c</strong>' is the character that splits the string. When character in
+parameter '<strong>c</strong>' is found, it is replaced by '#', and the function
+returns with a pointer to the position that <strong>follows the
+just-replaced character</strong>. If character in parameter '<strong>c</strong>' is not
+found, the function returns NULL (note that NULL is defined
+in <strong>stddef.h</strong> header. The token replacement happens on the original
+string -- the function should not copy the string.</p>
+<p>For example, calling <code>es_token(str, ',')</code> on the following string
+should change string:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="s">&quot;aaa,bbb,ccc#ddd,eee&quot;</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>to become:</p>
+<pre>
+"aaa#bbb,ccc#ddd,eee"</pre>
+
+<p>after the first call to es_token, and the return value should point to
+where "bbb" starts. Note that tokens after the '#' sign are not
+replaced, because the tokenizer stops at the end of the string.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 08_korso: Korsoraattori (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Get more familiar with character-by-character string manipulation.</p>
+<p>(<em>To non-Finnish students: with this exercise you will also get to
+practice modern Finnish language. This exercise is a tribute to the
+orginal <a href="http://korsoraattori.evvk.com">Korsoraattori</a> service.</em>)</p>
+<p>Implement function <code>void korsoroi(char *dest, const char *src)</code> that
+"korsorizes" ("korsoroi" in Finnish) the string given in parameter
+'<strong>src</strong>' and writes the resulting string to the location pointed by
+'<strong>dest</strong>'. The string must be modified in the following way:</p>
+<ul>
+<li>Every instance of "ks" should be changed to "x".</li>
+<li>Every instance of "ts" should be changed to "z".</li>
+<li>After every third word in the original string there should be
+    additional word "niinku" in the destination string.</li>
+<li>After every fourth word in the original string there should be
+    additional word "totanoin" in the destination string.</li>
+</ul>
+<p>You can recognize the end of a word from space character (' '). You do
+not need to add anything after the last word. You can assume that the
+there is enough space at address <strong>dest</strong> to store the resulting
+string. You can assume that all letters are in lower case.</p>
+<p>For example, string "yksi auto valui itsekseen ilman kuljettajaa mäkeä
+alas" will become "yxi auto valui niinku izexeen totanoin ilman
+kuljettajaa niinku mäkeä alas".</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 09_stringarray: String array (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Take a advance peek into arrays of strings (which are
+essentially two-dimensional arrays).</p>
+<p>Also strings can be placed in arrays. Because string is an array of
+characters, string arrays are arrays of string, that each are arrays
+of characters. This exercise assumes an array of strings, where end of
+the array is indicated with a NULL pointer.</p>
+<h2>a) Print string array</h2>
+<p>Implement function <code>void print_strarray(char *array[])</code> that prints
+all strings in <em>array</em>, each on a separate line (there is newline
+character at the end of each string). The function argument notation
+may seem new: it represents an <em>array</em> that is composed of <code>char *</code> -
+typed elements. Therefore, you can use each array member as any normal
+string in expressions. Remember that the end of array is represented
+by a NULL pointer. </p>
+<h2>b) Convert string into array</h2>
+<p>Implement function <code>void str_to_strarray(char* string, char** arr)</code>
+that gets <em>string</em> as a parameter, and turns it into an array of
+strings (<em>arr</em>). The original string may contain multiple words separated by
+space, and the function separates each space-separated word into its
+own array member. Remember that each string in array must end in
+'\0' - character, and the array must end in NULL pointer.</p>
+<p>We have not yet covered two-dimensional arrays, but when <code>arr[i]</code> is a
+string in an array as described above, you can access individual j'th
+character with notation <code>arr[i][j]</code>, either for reading or writing.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+
+
+
+		</div>
+
+		<div class="col-lg-4"></div> <!-- forces middle column narrower -->
+
+	</div>
+
+</div>
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="../static/jquery.min.js"></script>
+<script src="../static/bootstrap.min.js"></script>
+</body>
+</html>

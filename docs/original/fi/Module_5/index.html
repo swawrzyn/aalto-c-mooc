@@ -1,0 +1,2004 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>C-MOOC - C-MOOC
+- Module 5
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/pygments.css">
+
+    <style>
+    #content { margin-bottom: 20px; text-align: justify; }
+    #content img { margin-top: 25px; margin-bottom: 25px; }
+    #content li { margin-top:6px; margin-bottom: 6px; }
+    #content h2 { padding-top: 20px; }
+
+    .codehilitetable { width: 100%; margin-top: 15px; margin-bottom: 15px;}
+    .linenos { width: 20px }
+    .codehilite{ width:100%; height: auto; }
+
+    .task-sidenav-link { padding-left: 0.5em; }
+    .content-sidenav-link { text-decoration: underline; }
+    .content-block, .task-description-block { margin-bottom: 40px; }
+
+    </style>
+</head>
+<body>
+
+<!-- navbar, common to all pages -->
+<div class="navbar navbar-default" role="navigation">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+
+      <li><a href="../home/index.html">Koti</a></li>
+
+      
+      <li class="global-links"><a href="https://tmc.mooc.fi/mooc">TMC</a></li>
+      
+      <li><a href="../instructions/index.html">Ohjeet</a></li>
+
+      
+      <li><a href="../Module_1/index.html">M1: Johdanto</a></li>
+      
+      <li><a href="../Module_2/index.html">M2: Osoittimet</a></li>
+      
+      <li><a href="../Module_3/index.html">M3: Dynaaminen muisti</a></li>
+      
+      <li><a href="../Module_4/index.html">M4: Bitit ja taulukot</a></li>
+      
+      <li><a href="index.html">M5: Kehittyneita piirteita</a></li>
+      
+      <li><a href="../Module_6/index.html">M6: Yhteenvetoa</a></li>
+      
+
+    </ul>
+  </div>
+</div><!-- navbar -->
+
+
+<!-- Unique content of a page goes here -->
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-lg-3">
+			<div class="sidebar">
+                <ul class="nav">
+
+                    <li><img src="../static/aalto-elec-s.jpg" class="img-responsive"></li>
+                    <li><a href="http://mooc.fi/courses/2016/aalto-c">C-MOOC - MOOC.fi</a></li>
+                </ul>
+                
+
+    
+<ul class="nav bs-sidenav">
+    <b>Jump to:</b>
+    
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#01_io">
+        1. Luku ja kirjoitus
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-1-fi">
+            <b>Task:</b> 01_filedump (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-2-fi">
+            <b>Task:</b> 02_stats (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-3-fi">
+            <b>Task:</b> 03_base64 (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#02_precompiler">
+        2. Esikääntäjä
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-4-fi">
+            <b>Task:</b> 04_arraytool (3)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#03_arglists">
+        3. Vaihtuvan mittaiset parametrilistat
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-5-fi">
+            <b>Task:</b> 05_myprint (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#04_funcptr">
+        4. Funktio-osoittimet
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-6-fi">
+            <b>Task:</b> 05_sheet (4)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#05_funcs">
+        5. Joitain hyödyllisiä funktioita
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+</ul>
+
+
+
+
+			</div>
+		</div>
+
+
+		<div class="col-lg-7" id="content">
+
+		    
+		    
+
+		    
+
+    <p>
+<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+	<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0; float:right;">
+</a>
+</p>
+
+    
+        
+        <div class="content-block" id="01_io">
+    <h1 class="content-title">Luku ja kirjoitus</h1>
+    <div class="content-body">
+    
+      <p>C-kielessä luku- ja kirjoitus tapahtuu <strong>I/O-virtojen</strong>
+välityksellä. I/O-virta on abstraktio, jonka avustuksella voidaan
+toimittaa tietoa C-ohjelman ja ympäröivän järjestelmän
+välillä. I/O-virran kautta voidaan esimerkiksi lukea ja kirjoittaa
+käyttäjän syötettä tai tulostetta, tallentaa tietoa levylle, tai
+kommunikoida esimerkiksi tietoverkkoon. Ennenkuin I/O-virtaa voidaan
+käyttää, se pitää avata, ja vastaavasti käytön jälkeen virta tulee
+sulkea.</p>
+<p>Toistaiseksi olemme käyttäneet kahta I/O-virtaa, jotka ovat
+oletusarvoisesti aina auki C-ohjelmissa. Näitä ei poikkeuksellisesti
+tarvitse erikseen avata. <strong>standardi-tulostevirtaa</strong> (stdout) käyttäen
+voidaan tulostaa tekstiä käyttäjän terminaalille. Esimerkiksi
+<em>printf</em> - funktio tuottaa annetun tekstin tähän
+virtaan. <strong>standardi-lukuvirtaa</strong> (stdin) käyttämällä voidaan lukea
+käyttäjän antamaa syötettä. Esimerkiksi <em>scanf</em> - funktio lukee
+saamiensa muotoilumääreiden mukaista syötettä
+lukuvirrasta. Lisäksi on <strong>standardi-virhevirta</strong> johon ohjelman
+tuottamat virheilmoitukset tulostuvat. Oletusarvoisesti nekin tulevat
+näytölle. Oletusvirtojen lisäksi ohjelman käyttöön voi avata
+muitakin virtoja, esimerkiksi tiedostoon kirjoittamista
+varten. Oletusvirrat voi myös ohjata johonkin toiseen kohteeseen,
+mutta tarkemmat siihen liittyvät yksityiskohdat eivät kuulu tämän
+kurssin piiriin.</p>
+<p>Luku ja kirjoitus virtaan on <strong>puskuroitua</strong>. Puskuri on muistialue,
+johon tilapäisesti tallennetaan tuotettava tai luettava teksti
+ennenkuin se varsinaisesti välitetään kohteeseensa. Puskurointi auttaa
+käyttämään järjestelmän resursseja tehokkaammin, mutta saattaa
+aiheuttaa viivettä virtaa koskevan funktiokutsun ja sitä koskevan
+toimenpiteen välillä. Esimerkiksi standardi-tulostevirta on
+<strong>rivipuskuroitua</strong>: puskurissa oleva tieto välitetään kohteeseensa
+vasta kun riviä vaihdetaan (tai virta suljetaan). Yleensä viive ei
+käytännössä näy, mutta jos esimerkiksi <em>printf</em>:llä tulostettu
+teksti ei pääty rivinvaihtoon, ja heti sen jälkeen ohjelma kaatuu
+signaaliin (esim. segmentation fault), saattaa tulostetu teksti jäädä
+näyttämättä ruudulla.</p>
+<h2>I/O-virran avaaminen ja sulkeminen</h2>
+<p>C-ohjelmassa I/O-virtaa käsitellään <code>FILE*</code> - tietotyypin avulla. Se
+on abstrakti tietotyyppi, jota käsitellään C:n standardikirjastossa
+esiteltyjen funktioiden kautta (emme siis tiedä mitä tietotyyppi pitää
+sisällään, mutta se ei haittaa). Kuten tyypistä näkee, se on
+käytännössä osoitin johonkin muistipaikkaan, jossa virtaa koskevia
+tietorakenteita ylläpidetään. Uusi virta avataan <strong><a href="http://linux.die.net/man/3/fopen">fopen</a></strong> -
+funktiolla, jonka seurauksena järjestelmä varaa tarvittavat
+tietorakenteet, ja lopuksi palauttaa <code>FILE*</code> - osoittimen. <em>fopen</em>,
+kuten kaikki muutkin tiedostovirtoja koskevat funktiot, on määritelty
+<em>stdio.h</em> - otsakkeessa.</p>
+<p><em>fopen</em> - kutsu saa kaksi merkkijonoa parametrinaan: ensimmäisessä
+ annetaan tiedostojärjestelmään viittaava tiedostonnimi, joka voi
+ sisältää myös hakemistopolun. Toinen merkkijono kertoo missä tilassa
+ tiedosto avataan. "r" tarkoittaa, että tiedostosta pelkästään
+ luetaan; "w" tarkoittaa, että tiedostoon pelkästään kirjoitetaan, ja
+ "r+" tarkoittaa, että tiedostosta voidaan sekä lukea että
+ kirjoittaa. Kannattaa kurkata yllä olevan linkin takaa (tai
+ man-sivuilta) funktion tarkka kutsurajapinta, mistä näkyvät
+ parametrien ja paluuarvon tyypit tarkemmin.</p>
+<p>On hyvä huomata, että ei ole lainkaan harvinaista, että virran
+avaaminen epäonnistuu, esimerkiksi kun annettua tiedostoa ei
+löydy. Siksi <em>fopen</em> - kutsun paluuarvo kannattaa aina tarkistaa. Jos
+se on NULL, avaaminen on epäonnistunut, eikä virtaa voida käyttää.</p>
+<p>Kun virtaa ei enää tarvita, se suljetaan <strong><a href="http://linux.die.net/man/3/fclose">fclose</a></strong> - funktiolla,
+jonka parametriksi annetaan aiemmin saatu <em>FILE</em> - osoitin. Tällöin
+virran käyttämät resurssit vapautetaan, eikä virtaa luonnollisesti
+tämän jälkeen voi käyttää, ellei sitä avata uudestaan.</p>
+<h2>Lukeminen ja kirjoitus</h2>
+<p><em><a href="http://linux.die.net/man/3/fgetc">fgetc</a></em> - funktiolla voidaan lukea yksi merkki parametrina annetusta
+ I/O-virrasta. Funktio palauttaa <em>int</em>-tyyppisen arvon joka sisältää
+ merkin. Paluuarvo voi olla myös EOF (eli numerovakio -1), mikä
+ tarkoittaa, että ollaan tultu virran loppuun. Merkkiarvo voi olla
+ mikä tahansa arvo välillä 0 - 0xff, eli se voidaan sijoittaa
+ <em>unsigned char</em> - tyyppiseen muuttujaan silloin kun luettu arvo ei
+ ole EOF.</p>
+<p><em><a href="http://linux.die.net/man/3/fputc">fputc</a></em> - funktiolla voidaan vastaavasti kirjoittaa yksi merkki
+ annettuun I/O-virtaan. Funktion ensimmäinen parametri on
+ kirjoitettava merkki, ja toinen parametri kohteena oleva I/O-virta
+ (kannattaa jälleen vilkaista tarkka muoto linkin takaa tai
+ man-sivuilta). Funktio palauttaa kirjoitetun merkin, tai EOF, mikäli
+ kirjoituksen yhteydessä sattui jokin virhe.</p>
+<p>Seuraavassa esimerkissä havainnollistetaan näiden funktioiden ja
+I/O-virran peruskäyttöä. Esimerkissä on toteutettu funktio
+<em>writeString</em>, joka on hyvin samanlainen kuin pian esiteltävä
+<em>fputs</em> - kirjastofunktio. <em>writeString</em> kirjoittaa annetun
+merkkijonon I/O-virtaan, joka on annettu parametrina. Merkkijono
+kirjoitetaan tavu kerrallaan, kunnes tullaan merkkijonon päättävään
+0-merkkiin. Esimerkin <em>main</em>-funktio avaa tiedoston "testfile"
+kirjoittamista varten, ja kirjoittaa merkkijonon "mystring" avattuun
+tiedostoon. Lopuksi I/O-virta suljetaan.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">writeString</span><span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">str</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// write characters until the end of string</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">fputc</span><span class="p">(</span><span class="o">*</span><span class="n">str</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span> <span class="o">==</span> <span class="n">EOF</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>  <span class="c1">// error in writing</span>
+        <span class="p">}</span>
+        <span class="n">str</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">mystring</span> <span class="o">=</span> <span class="s">&quot;One line written to file</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+
+    <span class="c1">// open &#39;testfile&#39; for writing (remove previous content)</span>
+    <span class="kt">FILE</span> <span class="o">*</span><span class="n">f</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;testfile&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Opening file failed</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>  <span class="c1">// ends program immediately (in stdlib)</span>
+    <span class="p">}</span>
+    <span class="n">writeString</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">mystring</span><span class="p">);</span>
+    <span class="n">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>I/O-virta, tai esimerkiksi sen kohteena oleva tiedosto, voi sisältää
+mitä tahansa binääristä dataa, esimerkiksi kuvatiedoston tai ajettavan
+ohjelman. Jos tiedetään, että osoitettu tiedosto on ASCII-koodattu
+tekstitiedosto, sen sisältämät merkit voidaan kopioida C-merkkijonoksi
+ja käsitellä normaalina merkkijonona. Tyypillisesti tiedosto ei
+kuitenkaan sisällä 0-merkkiä, vaan kun tekstisisältö kopioidaan
+merkkijonoksi, kannattaa varmistua siitä, että loppuun tulee 0-merkki,
+jotta merkkijonofunktiot toimivat oikein.</p>
+<p>Kun tiedosto sisältää binääridataa, esimerkiksi 0-merkillä ei ole
+mitään erityismerkitystä, vaan se kuuluu osaksi dataa. Tällaista
+tietoa ei voi käsitellä merkkijonofunktioiden kautta, vaan
+muistiblokkina, joka tulee käsitellä asianmukaisesti. Ohjelmalogiikan
+asia on huolehtia siitä, miten tällainen binääritiedosto tulee
+tarkemmin ottaen käsitellä.</p>
+<p>Lukemista ja kirjoittamista varten on muutama kehittyneempikin (ja
+tyypillisesti tehokkaampi) funktio, jotta tiedostoja ei tarvitsisi
+lukea merkki kerrallaan. Osa funktioista on tarkoitettu nimenomaan
+tekstidatan käsittelyyn, eli ne esimerkiksi lukevat tiedostoa rivi
+kerrallaan (eli olettavan '\n'-merkillä (koodi 10) olevan
+erityismerkityksen), kun taas toiset soveltuvat geneeriseen
+binääridataan, jolloin tiedostoa käsitellään muistilohko kerrallaan.</p>
+<ul>
+<li>
+<p><code>size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)</code>
+    lukee <em>nmemb</em> kappaletta <em>size</em> - kokoisia yksiköitä I/O-virrasta
+    <em>stream</em>, ja kopio tiedon muistialueeseen, johon osoitetaan
+    osoittimella <em>ptr</em>. Koska emme tiedä tässä vaiheessa tiedon
+    tarkkaa tyyppiä, <em>ptr</em>-tyyppinä täytyy käyttää geneeristä
+    void-osoitinta, joka ohjelman myöhemmässä vaiheessa muunnetaan
+    varsinaiseksi tietotyypiksi. Ennen funktion kutsumista <strong>tarvittava
+    muisti pitää varata</strong>. <em>ptr</em> voi siis olla saatu esimerkiksi
+    <em>malloc</em>-funktion paluuarvona. Funktio palauttaa luettujen
+    yksiköiden lukumäärän. Jos paluuarvo on pienempi kuin <em>nmemb</em>,
+    tyypillisesti esimerkiksi 0, lukeminen on loppunut kesken,
+    esimerkiksi siksi, että ollaan tultu tiedoston loppuun, tai jokin
+    muu virhe on tapahtunut. Keskeytymisen syytä ei paluuarvon
+    perusteella voi tietää, vaan se pitää tutkia <em>feof</em>- ja <em>ferror</em> -
+    funktioiden avulla (kuvaillaan hieman myöhemmin). Tätä funktiota
+    voi käyttää siis sekä binääri- että tekstidatan käsittelyyn.</p>
+</li>
+<li>
+<p><code>size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE
+    *stream)</code> kirjoittaa <em>nmemb</em> kappaletta <em>size</em> - kokoisia 
+    yksiköitä I/O-virtaan <em>stream</em> muistiosoitteesta <em>ptr</em>. Funktio
+    palauttaa kirjoitettujen yksiköiden lukumäärän, ja mikäli
+    paluuarvo on pienempi kuin <em>nmemb</em>, kirjoittamisessa on tapahtunut
+    jokin virhe. Tätäkin funktiota voi käyttää sekä binääri- että
+    tekstidatan käsittelyyn.</p>
+</li>
+<li>
+<p><code>char *fgets(char *s, int size, FILE *stream)</code> lukee enintään
+    <em>size-1</em> merkkiä <em>s</em>:n osoittamaan muistialueeseen virrasta
+    <em>stream</em>. Funktio lukee tiedostoa rivi kerrallaan, eli se palaa
+    heti kun vastaan tulee rivinvaihto. <em>fgets</em> lisää myös
+    automaattisesti 0-merkin luetun merkkijonon loppuun, vaikka
+    tyypillisesti tiedostossa sellaista ei olekaan. Funktio on siis
+    tarkoitettu nimenomaan tekstitiedostojen käsittelyyn. Se palauttaa
+    osoittimen luettuun merkkijonoon (eli osoittimen <em>s</em>), tai NULL,
+    mikäli ollaan tultu tiedoston loppuun, tai lukemisessa on
+    tapahtunut virhe. Syy selviää jälleen <em>feof</em> ja <em>ferror</em> -
+    funktioita käyttämällä.</p>
+</li>
+<li>
+<p><code>int fputs(const char *s, FILE *stream)</code> kirjoittaa merkkijonon
+    <em>s</em> I/O-virtaan <em>stream</em>. Funktio olettaa että osoitteessa <em>s</em> on
+    merkkijono, ja lopettaa kirjoittamisen kun tullaan 0-merkkiin,
+    jota ei kirjoiteta tiedostoon. Toisinsanoen tämäkin funktio on
+    tarkoitettu tekstidatan käsittelyyn. Funktio palauttaa jonkin
+    ei-negatiivisen luvun mikäli kirjoitus onnistui, tai EOF, mikäli
+    kirjoituksessa tapahtui virhe.</p>
+</li>
+</ul>
+<p>Yllä olevista funktioista saa lisätietoa esimerkiksi <a href="http://linux.die.net/man/">man-sivujen</a>
+kautta. Hetken päästä nähdään esimerkkejä edellä mainittujen
+funktioiden käytöstä.</p>
+<h2>Muita funktiota I/O-virtojen käsittelyyn</h2>
+<p>Seuraavassa vielä lyhyesti muutamia I/O-virtojen käsittelyyn
+tarkoitettuja funktioita, jotka saattavat olla hyödyllisiä.</p>
+<ul>
+<li>
+<p><code>long ftell(FILE *stream)</code> kertoo nykyisen sijainnin virrassa
+    <em>stream</em>. Esimerkiksi tiedostoa lukiessa tai siihen kirjoittaessa
+    voidaan ajatella että jokainen lukuoperaatio siirtää "osoitinta"
+    tiedostossa eteenpäin, ja tämä funktio kertoo kuinka monta tavua
+    tästä osoittimesta on tiedoston alkuun.</p>
+</li>
+<li>
+<p><code>int fseek(FILE *stream, long offset, int whence)</code> siirtää yllä
+    mainitun osoittimen tiettyyn kohtaan tiedostoa virrassa
+    <em>stream</em>. <em>offset</em> kertoo mihin kohtaan siirrytään (tavuissa
+    laskettuna). ja <em>whence</em> sen, mistä <em>offset</em>:in laskeminen
+    aloitetaan: tiedoston alusta (<em>whence</em> arvo SEEK_SET), nykyisestä
+    kohdasta (SEEK_CUR), tai tiedoston lopusta (SEEK_END). <em>offset</em>
+    voi siis olla myös negatiivinen silloin kun halutaan siirtyä
+    taaksepäin.</p>
+</li>
+<li>
+<p><code>int fprintf(FILE *stream, const char *format, ...)</code> toimii kuten
+    <em>printf</em>-funktio, mutta kohdistuu I/O-virtaan <em>stream</em>. Funktio
+    toimii muuten aivan kuten <em>printf</em>, siinä on vain alussa yksi
+    lisäparametri. Itse asiassa <em>printf</em> on tavallaan alias tälle
+    funktiolle, joka kohdistuu aina <em>stdout</em>-oletusvirtaan.</p>
+</li>
+<li>
+<p><code>int fscanf(FILE *stream, const char *format, ...)</code> on vastaavasti
+    kuten <em>scanf</em>, mutta se kohdistuu annettuun I/O-virtaan
+    standardivirran <em>stdin</em> sijaan.</p>
+</li>
+<li>
+<p><code>int feof(FILE *stream)</code> palauttaa arvon 0, mikäli tiedoston
+    käsittelyssä ei olla vielä päästy sen loppuun asti, tai jonkun
+    muun arvon, mikäli tiedosto on käsitelty
+    kokonaisuudessaan. Funktiota voi siis sellaisenaan käyttää
+    esimerkiksi ehtolausekkeissa. Tämän funktion kohdalla on hyvä
+    huomioida, että "end-of-file" - tila menee päälle vasta sitten,
+    kun lukuoperaatiota ollaan kutsuttu lukuosoittimen ollessa
+    tiedoston lopussa, eli lukeminen on ainakin kertaalleen
+    epäonnistunut.</p>
+</li>
+<li>
+<p><code>int ferror(FILE *stream)</code> palauttaa arvon 0, mikäli I/O-virran
+    käsittelyssä ei ole tapahtunut mitään virhettä, tai jonkin muun
+    arvon, mikäli virhe on tapahtunut.</p>
+</li>
+<li>
+<p><code>int fflush(FILE *stream)</code> pakottaa järjestelmän puskuroiman tiedon
+    toimittamisen eteenpäin, esimerkiksi ulosmenevän datan kohteena
+    olevaan tiedostoon. Normaalisti se tapahtuu kuitenkin viimeistään
+    silloin kun virta suljetaan. Paluuarvo on 0, mikäli operaatio
+    onnistui, tai -1 mikäli tapahtui virhe.</p>
+</li>
+</ul>
+<p>Tässä välissä on hyvä mainita, että alussa mainitut kolme
+standardivirtaa löytyvät globaalien muuttujien <em>stdin</em>, <em>stdout</em> ja
+<em>stderr</em> avulla. Nämä ovat siis <code>FILE*</code> - tyyppisiä muuttujia, jotka
+on jo valmiiksi avattu ohjelman alussa, ja ne näkyvät kaikille
+funktioille.</p>
+<p>Esimerkiksi kun kutsutaan</p>
+<p><code>fprintf(stdout, "%d\n", an_int)</code></p>
+<p>tapahtuu käytännössä sama asia kuin vastaavassa <em>printf</em> -
+kutsussa. Myös muita edellä mainittuja funktioita voi käyttää näiden
+oletusvirtojen kanssa.</p>
+<p>Alla oleva esimerkki lukee tiedostoa "test.c" rivi kerrallaan, ja
+tulostaa kunkin rivin standardi-tulostevirtaan. Kuten asianmukaista
+on, eri operaatioiden onnistuminen testataan, ja mikäli niissä
+tapahtuu virhe, tulostetaan virheilmoitus standardi-virhevirtaan, joka
+siis oletusarvoisesti näkyy myös käyttäjälle. EXIT_FAILURE on
+vakiomuotoinen paluuarvo, joka on määritelty stdlib.h:ssa. Se kertoo
+järjestelmälle, että ohjelman suoritus päättyi virheeseen.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">FILE</span> <span class="o">*</span><span class="n">f</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;test.c&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span> <span class="c1">// open file for reading</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Opening file failed</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">fgets</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">),</span> <span class="n">f</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">fputs</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">stdout</span><span class="p">)</span> <span class="o">==</span> <span class="n">EOF</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Error writing to stdout</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="n">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Kuten aiemmin mainittua, binääritiedostojen yhteydessä tulee käyttää
+<em>fread</em> ja <em>fwrite</em> - funktioita. Seuraava ohjelma kirjoittaa 10
+alkion kokonaislukutaulukon tiedostoon "intarray" sellaisenaan, sekä
+tämän jälkeen lukee tiedostosta taulukon takaisin erikseen varattuun
+muistiin. Kannattaa huomioida <em>sizeof</em> - operaattorin käyttö alkion
+kokoa määritellessä, sekä <em>feof</em> - ja <em>ferror</em> - funktioiden käyttö.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span> <span class="p">};</span>
+    <span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;intarray&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">fp</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Could not open file</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">size_t</span> <span class="n">n</span> <span class="o">=</span> <span class="n">fwrite</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ferror</span><span class="p">(</span><span class="n">fp</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Error occurred</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="s">&quot;%lu items written</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>  <span class="c1">// same as printf</span>
+    <span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+
+    <span class="c1">// re-open file for reading, and read the integers</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;intarray&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">num2</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">num2</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
+
+    <span class="c1">// feof indicator should not be set yet, because we did not read</span>
+    <span class="c1">// past the end of file</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">feof</span><span class="p">(</span><span class="n">fp</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;prematurely reached end of file</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ferror</span><span class="p">(</span><span class="n">fp</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;error occurred</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">EXIT_FAILURE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="s">&quot;%lu items read</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+
+    <span class="c1">// should not read anything, because we should be at the end of file</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">num2</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="n">fp</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">feof</span><span class="p">(</span><span class="n">fp</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="s">&quot;%lu items read, EOF indicator is set</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">num2</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Ohjelman tuottama tiedosto on 40 tavua pitkä, eli 10 kertaa 4-tavuisen
+kokonaisluvun tarvitsema määrä. Tällaista tiedostoa ei voi avata
+tekstieditorilla, mutta esimerkiksi <em>hexdump</em> - komentorivityökalua
+voi käyttää binääritiedoston sisällön tarkasteluun tavu kerrallaan
+seuraavaan tyyliin:</p>
+<pre>
+$ ./a.out
+10 items written
+10 items read
+0 items read, EOF indicator is set
+
+$ hexdump -C intarray 
+00000000  01 00 00 00 00 00 00 00  fe ff ff ff 03 00 00 00  |................|
+00000010  0a 00 00 00 04 00 00 00  03 00 00 00 02 00 00 00  |................|
+00000020  03 00 00 00 09 00 00 00                           |........|
+00000028</pre>
+
+<p>Heksadesimaalidumpista voi huomata kuinka kukin lukuarvo vaatii
+tiedostosta 4 tavua, ja kuinka Intel-pohjaisissa koneissa vähiten
+merkitsevä tavu tallentuu tiedostoon ensiksi muiden tavujen ollessa
+positiivisten lukujen tapauksessa 0, koska lukuarvot ovat pieniä.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-1-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 01_filedump: Tiedostodumppi (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Harjoitellaan tiedoston lukemista</p>
+<p>Toteuta funktiot '<em>textdump</em>' ja '<em>hexdump</em>' jotka lukevat annettua
+tiedostoa (jonka nimi in <em>filename</em> - parametrissa) ja tulostavat
+tiedoston sisällön ruudulle. Molempien funktioiden tulee palauttaa
+paluuarvonaan luettujen tavujen määrä, tai -1 mikäli tiedoston
+avaamisessa sattui virhe. Sinun tulee tulostaa tiedostot seuraavissa
+formaateissa:</p>
+<p><strong>Kohdassa (a)</strong> tulostetaan tiedoston sisältö merkkeinä. Mikäli
+  tiedostossa tulee vastaan merkki jota ei voi tulostaa (eli funktio
+  <em><a href="http://linux.die.net/man/3/isprint">isprint</a></em> palauttaa epätoden arvon), ruudulle tulee tulostaa
+  merkki '?', muussa tapauksessa tulostetaan tiedostosta luettu
+  merkki.</p>
+<p><strong>Kohdassa (b)</strong> tulostetaan tiedoston sisältö heksadumppina: kukin
+  tiedostossa oleva tavu tulostetaan kahden merkin pituisessa
+  heksadesimaalimuodossa siten että alle 0x10:n oleviin lukuihin
+  lisätää 0 eteen. Kunkin luvun perässä on yksi välimerkki, ja
+  kullakin rivillä tulee olla enintään 16 merkkiä, jonka jälkeen
+  siirrytään seuraavalle riville. Myös rivin viimeistä merkkiä seuraa
+  välimerkki. Tässä esimerkki tulosteesta:</p>
+<pre>
+0e 54 65 65 6d 75 20 54 65 65 6b 6b 61 72 69 30 
+30 30 30 30 41 00 00 14 45 4c 45 43 2d 41 31 31 
+30 30 00 00 00 00 00 00 00 </pre>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-2-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_stats: Tilastoja (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Lisää harjoittelua tiedostonkäsittelystä</p>
+<p>Toteuta seuraavat funktiot tekstitiedostojen analysoimiseen:</p>
+<h2>(a) Rivilaskuri</h2>
+<p>Toteuta funktio <code>int line_count(const char *filename)</code> joka laskee
+rivien lukumäärän annetussa tiedostossa, ja palauttaa lukumäärän
+paluuarvonaan. Jos tiedoston avaamisessa tai lukemisessa tapahtuu
+virhe, funktion tulee palauttaa -1. Jos tiedosto on tyhjä, siinä ei
+ole yhtään riviä. Jos tiedoston viimeisellä rivillä on sisältöä, mutta
+rivi ei pääty rivinvaihtomerkkiin, se tulee laske omaksi rivikseen.</p>
+<h2>(b) Sanalaskuri</h2>
+<p>Toteuta funktio <code>int word_count(const char *filename)</code> joka laskee
+tiedostossa esiintyvien sanojen määrän. Määrittelemme tässä
+harjoituksessa sanan sellaiseksi, jossa on vähintään yksi
+kirjainmerkki (<em>isalpha</em>). Kaksi sanaa erotetaan toisistaan jollain
+välimerkillä ("whitespace", <em>isspace</em>). Mikäli tiedoston avaamisessa
+tai lukemisessa tapahtuu virhe, tulee palauttaa -1. (Kannattaa
+huomioida, että shell-komento 'wc -w' määrittelee sanan eritavalla,
+joten sitä ei voi käyttää tämän funktion testaamiseen).</p>
+<p>Tämän sivun lopussa on lisää tietoa merkkien luokitteluun (ja
+muuhunkin) liittyviä kirjastofunktioista.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-3-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 03_base64: Base64 (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite</strong>: Harjoitusta tiedostoon lukuun ja kirjoitukseen, sekä
+  bittioperaatioita.</p>
+<p><strong>HUOM</strong>: Tämä saattaa olla kierroksen vaikein tehtävä. Jos olet
+  epävarma siitä miten tehtävää kannattaa lähteä ratkaisemaan,
+  kannattaa ehkä katsoa ensin muita tehtäviä, ja palata sitten tähän.</p>
+<p>Base64-koodausta käytetään kun binäärisisältöä pitää muuttaa
+tekstimuotoon, esimerkiksi tiedoston sisällyttämiseksi vaikkapa
+sähköpostiviestiin. Tässä harjoituksessa sinun tulee toteuttaa
+funktiot <strong>to_base64 (a)</strong>, joka lukee tiedoston yhdestä tiedostosta
+ja kirjoittaa sen toiseen tiedostoon Base64-koodatussa muodossa; sekä
+<strong>from_base64 (b)</strong>, joka tekee käänteisen operaation, eli lukee
+Base64-koodatun tiedoston ja kirjoittaa sen alkuperäisessä muodossaan
+tiedostoon. Toisin sanoen, kun funktiot toimivat oikein, ja niitä
+kutsutaan peräkkäin, lopputulokseksi pitäisi tulla täsmälleen sama
+tiedosto kuin mistä lähdettiin liikkeelle.</p>
+<p>Base64-koodauksen idea on, että lähteenä oleva tiedosto tai merkkijono
+muutetaan 6-bittisiin yksiköihin, jotka esitetään tulostettavilla
+merkeillä (A-Z, a-z, 0-9, +, /). Tämä voidaan tehdä esimerkiksi niin,
+että otetaan lähteestä kolme 8:n bitin numeroa (eli yhteensä 24 bittiä)
+ja muutetaan ne neljäksi 6-bitin numeroksi (edelleen 24
+bittiä). Bittikombinaatio pysyy siis täsmälleen samana, mutta se
+jaetaan eri "tavuihin" toisella tavalla. Kukin 6-bittinen luku
+muutetaan kirjainmerkiksi <a href="http://en.wikipedia.org/wiki/Base64#Examples">tämän taulukon</a> avulla. Samalla
+<a href="http://en.wikipedia.org/wiki/Base64">Wikipedia</a>-sivulla on myös hyödyllisiä diagrammeja, jotka
+havainnollistavat koodauksen ideaa.</p>
+<p>On mahdollista, että lähdetiedoston pituus ei ole kolmella
+jaollinen. Tällöin puuttuvat bitit oletetaan 0:ksi, ja kokonaan
+käyttämättömien 6-bittisten merkkien paikalle merkataan täytemerkiksi
+'='. <a href="http://en.wikipedia.org/wiki/Base64">Wikipedia</a> antaa tästäkin esimerkin.</p>
+<p>Wikipedia-sivulla on myös muuta taustaa ja lisätietoa
+Base64-koodauksesta. Algoritmista on olemassa erilaisia variaatioita,
+mutta noudatamme alkuperäistä, RFC 1421:ssä määriteltyä formaattia,
+eli seuraavasti:</p>
+<ul>
+<li>
+<p><strong>Kunkin koodatun rivin tulee olla 64 merkkiä pitkä</strong>, paitsi
+    viimeisen rivin, joka voi olla lyhyempi. Tässä tehtävässä käytämme
+    yksinkertaista Unix-rivinvaihtoa ('\n'), emmekä "CRLF"-yhdistelmää
+    monien muiden toteutusten tapaan. Viimeisellä rivillä <strong>ei ole</strong>
+    rivinvaihtomerkkiä.</p>
+</li>
+<li>
+<p><strong>Kaikkien rivien pituuden tulee olla 4:llä jaollinen</strong>. Tarpeen
+    mukaan viimeisen rivin loppuun täytyy lisätä <strong>täytemerkkejä</strong>
+    ('='), jotta tämä ehto täyttyy.</p>
+</li>
+</ul>
+<p>Molemmat funktiot palauttavat paluuarvonaan tiedostosta luettujen
+merkkien määrän, tai -1, mikäli tiedoston käsittelyssä tapahtui virhe.</p>
+<p><strong>Lisävinkkejä to_base64 - toteutukseen:</strong></p>
+<ul>
+<li>
+<p>On suositeltavaa, että aloitat testaamisen lyhyillä
+    lähdetiedostoilla ja yksinkertaisilla merkkijonoilla, kuten
+    esimerkiksi "Man", joka annetaan Wikipedian esimerkissä. Sen
+    jälkeen kasvatat testitiedoston pituutta asteittain ja tarkistat
+    että saat odotetun lopputuloksen. Vasta kun olet itse vakuuttunut
+    algoritmin toimivuudesta, se kannattaa lähettää TMC:lle.</p>
+</li>
+<li>
+<p>Aloita vaikkapa tarvittavien binäärioperaatioiden
+    toteuttamisesta. Niiden hahmotteluun kynä ja paperi saattavat olla
+    hyödyllisiä. Tarvitset ainakin bittien
+    siirto-operaattoria. Binäärilaskutoimitus ottaa siis sisään kolme
+    8-bittistä (char) arvoa, ja sen tulisi tuottaa neljä 6-bittistä arvoa
+    (esimerkiksi char, jossa kaksi ylintä bittiä ovat aina 0).</p>
+</li>
+<li>
+<p>Kun olet saanut neljä 6-bittistä lukuarvoa, ne tulee muuntaa
+    tulostettavaksi ASCII-merkiksi. Tehtäväpohjan mukana tulee
+    merkkijono (eli merkkitaulukko) '<em>encoding</em>', jossa on kaikki 64
+    Base64-merkkiä ovat oikeassa järjestyksessä. Tästä taulukosta on
+    varmastikin hyötyä.</p>
+</li>
+<li>
+<p>Vasta kun bittien pyörittely, ja muunnos Base64-merkeiksi näyttää
+    toimivan, lisää lopuksi tarvittava täytemerkkien käsittely ja
+    tulosteen jako 64:n merkin riveihin.</p>
+</li>
+</ul>
+<p>Kuten aina, kannattaa käyttää <em>src/main.c</em> - tiedostoa testaamiseen,
+ennenkuin lähetät ratkaisusi TMC:hen.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="02_precompiler">
+    <h1 class="content-title">Esikääntäjä</h1>
+    <div class="content-body">
+    
+      <p>Aivan kurssin alussa mainittiin, että ajettavan ohjelman tuottaminen
+C-koodista tapahtuu kolmessa vaiheessa: esikäännös, käännös ja
+linkkaus. Esikääntäjä käsittelee tekstimuotoista lähdekoodia ja
+muokkaa sitä "raakamuotoon", josta kääntäjä alkaa sitten tuottamaan
+tietokoneen ymmärtämää konekielistä ohjelmaa. Esikäännöksessä
+esimerkiksi <code>#include</code> directiivien osoittamat otsaketiedostot
+liitetään osaksi lähdekoodia. Lisäksi poistetaan kommentit (koska
+kääntäjä ei niitä tarvitse), ja esimerkiksi muutetaan merkkijonoissa
+esiintyvät erikoismerkit, kuten <code>\n</code> niitä vastaaviksi ASCII-arvoiksi
+(kuten tässä tapauksessa 10).</p>
+<p>Esikäännöksen jälkeen ohjelmaa voi edelleen lukea tekstimuotoisena,
+mutta siitä on tullut huomattavasti pidempi include-otsakkeiden
+sisällyttämisen vuoksi, sekä tyypillisesti vaikealukuisempi. Voit
+tarkastella esikääntäjän tuottamaa tulosta antamalla <em>gcc</em>-kääntäjälle
+komentorivillä <em>-E</em> käännösoption. Tällöin se jättää myöhemmät
+käännösvaiheet suorittamatta, ja tuottaa vain esikäännetyn tiedoston.</p>
+<h2>Perusteita</h2>
+<p>Esikääntäjää voidaan ohjata esikäännösdirektiiveillä, jotka alkavat
+aina risuaita-merkillä (#). Tästä nähdään että esimerkiksi
+<code>#include</code>-rivit käsitellään jo esikäännösvaiheessa. Tällaiset
+direktiivit siis käsitellään esikäännösvaiheessa, ja esikäännöksen
+jälkeen niitä ei enää esiinny ohjelmassa.</p>
+<p>Toisin kuin normaalissa C-koodissa, jonka ohjelmoija voi muokata hyvin
+vapaasti, ja jossa lauseet erotellaan puolipisteellä,
+esikäännösdirektiiveissä muotoilu on tärkeä. Esikäännösohje alkaa aina
+rivin alussa olevalla risuaidalla, ja se päättyy
+rivinvaihtoon. Myöskään puolipistettä ei lisätä esikäännösdirektiivin
+loppuun. Mikäli esikäännösdirektiivistä tulee niin pitkä, ettei sitä
+kätevästi voi esittää yhdellä rivillä, taaksepäin osoittavalla
+kenoviivalla (backslash, '\') voidaan ohjetta jatkaa seuraavalle
+riville.</p>
+<h2>Vakiot ja makrot</h2>
+<p>Yksi yleisimmistä esikäännösohjeista <em>#include</em>:n jälkeen on <code>#define</code>
+jolla voidaan määritellä vakiomerkkijonoja, jotka esikääntäjä korvaa
+jollain toisella tekstillä (tai numerolla). Tarkka muoto olisi jotain
+seuraavaa:</p>
+<p><code>#define NIMI jotain tekstia</code></p>
+<p>Jolloin jokainen ohjelmassa esiintyvä <em>NIMI</em> käydään korvaamassa
+perässä annetulla tekstillä. Kannattaa huomioida, että esikääntäjä
+operoi tekstimuotoisen sisällön kanssa "jotain tekstiä" voi olla mikä
+tahansa merkkijono, numerovakio tai lauseke. Mikäli tuloksena syntyy
+C-kääntäjän mielestä merkityksetön lauseke, esikääntäjä ei sitä
+huomaa. Käännösvaiheessa tällöin tulee kuitenkin
+käännösvirhe. <em>#define</em>:n avulla voi siis halutessaan tuottaa hyvin
+vaikeaselkoista, mutta silti toimivaa koodia. Tästä esimerkkinä
+vaikkapa <strong><a href="http://nanochess.org/chess1.html">shakkipeli</a></strong>, joka voitti "Internatinal Obfuscated C
+Code" - kilpailun joitain vuosia sitten.</p>
+<p>Alla esimerkki yksinkertaisesta <em>#define</em>:ä käyttävästä ohjelmasta:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;string.h&gt;</span>
+
+<span class="cp">#define MAXSTRING 80</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="n">MAXSTRING</span><span class="p">];</span>  <span class="c1">// varataan 80 merkille tilaa</span>
+
+    <span class="c1">// kopioidaan enintään 79 merkkiä</span>
+    <span class="n">strncpy</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">&quot;string&quot;</span><span class="p">,</span> <span class="n">MAXSTRING</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>On melko yleinen käytäntö, että esikääntäjälle esitettyjen vakioiden
+ja makrojen nimet on kirjoitettu isoin kirjaimin, vaikka niin ei
+tokikaan ole pakko tehdä.</p>
+<p>Vaihtoehtoisesti MAXSTRING olisi voitu määritellä globaalina
+vakiomuuttujana: <code>const int MAXSTRING = 80</code>. Tällöin sen käsittely
+tapahtuisi kääntäjän toimesta, ja esimerkiksi tyyppitarkistukset
+tehtäisiin saman tien.</p>
+<p><em>#define</em> - määrittelyn voi poistaa myöhemmin ohjelmassa <em>#undef</em> -
+  määrittelyllä, jonka jälkeen kyseistä makroa tai vakiota ei enää voi
+  käyttää.</p>
+<p><b>#define</b> - makrolle voi myös antaa parametreja. Tällöin
+parametrit sijoittuvat asianomaisille paikoille esikääntäjän tehdessä
+makroa vastaavaa korvausoperaatiota. Tämä eroaa C-funktioista siten,
+että jälleen toimitaan vain tekstiä korvaamalla, eikä parametreillä
+esimerkiksi ole esikääntäjässä määriteltyä tyyppiä.</p>
+<p>Esimerkiksi meillä voisi olla seuraavanlainen makromäärittely:</p>
+<pre>
+#define GROW_MEM(Var, Size) Var = realloc(Var, Size)</pre>
+
+<p>sekä sitä käyttävä ohjelma:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">GROW_MEM</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>GROW_MEM korvautuu siis annetulla realloc-kutusulla, jonka paluuarvo
+sijoitetaan <em>Var</em>- makroparametrin ilmaisemaan
+muuttujaan. Esikäännöksen jälkeen rivi 4 näyttäisi siis tältä:</p>
+<p><code>p = realloc(p, 200);</code></p>
+<p>Koska makron määrittelemässä merkkijonossa ei ollut puolipistettä
+(kuten ei useinkaan tapana), se pitää erikseen lisätä rivillä 4, jotta
+merkitään lauseen päättyminen. Jälleen esikääntäjä ei huomaisi mitään,
+jos esimerkiksi <em>Size</em> parametriksi annettaisiin joku merkkijono, tai
+<em>Var</em> parametriksi muuttuja jota ei ole esitelty, mutta
+käännösvaiheessa tulisi virheitä.</p>
+<h2>Muita ominaisuuksia</h2>
+<p>Esikääntäjä tukee ehtolauseketta <code>#if</code> jolle voi antaa loogisia
+operaattoreita käyttäen esikääntäjän tukemia vakioita. Esikääntäjä ei
+kuitenkaan tiedä C-ohjelman esittelemistä muuttujista mitään. Mikäli
+<em>#if</em> - ehto toteutuu, riviä seuraavat ohjelmarivit sisältyvät
+käännökseen, kunnes vastaan tulee <code>#endif</code>, joka päättää kyseisen
+ohjelmalohkon. Lisäksi käytössä ovat <code>#else</code> ja <code>#elif</code> -
+direktiivit. Jälkimmäinen tarkoittaa "else if", ja toimii kuten
+vastaava rakenne C:ssä ja muissa ohjelmointikielissä.</p>
+<p>Alla esimerkki ohjelmasta josta voidaan ajatella olevan kaksi
+versiota. Versiosta riippuen ohjelmaan sisällytetään eri
+otsaketiedostot, koska eri versioissa voi olla käytössä esimerkiksi
+hieman erilaiset tietorakenteet tai kutsurajapinnat.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#if (VERSION == 1)</span>
+<span class="cp">#include &quot;hdr_ver1.h&quot;</span>
+<span class="cp">#elif (VERSION == 2)</span>
+<span class="cp">#include &quot;hdr_ver2.h&quot;</span>
+<span class="cp">#else</span>
+<span class="cp">#error &quot;Unknown version&quot;</span>
+<span class="cp">#endif</span>
+</pre></div>
+</td></tr></table>
+
+<p><code>#error</code> - direktiivi aiheuttaa automaattisen käännösvirheen ja
+käännöksen keskeytymisen virheilmoituksella joka annetaan tässä
+yhteydessä. <em>VERSION</em> on siis esikääntälle määritelty vakio. Näitä
+voidaan antaa esimerkiksi <em>gcc</em>:n komentoriviparametreina.</p>
+<p><em>#define</em>:llä voidaan määritellä vakioita myös siten, että niille ei
+  ole määritelty arvoa, vaikka vakio itsessään on olemassa. Tällä
+  tavoin voidaan esittää ja testata binääristä tietoa jonkun asian
+  tilasta.</p>
+<p>Yleinen tällainen käyttö on ns. "include-vahti", jolla estetään tietyn
+  otsakkeen sisältyminen ohjelmaan toistuvasti. Tämä on mahdollista,
+  koska usein otsaketiedostot itsessään sisällyttävät toisia
+  otsaketiedostoja. Tällöin sama otsaketiedosto voi tulla ohjelmaan
+  mukaan useita reittejä, jolloin samoja nimiä yritetään määritellä
+  useaan kertaan, mikä aiheuttaa käännösvirheen.</p>
+<p>Alla esimerkki include-vahdista, joka sijoitetaan otsaketiedoston
+alkuun. Mikäli <em>SOME_HEADER_H</em> - vakiota ei ole määritelty,
+käsitellään otsake normaalisti. Alussa kuitenkin heti määritellään
+kyseinen vakio, joten mikäli kyseistä otsaketta haetaan uudestaan,
+se käytännössä sivuutetaan. <code>#ifdef</code> - ehto siis testaa onko kyseistä
+nimeä määritelty, kun taas <code>#ifndef</code> on tosi mikäli testattavaa nimeä
+ei ole määritelty.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#ifndef SOME_HEADER_H  </span><span class="c1">// at the beginning of file</span>
+<span class="cp">#define SOME_HEADER_H</span>
+
+<span class="c1">// some header content</span>
+
+<span class="cp">#endif </span><span class="c1">// at the end of the file</span>
+</pre></div>
+</td></tr></table>
+
+<p>Esikääntäjässä on myös eräitä automaattisesti määrittyviä vakionimiä,
+joista voi olla hyötyä esimerkiksi debugauksen tai virhetilastoinnin
+yhteydessä:</p>
+<ul>
+<li>
+<p><code>__DATE__</code> korvautuu sen hetkisellä päivämäärällä. Koska tämä
+    arvioidaan esikäännösvaiheessa, se ei toimi kuten muuttuja, vaan
+    käytännössä kertoo milloin ohjelma on käännetty.</p>
+</li>
+<li>
+<p><code>__TIME__</code> korvautuu aikaleimalla. Jälleen kyseessä siis
+    hetkestä jolloin kyseinen ohjelma on (esi)käännetty.</p>
+</li>
+<li>
+<p><code>__FILE__</code> korvautuu C-lähdetiedoston nimellä. Tätä voi
+    hyödyntää esimerkiksi omien debug-makrojen yhteydessä (jollainen
+    myös <em>assert</em> on), jolloin nähdään heti mistä tiedostosta ilmoitus
+    on lähtöisin. Kannattaa muistaa että yleensä ohjelmat koostuvat
+    lukuisista lähdetiedostoista.</p>
+</li>
+<li>
+<p><code>__LINE__</code> korvautuu rivinumerolla jolla kyseinen vakio
+    esiintyy. Jälleen tämän avulla saadaan tarkempaa tietoa debugausta
+    varten. Tyypillisesti tätä (kuten <strong>FILE</strong> - makroakin) käytetään
+    jonkun toisen makron sisällä, jotta esikääntäjä osaa sijoittaa ne
+    osoittamaan oikeaa riviä.</p>
+</li>
+</ul>
+<p>Alla yksinkertainen makro, joka tulostaa lähdetiedoston nimen, rivin,
+sekä lisäksi jonkin selventävän viestin:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="cp">#ifdef DEBUG</span>
+<span class="cp">#define MYDEBUG(Msg) fprintf(stderr, &quot;File: %s, Line: %d: %s&quot;, \</span>
+<span class="cp">                             __FILE__, __LINE__, Msg)</span>
+<span class="cp">#else</span>
+<span class="cp">#define MYDEBUG(Msg)</span>
+<span class="cp">#endif</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">MYDEBUG</span><span class="p">(</span><span class="s">&quot;Starting</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="p">)</span> <span class="p">{</span> <span class="n">a</span><span class="o">++</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">MYDEBUG</span><span class="p">(</span><span class="s">&quot;At the end</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Kun ohjelman nyt kääntää esimerkiksi näin: <code>gcc testi.c</code>, ja sen
+ajaa, ruutuun ei ilmesty mitään, koska DEBUG-makroa ei ole
+määritelty. Sen sijaan, jos kääntäjälle kertoo, että kyseinen
+makronimi on määritelty: <code>gcc -DDEBUG testi.c</code>, ruutuun tulostuu
+seuraavaa:</p>
+<pre>
+File: testi.c, Line: 11: Starting
+File: testi.c, Line: 13: At the end</pre>
+
+<p>Tällä niksillä voidaan siis kääntää ohjelma debugaus-tilassa -D -
+vivun kanssa, jolloin ruudulle tulee selventäviä ilmoituksia, mutta
+kun ohjelmasta käännetään lopullinen versio, makron kautta tulevat
+ilmoitukset voidaan poistaa käännetystä koodista. Tässäkin
+taupauksessa <em>MYDEBUG</em> - makro pitää kuitenkin määritellä tyhjänä,
+koska muuten rivit 11 ja 13 aiheuttaisivat myöhemmässä vaiheessa
+virheen.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-4-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 04_arraytool: Taulukkomakroja (3 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Harjoittele makrojen käyttöä.</p>
+<p>Tässä tehtävässä ei ole varsinaista .c - pääteistä tiedostoa
+työstettäväksi perinteisen <em>main.c</em>:n lisäksi, vaan tehtävä tehdään
+<em>src/arraytool.h</em> - otsakkeeseen. Sinne sinun tulee toteuttaa
+seuraavat makrot:</p>
+<p><strong>(a): CHECK(cond, msg)</strong> joka tarkistaa loogisen ehdon <em>cond</em>, ja
+  mikäli ehto ei täyty, tulostaa merkkijonon <em>msg</em>
+  standarditulostevirtaan. Tämä siis on hieman kuten C-kirjastossa
+  määritelty <em>assert</em>-makro, mutta ei keskeytä ohjelman
+  suoritusta. Esimerkki makron käytöstä: <code>CHECK(5 &gt; 10, "5 &gt; 10
+  failed\n");</code></p>
+<p><strong>(b): MAKE_ARRAY(type, n)</strong> joka luo dynaamisesti varatun taulukon,
+  jossa on <em>n</em> alkiota tyypiä <em>type</em>. Makro palauttaa osoittimen
+  varattuun muistiin. Esimerkki makron käytöstä: <code>void *ptr =
+  MAKE_ARRAY(int, 10);</code></p>
+<p><strong>(c): ARRAY_IDX(type, array, i)</strong> joka käsittelee taulukkoa <em>array</em>
+  kohdasta <em>i</em>. Taulukon alkioiden tyyppi on annettu parametrissa
+  <em>type</em>. Esimerkki makron käytöstä: <code>ARRAY_IDX(int, ptr,
+  i) = i * 2;</code></p>
+<p>Kun makrot on oikein toteutettu, oletuksena mukana tuleva <em>src/main.c</em>
+varaa kokonaislukutaulukon 10:lle luvulle, alustaa sen ja tulostaa
+taulukon sisällön. Funktio testaa myös CHECK-makroa. Voit toki muuttaa
+main-funktiota haluamasi mukaan.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="03_arglists">
+    <h1 class="content-title">Vaihtuvan mittaiset parametrilistat</h1>
+    <div class="content-body">
+    
+      <p>C-funktioiden parametrilistat ovat pääosin kiinteästi määriteltyjä ja
+tiukasti tyypitettyjä. Joissain tapauksissa parametrien määrää ja
+tyyppiä ei pystytä tarkasti määrittelemään. Yleisin esimerkki tästä on
+<em>printf</em>, ja muut funktiot jotka käsittelevät
+muotoilumääreitä. C-kielessä on mekanismi tällaisten funktioiden
+toteuttamiseksi.</p>
+<p>Funktiolle voidaan määritellä vaihtuvan mittainen parametrilista
+seuraavalla notaatiolla:</p>
+<p><code>int printf(const char *fmt, ... )</code></p>
+<p>Yllä on <em>printf</em> - funktion määrittely. Kuten tässä vaiheessa jo
+tiedetään, ensimmäinen parametri on aina merkkijono. Sitä seuraa
+vaihtuva määrä muita parametreja, joiden tyyppiä ei ole määritelty
+funktion määrittelyn yhteydessä. <em>printf</em>-toteutus päättelee
+parametrien määrän merkkijonoon upotetuista muotoilumääreistä.</p>
+<p>Parametrilista käsitellään <strong>va_list</strong> - tietotyypin avulla, sekä
+käyttämällä makroja <strong>va_start</strong>, <strong>va_arg</strong> ja <strong>va_end</strong>. Nämä on
+määritelty <em>stdarg.h</em> - otsakketiedostossa.</p>
+<p>Seuraavassa esimerkki funktiosta, joka laskee keskiarvon vaihtuvan
+mittaisesta joukosta liukulukuja.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;stdarg.h&gt;</span>
+
+<span class="kt">double</span> <span class="nf">keskiarvo</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="p">...</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">va_list</span> <span class="n">args</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">va_start</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">va_arg</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="kt">double</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">va_end</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;keskiarvo: %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">keskiarvo</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;toinen: %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">keskiarvo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p><em>va_start</em> aloittaa parametrilistan käsittelyn, ja kertoo sen
+ parametrin, jonka jälkeen vaihtuvan mittainen lista
+ alkaa. Tällaisessa funktiossa pitää siis olla vähintään yksi
+ kiinteästi määritelty perinteinen parametri.</p>
+<p>Parametrit poimitaan listasta yksi kerrallaan <em>va_arg</em> - makrolla,
+jolle annetaan parametriksi parametrilistaa osoittava muuttuja, sekä
+seuraavan parametrin tyyppi. Tämä pitää siis tietää jollain
+tapaa. Tässä funktiossa se on helppoa, koska voimme olettaa että
+kaikki käsiteltävät luvut ovat <em>double</em> - tyyppisiä. <em>printf</em> -
+toteutus päättelee seuraavan tyypin ensimmäisessä merkkijonossa
+olevien muotoilumääreiden perusteella. Kun kaikki parametrit on
+käsitelty, lopuksi pitää vielä lopettaa parametrilistan käsittely
+kutsumalla <em>va_end</em> - makroa.</p>
+<p><em>main</em>-funktiosta nähdään, että nyt <em>keskiarvo</em> - funktiota voi kutsua
+ vaihtuvalla määrällä parametreja, kunhan laskettavien lukujen määrä
+ on oikein listattu.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-5-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 05_myprint: Kokonaislukutulostin (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite</strong>: Harjoitellaan vaihtuvan mittaisten parametrilistojen
+  käyttöä.</p>
+<p>Toteuta funktio <strong>myprint</strong> joka tulostaa vaihtuvan määrän
+kokonaislukuja standarditulostevirtaan noudatten parametrinaan
+saamaansa muotoilumäärittelyä. Funktio voi siis saada vaihtuvan määrän
+parametreja: <strong>ensimmäinen parametri on aina (muuttumaton)
+merkkijono</strong>, joka määrittelee tulosteen ulkoasun, kuten <em>printf</em>:kin
+tekee. Sitä seuraa kokonaislukuja (int), joiden määrä riippuu
+muotoilumerkkijonosta, ja siinä olevien '&amp;' - merkkien
+määrästä. Funktiossamme '&amp;' toimii muotoilumääreenä, ja se tulee
+korvata kyseisellä kohdalla parametrilistassa olevalla
+kokonaisluvulla. Toteutamme siis yksinkertaistetun version
+<em>printf</em>-funktiosta. Koska tulostamme vain kokonaislukuja, mitään
+lisämääreitä korvattavaan merkkiin ei tarvita.</p>
+<p>Esimerkiksi tämä on yksi hyväksyttävä tapa kutsua funktiota:
+<code>myprint("Number one: &amp;, number two: &amp;\n", 120, 1345);</code></p>
+<p><strong>Funktion tulee palauttaa kokonaisluku</strong>, joka kertoo kuinka monta
+  muotoilumäärettä funktiossa oli.</p>
+<p>Tässä tehtävässä C-lähdetiedostot <em>myprint.c</em> ja <em>myprint.h</em> ovat
+kokonaan tyhjiä, ja sinun tulee täyttää ne kokonaan itse. Kannattaa
+siis lukea tehtävänanto ja mukana tuleva main-funktio tarkkaan, jotta
+funktion nimi ja muut määrittelyt menevät oikein.</p>
+<p>Jos toteutuksesi toimii oikein, oletuksena mukana tuleva main-funktio
+tulostaa seuraavaa:</p>
+<pre>
+Hello!
+Number: 5
+Number one: 120, number two: 1345
+Three numbers: 12 444 5555
+I just printed 3 integers</pre>
+
+<p><strong>Vinkki:</strong> Muistutuksena, että <em><a href="http://linux.die.net/man/3/strchr">strchr</a></em> palauttaa osoittimen
+  seuraavaan kohtaan merkkijonossa, jossa annettu merkki
+  esiintyy. <em><a href="http://linux.die.net/man/3/fputc">fputc</a></em>:n avulla voit tulostaa yhden merkin kerrallaan,
+  myös standarditulostevirtaan. Näistä funktioista saattaa olla hyötyä.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="04_funcptr">
+    <h1 class="content-title">Funktio-osoittimet</h1>
+    <div class="content-body">
+    
+      <p>Olemme käyttäneet tähän mennessä funktioita jo useaan kertaan, mutta
+tässä kohtaa on hyvä tarkastella mikä funktio oikeastaan on. Aiemmasta
+muistetaan, että virtuaalimuisti on jaettu eri lohkoihin, joista yksi
+on kirjoitussuojattu koodisegmentti. Kun ohjelma käynnistetään, sen
+konekieliset käskyt kopioidaan kääntäjän tuottamasta
+binääritiedostosta (esim. "a.out") tähän segmenttiin. Koodi on
+C-ohjelmassa jaettu funktioihin, mutta koneen näkökulmasta se on vain
+jono käskyjä.</p>
+<p>Funktion nimen voidaan ajatella olevan osoitin koodisegmenttiin siihen
+kohtaan josta kyseisen funktion toteutus alkaa. Se on ikään kuin
+globaali vakiomuuttuja, johon liittyy myös parametreja ja funktiota
+suorittaessa pinon hallintaan liittyvä toiminta paikallisten
+muuttujien käsittelemiseksi.</p>
+<p>Edellä kuvatusta seuraa, että funktioihin voi myös viitata oikean
+tyyppisen osoitinmuuttujan avulla. Tällaista muuttujaa kutsutaan
+<strong>funktio-osoittimeksi</strong>. Funktio-osoittimien avulla voidaan toteuttaa
+erilaista dynaamisesti vaihtuvaa toimintaa ohjelman eri
+tiloissa: voidaan kuvitella esimerkiksi roolipeli, jossa hahmon
+hyökkäyskäyttäytyminen riippuu hahmon lajista tai käytettävissä
+olevasta aseesta. Haluamme kuitenkin kutsua hyökkäysfunktiota yhdellä
+ja samalla nimellä, jotta ohjelma olisi helpompi ylläpitää kun pelin
+seuraavissa versioissa lisätään uusia hahmotyyppejä ja aseita.</p>
+<p>Seuraava esimerkki pyrkii havainnollistamaan miten funktio-osoittimia
+määritellään ja käytetään:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">funcAdd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// The following declares four variables for function pointers</span>
+    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">add_one</span><span class="p">)(</span><span class="kt">int</span><span class="p">)</span> <span class="o">=</span> <span class="n">funcAdd</span><span class="p">;</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">varaa</span><span class="p">)(</span><span class="kt">size_t</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">vapauta</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">);</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">varaa_uudestaan</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">,</span> <span class="kt">size_t</span><span class="p">);</span>
+    <span class="c1">// above pointers are now uninitialized</span>
+
+    <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">add_one</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="c1">// set the pointers to the addresses of functions in C library</span>
+    <span class="n">varaa</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">;</span>
+    <span class="n">vapauta</span> <span class="o">=</span> <span class="n">free</span><span class="p">;</span>
+    <span class="n">varaa_uudestaan</span> <span class="o">=</span> <span class="n">realloc</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Rivillä 11 määritellään funktio-osoitin nimeltä "<em>add_one</em>", joka
+viittaa funktioon jolla on yksi int-tyyppinen parametri, sekä
+int-tyyppinen paluuarvo. Samalla osoitin alustetaan osoittamaan
+funktioon <em>func_add</em>. On tärkeää, että funktiolla johon osoitetaan on
+täsmälleen samanlainen argumenttilista ja
+paluuarvo. Funktio-osoitinmäärittelyn syntaksi sulkuineen ja
+parametrilistoineen saattaa vaatia ensi alkuun hieman totuttelua.</p>
+<p>Vastaavasti rivillä 12 määritellään funktio-osoitin "<em>varaa</em>", jolla
+on geneerinen void-osoitin paluuarvona, sekä <em>size_t</em> tyyppinen
+parametri. Rivillä 13 määritellään funktio-osoitin "<em>vapauta</em>", jolla
+ei ole paluuarvo, mutta geneerinen void-osoitin parametrinaan, ja
+rivillä "<em>varaa_uudestaan</em>" jälleen void-osoitin paluuarvona, sekä
+kaksi parametria. Kolmea jälkimmäistä ei alusteta heti alkuvaiheessa,
+joten niitä ei vielä voi käyttää.</p>
+<p>Rivillä 17 kutsutaan funktiota funktio-osoittimen välityksellä. Kuten
+nähdään, funktion kutsuminen funktio-osoitinta käyttämällä tapahtuu
+täsmälleen samalla syntaksilla, kuin tavallisestikin. Kutsun jälkeen
+<em>b</em>:n arvoksi tulee tietysti 2.</p>
+<p>Sijoitusoperaatio funktio-osoittimeen toimii kuten mikä muu tahansa
+sijoitus, kuten rivelillä 20-22 nähdään, kunhan funktio-osoittimen
+tyyppi on sama. Funktio-osoittimen tyyppi määräytyy paluuarvon
+tyypistä, sekä funktion parametrien tyypeistä. Esimerkikin kaikki
+funktio-osoittimet ovat siis eri tyyppisiä. Funktio-osoittimilla
+voidaan viitata tietysti myös kirjastofunktioihin, kunhan tyypit ovat
+oikein. Vaikka kyseiset funktiot eivät näy omassa ohjelmassamme,
+niiden määrittelyt löytyvät <em>stdlib.h</em> - otsakkeesta.</p>
+<p>Funktio-osoittimen arvon voi tietysti määritellä uudestaan aina
+tarpeen mukaan. Seuraavaksi tehdäänkin vaihtoehtoinen toteutus
+C-kirjaston <em>free</em> - funktiolle (funktio "<em>just_kidding</em>"). Sen
+paluuarvon ja parametrilistan tulee tietysti olla sama kuin
+alkuperäisellä funktiolla. Jotta tulee varmasti todistettua, että
+funktioiden nimet todella viittaavat osoittimiin, tulostetaan lisäksi
+ohjelmassa käytettyjen funktioiden osoitteet, ja huomataan kuinka
+funktio-osoittimen <em>vapauta</em> arvo viittaa näistä tiettyihin. Kyseinen
+ohjelmahan vuotaa muistia, koska oma toteutuksemme ei itse asiassa
+vapauta mitään.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">void</span> <span class="nf">just_kidding</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">ptr</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Did not release the memory block starting at %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">ptr</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">varaa</span><span class="p">)(</span><span class="kt">size_t</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">vapauta</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">);</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">varaa_uudestaan</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">,</span> <span class="kt">size_t</span><span class="p">);</span>
+    <span class="c1">// above pointers are now uninitialized</span>
+
+    <span class="c1">// set the pointers to the addresses of functions in C library</span>
+    <span class="n">varaa</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">;</span>
+    <span class="n">vapauta</span> <span class="o">=</span> <span class="n">free</span><span class="p">;</span>
+    <span class="n">varaa_uudestaan</span> <span class="o">=</span> <span class="n">realloc</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;free: %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">free</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;just_kidding: %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">just_kidding</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;main: %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">main</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;vapauta: %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">vapauta</span><span class="p">);</span>
+
+    <span class="n">vapauta</span> <span class="o">=</span> <span class="n">just_kidding</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;vapauta: %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">vapauta</span><span class="p">);</span>
+
+    <span class="kt">void</span> <span class="o">*</span><span class="n">os</span> <span class="o">=</span> <span class="n">varaa</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>  <span class="c1">// i.e., malloc</span>
+    <span class="n">os</span> <span class="o">=</span> <span class="n">varaa_uudestaan</span><span class="p">(</span><span class="n">os</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>  <span class="c1">// i.e., realloc</span>
+    <span class="n">vapauta</span><span class="p">(</span><span class="n">os</span><span class="p">);</span>  <span class="c1">// i.e., free ..umm.. or actually not</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Ohjelma tulostaa allekirjoittaneen laitteella:</p>
+<pre>
+free: 0x7fff90f79ee4
+just_kidding: 0x10ad05df0
+main: 0x10ad05e20
+vapauta: 0x7fff90f79ee4
+vapauta: 0x10ad05df0
+Did not release the memory block starting at 0x7fe03bc03a20</pre>
+
+<p>Funktio-osoittimet toimivat kuten mitkä tahansa tietotyypit: Niitä voi
+välittää toisten funktioiden parametreina tai paluuarvoina, niitä voi
+käyttää osana tietorakenteita, jne. Näin esimerkiksi funktiokutsussa
+voimme määritellä kutsuttavalle funktiolle myös toiminnallisuutta,
+eikä pelkästään staattisia arvoja.</p>
+<p>Esimerkki tästä on esimerkiksi <em>stdlib.h</em>:ssa määritelty <em>qsort</em> -
+funktio, joka järjestää saamansa taulukon alkiot uuteen
+järjestykseen. qsort:in hienous on siinä, että se ei oleta taulukon
+alkioiden tyypistä mitään, vaan sillä voidaan tarvittaessa järjestellä
+vaikka tietorakenteita jollain kriteerillä. Tästä johtuen funktiolle
+pitää kertoa, kuinka kahden keskinäisen taulukon järjestys määräytyy
+antamalle sille parametrina funktio, jolla vertailu
+suoritetaan. qsort-määrittely näyttää tältä:</p>
+<pre class="sh_c">
+void qsort (void *base, size_t nmemb, size_t size,
+            int (*compar)(const void *, const void *));
+</pre>
+
+<p><em>base</em> - parametri viittaa järjestettävään taulukkoon. Koska sen
+ alkiot voivat olla mitä tyyppiä tahansa, on käytettävä geneeristä
+ void-osoitinta. <em>nmemb</em> kertoo kuinka monta alkiota taulukossa on, ja
+ <em>size</em> kertoo yhden alkio koon. Tämäkin täytyy erikseen kertoa, koska
+ qsort-funktio ei missään vaiheessa tiedä millaisia alkioita se
+ käsittelee. Normaalistihan, kun varsinainen tietotyyppi tiedetään,
+ C:n sisäänrakenettu osoitinaritmetiikka pitää huolen että taulukkoa
+ voidaan iteroida oikein. Viimeinen parametri on <em>compar</em>, joka on
+ funktio-osoitin funktioon joka vertailee kahta saamaansa
+ arvoa. Jälleen on käytettävä void-osoittimia, koska kutsurajapinnan
+ on toimittava geneerisesti kaikille tyypeille.</p>
+<p>Alla olevassa esimerkissä käytämme kyseistä funktiota järjestelemään
+nimiä aakkosjärjestykseen. Määrittelemme vertailufunktion
+<em>name_compare</em>, joka vertailee ensisijaisesti sukunimiä
+aakkosjärjestyksen mukaisesti <em><a href="http://linux.die.net/man/3/strcmp">strcmp</a></em>-funktiota käyttäen, mutta
+mikäli sukunimet ovat samat, etunimi määrää keskinäisen järjestyksen.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="k">struct</span> <span class="n">name</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">last</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">first</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">name_compare</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="k">struct</span> <span class="n">name</span> <span class="o">*</span><span class="n">name_a</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="k">const</span> <span class="k">struct</span> <span class="n">name</span> <span class="o">*</span><span class="n">name_b</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+
+    <span class="c1">// first compare the last names</span>
+    <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">name_a</span><span class="o">-&gt;</span><span class="n">last</span><span class="p">,</span> <span class="n">name_b</span><span class="o">-&gt;</span><span class="n">last</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="c1">// if last names are same, first names decide order</span>
+        <span class="k">return</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">name_a</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">,</span> <span class="n">name_b</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">name</span> <span class="n">array</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">{</span><span class="s">&quot;Kimalainen&quot;</span><span class="p">,</span> <span class="s">&quot;Kalle&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&quot;Mehilainen&quot;</span><span class="p">,</span> <span class="s">&quot;Maija&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&quot;Ampiainen&quot;</span><span class="p">,</span> <span class="s">&quot;Kerttu&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">&quot;Ampiainen&quot;</span><span class="p">,</span> <span class="s">&quot;Antti&quot;</span><span class="p">}</span>
+    <span class="p">};</span>
+    <span class="n">qsort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">name</span><span class="p">),</span> <span class="n">name_compare</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s, %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">last</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">first</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Kuten nähdään, qsortin avulla alkoiden järjestäminen saadaan hoidettua
+vaivattomasti, kunhan vain toteutamme sopivan vertailufunktion.</p>
+<p>Funktio-osoitinta voidaan käyttää myös tietorakenteen kenttänä. Alussa
+viitattiin roolipeliin, joten seuraavassa sen kaltainen esimerkki,
+joka esittää tätä tapausta:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="k">struct</span> <span class="n">monster</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">hitpoints</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">attack</span><span class="p">)(</span><span class="k">struct</span> <span class="n">monster</span> <span class="o">*</span><span class="p">,</span> <span class="k">struct</span> <span class="n">monster</span> <span class="o">*</span><span class="p">);</span> <span class="c1">// function pointer</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">punch</span><span class="p">(</span><span class="k">struct</span> <span class="n">monster</span> <span class="o">*</span><span class="n">me</span><span class="p">,</span> <span class="k">struct</span> <span class="n">monster</span> <span class="o">*</span><span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">damage</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s punches %s with %d damage</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">me</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">target</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">damage</span><span class="p">);</span>
+        <span class="n">target</span><span class="o">-&gt;</span><span class="n">hitpoints</span> <span class="o">-=</span> <span class="n">damage</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">damage</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">bite</span><span class="p">(</span><span class="k">struct</span> <span class="n">monster</span> <span class="o">*</span><span class="n">me</span><span class="p">,</span> <span class="k">struct</span> <span class="n">monster</span> <span class="o">*</span><span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">damage</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s bites %s with %d damage</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">me</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">target</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">damage</span><span class="p">);</span>
+        <span class="n">target</span><span class="o">-&gt;</span><span class="n">hitpoints</span> <span class="o">-=</span> <span class="n">damage</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">damage</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">monster</span> <span class="n">goblin</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;goblin&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">punch</span> <span class="p">};</span>
+    <span class="k">struct</span> <span class="n">monster</span> <span class="n">vampire</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;vampire&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">bite</span> <span class="p">};</span>
+
+    <span class="n">vampire</span><span class="p">.</span><span class="n">attack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">vampire</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">goblin</span><span class="p">);</span>
+    <span class="n">goblin</span><span class="p">.</span><span class="n">attack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">goblin</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vampire</span><span class="p">);</span>
+
+    <span class="c1">// goblin starts biting as well</span>
+    <span class="n">goblin</span><span class="p">.</span><span class="n">attack</span> <span class="o">=</span> <span class="n">bite</span><span class="p">;</span>
+    <span class="n">goblin</span><span class="p">.</span><span class="n">attack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">goblin</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">vampire</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Tässä esimerkissä huomionarvoista on lähinnä se, että hyökkäystä
+koskevat funktiokutsut viittaavatkin nyt tietorakenteen kenttänä
+olevaan funktio-osoittimeen ja näyttävät siksi hieman
+erilaisilta. Yhtälailla meillä voisi olla taulukko funktio-osoittimia,
+jolloin syntaksi muuttuisi vielä erikoisemmaksi, esimerkiksi tyyliin
+<code>paluuarvo = taulukko[i](parametri);</code>, mutta toimisi edelleen.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-6-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 05_sheet: Taulukkolaskenta (4 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite</strong>: Harjoitellaan funktio-osoittimien käyttöä. Samalla
+sivutaan muita aiemmin käsiteltyjä aiheita, kuten tyyppimäärittelyjä,
+unioneita, kaksiulotteisia taulukoita, jne.</p>
+<p>Tässä tehtävässä toteutetaan kaksiulotteinen
+taulukkolaskentaohjelma. Taulukon kukin solu voi olla kolmessa
+tilassa: a) määrittelemätön, eli solulla ei ole sisältöä; b) solussa
+on vakiomuotoinen <em>double</em> - tyyppinen lukuarvo; c) solussa on
+funktio, joka suorittaa laskutoimituksen parametrinaan saaman alueen
+yli taulukossa.</p>
+<p>Jälkimmäisessä tapauksessa taulukkoon sijoitetaan siis käytännössä
+funktio-osoitin, joka suorittaa halutun laskutoimituksen. Kaikki
+tällaiset funktiot saavat kaksi koordinaattia parametrinaan:
+laskettavan alueen vasemman ylänurkan koordinaatit, ja laskettavan
+alueen oikean alanurkan koordinaatit. Funktioiden tulee palauttaa
+<em>double</em>-tyyppinen paluuarvo, joka tullaan näyttämään taulukon
+kyseisessä kohdassa.</p>
+<p>Tehtäväpohjassa on seuraavia valmiiksi määriteltyjä funktioita, joita
+kutsutaan <em>src/main.c</em> - tiedostosta. Tässäkin tehtävässä on
+suositeltavaa, että testaat ohjelmaa main-funktiota käyttäen ennenkuin
+lähetät sen TMC:lle tarkistettavaksi.</p>
+<ul>
+<li>
+<p><em>parse_command</em> lukee käyttäjältä komennon jonka seurauksena
+    taulukkoon voidaan kirjoittaa joko staattinen lukuarvo, tai yksi
+    kolmesta mukana tulevasta funktiosta. Koordinaatit ilmaistaan
+    kahdella kirjainmerkillä komennon alussa. Esimerkiksi <code>AA 6</code>
+    asettaa vasemman ylänurkan arvoksi 6, ja <code>BA sum CC EE</code> laskee
+    ruutuun (1,0) summan 3x3-kokoisen alueen yli välillä (2,2) ja
+    (4,4).</p>
+</li>
+<li>
+<p><em>print_sheet</em> tulostaa taulukon nykytilan.</p>
+</li>
+</ul>
+<p>Huomaa, että yllä mainitut funktiot eivät toimi oikein ennenkuin olet
+toteuttanut muutamia muita funktioita seuraavassa olevan tehtävänannon
+mukaisesti.</p>
+<p>Sinun tulee toteuttaa alla mainitut tehtäväkohdat annetussa järjestyksessä:</p>
+<h2>(a) Taulukon luominen ja vapauttaminen</h2>
+<p>Toteuta seuraavat funktiot:</p>
+<ul>
+<li>
+<p><strong>create_sheet</strong> joka varaa taulukon tarvitseman muistin, eli
+    <em>Sheet</em> tietorakenteen ja siitä viitattavan kaksiulotteisen taulukon.</p>
+</li>
+<li>
+<p><strong>free_sheet</strong> joka vapauttaa kaiken muistin jonka
+    <em>create_sheet()</em> varasi</p>
+</li>
+<li>
+<p><strong>get_cell</strong> joka palauttaa osoittimen parametreissa osoitettuun
+    soluun taulukossa. Funktion tulee olla turvallinen, mikäli sitä
+    yritetään kutsua taulukon yli osoittavilla indekseillä. Tällöin
+    tulee palauttaa NULL, sen sijaan että ohjelma esimerkiksi kaatuisi
+    tai heittäisi Valgrind-virheitä.</p>
+</li>
+</ul>
+<p>Testit tulevat käyttämään hyväkseen näitä funktioita, joten tämä osio
+pitää toteuttaa ensin hyväksytysti, jotta seuraavat voidaan
+tehdä. Kannattaa myös tehdä TMC-palautus, ennenkuin siirryt seuraavaan
+kohtaan.</p>
+<h2>(b) Solun arvon asettaminen</h2>
+<p>Toteuta seuraavat funktiot:</p>
+<ul>
+<li>
+<p><strong>set_value</strong> joka asettaa <em>double</em> - tyyppisen arvon annettuun
+    paikkaan taulukossa.</p>
+</li>
+<li>
+<p><strong>set_func</strong> joka asettaa annetun funktion parametreineen, eli
+    funktio-osoittimen annettuun paikkaan taulukossa.</p>
+</li>
+</ul>
+<p>Kummankin funktion tulee olla turvallisia yli taulukon menevillä
+indekseillä. Kun indeksoidaan yli taulukon, funktiot eivät tee mitään.</p>
+<h2>(c) Solun arvon määrittely</h2>
+<p>Toteuta funktio <strong>eval_cell</strong> joka palauttaa <em>double</em> - tyyppisen
+arvon riippuen annetun solun sisällöstä. Jos solun tyyppi on VALUE,
+funktio palauttaa vain tämän arvon. Jos tyyppi on FUNC, kyseistä
+funktiota kutsutaan sille tallennettuja parametreja käyttäen, ja
+funktion tuottama tulos palautetaan. Jos solun tyyppi on UNSPEC, tai
+jos funktiota kutsutaan parametreilla jotka osoittavat taulukon yli,
+palautetaan vakio <em>NAN</em> (not-a-number), joka on määritelty <em>math.h</em> -
+otsakkeessa. (<em>Huom: jos haluat testata onko jonkun muuttujan arvo
+NAN, sinun tulee käyttää <a href="http://linux.die.net/man/3/isnan">isnan</a> - makroa</em>).</p>
+<h2>(d) Kolme funktiota taulukkolaskentaan</h2>
+<p>Toteuta funktiot, joilla lasketaan annetun alueen suurin arvo (max),
+annetulla alueella olevien lukujen summa, ja annetulla alueella
+määriteltyjen solujen lukumäärä.</p>
+<ul>
+<li>
+<p><strong>maxfunc</strong> palauttaa suurimman arvon annetun vasemman yläkulman
+    ja oikean alakulman välisellä alueella. Mikäli alueella on
+    määrittelemättömiä soluja, tai taulukon ulkopuolella olevia
+    koordinaatteja, ne tulee ohittaa.</p>
+</li>
+<li>
+<p><strong>sumfunc</strong> palauttaa annetulla alueella olevien lukujen
+    summan. Määrittelemättömät solut ja ulkopuolella olevat
+    koordinaatit tulee sivuuttaa.</p>
+</li>
+<li>
+<p><strong>countfunc</strong> palauttaa niiden solujen lukumäärän annetulla
+    alueella, joilla on jokin määritelty arvo (joko staattinen numero,
+    tai funktion määräämä).</p>
+</li>
+</ul>
+<p>Näitä funktioita kutsutaan <em>eval_cell</em> funktiosta sen mukaan, mitä
+taulukkoon on talletettu.</p>
+<p>Kannattaa huomioida, että funktioiden käsittelemällä alueella voi olla
+staattisten arvojen lisäksi myös toisia funktioita. Jos solu sisältää
+funktion, sen arvo tulee määrittää osana laskutoimitusta. Toisin
+sanoen, yllä mainituissa funktioissa kannattaa sisäisesti käyttää
+<em>eval_cell</em> funktiota, joka tarvittaessa kutsuu edelleen toisia
+funktioita aiemmin määritellyn mukaisesti.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="05_funcs">
+    <h1 class="content-title">Joitain hyödyllisiä funktioita</h1>
+    <div class="content-body">
+    
+      <p>Alla joitain C-kirjaston funktioita jotka saattavat olla hyödyllisiä
+loppukurssin aikana, tai ihan muuten vain.</p>
+<h2>Funktioita merkkien käsittelyyn</h2>
+<p><em>ctype.h</em> - otsakkeessa on määritelty funktioita merkkien käsittelyyn
+ ja luokitteluun. Niillä voi esimerkiksi kysyä, onko kyseinen merkki
+ aakkosiin kuuluva, vai onko se numero, vai kenties
+ whitespace-välimerkki (kuten välilyönti tai tab). Lisäksi löytyy
+ funktiot merkkien konvertoimiseen pienistä kirjaimista isoiksi ja
+ päin vastoin. Seuraavassa lyhyt kuvaus muutamasta funktiosta, ja
+ lisätietoa löytyy jälleen <a href="http://linux.die.net/man/3/isalpha">man-sivuilta</a>.</p>
+<ul>
+<li>
+<p><b>isalpha</b> testaa onko annettu merkki aakkosiin kuuluva kirjain.</p>
+</li>
+<li>
+<p><b>isdigit</b> testaa onko kyseinen merkki numero</p>
+</li>
+<li>
+<p><b>isspace</b> testaa onko merkki ns. whitespace-merkki. Näitä
+    ovat mm. välilyönti, tabulaattori ja rivinvaihto.</p>
+</li>
+<li>
+<p><b>isalnum</b> testaa onko kyseinen merkki joko numero tai kirjain
+    (isalpha || isdigit).</p>
+</li>
+<li>
+<p><b>islower</b> testaa onko kyseinen merkki pieni kirjain.</p>
+</li>
+<li>
+<p><b>isupper</b> testaa onko kyseinen merkki iso kirjain.</p>
+</li>
+</ul>
+<p>Alla on esimerkki <em>isalpha</em> - funktion käytöstä. Muut edellä mainitut
+funktiot toimivat samalla periaatteella.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;ctype.h&gt;</span>
+
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">countLetters</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">string</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">isalpha</span><span class="p">(</span><span class="o">*</span><span class="n">string</span><span class="p">))</span>
+            <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">string</span><span class="o">++</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="s">&quot;abc 123 DEF&quot;</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;letters: %u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">countLetters</span><span class="p">(</span><span class="n">str</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Lisäksi <em>toupper</em> muuttaa annetun merkin isoksi kirjaimeksi (jos se
+oli pieni kirjain), ja palauttaa sen. <em>tolower</em> muuttaa kirjainmerkin
+pieneksi, jos mahdollista.</p>
+<h2>Lisää merkkijono-operaatioita</h2>
+<p>Olemme käyttäneet <em>printf</em>- ja <em>scanf</em>-funktioita muotoillun tulosteen
+tuottamiseen, sekä käyttäjän syötteen lukemiseen, sekä <em>fprintf</em>- ja
+<em>fscanf</em> - funktioita vastaavasti yleisemmin tiedostojen ja
+I/O-virtojen yhteydessä.</p>
+<p>Vastaavat funktiot löytyvät myös merkkijonovariaatioina, jolloin
+kohteena ei olekaan terminaali-ikkuna tai tiedosto, vaan annettu
+muistipuskuri, johon tuotetaan (tai josta luetaan) merkkijono.</p>
+<p>Ne ovay seuraavanlaisia:</p>
+<ul>
+<li>
+<p><code>int sprintf(char *str, const char *format, ...)</code> on muuten
+    samanlainen kuin perinteinen <em>printf</em>, mutta ensimmäisenä
+    parametrina on osoitin muistipaikkaan johon tuotetaan merkkijono
+    annettua muotoilua noudattaen. Mitään ei siis varsinaisesti
+    tulosteta ruudulle.</p>
+</li>
+<li>
+<p><code>int sscanf(const char *str, const char *format, ...)</code> vastaavasti
+    lukee ensimmäisenä parametrina annetusta merkkijonosta arvoja
+    annettuihin muuttujiin muotoilumääreen osoittamalla tavalla. Sitä
+    käytetään muutoin samalla tavalla kuin <em>scanf</em>-funktiota.</p>
+</li>
+</ul>
+<p>Merkkijonoja voi konvertoida numeroiksi myös seuraavilla funktioilla:</p>
+<ul>
+<li>
+<p><code>long int strtol(const char *nptr, char **endptr, int base)</code>
+    (määritelty stdlib.h:ssa) muuttaa parametrin <em>nptr</em> osoittaman
+    merkkijonon numeroarvoksi. <em>endptr</em> on osoitin <code>char *</code> -
+    tyyppiseen muuttujaan, johon funktio tallentaa osoittimeen
+    ensimmäiseen sellaiseen merkkiin, joka ei ollut numero. Jos siis
+    kutsun jälkeen <em>endptr</em> osoittaa samaan paikkaan kuin <em>nptr</em>,
+    merkkijonossa ei ollut numeroa lainkaan. <em>base</em> kertoo esitetyn
+    numeron kantaluvun: esimerkiksi desimaaliluvuille se on 10.</p>
+</li>
+<li>
+<p><b>atoi</b> on helppokäyttöisempi funktio numeron lukemiseksi
+    merkkijonosta, mutta sen käyttöä ei suositella, mm. siksi että
+    funktio ei osaa kertoa onnistuiko numeron luku vai ei.</p>
+</li>
+</ul>
+<h2>Matemaattisia funktioita</h2>
+<p>Monet matemaattisen funktiot on määritelty <em>math.h</em> - otsakkeessa, ja
+ne operoivat <em>double</em> - tyyppisillä liukuluvuilla. Jotta funktioita
+voisi käyttää, matematiikkakirjasto pitää sisällyttää käännökseen
+kääntäjän <code>-lm</code> - komentorivioptiolla. Alla muutamia funktioita,
+joista jälleen lisätietoa <a href="http://linux.die.net/man/">manuaalisivuilla</a></p>
+<ul>
+<li>
+<p><b>round</b> pyöristää lukuarvon lähimpään kokonaislukuun</p>
+</li>
+<li>
+<p><b>ceil</b> pyöristää seuraavaan suurempaan kokonaislukuun</p>
+</li>
+<li>
+<p><b>floor</b> pyöristää seuraavaan pienempään kokonaislukuun</p>
+</li>
+<li>
+<p><b>pow</b> korottaa lukuarvon annettuun potenssiin</p>
+</li>
+<li>
+<p><b>sqrt</b> laskee neliöjuuren</p>
+</li>
+<li>
+<p><b>fabs</b> palauttaa itseisarvon</p>
+</li>
+<li>
+<p><b>exp</b> laskee eksponenttifunktion annettuun potenssiin
+    korotettuna.</p>
+</li>
+<li>
+<p><b>log</b> laskee luonnollisen logaritmin</p>
+</li>
+<li>
+<p><b>cos</b> laskee kosinin (radiaaneina)</p>
+</li>
+<li>
+<p><b>sin</b> laskee sinin (radiaaneina)</p>
+</li>
+<li>
+<p><b>tan</b> laskee tangentin (radiaaneina)</p>
+</li>
+</ul>
+<p>Lisäksi <em>stdlib.h</em> - sisältää joitain funktioita
+kokonaisluvuille. Esimerkiksi satunnaislukuja voi generoida <em>[rand]</em> -
+funktiolla, joka palauttaa pseudosatunnaisluvun välillä 0 ja
+RAND_MAX. Tämä luku voidaan rajoittaa halutulle pienemmälle
+lukualueelle esimerkiksi
+modulo-operaatiolla. Satunnaislukugeneraattorille annetaan siemenluku
+<em>srand</em> - funktiolla. </p>
+    </div>
+</div>
+
+        
+    
+
+
+
+		</div>
+
+		<div class="col-lg-4"></div> <!-- forces middle column narrower -->
+
+	</div>
+
+</div>
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="../static/jquery.min.js"></script>
+<script src="../static/bootstrap.min.js"></script>
+</body>
+</html>

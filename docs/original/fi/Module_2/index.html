@@ -1,0 +1,1983 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>C-MOOC - C-MOOC
+- Module 2
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/pygments.css">
+
+    <style>
+    #content { margin-bottom: 20px; text-align: justify; }
+    #content img { margin-top: 25px; margin-bottom: 25px; }
+    #content li { margin-top:6px; margin-bottom: 6px; }
+    #content h2 { padding-top: 20px; }
+
+    .codehilitetable { width: 100%; margin-top: 15px; margin-bottom: 15px;}
+    .linenos { width: 20px }
+    .codehilite{ width:100%; height: auto; }
+
+    .task-sidenav-link { padding-left: 0.5em; }
+    .content-sidenav-link { text-decoration: underline; }
+    .content-block, .task-description-block { margin-bottom: 40px; }
+
+    </style>
+</head>
+<body>
+
+<!-- navbar, common to all pages -->
+<div class="navbar navbar-default" role="navigation">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+
+      <li><a href="../home/index.html">Koti</a></li>
+
+      
+      <li class="global-links"><a href="https://tmc.mooc.fi/mooc">TMC</a></li>
+      
+      <li><a href="../instructions/index.html">Ohjeet</a></li>
+
+      
+      <li><a href="../Module_1/index.html">M1: Johdanto</a></li>
+      
+      <li><a href="index.html">M2: Osoittimet</a></li>
+      
+      <li><a href="../Module_3/index.html">M3: Dynaaminen muisti</a></li>
+      
+      <li><a href="../Module_4/index.html">M4: Bitit ja taulukot</a></li>
+      
+      <li><a href="../Module_5/index.html">M5: Kehittyneita piirteita</a></li>
+      
+      <li><a href="../Module_6/index.html">M6: Yhteenvetoa</a></li>
+      
+
+    </ul>
+  </div>
+</div><!-- navbar -->
+
+
+<!-- Unique content of a page goes here -->
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-lg-3">
+			<div class="sidebar">
+                <ul class="nav">
+
+                    <li><img src="../static/aalto-elec-s.jpg" class="img-responsive"></li>
+                    <li><a href="http://mooc.fi/courses/2016/aalto-c">C-MOOC - MOOC.fi</a></li>
+                </ul>
+                
+
+    
+<ul class="nav bs-sidenav">
+    <b>Jump to:</b>
+    
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#01_pointers">
+        1. Osoittimet
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-1-fi">
+            <b>Task:</b> 02_basics_1 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#02_pointers2">
+        2. Osoitearitmetiikka
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-2-fi">
+            <b>Task:</b> 02_basics_2 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#03_arrays">
+        3. Taulukot
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-3-fi">
+            <b>Task:</b> 02_basics_3 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-master-fi">
+            <b>Task:</b> 03_mastermind (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-fi">
+            <b>Task:</b> 04_sort (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#04_strings">
+        4. Merkkijonot
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-1-fi">
+            <b>Task:</b> 06_strbasic_1 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#05_qualifiers">
+        5. Hyödyllisiä määreitä ja operaattoreita
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#06_precedence">
+        6. Laskujärjestys
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#07_strings2">
+        7. Funktioita merkkijonoille
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-2-fi">
+            <b>Task:</b> 06_strbasic_2 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-fi">
+            <b>Task:</b> 07_altstring (4)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-fi">
+            <b>Task:</b> 08_korso (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-fi">
+            <b>Task:</b> 09_stringarray (2)
+        </a>
+    </li>
+    
+    </a></li>
+    
+</ul>
+
+
+
+
+			</div>
+		</div>
+
+
+		<div class="col-lg-7" id="content">
+
+		    
+		    
+
+		    
+
+    <p>
+<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+	<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0; float:right;">
+</a>
+</p>
+
+    
+        
+        <div class="content-block" id="01_pointers">
+    <h1 class="content-title">Osoittimet</h1>
+    <div class="content-body">
+    
+      <p>Osoittimet ovat keskeinen osa C-ohjelmointia ja yleensä välttämättömiä
+melkeinpä missä tahansa C-ohjelmassa. Mahdollisuus viitata suoraan
+tietokoneen muistiin (käyttöjärjestelmän kautta) osoittimien avulla on
+yksi tärkeimmistä tekijöistä joka erottaa C:n monista muista,
+korkeamman abstraktiotason ohjelmointikielistä. Valitettavasti
+mahdollisuus käsitellä suoraan muistia antaa mahdollisuuden
+monenlaisiin virheisiin, jotka saattavat välillä olla hankalia
+löytää.</p>
+<h2>Taustaa</h2>
+<p>Ohjelmakoodissa esitelly muuttujat tarvitsevat muistia,
+jonka koko riippuu muuttujan tietotyypistä. Esimerkiksi <em>char</em> -
+tyyppinen muuttuja käyttää yhden tavun (8 bittiä), ja <em>int</em> -
+tyyppinen muuttuja yleensä neljä tavua (32 bittiä) koneen
+muistista. Järjestelmä varaa muuttujien tarvitseman tilan
+automaattisesti kun muuttuja esitellään, ja vapauttaa muuttujan
+käyttämän muistin, kun ohjelmalohkosta, jossa muuttuja esiteltiin,
+poistutaan. Ohjelmalohkon ulkopuolella tällaiseen muuttujaan ei enää
+siis voi viitata, eikä sitä voida käyttää. (Ohjelmalohkohan oli
+aaltosulkujen sisältämä alue ohjelmasta)</p>
+<p>Esimerkiksi seuraava esimerkki</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">123456</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>ei tee muuta kuin määrittelee neljä muuttujaa, ja varaa muistista
+tilaa seuraavasti:</p>
+<div align="center"><img src="../static/pics/pointer-basic.jpg"></div>
+
+<p>Muuttujat <em>a</em> ja <em>b</em> käyttävät yhden tavun koneen muistista, ja
+muuttuja <em>c</em> käyttää 4 tavua. Kyseinen ohjelma myös alustaa muuttujien
+sisällön annetuilla arvoilla (muutenhan niiden sisältö saattaisi olla
+mitä tahansa).</p>
+<p>Muuttuja <em>d</em> onkin uuden tyyppinen muuttuja: se on <strong>osoitin</strong> joka
+<strong>viittaa johonkin kohtaan tietokoneen muistissa</strong>. Muuttujan
+määrittelyssä kerrotaan, että osoitin nimenomaisesti viittaa <em>char</em> -
+tyyppiseen muuttujaan jossain päin muistia. Muuttujan tunnistaa
+osoittimeksi siitä, että tyyppimäärittelyn perässä on
+tähtimerkki. Tähtimerkki on aina tietotyypin perässä, mutta sitä voi
+edeltää väli, tai sitten ei. Allekirjoittanut on tottunut ylläolevan
+kaltaiseen merkintätyyliin.</p>
+<p>Vaikka <em>d</em> viittaa <em>char</em> - tyyppiseen arvoon, muuttuja käyttää koneen
+muistista enemmän tilaa kuin yhden tavun, koska muuttujaan
+tallennetaan muistiosoite, eikä arvoa välillä
+-127 - 127. Muistiosoitteet ovat kooltaan nykyisissä järjestelmissä
+usein 64 bittiä, mutta voivat olla myös 32 bittiä, kuten kuvan
+esimerkissä.</p>
+<p>Osoittimet voivat toki viitata minkätyyppiseen muuttujaan tahansa (jopa
+toiseen osoitinmuuttujaan). On kuitenkin tärkeää, että viitattu
+tietotyyppi on oikein osoittimen esittelyn yhteydessä, sekä silloin
+kun sitä myöhemmin käytetään. Viittaaminen muistialueeseen, johon on
+talletettu toisentyyppisiä arvoja on teknisesti mahdollista, mutta
+aiheuttaa miltei aina väärää toimintaa. Kääntäjä varoittaa näistä, ja
+ne varoitukset on syytä ottaa tosissaan.</p>
+<p>Myös muuttuja <em>d</em> alustetaan, (melkein) uuden näköisellä merkinnällä
+<code>&amp;a</code>. <code>&amp;</code> - operaattori kertoo sitä seuraavan muuttujan sijainnin
+muistissa. <code>&amp;a</code> palauttaa siis muuttujan <em>a</em> muistiosoitteen, joka
+voidaan sijoittaa osoitinmuuttujaan.</p>
+<p>Kuvassa havainnollistuksen vuoksi on myös merkattu kuvitteellisia
+muistiosoitteita, joista näkee, että muuttujan <em>d</em> sisältö on
+niinikään muistiosoite. Normaalisti ohjelmoijan ei tarvitse tietää
+mitä yksittäiset osoitteet ovat, vaan mikä kunkin osoitinmuuttujan
+käyttötarkoitus on.</p>
+<h3>Käytöstä poistuneet muuttujat</h3>
+<p>Kuten mainittua, ohjelmalohkon loppuessa sen sisällä määritellyt
+  muuttujat ja niiden varaama muisti vapautetaan. Käytännössä tämä
+  tarkoittaa, että kyseinen muistialue voidaan ottaa muuhun
+  käyttöön. Jos muualla ohjelmassa on edelleen osoitinmuuttujia, jotka
+  viittaavat vapautettuun alueeseen, niiden sisältö pysyy
+  ennallaan. Tällaisen osoittimen varomaton käyttö johtaa kuitenkin
+  väärään lopputulokseen, koska viitatun muistialueen sisältö tulee
+  muuttumaan järjestelmän ottaessa muistin johonkin muuhun
+  käyttöön. Tämä on aloittelijoilla kohtuullisen yleinen, ja monesti
+  hankalasti havaittava virhe, koska ohjelman käyttäytyminen näyttää
+  tällöin vaihtelevan satunnaisesti.</p>
+<p>Kuten muidenkin muuttujien kohdalla, alustamaton osoitinmuuttuja on
+sisällöltään määrittelemätön, ja osoittaa siis satunnaiseen paikkaan
+tietokoneen muistissa. Sellaisen muuttujan käyttö aiheuttaa melkein
+aina ohjelman keskeyttämisen virheelliseen
+muistiviittaukseen.</p>
+<p>Käyttöjärjestelmä keskeyttää ohjelman "segmentation fault" -
+signaalilla, kun se huomaa että ohjelma yrittää käyttää muistia, jota
+sille ei ole alunperinkään varattu. Monesti kuitenkin virheellinen
+muistiviittaus osoittaa alueelle, jonka käyttöjärjestelmä on jo
+aiemmin antanut ohjelman käyttöön. Tällöin seurauksena on vain
+satunnaista väärää toimintaa. Tilanteen havaitsemiseksi on joitain
+työkaluja, joista kerrotaan myöhemmin.</p>
+<h2>Osoittimen käyttö</h2>
+<p>Osoittimen takaa löytyvä varsinainen sisältö haetaan
+<strong>viittausoperaattorilla</strong> (<code>*</code>). Tämä operaattori kurkistaa siis
+annetun osoittimen viittaamaan muistipaikkaan, ja palauttaa siellä
+olevan arvon. Tämän arvon tyyppi vastaa osoittimen määrittelyn
+yhteydessä annettua tietotyyppiä, mikäli osoitinta on käytetty
+oikein. C:n kehittäjien valinta käyttää tähtioperaattoria viittaamiseen
+voi herättää hämmennystä: sehän tarkoittaa myös
+kertolaskua! Operaattorin kulloinenkin merkitys selviää kuitenkin
+asiayhteydestä.</p>
+<p><strong>Toisaalla netissä:</strong> <a href="http://programmers.stackexchange.com/questions/124570/why-pointer-symbol-and-multiplication-sign-are-same-in-c-c">Miksi viittausoperaattori ja kerto-operaattori
+  ovat samat?</a></p>
+<p>Jatketaanpa äskeistä esimerkkiä muutamalla lisärivillä:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">123456</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">e</span><span class="p">;</span>
+
+    <span class="n">e</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;*e: %d   e: %p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">e</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+
+    <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;*d: %d   d: %p   *e: %d   a: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="o">*</span><span class="n">e</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;New value is greater than b!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Osoitinmuuttujia käsitellään paljolti kuten muitakin muuttujia:
+sijoitus on mahdollinen, kuten rivillä 9 tehdään muuttujalle
+<em>e</em>. Tällöin muistiosoite kopioituu <em>d</em>:stä <em>e</em>:hen, ja molemmat
+muuttujat osoittavat sen jälkeen samaan paikkaan, eli muuttujan <em>a</em>
+sijaintiin.</p>
+<p>Kuten mainittua, osoitinmuuttujan viittaaman muistin sisältö haetaan
+viittausoperaattorilla. Siksi <em>printf</em> rivillä 10 tulostaa kaksi eri
+asiaa: ensin osoitinmuuttujan takana lymyilevän arvon, ja toisekseen
+osoitinmuuttujan itsensä arvon, eli jonkin muistiosoitteen. Tässä
+opimme uuden muotoilumääreen <em>printf</em>:ää varten: <code>%p</code> olettaa
+tulostavansa muistiosoitteen. Sitä ei kovin usein tarvita käytännössä,
+mutta tässä esimerkissä se on kuitenkin käytössä. Huomaa kaksi
+<em>printf</em> - parametria ja niiden ero: toinen on tähdellä ja toinen
+ilman. Ne ovat kaksi eri arvoa.</p>
+<p>Viittausoperaattoria voidaan käyttää myös silloin, kun
+osoitinmuuttujan viittaamaa muistialuetta halutaan muuttaa. Sekin käy
+sijoitusoperaattorilla, kunhan viittausoperaattoria käytetään
+asianmukaisesti. Viittausoperaattoria voi toisinsanoen käyttää osana
+lausekkeita erilaisissa tilanteissa, kuten muitakin operaattoreita:
+osana pidempiä laskutoimituksia, muuttujien parametreina, ja niin
+edelleen.</p>
+<p>Rivillä 13 tulostamme useamman muuttujan arvon, jotta näemme mitä
+edeltävät rivit ovat saaneet aikaan. Seuraavaa näkyy:</p>
+<pre>
+*e: 10   e: 0x1000
+*d: 13   d: 0x1000   *e: 13   a: 13
+New value is greater than b!</pre>
+
+<p><em>main</em> - funktion lopussa muistin sisältö näyttää tältä:</p>
+<div align="center"><img src="../static/pics/pointer-basic-2.jpg"></div>
+
+<p>Osoitinmuuttujan välityksellä olemme siis muuttaneet myös muuttujan
+<em>a</em> sisältöä, johon nyt pääsee käsiksi sekä muuttujalla <em>d</em>, että
+muuttujalla <em>e</em>.</p>
+<p>Jatketaanpa ohjelmaa edelleen, ja lisätään nyt rivejä jotka ovat
+<strong>virheellisiä</strong>:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+    <span class="kt">long</span> <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">123456</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+
+    <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;*d: %d   d: %p   a: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;New value is greater than b!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;d: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+    <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;bye bye!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Kun ohjelma käännetään, tuleekin varoituksia:</p>
+<pre>
+$ gcc -Wall -std=c99 -pedantic testi2.c
+testi2.c: In function ‘main’:
+testi2.c:12: warning: assignment makes pointer from integer without a cast
+testi2.c:13: warning: format ‘%d’ expects type ‘int’, but argument 2 has type ‘char *’
+</pre>
+
+<p>Riviä 12 koskeva varoitus kertoo, että sijoitusoperaattori yrittää
+sijoittaa kokonaislukua osoitinmuuttujaan, mikä erittäin
+todennäköisesti on väärin. Riviä 13 koskeva varoitus taas sanoo, että
+yritämme käyttää <code>%d</code> - muotoilumäärettä osoitinmuuttujalle, mikä
+erittäin todennäköisesti on väärin. Siitä huolimatta kääntäjä tuottaa
+ajettavan ohjelman. <strong>Varoitukset kannattaa siis aina tarkistaa ja
+poistaa ohjelmasta</strong>. Niin säästyy paljon omaakin aikaa.</p>
+<p>Osoitinmuuttuja asettuu siis viittaamaan muistiosoitteeseen 14, mikä
+useimmissa järjestelmissä ei ole ohjelmien suorassa käytössä. Tämä ei
+sinänsä vielä kaada ohjelmaa, mutta kun kyseiseen osoitteeseen
+yritetään viitata rivillä 14, seuraavaa tapahtuu kun ohjelma ajetaan:</p>
+<pre>
+*d: 13   d: 1000   a: 13
+d: 14
+Segmentation fault: 11
+</pre>
+
+<p>Käyttöjärjestelmä keskeyttää ohjelman toiminnan kyseisessä kohdassa
+virheelliseen muistiviittaukseen. Numero 11 viittaa "Segmentation
+fault" - sigaalin tunnistenumeroon, eikä esimerkiksi ohjelman
+riviin. Käyttöjärjestelmä ei näkisikään ohjelman rivejä, koska ohjelma
+on ennen ajamista käännetty konekieliseksi. Lopputulos on kuitenkin
+se, että viimeistä "bye bye!" - tulostetta ei lainkaan tehdä.</p>
+<p>Vaikka edellisessä esimerkissä unäärisiä <code>*</code> ja <code>&amp;</code> - operaattoreita
+on käytetty muuttujien yhteydessä, niitä voi käyttää lausekkeissa
+muissakin yhteydessä. Esimerkiksi <code>*(d + 2)</code> viittaa
+muistiosoitteeseen joka ei olekaan <em>d</em>:n sisältämä arvo, vaan hieman
+tämän muistipaikan jälkeen. Tälle on paljon käyttöä, kuten pian nähdään.</p>
+<ul>
+<li><em>unäärinen operaattori:</em> operaattori, joka liittyy yhteen
+    lausekkeeseen (operaattorin perässä) (esim: <code>*(a+1)</code> on viittaus)</li>
+<li><em>binäärinen operaattori:</em> operaattori jota sovelletaan kahden
+    erillisen lausekkeen kanssa (esim: <code>(a+1) * (b+1)</code> on kertolasku)</li>
+</ul>
+<p>On myös hyvä huomata, että osoittimien yhteydessä <code>*</code>-merkkiä
+käytetään <strong>kahdessa eri tarkoituksessa</strong>: kun muuttujaa määritellään
+(esim. rivi 4), sillä merkitään erästä tietotyyppiä. Lausekkeiden
+osana unäärisena operaattorina kyseessä on muistiviittaus. Ja lisäksi
+on kertolaskun tapaus: <code>*(a+1) * *(b+1)</code> on myöskin validia C:tä,
+jossa kerrotaan kaksi lukuarvoa jotka haetaan tiettyjen osoittimien
+takaa.</p>
+<p>Seuraavassa osoittimiin liittyvä välivideo (joka on tehty hyvän aikaa
+sitten Stanfordissa):</p>
+<p><a class="ahy" href="http://www.youtube.com/watch?feature=player_embedded&amp;v=6pmWojisM_E" height="300" target="_blank"><img src="../static/pics/pointerfun.png"></a></p>
+<h2>Osoittimet funktioissa</h2>
+<p>Osoittimia voi käyttää funktion parametreina tai paluuarvoina kuten
+mitä tahansa muitakin tietotyyppejä. Olemme tietämättämme jo näin
+tehneetkin sekä <em>printf</em> että <em>scanf</em> - funktioissa: <em>printf</em> -
+funktioissa olemme käyttäneet merkkijonoja, joita C:ssä käytetään
+osoittimien kautta. <em>scanf</em> - muuttujan yhteydessä parametriksi ollaan
+annettu muuttujan osoite unääristä <code>&amp;</code> - operaattoria käyttäen, eikä
+varsinaista muuttujaa. Kohta kenties valkenee, miksi <em>scanf</em>:n
+yhteydessä näin piti tehdä.</p>
+<p>Seuraavassa on esimerkkinä <em>my_readint</em> - funktio, joka lukee yhden
+ASCII-merkin käyttäjältä, ja muuntaa sen kokonaisluvuksi. Saman asian
+voi tehdä useammallakin muulla C-kirjaston funktiolla helpomminkin,
+mutta toimikoon tämä nyt esimerkkinä. Funktio ei palautakaan luettua
+lukuarvoa paluuarvonaan, vaan se kirjoitetaan suoraan parametrina
+annettuun osoitteeseen. Paluuarvoksi tulee sen sijaan 1, jos numeron
+luku onnistui, tai 0, jos käyttäjä esimerkiksi antoi jonkin muun
+merkin kuin numeron.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">my_readint</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">ret</span><span class="p">;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%c&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">);</span>  <span class="c1">// luetaan yksi ASCII-merkki</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="sc">&#39;0&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="sc">&#39;9&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">c</span> <span class="o">-</span> <span class="sc">&#39;0&#39;</span><span class="p">;</span>   <span class="c1">// muutetaan vastaavaksi luvuksi</span>
+        <span class="o">*</span><span class="n">value</span> <span class="o">=</span> <span class="n">num</span><span class="p">;</span> <span class="c1">// kirjoitetaan osoittimen näyttämään paikkaan</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">ptr_a</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">my_readint</span><span class="p">(</span><span class="n">ptr_a</span><span class="p">))</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;reading succeeded: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+
+    <span class="c1">// Toinen tapa samalle asialle</span>
+    <span class="n">my_readint</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Edellä olevassa ohjelmassa on paljonkin hyödyntöntä koodia: olisimme
+esimerkiksi voineet kutsua vain <code>scanf("%d", value)</code>. Tarkoitus oli
+kuitenkin näyttää ensinnäkin se, että osoitintyypit toimivat
+funktioissa kuten muutkin tyypit, ja että kutsuttaessa pitää tiedostaa
+että käytetään osoitinta eikä perustietotyyppiä, ja tarvittaessa
+käyttää osoiteoperaattoria (<code>&amp;</code>) jotta saadaan käyttöön toimiva
+osoitin. Lisäksi nähdään yksi hankala tapa muuntaa ASCII-muotoisia
+lukuarvoja vastaavaksi kokonaisluvuksi välillä 0-9. <em>Miksi muuten
+<code>scanf("%d", value)</code> ei tarvitsekaan <code>&amp;</code> - operaattoria, kuten aiemmin
+nähtiin?</em></p>
+<p><em>scanf</em> - funktio toimii samalla periaatteella: luettava arvo ei
+ palaudukaan paluuarvona, vaan parametrina olevan osoittimen
+ välityksellä. Osoittimien avulla funktiot pääsevät siis käsittelemään
+ muistialueita ja toisia muuttujia, joita ei ole määritelty funktion
+ sisällä. Samalla funktion paluuarvo vapautuu muuhun käyttöön,
+ esimerkiksi sen kertomiseen, onnistuiko funktio vai ei.</p>
+<p>Osoitin voi toimia myös funktion paluuarvona. Tällöin <em>return</em> -
+lauseessa annetavan lausekkeen on myös oltava osoitin. Seuraavassa on
+esimerkki, joka lukee scanf:ää käyttäen kokonaisluvun
+käyttäjältä. Kokonaisluku tallennetaan muistiin osoitinmuuttujan <em>number</em>
+viittaamaan paikkaan. Kokonaisluvun lukemisen onnistuessa, funktio
+palauttaa parametrinä saaneensa osoittimen.</p>
+<p>Osoittimen arvoa <em>NULL</em> käytetään ilmaisemaan erikoistapauksia kuten
+virheitä ja sitä, että osoitin ei ole käytössä. NULL ei ole osa C:n
+syntaksia, vaan se on vakio, joka on määritelty otsaketiedostossa
+<strong>stddef.h</strong>.</p>
+<p>Esimerkin funktio palauttaa NULL - arvoisen osoittimen, mikäli
+kokonaisluvun lukeminen epäonnistui. Mikäli annetun osoittimen arvo on
+NULL, ei siihen voida kirjoittaa kokonaislukua ja tällöin
+<em>scanf</em> - kutsu keskeyttäisi ohjelman virheellisen muistiviittauksen
+takia. Myös scanf - kutsu voi epäonnistua, esimerkiksi virheellisen
+syötteen takia. Kummassakin tapauksessa virheestä kerrotaan funktiota
+kutsuneelle koodille palauttamalla NULL - arvoinen osoitin.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="o">*</span><span class="nf">read_int</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">number</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">ret</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">number</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Tarkistetaan annetu osoitin</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span> <span class="c1">// Osoittimen ollessa epäkelpo, funktiosta poistutaan</span>
+    <span class="p">}</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">number</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Tarkistetaan onnistuiko lukeminen</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">number</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-1-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_basics_1: Numeroiden vaihto (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite</strong>: Ensikosketus osoittimien käyttöön.</p>
+<p>Toteuta funktio <code>number_swap(int *a, int *b)</code> joka saa kaksi
+<em>int</em>-osoitinta parametrikseen. Funktion tulee vaihtaa osoittimien
+päässä olevat arvot keskenään. Esimerkiksi seuraavassa koodissa
+<em>val1</em>:n sisällöksi pitäisi tulla 5 ja <em>val2</em>:n sisällöksi 4.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">val1</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="kt">int</span> <span class="n">val2</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">number_swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">val1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">val2</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">val1</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="n">val2</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Great, it worked!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="02_pointers2">
+    <h1 class="content-title">Osoitearitmetiikka</h1>
+    <div class="content-body">
+    
+      <p>Plus- ja miinuslaskuja voi soveltaa myös osoittimiin. Tällöin <strong>osoitin
+siirtyy eteen- tai taaksepäin annetun määrän "askelia"</strong>. Askeleen koko
+tavuissa laskettuna riippuu tietotyypistä, johon osoitin
+osoittaa. Käytännössä tämän mekanismin avulla voidaan käydä läpi
+taulukoita, eli muistissa olevia saman tietotyypin alkioista koostuvia
+lukujonoja.</p>
+<p>Alla oleva esimerkki pyrkii valottamaan osoitearitmetiikan
+toimintaa. Siinä viitataan samalla hieman etuajassa jo
+<em>taulukkotietotyyppiin</em>, josta asiaa <a href="#arrays">hetken päästä</a>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>  <span class="c1">// varaa tilaa 50 peräkkäiselle kokonaisluvulle</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">intPtr</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>  <span class="c1">// aseta osoitin osoittamaan taulukon alkuun</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">*</span><span class="n">intPtr</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>  <span class="c1">// kirjoitetaan i*2 osoittimen viittaamaan paikkaan</span>
+        <span class="n">intPtr</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// siirretään osoitin seuraavan alkion kohdalle</span>
+        <span class="n">i</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">intPtr</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>  <span class="c1">// siirretään intPtr-osoitin takaisin alkuun</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">intPtr</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>  <span class="c1">// haetaan taulukosta i:s alkio</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Kun funktio on varannut tilan 50:lle kokonaisluvulle, se esittelee
+osoitinmuuttujan <em>intPtr</em>, joka osoittaa taulukon alkuun. Kuten
+riviltä 6 huomataan, osoittimen voi asettaa viittaamaan talukon alkuun
+helposti. While-silmukkaa toistetaan 50 kertaa, käyttäen apuna
+<em>i</em>-muuttujaa, joka pienenee joka kierroksella. Jokaisella
+kierroksella käydään sijoittamassa taulukkoon tietty kokonaisluku (<code>i *
+2</code>), jonka jälkeen osoitin siirretään seuraavaan kohtaan taulukossa
+"lisää yksi"-operaation avulla.</p>
+<p>Rivillä 14 osoitinmuuttuja siirretään osoittamaan takaisin taulukon
+alkuun, koska muuten se osoittaisi yli taulukon lopun, ja sen käyttö
+johtaisi virheelliseen toimintaan.</p>
+<p>Lopuksi käydään läpi kaikki taulukon 50 alkiota ja tulostetaan ne
+ruudulle. Rivillä 17 nähdään, kuinka osoitinmuuttuja toimii
+lausekkeessa: ensin etsitään <em>i</em>:s alkio osoittimesta <em>intPtr</em>
+laskettuna, ja viitataan siihen viittausoperaattorilla, jolloin
+saadaan tulokseksi tavallinen kokonaisluku -- siis se, joka käytiin
+hetki sitten sijoittamassa taulukkoon. Sulkeiden käyttö on tärkeää,
+koska muuten kääntäjä arvioisi viittausoperaattorin ennen
+yhteenlaskua, mikä johtaisi väärään lopputulokseen. Operaattoreiden
+laskujärjestyksestä <a href="#precedence">lisää asiaa</a> hetken kuluttua.</p>
+<p>Toisin sanoen funktio tulostaa lopussa parilliset luvut 100:sta 2:een.</p>
+<p>Jotta osoitearitmetiikka voisi toimia oikein, on tärkeää että
+osoittimen tietotyyppi vastaa taulukossa olevien alkioiden
+tietotyyppiä. Kääntäjä pitää yleensä tästä huolen, ja varoittaa
+virheellisestä käytöstä.</p>
+<p>Osoittimia voi käyttää myös vertailuoperaatioissa, jolloin on hyvä
+huomata että tällöin verrataan muistiosoitteita, eikä niitä lukuarvoja
+joihin muistiosoitteet viittaavat. Esimerkiksi seurava ohjelmanpätkä
+kertoo että annetut kaksi osoitinta eroavat toisistaan, mutta niiden
+osoittamat kokonaislukuarvot ovat yhtä suuria.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">pa</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span><span class="n">pb</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">pa</span> <span class="o">==</span> <span class="n">pb</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Pointers are same</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="k">else</span>
+    <span class="nf">printf</span><span class="p">(</span><span class="s">&quot;Pointers are different</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">pa</span> <span class="o">==</span> <span class="o">*</span><span class="n">pb</span><span class="p">)</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Values are same</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-2-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_basics_2: Taulukkosumma (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Harjoittele taulukon käyttöä</p>
+<p>Toteuta funktio <code>int array_sum(int *array, int count)</code>, joka laskee
+taulukon <em>array</em> alkioiden summan ja palauttaa sen
+paluuarvonaan. Taulukossa olevien numeroiden määrä kerrotaan
+parametrilla <em>count</em>.</p>
+<p>Esimerkiksi seuraavan ohjelman tulisi asettaa <em>ret</em> 1110:ksi.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">valarray</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span> <span class="p">};</span>
+<span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">array_sum</span><span class="p">(</span><span class="n">valarray</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="03_arrays">
+    <h1 class="content-title">Taulukot</h1>
+    <div class="content-body">
+    
+      <p><a name="arrays"></a></p>
+<h2>Perusteet</h2>
+<p>Taulukko on jono tietyn tyyppisiä arvoja, jotka sijaitsevat
+peräkkäisissä muistipaikoissa. Kun taulukkomuuttuja esitellään, sen
+koko annetaan, jotta C-kääntäjä osaa varata sille riittäävän määrän
+muistia. C:ssä taulukon koko ilmaistaan hakasulkeiden sisällä.</p>
+<p>Alla on esimerkki taulukosta (muuttujassa <em>slots</em>):</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">short</span> <span class="n">apples</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">short</span> <span class="n">slots</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="kt">short</span> <span class="n">oranges</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  <span class="cm">/* Alustetaan taulukko lukuarvoilla */</span>
+    <span class="n">slots</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  <span class="cm">/* Tulostetaan taulukossa olevat luvut */</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;array element %d is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">slots</span> <span class="o">+</span> <span class="n">i</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Ohjelmassa on kolme muuttujaa: <em>apples</em> ja <em>oranges</em> ovat tavallisia
+lyhyitä kokonaislukuja, mutta <em>slots</em> on taulukko johon mahtuu neljä
+<em>short</em> - tyyppistä lukua. Kuten muidenkin C:n muuttujien kanssa,
+taulukon sisältöä ei ole määritelty, ennenkuin alkioihin on sijoitettu
+jotkin arvot. Taulukon sisältö ei välttämättä ole täynnä nollia, kuten
+joissain muissa ohjelmointikielissä, vaan luvut voivat olla
+näennäisesti täysin satunnaisia. Edellä oleva ohjelma asettuu muistiin
+seuraavalla tavalla:</p>
+<div align="center"><img src="../static/pics/array.jpg"></div>
+
+<p>Taulukon vaatima tila riippuu tietotyypistä ja alkioiden lukumäärästä:
+koska <em>short</em> - tyyppi on 16 bittiä, eli 2 tavua, koko taulukko vie
+muistista 8 tavua.</p>
+<p>Rivillä 6 alkaa silmukka, jossa taulukon alkiot alustetaan. Taulukon
+alkioita indeksoidaan käyttämällä hakasulkeita. Hakasulkeiden sisällä
+on tässä tapauksessa i-muuttuja, mutta ne voivat sisältää minkä
+tahansa monimutkaisemmankin lausekkeen. Ensimmäisen alkion indeksi on
+0, eli tässä tapauksessa viimeisen alkion saisi kutsumalla <code>slots[3]</code>.</p>
+<p>Taulukoilla ja osoittimilla on läheinen suhde. <em>slots</em> - muuttujaa voi
+käyttää kuten osoitinta, ja sen voi sijoittaa <code>short *</code> - tyyppiseen
+muuttujaan, tai käyttää vastaavantyyppisessä
+funktioparametrissa. Tällöin osoitin viittaa taulukon ensimmäiseen
+alkioon. Muihin taulukon alkioihin pääsee käsiksi siirtämällä
+osoitinta halutun määrän eteenpäin normaaleilla osoitinaritmeettisilla
+laskutoimituksilla. Tästä esimerkki rivillä 11. Monesti helpompi (ja
+kauniimman näköinen) tapa on käyttää kuitenkin indeksioperaattoria,
+eli <code>slots[i]</code>. Tämä onkin oikeastaan vaan nätimpi esitysmuoto yllä
+olevan näköiselle laskutoimitukselle, ja tekee täsmälleen saman
+asian. Yllä oleva ohjelma tulostaa siis seuraavaa:</p>
+<pre>
+array element 0 is 1
+array element 1 is 2
+array element 2 is 3
+array element 3 is 4
+</pre>
+
+<p>C-kääntäjä ei tarkista indeksoidaanko taulukkoa oikein, ja yleinen
+virhe indeksoida taulukko yli sen varaaman muistialueen. Jos tämä
+tehdään taulukkoon kirjoittaessa, ohjelma käy muokkaamassa väärää
+kohtaa muistista, koska taulukkoon indeksoiminenhan vastaa viittausta
+muistipaikkaan, joka esitetään indeksin ja taulukon alkuosoitteen
+avulla. Esimerkiksi seuraava ohjelma kääntyy, mutta toimii
+virheellisesti (käymällä läpi kuusi alkiota taulukon alusta):</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">short</span> <span class="n">apples</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">short</span> <span class="n">slots</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="kt">short</span> <span class="n">oranges</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+ <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+ <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  <span class="cm">/* Here we initialize the array */</span>
+     <span class="n">slots</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+ <span class="p">}</span>
+
+ <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  <span class="cm">/* Output the values in array */</span>
+     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;array element %d is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">slots</span> <span class="o">+</span> <span class="n">i</span><span class="p">));</span>
+ <span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Käytännössä tuloksena <em>apples</em> tai <em>oranges</em> muuttujan arvo saattaa
+muuttua, koska ne sijaitsevat muistipaikoissa jotka ovat lähellä
+<em>slots</em> - taulukkoa. Tarkka käyttäytyminen vaihtelee eri alustojen ja
+kääntäjien mukaan, riippuen siitä miten kääntäjä sijoittaa muuttujat
+muistiin. Tällaiset virheet eivät ole harvinaisia, ja monet
+tietoturva-aukot perustuvat virheisiin, jotka liittyvät taulukon "yli"
+kirjoittamiseen, ja muistin manipulointiin sen avulla. Pari vuotta
+sitten puhuttiin esimerkiksi <a href="http://en.wikipedia.org/wiki/Heartbleed">Heartbleed</a> - tietoturva-aukosta, joka
+perustui samantapaiseen ohjelmointivirheeseen.</p>
+<p>Kuten muidenkin tyyppisten muuttujien kohdalla, myös taulukko voidaan
+alustaa samalla kun se esitellään. Tässä pari tapaa tehdä asia:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">short</span> <span class="n">slots</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">45</span> <span class="p">};</span>
+<span class="kt">int</span> <span class="n">numbers</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">34</span> <span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>Tästä nähdään, että silloin kun taulukko alustetaan, sen kokoa ei
+tarvitse erikseen kertoa, koska kääntäjä päättelee sen alustuksessa
+olevien arvojen määrästä. Tällöin kuitenkin määrittelyn yhteydessä
+pitää silti olla hakasulut, jotta tiedetään tyypin olevan
+taulukko. Mikäli alustuslista on lyhyempi kuin hakasulkeissa annettu
+koko, loput alkiot alustuvat nollilla. Helppo tapa alustaa isokin
+taulukko nolliksi, on siis tehdä esimerkiksi näin:</p>
+<p><code>int taulu[1000] = { 0 };</code></p>
+<h2>Taulukot funktioiden yhteydessä</h2>
+<p>Taulukko voidaan antaa funktion parametrina, mutta tällöin tietotyyppi
+määritellään usein osoittimena, koska taulukkotyyppinen muuttuja
+muuttuu automaattisesti osoittimeksi. Tällaisesta parametrista ei
+kuitenkaan näe taulukon kokoa, vaan taulukon koko pitää välittää
+funktiolle jollain muulla tavoin. Seuraavassa muutama tapa tehdä tämä:</p>
+<ul>
+<li>Funktiolla on toinen parametri, jossa taulukon koko kerrotaan
+    (esim. main-funktion versio, jossa annetaan ohjelman
+    komentoriviparametrit) </li>
+<li>Taulukko loppuu johonkin määriteltyyn erikoisarvoon (esimerkiksi
+    0:aan, kuten C:n merkkijonojen tapauksessa)</li>
+<li>Jos taulukko on kokonaislukumuotoinen, sen koko voidaan kertoa
+    ensimmäisessä alkiossa (tietoliikenneprotokollat suunnitellaan
+    monesti näin)</li>
+<li>jne...</li>
+</ul>
+<p>Mikäli taulukon koko ilmoitetaan osana taulukkorakennetta, täytyy
+muistaa taulukkoa esitellessä varata tilaa myös tälle "ylimääräiselle"
+alkiolle. C:ssä ei ole mitään sisäänrakennettua mekanismia kysyä
+taulukon kokoa ohjelman ajon aikana, kuten esimerkiksi Pythonissa tai
+Javassa, vaan ohjelmoijan täytyy pitää asiasta kirjaa osana ohjelmaa,
+esimerkiksi erillisessä muuttujassa.</p>
+<p>Taulukkoa ei voi palauttaa funktion paluuarvona. Mikäli funktion
+tarvitsee välittää taulukko sen kutsuneelle ohjelmalle, taulukko pitää
+varata funktion ulkopuolella etukäteen, tai funktion pitää varata
+taulukolle muisti dynaamisesti (käsitellään modulissa 3).</p>
+<p>Tässä esimerkki, kuinka taulukkoa käytetään funktiossa. Siinä siis
+käytetään muuttujaa <em>n</em> ilmaisemaan taulukon <em>a</em> koko. Ohjelmassa
+esiintyy myös <em>sizeof</em> - määre, jonka avulla voidaan kysyä tietotyypin
+vaatimaa tilaa tavuina. Tietyissä tapauksissa (kuten tässä rivillä
+26) tätä mekanismia voidaan käyttää taulukon alkoiden määrän
+selvittämiseen (jaetaan taulukon koko yksittäisen tietotyypin koolla),
+mutta tämä tapahtuu käännösaikana. Kääntäjä siis korvaa <em>sizeof</em> -
+määreen kokonaisluvulla, joka vastaa kokoa.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">void</span> <span class="nf">show_table</span><span class="p">(</span><span class="kt">short</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// print the table using pointer arithmetics:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">i</span><span class="p">))</span>
+
+        <span class="c1">// Also this would produce same result:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="c1">// We could also do this for same effect, but pointer &#39;a&#39; is modified.</span>
+        <span class="c1">// Therefore, this cannot be used together with indexing, as above.</span>
+        <span class="c1">// Modification of pointer &#39;a&#39; is not visible outside the function.</span>
+        <span class="c1">//printf(&quot;%d &quot;, *a++);</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">short</span> <span class="n">table</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;size: %lu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">table</span><span class="p">));</span> <span class="cm">/* print array size for fun */</span>
+
+    <span class="cm">/* below is one way to get the number of elements */</span>
+    <span class="c1">// sizeof(table) is 4 * sizeof(short) == 8;</span>
+    <span class="n">show_table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">table</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">short</span><span class="p">));</span>
+
+    <span class="c1">// in this case the above would be equivalent to:</span>
+    <span class="n">show_table</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-3-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_basics_3: Taulukon lukija (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Lisäharjoittelua taulukon käytöstä yhdessä <em>scanf</em>:n kanssa.</p>
+<p>Toteuta funktio <code>int array_reader(int *vals, int n)</code> joka lukee
+käyttäjältä kokonaislukuja <em>vals</em>-muuttujan osoittamaan
+taulukkoon. Taulukon tarvitsema tila on jo valmiiksi varattu, ja
+parametri <em>n</em> kertoo taulukon maksimikoon. Numerot voi lukea
+<em>scanf</em>-funktiota käyttäen siten että niiden välissä on rivivaihto tai
+väli, tai mikä tahansa ns. whitespace-merkki, joka toimii
+oletusarvoisesti scanf-syötteen erottimena.</p>
+<p>Mikäli käyttäjä ei syötä numeroa (mikä nähdään scanf-paluuarvosta),
+taulukko ja funktion suoritus loppuu. Funktion tulee palauttaa
+taulukon lopullinen koko, joka siis voi olla pienempi kuin <em>n</em>, mutta
+ei koskaan suurempi.</p>
+<p>Alla esimerkki siitä kuinka funktiota voi testata:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">array_reader</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d numbers read</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Esimerkiksi seuraava syöte lukee taulukkoon neljä numeroa, ja lopettaa
+sen jälkeen, kun viides arvo on viivamerkki.</p>
+<pre>
+<font color="red">5 8 2 7 -</font></pre>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-master-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 03_mastermind: Mastermind (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Lisää harjoitusta taulukkojen käsittelystä.</p>
+<p>Toteuta funktio <code>void mastermind(const int *solution, const int
+*guess, char *result, unsigned int len)</code> joka vertaa
+kokonaislukutaulukkoa <em>guess</em> taulukkoon <em>solution</em>. Molemmat taulukot
+sisältävät <em>len</em> kokonaislukua välillä 0 ja 9. Funktio tuottaa
+merkkitaulukon <em>result</em>, jossa on niin ikään <em>len</em> merkkiä
+seuraavaasti:</p>
+<ul>
+<li>
+<p>Jos taulukoissa <em>solution</em> ja <em>guess</em> on sama numero N:nnessä
+    taulukon paikassa, kyseinen paikka <em>result</em> - taulukossa merkataan
+    '+' - merkillä.</p>
+</li>
+<li>
+<p>Jos taulukossa <em>guess</em> on sellainen numero N:nnessä paikassa, joka
+    sijaitsee jossain toisessa kohdassa <em>solution</em> - taulukossa,
+    kyseinen paikka <em>result</em> - taulukossa asetetaan merkiksi '*'.</p>
+</li>
+<li>
+<p>Jos N:s paikka taulukossa <em>guess</em> sisältää numeron, jota ei
+    esiinny lainkaan taulukossa <em>solution</em>, kyseinen paikka <em>result</em> -
+    taulukossa merkataan merkillä '-'.</p>
+</li>
+</ul>
+<p>Huomaa että taulukkoja <em>solution</em> ja <em>guess</em> ei kuulu muokata
+funktiossa, kun taas taulukko <em>result</em> on sellainen jonka funktio
+kirjoittaa.</p>
+<p>Esimerkiksi kun <em>len</em> on 6, <em>solution</em> on { 2, 6, 6, 3, 5, 3} ja
+<em>guess</em> on {4, 5, 6, 1, 8, 9}, funktio asettaa <em>result</em> taulun
+sisältämään arvot {'-', '*', '+', '-', '-', '-'}.</p>
+<p><em>main</em>-funktio tiedostossa main.c toteuttaa yksinkertaisen
+ <a href="http://en.wikipedia.org/wiki/Mastermind_(board_game)">Mastermind</a>-pelin, jolla voi testata toteutustasi.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 04_sort: Järjestely (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Lisää taulukkoharjoittelua, tällä kertaa alkoiden
+  järjestelyä.</p>
+<p>Toteuta funktio <code>void sort(int *start, int size)</code> joka järjestää
+annetussa taulukossa (<em>start</em>) olevat kokonaisluvut nousevaan
+suuruusjärjestykseen (pienimmästä suurimpaan). Voit käyttää
+esimerkiksi <em>valintalajittelua</em> (selection sort): aloita etsimällä
+taulukon pienin alkio, ja vaihda sen paikkaa taulukon ensimmäisen
+alkion kanssa. Sitten tarkastelen lopputaulukkoa toisesta alkiosta
+eteenpäin, ja jälleen vaihdan lopputaulukon pienimmän alkion taulukon
+toisen alkion kanssa. Näin jatkat kolmanteen ja neljänteen alkioon,
+kunnes koko taulukko on käyty läpi, jolloin taulukon alkiot ovay
+oikeassa järjestyksessä. Testaa funktiota erilaisilla ja erikokoisilla
+kokonaislukutaulukoilla,</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="04_strings">
+    <h1 class="content-title">Merkkijonot</h1>
+    <div class="content-body">
+    
+      <h2>Perusteet</h2>
+<p>C-kielessä ei ole sisäänrakennettua merkkijonotyyppiä, vaan
+<strong>merkkijonot esitetään char-tyyppisinä taulukkoina</strong>. Tällaisen
+<em>char</em>-taulukon <strong>viimeinen alkio on aina 0-merkki</strong>, josta merkkijonoa
+käyttävät funktiot tunnistavat merkkijonon lopun. 0-merkillä
+tarkoitetaan merkkiä, jonka ASCII-koodi on 0, ei siis numeroa
+esittävää merkkiä '0', jonka ASCII-koodi on jotain muuta. 0-merkki
+voidaan esittää merkkijonovakiona '\0'. 0-merkki ei näy ohjelman
+käyttäjälle, mutta vie kuitenkin yhden tavun merkkijonoa esittävästä
+char-taulukosta.</p>
+<p>C-kieli sallii kuitenkin merkkijonojen (eli char-taulukoiden)
+esittämien lainausmerkkien sisällä, kuten esimerkiksi <em>string_A</em>:n ja
+<em>string_B</em>:n tapauksessa alla:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="o">*</span><span class="n">string_A</span> <span class="o">=</span> <span class="s">&quot;This is first string&quot;</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">string_B</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;Another string&quot;</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">string_C</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="sc">&#39;O&#39;</span><span class="p">,</span><span class="sc">&#39;n&#39;</span><span class="p">,</span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="sc">&#39; &#39;</span><span class="p">,</span><span class="sc">&#39;m&#39;</span><span class="p">,</span><span class="sc">&#39;o&#39;</span><span class="p">,</span><span class="sc">&#39;r&#39;</span><span class="p">,</span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="sc">&#39;\0&#39;</span> <span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>Kun merkkijono esitetään lainausmerkkien sisällä yllä esitettyyn
+tapaan, kääntäjä lisää loppuun automaattisesti 0-merkin. On tärkeä
+huomioida, että kahden hipsun merkkijono ja yksinkertaisella hipsulla
+esitettävä merkkivakio ovat kaksi eri asiaa, toisin kuin joissain
+muissa ohjelmointikielissä.</p>
+<p>Merkkijonot voi myös määritellä taulukkona merkki vakioita, kuten
+<em>string_C</em>:n yhteydessä tehdään. Tämä ei ole kovin kaunista tai
+yleistä, mutta havainnollistaa miten merkkijono on rakennettu. Tällöin
+ohjelmoijan pitää lisätä itse loppuun nollamerkki.</p>
+<p><em>string_A</em> ja <em>string_B</em> poikkeavat toisistaan siinä että <em>string_B</em>:n
+ vaatima tila varataan funktiosta paikallisesti, ja kyseisen
+ merkkijonon sisältöä voi muokata esimerkiksi normaaleja
+ taulukko-operaatioita käyttäen. Sama pätee
+ <em>string_C</em>:henkin. <em>string_A</em> on sen sijaan varattu toisesta muistin
+ lohkosta, jota ei voi muokata, vaan sen sisältöä voi pelkästään
+ lukea. Mikäli tällaista merkkijonoa yritetään muokata, ohjelman
+ suoritus keskeytyy muistivirheeseen. Olisikin hyvä käyttää
+ <em>string_A</em>:n määrittelyn yhteydessä <em>const</em> - määrettä, jolloin
+ kääntäjä estää tällaiset yritykset jo käännösaikana. Myöskin
+ <em>string_B</em> varaa paikallisesti tilaa koko merkkijonon tarvitseman
+ määrän, kun taas <em>string_A</em> tarvitsee pelkästään muistiosoitteen
+ vaatiman tilan, koska se on osoitin.</p>
+<p>Alla olevassa kuvassa asiaa on havainnollistettu:</p>
+<div align="center"><img src="../static/pics/strings.jpg"></div>
+
+<p>Merkkijonoja voi sisällyttää <em>printf</em> - tulosteisiin käyttämällä
+<code>%s</code> - muotoilumäärettä. Myös tämän yhteydessä voi tarvittaessa
+määritellä kentän leveyden ja muita parametreja, kuten aiemmin on
+nähty. Alla <em>printf</em> - esimerkki:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="n">string_B</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;another string&quot;</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;My string is %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">string_B</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<p>Funktioissa merkkijonot esitetään yleensä <em>char</em>-osoittimien avulla, kuten
+taulukoiden kanssa yleisestikin tehdään. Esimerkiksi seuraava ohjelma
+"kryptaa" annetun merkkijonon kasvattamalla merkkikoodin sisältöä
+yhdellä (esimerkiksi 'A':sta tulee 'B', jne.)</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">void</span> <span class="nf">encode</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">str</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// Lopettaa kun tullaan \0 - merkkiin</span>
+        <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="o">*</span><span class="n">str</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// muuta osoittimen osoittamaa merkkiä</span>
+        <span class="n">str</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// siirry seuraavan merkin kohdalle</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">message</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;It is going to rain tomorrow&quot;</span><span class="p">;</span>
+    <span class="n">encode</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;encoded: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">message</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p><em>encode</em> - funktiossa nähdään myös tyypillinen esimerkki siitä miten
+ merkkijono käydään läpi: <em>while</em> - silmukassa toistetaan haluttua
+ toiminnallisuutta, ja joka kierroksella lisätään <em>str</em> - osoittimen
+ arvoa yhdellä, eli se siirtyy seuraavan merkin kohdalle. Kun tullaan
+ sellaisen merkin kohdalle joka on 0 (eli sen totuusarvo on epätosi),
+ silmukasta poistutaan.</p>
+<p><strong>Merkkijonoa ei voi kopioida suoralla sijoitusoperaatiolla</strong>. Sen
+  sijaan merkkijono pitää kopioida merkki kerrallaan uuteen paikkaan
+  muistissa. Tähän on olemassa valmis funktio <em>strcpy</em>, vaikka
+  kopiointi on helppo tehdä itsekin osoittimien avulla.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-1-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 06_strbasic_1: Laske aakkoset (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Ensituntuman hankkiminen merkkijonoihin.</p>
+<p>Kirjoita funktio <code>int count_alpha(const char *str)</code> joka laskee
+aakkoskirjainten määrän annetussa merkkijonossa (<em>str</em>). Voit käyttää
+hyväksesi funktiota <strong>int
+<a href="http://linux.die.net/man/3/isalpha">isalpha</a>(int character)</strong>, joka
+on määritelty <em><ctype.h></em> - otsakkeessa. Funkio kertoo onko annettu
+merkki kirjainmerkki välillä A-Z (palauttaa nollasta poikkeavan
+arvon), vai ei (palauttaa 0:n). Toteuttamasti funktion tulee siis
+palauttaa kirjainmerkkien lukumäärä annetussa merkkijonossa.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="05_qualifiers">
+    <h1 class="content-title">Hyödyllisiä määreitä ja operaattoreita</h1>
+    <div class="content-body">
+    
+      <p>C-kielen määre voidaan antaa esimerkiksi muuttujan esittelyn
+yhteydessä, kun halutaan tarkentaa muuttujan
+käyttötarkoitusta. Operaattoreita olemme jo nähneetkin erilaisten
+laskutoimitusten yhteydessä, mutta C-kieli tarjoaa muunkinlaisia
+operaattoreita, esimerkiksi muuttujan koon ilmaisemiseen. Näitä
+voidaan käyttää lausekkeissa kuten mitä tahansa muitakin
+operaattoreita.</p>
+<h2>Tietotyypin koon selvittäminen</h2>
+<p><strong>sizeof</strong> - operaattori kertoo annetun tietotyypin tai muuttujan
+  koon. Koska monien C:n perustietotyyppien tarkkaa kokoa ei ole
+  standardoitu, ohjelmakoodissa ei saa olettaa, että esimerkiksi
+  <em>int</em> - tyyppinen muuttuja vaatisi muistia aina neljä
+  tavua. Varsinkin rakenteisten tietotyyppien kohdalla (modulissa 3),
+  tietotyypin varsinaisessa koossa voi olla useinkin allaolevasta
+  järjestelmästä riippuvaa vaihtelua.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">short</span> <span class="n">a</span><span class="p">;</span>
+<span class="kt">short</span> <span class="o">*</span><span class="n">pa</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;size a: %lu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;size *pa: %lu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">pa</span><span class="p">));</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;size short: %lu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">short</span><span class="p">));</span>
+</pre></div>
+</td></tr></table>
+
+<p><em>sizeof</em>-operaattorin kanssa voi käyttää joko muuttujan nimeä tai
+tietotyypin nimeä. Ylläolevassa esimerkissä näkyy
+molempia. Esimerkiksi allekirjoittaneen Macissä <code>sizeof(a)</code> palauttaa
+2 (tavua), kuten odotettua, ja <code>sizeof(pa)</code> palauttaa 8 (tavua), koska
+osoitteet ovat 64-bittisiä. <em>printf</em>-muotuilumääreenä käytetään <code>%lu</code>,
+koska sizeof palauttaa <em>unsigned long</em> - tyyppisen arvon (tai ei ihan,
+asiasta seuraavassa enemmän).</p>
+<h2>Uusien tietotyyppien määrittely</h2>
+<p>Jotkut tietotyypit saattavat olla pitkiä kirjoittaa ja siksi hankalia
+käyttää. Lisäksi joskus halutaan ohjelmakoodin itsessään
+dokumentoivan, että tietyt muuttujat esittävät esimerkiksi lämpötilaa,
+vaikka esimerkiksi normaali <em>float</em> - tyyppi riittäisi siihen varsin
+hyvin.</p>
+<p><strong>typedef</strong> - määreellä voidaan määritellä uusia tietotyyppejä
+  vanhojen pohjalta. Alla esimerkki siitä, kuinka tätä käytetään:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">mySize</span><span class="p">;</span>
+<span class="kt">long</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">mySize</span> <span class="n">a</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<p>Tässä halutaan kertoa, että meillä on erikseen <em>mySize</em> - tietotyyppi,
+jolla ilmaistaan muuttujien kokoa. Itse asiassa C:n
+standardikirjastoissa määritellään tyyppi <strong>size_t</strong> tätä tarkoitusta
+varten. Tarkalleen ottaen <em>sizeof</em> palauttaakin <strong>size_t</strong> - tyyppisen
+arvon. Tiedämme että se vastaa useimmiten <em>unsigned long</em> - tyyppiä,
+mutta ei välttämättä.</p>
+<h2>Muuttumattomat parametrit ja muuttujat</h2>
+<p>Muuttujia ja funktioiden parametreja voidaan määritellä
+muuttumattomiksi. Tällaisia muuttujia ei voi muokata, vaan niiden
+arvon voi vain lukea. Tähän käytetään <strong>const</strong> - määrettä. Kun
+osoittimen yhteydessä annetaan <em>const</em> - määre, osoittimen osoittamaa
+arvoa ei voi muokata, vaan sen voi pelkästään lukea.</p>
+<p><em>const</em> - määre on hyödyllinen rajapintojen dokumentoimiseen ja niiden
+ virheellisen käytön estämiseen. Huolellinen ja oikea <em>const</em> -
+ määreen käyttö auttaa välttämään virheitä, ja on hyödyllinen
+ varsinkin isoissa ohjelmitoissa, joita tyypillisesti on kehittämässä
+ useita ihmisiä.</p>
+<p>Alla esimerkki <em>const</em> - tyyppisen parametrin (virheellisestä)
+käytöstä funktiossa, joka yrittää muokata <em>const</em>-parametria.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">void</span> <span class="nf">a_func</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="o">*</span><span class="n">param</span><span class="p">)</span>
+<span class="p">{</span>
+     <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="n">param</span><span class="p">;</span>
+     <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="cm">/* ok, koska alkuperäistä param:ia ei muuteta */</span>
+     <span class="o">*</span><span class="n">param</span> <span class="o">=</span> <span class="o">*</span><span class="n">param</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="cm">/* EI onnistu, koska param:ia muutetaan */</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Ylläolevassa funktiossa <em>param</em> - parametri on muuttumaton. Siksi rivi
+5 aiheuttaa kääntäjävirheen. Tällä tavoin saadaan kääntäjä suojelemaan
+ohjelmoijaa parametrin virheelliseltä käytöltä.</p>
+<p>Seuraavassa esimerkki const-määreen käytöstä muuttujan määrittelyn
+yhteydessä. <em>maxSize</em> muuttuja on käytännössä <strong>vakio</strong>, jolla on sama
+arvo koko ohjelman ajan. Tämäkin on hyödyllinen ominaisuus koodin
+selkeyttämiseksi ja virheiden välttämiseksi: sen sijaan, että lukua 10
+käytettäisiin useassa kohtaa koodia, voidaan käyttää
+vakiomuuttujaa. Jos päätämme kasvattaa vakiota esimerkiksi 20:een,
+muutos tarvitsee tehdä vain yhdessä paikassa ohjelmaa.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">const</span> <span class="kt">size_t</span> <span class="n">maxSize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="cm">/* globaali muuttuja, näkyy kaikkialla */</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">maxSize</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* do something */</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>C:ssä on mahdollisuus määritellä <strong>globaaleja muuttujia</strong>, kuten yllä. Ne
+näkyvät kaikissa funktioissa. Globaaleiden muuttujien runsas käyttö
+sotkee hyvää ohjelmarakennetta ja vaikeuttaa suurempien ohjelmien
+lukemista, joten niitä tulisi välttää aina kun mahdollista. Joskus
+globaaleja muuttujia kuitenkin joutuu käyttämään, tai niitä näkee
+vastaan tulevassa ohjelmakoodissa.</p>
+<h2>Paikalliset staattiset muuttujat</h2>
+<p>Kun funktiota kutsutaan, sen paikalliset muuttujat ovat normaalisti
+voimassa vain sen ajan kun funktiota suoritetaan. Kun funktiosta
+poistutaan, muuttujat vapautetaan ja niissä säilytetty tieto
+menetetään. Paikallinen muuttuja voidaan kuitenkin määritellä
+<strong>staattiseksi</strong> <em>static</em> - määreellä. Tällöin muuttujan tila säilyy
+ohjelman koko suoritusajan: kun funktiota kutsutaan uudestaan,
+staattisen muuttajan arvo on se, miksi se jäi funktion edellisellä
+suorituskerralla.</p>
+<p>Käytännössä tätä mekanismia näkee käytettävän kohtuullisen harvoin,
+mutta alla esimerkki sen toiminnasta:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">tuplaa</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="kt">int</span> <span class="n">arvo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">arvo</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">arvo</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nyt: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">tuplaa</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Funktio siis alustaa muuttujan vain ensimmäisellä kutsukerralla, ja
+kullakin kierroksella funktion palauttama arvo tuplaantuu. Viimeinen
+tulostettava arvo on 1024.</p>
+<h2>Staattiset funktiot ja globaalit muuttujat</h2>
+<p>Funktioiden ja globaalien muuttujien näkyvyyttä voi rajoittaa
+<em>static</em> - määreellä. Tämä on täysin erillinen toiminto kuin
+staattisilla paikallisilla muuttujilla, käytetty avainsana vain sattuu
+olemaan sama. Staattinen funktio (tai globaali muuttuja) näkyy vain
+siinä c-lähdetiedostossa, jossa se on määritelty. Suuremmat
+ohjelmistot, jotka koostuvat sadoista lähdetiedostoista (eli
+ohjelmamoduleista) hyödyntävät tätä ominaisuutta eritellääkseen
+ohjelmamodulin sisäisen toteutuksen (staattisilla funktioilla) ja
+ulkoiset rajapinnat (ei-staattisilla funktioilla).</p>
+<p><em>Linux</em> on esimerkki suuresta ohjelmistosta, joka koostuu suuresta
+määrästä C-kielisiä lähdetiedostoja. Siellä esimerkiksi tiedostossa
+<em>tcp_input.c</em> on funktio</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">static</span> <span class="kt">void</span> <span class="nf">tcp_sndbuf_expand</span><span class="p">(</span><span class="k">struct</span> <span class="n">sock</span> <span class="o">*</span><span class="n">sk</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="cm">/* koodia*/</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>jota voi käyttää vain tcp_input.c:n toisista funktioista. Näin
+kehittäjät voivat ohjata sitä, mitkä funktiot ovat muiden
+ohjelmamodulien käytössä, ja mitkä ovat "piilossa". Tarkoitus on
+jälleen ennaltaehkäistä ohjelmoijan virheitä ja välttää huonoa
+ohjelmistosuunnittelua. Useimpien ohjelmistojen elinkaari on nimittäin
+yllättävän pitkä.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="06_precedence">
+    <h1 class="content-title">Laskujärjestys</h1>
+    <div class="content-body">
+    
+      <p><a name="precedence"></a></p>
+<p>Operaattoreiden keskinäisen suoritusjärjestyksen ymmärtäminen on
+tärkeää, kun kirjoitetaan ja luetaan monimutkaisempia
+lausekkeita. Monet hankalasti löytyvät ohjelmavirheet liittyvät
+siihen, että esimerkiksi osoittimiin liittyvien operaattoreiden
+suoritusjärjestys ei ole ollut ohjelmoijalle selvillä, ja lausekkeella
+on tällöin aivan toisenlainen lopputulos mikä oli tarkoitus.</p>
+<p>Taulukko operaattoreiden keskinäisestä laskujärjestyksestä löytyy
+esimerkiksi K&amp;R - kirjan sivulta 53, tai erinäisiltä
+<a href="http://en.cppreference.com/w/c/language/operator_precedence">verkkosivuilta</a>. Alla lyhyt (ja ei täysin kattava) yhteenveto
+tärkeimmistä operaattoreista.</p>
+<ol>
+<li><code>()</code> , <code>[]</code> , <code>-&gt;</code> , <code>.</code></li>
+<li><code>++</code> , <code>--</code> , <code>*</code> (osoitin) , <code>&amp;</code> (osoite) , <code>(TYPE)</code>
+     (tyyppimuunnos) , <code>sizeof</code> (arvioidaan oikealta vasemmalle))</li>
+<li><code>*</code> , <code>/</code> , <code>%</code> (aritmeettiset operaattorit)</li>
+<li><code>+</code> , <code>-</code> (aritmeettiset operaattorit)</li>
+<li><code>&lt;</code> , <code>&lt;=</code> , <code>&gt;</code> , <code>&gt;=</code></li>
+<li><code>==</code> , <code>!=</code></li>
+<li><code>&amp;&amp;</code> (looginen JA)</li>
+<li><code>||</code> (looginen TAI)</li>
+</ol>
+<p>Useimmiten samantasoiset operaattorit arvioidaan vasemmalta oikealle,
+mutta tason 2 operaattorit päinvastaiseen suuntaan, oikealta vasemmalle.</p>
+<p>Yllä oleva taulukko selittää miksi sulkeita tarvitaan esimerkiksi
+silloin kun käsitellään taulukkoa viittausoperaattorin avulla, jotta
+ohjelma toimisi kuten halutaan. Esimerkiksi tämä ohjelma:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">arr</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<p>hakee taulukon <em>arr</em> kolmannen alkion, kun taas tämä:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">*</span><span class="n">arr</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>kasvattaa taulukon <em>arr</em> ensimmäistä alkiota kahdella. Jälkimmäisessä
+siis vain sulkeet oli otettu pois. Mikäli olet epävarma
+laskujärjestyksen suhteen, on hyvä muistaa että ylimääräinen (ja
+tavallaan "turha") sulkeiden käyttö ei riko ohjelmaa. Monimutkaisia
+lausekkeita voi myös palastella pienempiin osiin useammaksi lauseeksi
+apumuuttujia käyttämällä.</p>
+<p>C ei määrittele operaattoreiden käyttämien parametrien keskinäistä
+laskujärjestystä. Jos meillä on esimerkiksi lause <code>int val = funcA() +
+funcB();</code>, emme tiedä kumpi funktioista kutsutaan ensin, ja eri
+ympäristöissä funktioiden keskinäinen suoritusjärjestys voi olla
+eri. Tämä on hyvä pitää mielessä ohjelmaa suunnitellessa.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="07_strings2">
+    <h1 class="content-title">Funktioita merkkijonoille</h1>
+    <div class="content-body">
+    
+      <p>C:n standardikirjastossa on funktioita jotka helpottavat merkkijonojen
+käsittelyä. Merkkijonofunktiot on määritelty
+otsakkeessa <strong><code>&lt;string.h&gt;</code></strong>, eli se tulisi sisällyttää <em>#include</em> -
+direktiivillä ohjelman alkuun, mikäli haluat käyttää näitä funktioita.
+Funktioiden tarkat kuvaukset löytyvät Unix-manuaalisivuilta, joihin
+pääset käsiksi <em>man</em> - komennolla komentoriviltä, tai verkon kautta
+<a href="http://linux.die.net/man/3/">täältä</a>.</p>
+<p>Seuraavassa muutama hyödyllinen fuktio.</p>
+<ul>
+<li>
+<p><a href="http://linux.die.net/man/3/strlen">strlen</a> palauttaa ennetun
+    merkkijonon pituuden. Funktion tarkka määritelmä on <code>size_t
+    strlen(const char *s)</code>, eli se saa parametrikseen osoittimen
+    merkkijonoon ja palauttaa <em>size_t</em> - tyyppisen arvon. <em>size_t</em>:hän
+    oli kirjastossa määritelty lisätietotyyppi, jota käytetään kokojen
+    ilmaisemiseen, kuten myös <em>sizeof</em> - operaattorin yhteydessä.</p>
+</li>
+<li>
+<p><a href="http://linux.die.net/man/3/strcmp">strcmp</a> vertailee kahta
+    merkkijonoa. Funktion tarkka muoto on <code>int strcmp(const char *s1,
+    const char *s2)</code>. Funktio palauttaa 0, mikäli merkkijonot ovat
+    samat, negatiivisen arvon mikäli <em>s1</em> on ennen <em>s2</em>:ta
+    aakkosjärjestyksessä, tai positiivisen arvom mikäli <em>s1</em> on <em>s2</em>:n
+    jälkeen aakkosjärjestyksessä. Funktion avulla voi siis myös
+    järjestellä merkkijonoja.</p>
+</li>
+<li>
+<p><a href="http://linux.die.net/man/3/strcpy">strcpy</a> ja <strong>strncpy</strong>
+    kopioivat merkkijonon. Funktioiden tarkka muoto on
+    <code>char *strcpy(char *dst, const char *src)</code> tai
+    <code>char *strncpy(char *dst, const char *src, size_t n)</code>,
+    jossa <em>src</em>:n osoittama merkkijono kopioidaan <em>dst</em>:n osoittamaan
+    paikkaan. Ohjelmoijan täytyy pitää huolta, että kohdeosoitteessa
+    on varattu riittävästi tilaa merkkijonon tallettamiseen.
+    Jälkimmäisessä funktiossa määritellään lisäksi, että funktio
+    kopioi korkeintaan <em>n</em> merkkiä. Mikäli alkuperäinen merkkijono oli
+    tätä pitempi, nollamerkki jää kopioimatta, mikä on hyvä huomioida
+    ohjelmassa. Funktiot palauttavat osoitteen kohdemerkkijonoon.</p>
+</li>
+<li>
+<p><a href="http://linux.die.net/man/3/strcat">strcat</a> ja <strong>strncat</strong>
+    lisäävät yhden merkkijonon toisen perään. Tarkka muoto on
+    <code>char *strcat(char *s1, const char *s2)</code> tai
+    <code>char *strncat(char *s1, const char *s2, size_t n)</code>, jossa <em>s2</em>:n
+    osoittama merkkijono lisätään <em>s1</em>:en perään. Jälleen ohjelmoijan
+    tulee pitää huolta että kohteessa on varattuna riittävästi tilaa.
+    Jälkimmäisessä versiossa <em>n</em> - parametrillä voidaan määrätä
+    enimmäismäärän siirrettäville merkeille.</p>
+</li>
+<li>
+<p><a href="http://linux.die.net/man/3/strchr">strchr</a> hakee annetun merkin
+     merkkijonosta ja palauttaa osoittimen kyseiseen kohtaan. Tarkka
+     muoto on <code>char *strchr(const char *s, int c)</code>, jossa <em>c</em> on
+     etsittävä merkki, ja <em>s</em> on merkkijono josta etsitään. Mikäli
+     kyseistä merkkiä ei löydy, funktio palauttaa arvon <em>NULL</em>.</p>
+</li>
+<li>
+<p><a href="http://linux.die.net/man/3/strstr">strstr</a> hakee yhtä (lyhyempää)
+    merkkijonoa toisen merkkijonon sisältä. Tarkka muoto on
+    <code>char *strstr(const char *s1, const char *s2)</code>, jossa <em>s2</em> on
+    etsittävä merkkijono, ja <em>s1</em> on se merkkijono jonka sisältä
+    etsitään. Funktio palauttaa osoittimen kohtaan josta etsittävä
+    merkkijono alkaa, tai NULL, jos merkkijonoa ei löytynyt.</p>
+</li>
+</ul>
+<p>Alla esimerkki, jossa ylläolevia funktioita käytetään.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">strings</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Paasikivi&quot;</span><span class="p">,</span> <span class="s">&quot;Kekkonen&quot;</span><span class="p">,</span> <span class="s">&quot;Koivisto&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;Ahtisaari&quot;</span><span class="p">,</span> <span class="s">&quot;Halonen&quot;</span> <span class="p">};</span>
+    <span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="n">i</span><span class="p">;</span>
+
+    <span class="n">strcpy</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">-</span> <span class="n">strlen</span><span class="p">(</span><span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">left</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">strncat</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">strings</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">left</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="n">left</span> <span class="o">-</span> <span class="n">strlen</span><span class="p">(</span><span class="n">strings</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;buffer: %s, length: %lu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">strlen</span><span class="p">(</span><span class="n">buffer</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Rivillä 6 varataan muuttuja <em>buffer</em>, joka sisältää tilaa 40 merkille
+(joista viimeisen pitää olla 0-merkki). <em>strings</em> on taulukko
+merkkijonoja, joista kukin on varattu luettavalta muistialueelta, eli
+niiden sisältöä ei voi muuttaa. Toisinsanoen kukin taulukon alkio on
+osoitin muistialueelle, jossa nämä vakioidut merkkijonot sijaitsevat.</p>
+<p>Rivi 11 kopioi ensimmäisen merkkijonon ("Paasikivi") <em>buffer</em> -
+muuttujaan. <em>strings[0]</em>:n tietotyyppi on <code>char *</code>, ja
+merkkitaulukko <em>buffer</em> voidaan käyttää osoitinparametrin paikalla,
+jolloin osoitin viittaa tämän alkuun.</p>
+<p>Muuttujassa <em>left</em> pidetään kirjaa siitä, kuinka monta merkkiä
+muistialueelle vielä mahtuu. Sen alkuperäinen koko on
+siis <em>buffer</em>-taulukon koko, ja siitä vähennetään kopioidun
+merkkijonon pituus. <em>while</em> - silmukassa sitten
+lisätään <em>buffer</em>-merkkijonon perään aina kulloinenkin taulukon
+merkkijonoalkio, mutta samalla varotaan kirjoittamasta puskurin yli
+käyttämällä <em>strncat</em> - funktiota.</p>
+<p>Loppujen lopuksi rivillä 19 tulostetaan saatu <em>buffer</em> - merkkijono.
+Seuraavaa pitäisi tulostua:</p>
+<pre>
+buffer: PaasikiviKekkonenKoivistoAhtisaariHalon, length: 39</pre>
+
+<p>Viimeinen presidenttinimi ei mahtunut puskuriin lainkaan, ja
+Halosestakin jäi vähän puuttumaan, mutta <em>left</em> - muuttujan avulla
+varmistimme että emme kirjoittaneet yli varatun muistialueen, mikä
+olisi sotkenut ohjelman toimintaa jollain tavalla.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-2-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 06_strbasic_2: Laske merkkijonot (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Harjoitellaan merkkijonofunktioiden käyttöä (harjoituksen
+  voi myös tehdä ilman niitä).</p>
+<p>Toteuta funktio <code>int count_substr(const char *str, const char *sub)</code>
+joka laskee kuinka monta kertaa merkkijono <em>sub</em> esiintyy
+merkkijonossa <em>str</em>, ja palauttaa lukumäärän
+paluuarvonaan. Esimerkiksi kun kutsutaan <code>count_substr("one two one
+twotwo three", "two")</code>, funktion tulisi palauttaa 3, koska "two"
+esiintyy ensimmäisessä merkkijonossa 3 kertaa. Huomaa että
+esimerkiksi välilyönneillä ei ole mitään erikoisvirkaa merkkijonossa,
+ne ovat merkkejä siinä missä muutkin.</p>
+<p><strong>Vihje:</strong> Funktio <em>strstr</em> saattaa olla avuksi. Voit myös käsitellä
+  merkkijonon osia, kun siirrät (esimerkiksi funktiolle annettavan)
+  osoittimen haluttuun kohtaan keskelle merkkijonoa. Tällöin
+  esimerkiksi kutsuttu merkkijonofunktio ei käsittele osoitinta
+  edeltäviä merkkejä.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 07_altstring: Uusi merkkijono (4 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Kuinka merkkijonofunktiot on toteutettu? Tämä harjoitus
+  saattaa valottaa asiaa.</p>
+<p>Tässä tehtävässä luomme uudenlaisen merkkijonon, joka ei lopukkaan
+'\0' - merkkiin, kuten normaalit merkkijonot, vaan loppumerkkinä
+käytetäänkin risuaitaa ('#'). Tästä johtuen joudumme toteuttamaan
+perinteiset merkkijonofunktiot uudestaan.</p>
+<p>Huomaa, että <em><string.h></em>:ssa määritellyt merkkijonofunktiot <strong>eivät
+toimi tässä tehtävässä</strong>, koska '\0' - merkki ei enää toimimaan
+merkkijonon lopetusmerkkinä.</p>
+<h2>a) Tulosta merkkijono</h2>
+<p>Toteuta funktio <code>void es_print(const char *s)</code> joka tulostaa annetun
+uudentyyppisen merkkijonon ruudulle. Merkkijono loppuu siis '#' -
+merkkiin, jota ei pidä tulostaa. Esimerkiksi seuraavanlainen
+merkkijono: </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="s">&quot;Auto ajoi#kilparataa&quot;</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>tulostuu näin:</p>
+<pre>
+Auto ajoi</pre>
+
+<h2>b) Merkkijonon pituus</h2>
+<p>Toteuta funktio <code>unsigned int es_length(const char *s)</code> joka palauttaa
+merkkijonon <em>s</em> merkkien lukumäärän. Merkkijonon päättävää risuaitaa
+ei lasketa mukaan.</p>
+<h2>c) Merkkijonon kopiointi</h2>
+<p>Toteuta funktio <code>int es_copy(char *dst, const char *src)</code> joka kopioi
+merkkijonon <em>src</em> paikkaan <em>dst</em>. Funktio palauttaa kopioitujen
+merkkien lukumäärän, poislukien merkkijonon päättävä '#' -
+merkki. Funktion tulee kopioida lähde merkkijono vain ensimmäiseen
+'#' - merkkiin asti, ja kopioinnin jälkeen myös <em>dst</em>:een kopioidun
+kohdemerkkijonon tulee päättyä risuaitaan. Voit käyttää aiemmin
+toteuttamaasi <em>es_print</em> - funktiota testaamaan toimiiko kopiointi
+oikein.</p>
+<h2>d) Merkkijonon pilkkominen</h2>
+<p>Toteuta funktio <code>char *es_token(char *s, char c)</code>, joka katkaisee
+merkkijonon <em>s</em> kun ensimmäinen parametrin <em>c</em> esittämä merkki tulee
+vastaan. Kyseinen kohta merkkijonosta muutetaan siis lopetusmerkiksi,
+eli risuaidaksi. Funktio palauttaa osoittimen korvattua merkkia
+<strong>seuraavaan merkkiin</strong>, mistä alkuperäinen merkkijono jatkuisi. Näin
+ollen, kun funktiota kutsutaan useaan kertaan, käyttäen paluuarvoa
+aina uudestaan parametrina osoittamaan jäljellä olevan merkkijonon
+alkuun, voidaan alkuperäinen merkkijono pilkkoa useaksi osaksi.</p>
+<p>Mikäli <em>c</em>:n osoittamaa merkkiä ei löydy, tulee funktion palauttaa
+NULL (joka määritelty <code>&lt;stddef.h&gt;</code> - otsakkeessa). Huomaa myös että
+funktio muokkaa alkuperäistä merkkijonoa, eikä siitä esimerkiksi
+oteta kopiota.</p>
+<p>Esimerkiksi kun kutsutaan <code>es_token(str, ',')</code> tällaiselle merkkijonolle:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="s">&quot;aaa,bbb,ccc#ddd,eee&quot;</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>merkkijono muuttuu seuraavanlaiseksi:</p>
+<pre>
+"aaa#bbb,ccc#ddd,eee"</pre>
+
+<p>ja funktio palauttaa osoittimen kohtaan, josta "bbb" alkaa. Huomaa
+myös että '#'-merkin jälkeisiä pilkkumerkkejä ei vaihdeta, koska
+funktio lopettaa '#'-merkkiin (ellei parametriksi anneta osoitinta
+kohtaan, josta "ddd" alkaa).</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 08_korso: Korsoraattori (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Lisää tuntumaa merkkijonojen pyörittelyyn. Tämä harjoitus
+  on tribuutti legendaariselle <a href="http://korsoraattori.evvk.com">Korsoraattori</a>-palvelulle.</p>
+<p>Toteuta funktio <code>void korsoroi(char *dest, const char *src)</code>, joka
+korsoroi annetun merkkijonon <em>src</em> ja kirjoittaa muutetun merkkijonon
+osoitteeseen <em>dest</em>. Merkkijono muutetaan korsoksi seuraavalla tavalla:</p>
+<ul>
+<li>Jokainen "ks" alkuperäisessä merkkijonossa tulee muuttaa "x":ksi
+    kohdemerkkijonossa.</li>
+<li>Jokainen "ts" alkuperäisessä merkkijonossa tulee muuttaa "z":ksi
+    kohdemerkkijonossa.</li>
+<li>Joka kolmannen alkuperäisessä merkkijonossa olevan sanan jälkeen
+    tulee lisätä ylimääräinen sana "niinku" kohdemerkkijonoon.</li>
+<li>Joka neljännen alkuperäisessä merkkijonossa olevan sanan jälkeen
+    tulee lisätä ylimääräinen sana "totanoin" kohdemerkkijonoon.</li>
+</ul>
+<p>Sanaeroittimena käytetään välilyöntiä (' '). Sinun ei tarvitse lisätä
+mitään viimeisen alkuperäisen sanan jälkeen, ja voit olettaa että
+kohdemerkkijonossa <em>dest</em> on varattuna riittävästi tilaa. Voit lisäksi
+olettaa että kaikki kirjaimet ovat pieniä kirjaimia.</p>
+<p>Esimerkiksi merkkijonosta "yksi auto valui itsekseen ilman kuljettajaa mäkeä
+alas" tulee "yxi auto valui niinku izexeen totanoin ilman
+kuljettajaa niinku mäkeä alas".</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 09_stringarray: Merkkijonotaulukko (2 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Kurkistetaan taulukkoihin, joiden jäsenet ovat
+  merkkijonoja (eli taulukot ovat käytännössä kaksiulotteisia)</p>
+<p>Myös merkkijonoja voi käyttää taulukoissa. Koska merkkijono on
+merkeistä muodostuva taulukko, merkkijonotaulukko on taulukko
+merkkijonoja, joista kukin on taulukko merkkejä. Tässä tehtävässä
+käsitellään merkkijonotaulukkoa, jossa taulukon loppu ilmaistaan
+NULL-osoittimella.</p>
+<h2>a) Tulosta merkkijonotaulukko</h2>
+<p>Toteuta funktio <code>void print_strarray(char *array[])</code>, joka tulostaa
+jokaisen merkkijonon taulukossa <em>array</em> omalle rivilleen (eli jokaisen
+merkkijonon lopussa on rivinvaihto). Funktion parametrin esitysmuoto
+saattaa näyttää uudenlaiselta: Parametri <em>array</em> esittää taulukkoa,
+jonka kukin alkio on tyyppiä <code>char *</code>. Käytät siis kutakin taulukon
+alkiota kuten merkkijonoa, esimerkiksi osana lausekkeita tai
+printf-funktion parametrinä. Muista että taulukon loppu merkitään
+NULL-osoittimella.</p>
+<h2>b) Muunna merkkijono taulukoksi</h2>
+<p>Toteuta funktio <code>void str_to_strarray(char* string, char** arr)</code> joka
+muuntaa parametrinaan saamansa merkkijonon <em>string</em> taulukoksi
+merkkijonoja (muuttujaan <em>arr</em>). Alkuperäinen merkkijono voi sisältää
+useita välilyönnillä erotettuja sanoja, ja funktion tehtävänä jakaa
+merkkijono siten, että kukin välilyönnillä erotettu sana muodostaa
+oman alkionsa taulukossa. Muista erottelun jälkeen kunkin merkkijonon
+tulee päättyä nollamerkkiin, sekä lisäksi taulukon tulee päättyä
+NULL-osoittimeen.</p>
+<p>Kaksiulotteisia taulukoita ei ole vielä käsitelty, mutta kun <code>arr[i]</code>
+esittää merkkijonoa edellä kuvatun kaltaisessa taulukossa, pääset
+käsiksi kyseisen merkkijonon j:nteen merkkiin merkinnällä <code>arr[i][j]</code>,
+joko merkin kirjoittamista tai lukemista varten.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+
+
+
+		</div>
+
+		<div class="col-lg-4"></div> <!-- forces middle column narrower -->
+
+	</div>
+
+</div>
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="../static/jquery.min.js"></script>
+<script src="../static/bootstrap.min.js"></script>
+</body>
+</html>

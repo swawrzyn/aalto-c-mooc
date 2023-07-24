@@ -1,0 +1,2274 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>C-MOOC - C-MOOC
+- Module 3
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/pygments.css">
+
+    <style>
+    #content { margin-bottom: 20px; text-align: justify; }
+    #content img { margin-top: 25px; margin-bottom: 25px; }
+    #content li { margin-top:6px; margin-bottom: 6px; }
+    #content h2 { padding-top: 20px; }
+
+    .codehilitetable { width: 100%; margin-top: 15px; margin-bottom: 15px;}
+    .linenos { width: 20px }
+    .codehilite{ width:100%; height: auto; }
+
+    .task-sidenav-link { padding-left: 0.5em; }
+    .content-sidenav-link { text-decoration: underline; }
+    .content-block, .task-description-block { margin-bottom: 40px; }
+
+    </style>
+</head>
+<body>
+
+<!-- navbar, common to all pages -->
+<div class="navbar navbar-default" role="navigation">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+
+      <li><a href="../home/index.html">Koti</a></li>
+
+      
+      <li class="global-links"><a href="https://tmc.mooc.fi/mooc">TMC</a></li>
+      
+      <li><a href="../instructions/index.html">Ohjeet</a></li>
+
+      
+      <li><a href="../Module_1/index.html">M1: Johdanto</a></li>
+      
+      <li><a href="../Module_2/index.html">M2: Osoittimet</a></li>
+      
+      <li><a href="index.html">M3: Dynaaminen muisti</a></li>
+      
+      <li><a href="../Module_4/index.html">M4: Bitit ja taulukot</a></li>
+      
+      <li><a href="../Module_5/index.html">M5: Kehittyneita piirteita</a></li>
+      
+      <li><a href="../Module_6/index.html">M6: Yhteenvetoa</a></li>
+      
+
+    </ul>
+  </div>
+</div><!-- navbar -->
+
+
+<!-- Unique content of a page goes here -->
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-lg-3">
+			<div class="sidebar">
+                <ul class="nav">
+
+                    <li><img src="../static/aalto-elec-s.jpg" class="img-responsive"></li>
+                    <li><a href="http://mooc.fi/courses/2016/aalto-c">C-MOOC - MOOC.fi</a></li>
+                </ul>
+                
+
+    
+<ul class="nav bs-sidenav">
+    <b>Jump to:</b>
+    
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#01_memorg">
+        1. Tietokoneen muisti
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#02_dynamic">
+        2. Dynaaminen muistihallinta
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-1-fi">
+            <b>Task:</b> 02_arrays_1 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-2-fi">
+            <b>Task:</b> 02_arrays_2 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#03_memfuncs">
+        3. Funktioita muistin käsittelyyn
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-03-fi">
+            <b>Task:</b> 03_join (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#04_structures">
+        4. Rakenteiset tietotyypit
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-04-fi">
+            <b>Task:</b> 04_vessel (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#05_abstract">
+        5. Abstrakti tietotyyppi
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-05-fi">
+            <b>Task:</b> 05_fraction (4)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-06-fi">
+            <b>Task:</b> 06_oodi (3)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#06_linkedlist">
+        6. Linkitetty lista
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-07-fi">
+            <b>Task:</b> 07_queue (3)
+        </a>
+    </li>
+    
+    </a></li>
+    
+</ul>
+
+
+
+
+			</div>
+		</div>
+
+
+		<div class="col-lg-7" id="content">
+
+		    
+		    
+
+		    
+
+    <p>
+<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+	<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0; float:right;">
+</a>
+</p>
+
+    
+        
+        <div class="content-block" id="01_memorg">
+    <h1 class="content-title">Tietokoneen muisti</h1>
+    <div class="content-body">
+    
+      <p><font size=-2><i>Last modified: 2016-02-29 (Lisätty linkki stack/heap YouTube-videoon)</i></font></p>
+    
+      <p>Nykyaikaisista tietokoneissa ja niiden käyttöjärjestelmissä on
+tyypillisesti käytössä <strong>virtuaalimuisti</strong>. Jokaiselle prosessille
+(eli karkeasti ottaen käyttäjän ajamalle ohjelmalle) on varattu oma
+muistiavaruutensa, jonka perusteella käyttöjärjestelmä ohjaa
+varsinaisen muistin käyttöä. Virtuaalimuisti suojaa ohjelman
+muistiavaruutta toisilta ohjelmilta, ja estää käyttäjän kirjoittaman
+ohjelman pääsyn toisten ohjelmien muistiavaruuteen. Normaalisti et voi
+siis kirjoittaa ohjelmaa, joka sotkisi toisten ohjelmien
+toimintaa. Oma ohjelma toki voi mennä sekaisin virheellisen
+muistinkäytön seurauksena.</p>
+<p>Kukin ohjelma näkee siis oman 32- tai 64-bittisen muistiavaruutensa,
+josta tyypillisesti vain pieni osa on käytössä kerrallaan. Suurin osa
+muistipaikoista ei ole käytössä, ja viittaus tällaisiin osoitteisiin
+aiheuttaa "<em>segmentation fault</em>" signaalin
+käyttöjärjestelmältä. Muistiavaruus on jaettu erilaisiin lohkoihin sen
+perusteella, miten eri muistisegmenttejä on tarkoitus käyttää. Nämä
+lohkot on esitetty seuraavassa (yksinkertaistetussa) kuvassa:</p>
+<p><div style="text-align: center;"><img src="../static/pics/virt-memory.jpg"
+align="middle"></div></p>
+
+<p>Ohjelman koodi ladataan kääntäjän tuottamasta ELF (Executable and
+Linking Format) - binääritiedostosta virtuaalimuistin
+kirjoitussuojattuun <strong>koodisegmenttiin</strong>. Täältä tietoa voidaan lukea,
+mutta muistialuetta ei voi muokata. Kun ohjelma käynnistyy, prosessori
+alkaa suorittaa ohjelmaa koodisegmentin alkupisteestä edeten
+ohjelmassa eteenpäin käskyjen määräämällä tavalla. Toisin kuin
+esimerkiksi Javan tai Pythonin tapauksessa, välissä ei ole
+tulkkiohjelmistoa, vaan tietokone suorittaa ohjelmaa suoraan ilman
+välikäsiä.</p>
+<p>Myös vakiomuotoiset merkkijonot sijaitsevat virtuaalimuistin
+kirjoitussuojatulla alueella, joka alustetaan ohjelmaa
+ladattaessa. Esimerkiksi C-ohjelman rivi <code>char *name = "Jaska";</code>
+aiheuttaa merkkijonon "Jaska" sijoittumisen tälle alueelle (muista
+kuinka merkkijonoja <a href="../Module_2/index.html#06_strings">määriteltiin</a>). Näin ollen
+<em>name</em> - osoittimen päässä olevaa merkkijonoa ei voi muuttaa. Jos näin
+yritetään tehdä, käyttöjärjestelmä keskeyttää ohjelman <em>segmentation
+fault</em> - signaaliin.</p>
+<p>Koodisegmentin lisäksi, muistitilaa voidaan allokoida alustetulle
+globaalille datalle ("<em>initialized global data</em>") tai alustamattomalle
+globaalille datalle ("<em>uninitialized global data</em>"). Globaalisti
+määritellyt muuttujat (tai staattiset muuttujat) sijoittuvat tälle
+alueelle.</p>
+<p><em>Keko</em> ("heap") on dynaamisille muistinvarauksille käytettävää
+ tilaa. Kun ohjelma varaa muistia <em>malloc</em> - funktiota käyttäen
+ (nähdään pian), se sijoittuu virtuaalimuistin tälle
+ alueelle. Dynaamisesti varattu muisti säilyy varattuna, kunnes se
+ erikseen vapautetaan <em>free</em> - funktiokutsulla. Käyttöjärjestelmä
+ säätelee keon kokoa dynaamisesti ohjelman tekemien muistivarausten
+ perusteella.</p>
+<p><em>Pino</em> ("stack") on muistialue, jota tietokone varaa niinikään
+ dynaamisesti, mutta ilman ohjelman suoraa ohjausta. Pinoon tallentuu
+ muunmuassa lista funktioista, joiden kautta ollaan nykyiseen
+ suorituskohtaan päädytty. Tietokoneen pitää muistaa nämä, jotta se
+ osaa palata funktion loppuessa oikeaan kohtaan edellisessä
+ funktiossa. Esimerkiksi debuggerin "call stack" tai "backtrace" -
+ näkymä näyttää mitä funktioita pinossa tällä hetkellä on. Kunkin
+ funktion argumenttien ja paikallisten muuttujien vaatima tila myöskin
+ varataan pinosta. Kun funktiosta poistutaan, tämä tila vapautetaan
+ saman tien. Sen takia virheellisiä osoittimia "vanhoihin"
+ paikallisiin muuttujiin tulee välttää.</p>
+<p>Toistaiseksi modulien 1 ja 2 esimerkeissa ja harjoitustehtävissä
+olemme käyttäneet pelkästään pinon kautta varattuja paikallisia
+muuttujia. Nyt alamme käyttämään kekoa ja siihen tarvittavia
+dynaamisia muistivarausmekanismeja.</p>
+<p><strong>YouTubesta löytyy <a href="https://www.youtube.com/watch?v=_8-ht2AKyH4">havainnollinen video</a></strong> (n. 17 min) siitä kuinka
+pino ja keko toimivat C-ohjelman yhteydessä. Kannattaa siis jossain
+vaiheessa vilkaista sitäkin.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="02_dynamic">
+    <h1 class="content-title">Dynaaminen muistihallinta</h1>
+    <div class="content-body">
+    
+      <h2>Muistin varaaminen ja vapauttaminen</h2>
+<p>Muistia varataan keosta <strong>malloc</strong> - funktiota käyttäen. <em>malloc</em> on
+määritelty <em>stdlib.h</em> - otsakkeessa, eli kun haluat käyttää funktiota,
+kyseinen otsake on sisällytettävä ohjelmaan <code>#include &lt;stdlib.h&gt;</code> -
+komennolla. Myös muut tässä luvussa esitellyt muistinhallintafunktiot
+on määritelty samassa otsakkeessa.</p>
+<p>Ohjelmaa kirjoittaessa tulee vastaan useita tilanteita, jolloin muisti
+on varattava dynaamisesti, eikä paikallisia pinosta varattuja
+muuttujia voida käyttää:</p>
+<ul>
+<li>
+<p>Tarvittavan muistin määrä ei ole ohjelmointiaikana tiedossa, koska
+    se esimerkiksi riippuu ohjelman muusta toiminnasta tai käyttäjän
+    syötteistä.</p>
+</li>
+<li>
+<p>Funktiota suorittaessa syntyy tilatietoa, jota on kuljetettava
+    funktion ulkopuolelle muualle ohjelmaan. Funktion paikallisia
+    muuttujia ei voi tällöin käyttää, koska ne tuhoutuvat funktiosta
+    poistuttaessa.</p>
+</li>
+<li>
+<p>Tiedetään että tarvittavan muistin määrä vaihtelee ohjelman
+    suorituksen aikana, eikä haluta varata turhaan käyttämätöntä
+    muistia.</p>
+</li>
+</ul>
+<p><em>malloc</em> - funktion tarkka määritelmä on <code>void *malloc(size_t
+ size)</code>. Funktio saa siis argumentikseen etumerkittömän kokonaisluvun
+ jota varten on määritelty uusi <em>size_t</em> - tyyppi. Tämä kertoo
+ varattavan muistin määrän tavuissa. Mikäli muistin varaus onnistuu,
+ funktio palauttaa osoittimen varatun muistialueen alkuun. Mikäli
+ varaus epäonnistuu, palautetaan vakio <em>NULL</em>, eli
+ "0-osoitin". Muistinvarauksen jälkeen onkin hyvä tarkastaa
+ paluuarvosta onnistuiko varaus, koska NULL-osoittimen käyttö johtaisi
+ muistivirheeseen ja ohjelman keskeytymiseen. Kuten tyypillisesti C:ssä,
+ varattu <strong>muisti on alustamatonta</strong>, eikä sen sisällöstä voi olettaa
+ mitään, ennenkuin ohjelma on kirjoittanut muistialueelle jotain.</p>
+<p><code>void*</code> - tietotyyppi viittaa <em>geneeriseen osoittimeen</em>, johon voi
+tallettaa minkä tyyppistä tietoa tahansa. Tällainen osoitin voidaan
+helposti sijoittaa minkä tahansa muun tyyppiseen osoittimeen, kuten
+esimierkiksi <code>int*</code>, jonka jälkeen kääntäjä tietää, että kyseisen
+muistialueen alkiot ovat <em>int</em> - tyyppisiä, ja osaa käsitellä
+esimerkiksi osoitearitmetiikka oikein. <code>void*</code> - tyyppiseen
+osoitteeseen osoitearitmetiikkaa ei voida soveltaa, eikä sitä yleensä
+suoraan kannatakaan käyttää. On siis hyvä huomata, että <em>malloc</em> -
+funktiolla <strong>on</strong> paluuarvo, joka on jokin osoitin.</p>
+<p>Alla oleva esimerkki näyttää kuinka <em>malloc</em> - funktiota käytetään.</p>
+<p>Kun muisti on onnistuneesti varattu rivillä 6, varatun muistialueen
+alkuosoite sijoitetaan <em>table</em> - muuttujaan. Tässä tapauksessa
+varataan tilaa 100:lle <em>int</em> - tyyppiselle arvolle, eli tehdään
+dynaamisesti varattu taulukko, jonka sisältö kirjoitetaan riviltä 11
+alkavassa silmukassa.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">table</span><span class="p">;</span> <span class="c1">// uninitialized at this point</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">table</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>  <span class="c1">// memory allocation failed</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">table</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Kun taulukolle varataan muistia, <strong>on tärkeää ottaa huomioon taulukon
+alkion vaatima tila</strong> kun määritellään kuinka paljon muistia
+tarvitaan. <em>malloc</em> - argumentiksi annetaan aina tarvittava tila
+tavuissa, joten kun varaamme tilaa 100:lle <em>int</em> - tyyppiselle
+kokonaisluvulle, meidän on tiedettävä kuinka monta tavua yksi <em>int</em> -
+arvo tarvitsee muistista. Tämä tapahtuu <strong>sizeof</strong> - operaattorilla
+rivillä 6. <em>malloc</em>:lle siis kerrotaan, että tarvitsemme tilaa 100
+kertaa yhden <em>int</em>:in tarvitseman koon. <em>sizeof</em> - operaattoria on
+käytännössä pakko käyttää vaikka luulisimme tietävämmekin, että <em>int</em>
+vie esimerkiksi neljä tavua, koska eri ympäristöissä <em>int</em> -
+tietotyypin koko voi vaihdella: sitä ei ole standardoitu.</p>
+<p>Kun muisti on varattu, muistialuetta voi käyttää kuten mitä tahansa
+taulukkoa, koska varattu muistiosoite on sijoitettu <code>int *</code> -
+tyyppiseen muuttujaan. Kun taulukkoa nyt indeksoidaan (rivi 12),
+kääntäjä osaa laskea mitä alkiota muistista käsitellään. Kuten
+aiemminkin, kääntäjä ei osaa välttää tilannetta, jossa taulukkoa
+indeksoidaan "yli" varatun alueen. Tällöin usein osutaan alueelle,
+jota käyttöjärjestelmä ei ollut varannut ohjelman käyttöön, ja
+aiheutetaan segmentation fault - signaali. Aina näin ei kuitenkaan
+käy.</p>
+<p>Kun muistia ei enää tarvita, se tulee vapauttaa <strong>free</strong> - funktiota
+käyttäen. <em>free</em> saa yhden parametrin, osoittimen aiemmin varatun
+muistialueen alkuun. Tämän <strong>osoittimen pitää olla sama</strong>, joka
+<em>malloc</em> - kutsusta on saatu. Osoitin johonkin varatun muistialueen
+keskelle aiheuttaa ajon aikaisen virheen. Varattua muistia ei voikaan
+vapauttaa "osittain", vaan vapautukset tapahtuvat samankokoisissa
+yksiköissä kuin varauksetkin on tehty.</p>
+<p>Varatun muistilohkon voi vapauttaa vain kerran. Mikäli samaa
+muistialuetta yritetään vapauttaa toiseen kertaan, syntyy virhetilanne
+ja ohjelma keskeytyy.</p>
+<p>Käyttämättömän muistin vapauttaminen on tärkeää, jotta järjestelmä saa
+muistin uuteen käyttöön. Ohjelman joka jättää vapauttamatta aiemmin
+varattua muistia sanotaan <strong>vuotavan muistia</strong>. Mikäli tällainen
+ohjelma pyörii järjestelmässä hieman pidemmän aikaa, se saattaa pikku
+hiljaa kuluttaa kaiken käytössä olevan muistin, mikä vaikuttaa muihin
+ohjelmiin, ja järjestelmän toimintaan kokonaisuudessaan, koska näiden
+muistin varaaminen vaikeutuu. Kun järjestelmän muisti on vähissä, sen
+toiminta tyypillisesti ensin hidastuu merkittävästi, ja tilanteen
+jatkuessa ohjelmia voidaan joutua keskeyttämään.</p>
+<p>Aiemmin varatun muistialueen kokoa voidaan muuttaa <strong>realloc</strong> -
+funktiolla. Funktion tarkka määrittely on <code>void *realloc(void *ptr,
+size_t size)</code>. Se saa parametrikseen osoittimen aiemmin varattuun
+muistiin (<em>ptr</em>), sekä muistialueen uuden koon (<em>size</em>), joka voi olla
+suurempi tai pienempi kuin muistialueen aiempi koko. Tämäkin funktio
+palauttaa paluuarvonaan osoittimen säädetyn muistialueen alkuun.</p>
+<p><em>realloc</em>:in kanssa on hyvä huomioida, että muistialueen osoite
+ saattaa muuttua kutsun seurauksena. Siksi paluuarvo kannattaa ottaa
+ huolella käyttöön, eikä olettaa että muistialueen osoite olisi sama
+ kuin ennenkin. Käytännössä voi ajatella että <em>realloc</em> koostuu loogisesti
+ seuraavista operaatioista: 1) varataan uusi muistialue joka vastaa
+ uutta kokoa; 2) Kopioidaan aiemman muistialueen sisältö (tai osa
+ siitä, jos koko pienenee) uudelle muistialueelle; 3) vapautetaan
+ vanha muistialue.</p>
+<p>Alla oleva esimerkki näyttää kuinka <em>realloc</em> toimii:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">table</span><span class="p">;</span> <span class="c1">// uninitialized at this point</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">table</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>  <span class="c1">// memory allocation failed</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="o">*</span><span class="n">newtable</span> <span class="o">=</span> <span class="n">realloc</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">50</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">newtable</span><span class="p">)</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">table</span><span class="p">);</span>  <span class="c1">// realloc failed, old pointer still valid</span>
+    <span class="k">else</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">newtable</span><span class="p">);</span>  <span class="c1">// realloc succeeded, old pointer is released</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Ohjelma alkaa kuten aiempi esimerkki, mutta rivillä 14 aiemmin varatun
+taulukon koko puolitetaan 50:n kokonaislukuun. <em>realloc</em>:in kanssa saa
+olla tarkkana mitä tapahtuu silloin kun muistialueen koon muuttaminen
+ei onnistukaan ja funktio palauttaa NULL. Tällöin aiempi muistialue
+säilyy edelleen varattuna. Tämän asia joudutaan ottamaan huomioon
+riveillä 15 ja 16, kun muistialuetta vapautetaan.</p>
+<p><em>realloc</em>:ia voi kutsua myös siten, että aiemman muistialueen
+ osoitteeksi annetaan NULL. Tällöin toiminta vastaa <em>malloc</em> -
+ funktion toimintaa.</p>
+<p>Lisäksi muistin varausta varten on olemassa funktio <strong>calloc</strong>, joka
+varaa N kappaletta tietyn kokoisia elementtejä ja lisäksi alustaa
+muistin nollilla, muista muistinvarausfunktioista poiketen. Tarkka
+muoto on <code>void * calloc(size_t count, size_t size);</code>. Voisi siis
+esimerkiksi kutsua <code>table = calloc(100, sizeof(int));</code>.</p>
+<h2>Valgrindin käyttö</h2>
+<p><a href="http://valgrind.org">Valgrind</a> on työkalu jolla voi analysoida ohjelman toimintaa eri
+tavoin, erityisesti liittyen sen muistinhallintaan. Valgrindin avulla
+voi jäljittää muistin käyttöön liittyviä virheitä, jotka muutoin
+saattaisivat olla vaikeita löytää, esimerkiksi kun virheellinen
+muistikäyttö aiheuttaa satunnaista väärää toimintaa. Valgrind löytää
+myös muistivuodot, sekä tapaukset joissa alustamatonta muistia
+käytetään osana ohjelmalogiikkaa.</p>
+<p>Valgrindiä käytetään ohjelman ajon aikana. Ensin C-ohjelma käännetään
+normaalisti suoritettavaksi tiedostoksi. Suoritettava tiedosti voidaan
+ajaa valgrindin kanssa komennolla <code>valgrind ohjelma</code>, jossa ohjelma on
+suoritettavan ohjelman nimi. Tällöin ohjelma toimii muuten
+normaalisti, mutta valgrind analysoi sen toimintaa käsky
+käskyltä. Sivuvaikutuksena tämä tyypillisesti hidastaa ohjelman
+toimintaa merkittävästi.</p>
+<p>Analysoitava ohjelma kannattaa kääntää <code>-g</code> kääntäjäoption kanssa,
+jolloin suoritettavan ohjelman oheen tallentuvat viitteet
+funktionimiin ja lähdekoodin rivinumeroihin, mikä helpottaa
+valgrind-tulosteen lukemista merkittävästi. Kurssitehtävien mukana
+tulevat Makefilet sisältävät tämän option aina.</p>
+<p>Lisää tietoa Valgrindin toiminnasta ja käytöstä löytyy Valgrindin
+<a href="http://valgrind.org/docs/manual/mc-manual.html">webbisivulta</a>.</p>
+<p>Valgrind on yleisesti saatavilla useimmissa Linux-jakelupaketeissa,
+mutta valitettavasti sen saatavuus Mac:llä ja Windowsilla on
+rajallinen. Mac:lle on olemassa versio Valgrindista, mutta ainakin
+allekirjoittaneella se toimii hyvin epävarmasti. Windowsille ei ole
+allekirjoittaneen tiedossa olevaa Valgrind-toteutusta. Kierrokselta 3
+alkaen TMC-serveri ajaa aina Valgrindin tehtävien testaamisen
+yhteydessä, <strong>eikä päästä testejä läpi, mikäli Valgrind-virheitä
+esiintyy</strong>.</p>
+<p>Seuraavassa esimerkkejä parista yksinkertaisesta
+Valgrind-virheestä. Oletetaan esimerkiksi seuraava (huonosti
+toteutettu) funktio, joka varaa muistia muistamatta koskaan vapauttaa
+sitä. Funktio pyrkii varamaan dynaamisesti muistia merkkijonolle
+(<em>string</em>), joka kopioidaan tähän muistialueelle
+(<em>array</em>). Muistialueen kuvitellaan sisältävän taulukon 80:n merkin
+mittaisia merkkijonoja.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="o">*</span><span class="nf">add_string</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">array</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="o">*</span><span class="n">size</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">string</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">80</span> <span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">array</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">strncpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="o">*</span><span class="n">size</span><span class="p">],</span> <span class="n">string</span><span class="p">,</span> <span class="mi">79</span><span class="p">);</span>
+    <span class="n">array</span><span class="p">[</span><span class="o">*</span><span class="n">size</span> <span class="o">+</span> <span class="mi">79</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">size</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">array</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Kun ohjelma ajetaan Valgrindin kanssa, Valgrind tulostaa seuraavan
+ilmoituksen:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre>==358== 80 bytes in 1 blocks are definitely lost in loss record 29 of 34
+==358==    at 0x4C244E8: malloc (vg_replace_malloc.c:236)
+==358==    by 0x401C50: add_string (source.c:3)
+==358==    by 0x4014E9: test_moduli3 (test_source.c:13)
+==358==    by 0x404B70: srunner_run_all (in /tmc/test/test)
+==358==    by 0x401894: tmc_run_tests (tmc-check.c:99)
+==358==    by 0x4015E8: main (test_source.c:38)
+</pre></div>
+</td></tr></table>
+
+<p>Viesti kertoo <em>muistivuodosta</em> ("blocks are definitely lost"), eli
+muistia on varattua <em>malloc</em>:ia käyttäen rivillä 3., mutta sitä ei
+koskaan vapauteta. Valgrind ilmoitus viittaa funktioon <em>add_string</em> ja
+<em>source.c</em> - tiedoston riviin 3. Samassa ilmoituksessa näkyy myös
+kutsupino, eli ne funktiot joiden kautta ongelmalliseen funktioon on
+päädytty. Kaikissa listatuista funktioista ei siis ole
+virhettä. Virhettä kannattaa lähteä etsimään ensimmäisestä itse
+tekemästäsi funktiosta listasta, eli tässä tapauksessa
+<em>add_string</em>:stä. Tästä Valgrind-virheestä pääsee eroon, kun
+taulukolle varattu muisti vapautetaan jossain kohdassa ohjelmaa
+<em>free</em> - funktiolla.</p>
+<p>Valgrind luokittelee muistivuotovirheet eri kategorioihin sen
+perusteella, ovatko varattujen muistialueiden osoitteet vielä
+tallessa. Joskus käy niin, että osoittimien ylläpito on toteutettu
+virheellisesti, esimerkiksi ohjelma kirjoittaa osoitinmuuttujan paikalle
+jotain muuta vapauttamatta ensin kyseistä muistialuetta. Tällöin
+muistia ei enää voi vapauttaa, vaikka ohjelmassa olisikin <em>free</em> -
+kutsu suunnilleen oikeassa paikassa.</p>
+<p>Tässä hieman muokattu versio yllä olevasta ohjelmasta, joka aiheuttaa
+erilaisen Valgrind-virheen. Nyt ohjelma pyrkii kasvattamaan aiemmin
+varattua merkkijonotaulukkoa uudella parametrinaan saamallaan merkkijonolla
+(<em>string</em>). Kukin taulukon alkio sisältää siis tilaa 80:n merkin
+merkkijonolle.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="o">*</span><span class="nf">add_string</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">array</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="o">*</span><span class="n">size</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">string</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">newarray</span> <span class="o">=</span> <span class="n">realloc</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">80</span> <span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">size</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">newarray</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">)</span>
+            <span class="n">free</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">strncpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">newarray</span><span class="p">[</span><span class="o">*</span><span class="n">size</span> <span class="o">*</span> <span class="mi">80</span><span class="p">],</span> <span class="n">string</span><span class="p">,</span> <span class="mi">79</span><span class="p">);</span>
+    <span class="n">newarray</span><span class="p">[(</span><span class="o">*</span><span class="n">size</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span> <span class="o">+</span> <span class="mi">79</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">size</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">newarray</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Nyt Valgrind tulostaa seuraavaa:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre>==358== Invalid write of size 1
+==358==    at 0x4C25A4F: strncpy (mc_replace_strmem.c:339)
+==358==    by 0x401D33: add_string (source.c:10)
+==358==    by 0x401579: test_moduli3 (test_source.c:13)
+==358==    by 0x404C90: srunner_run_all (in /tmc/test/test)
+==358==    by 0x401924: tmc_run_tests (tmc-check.c:99)
+==358==    by 0x401678: main (test_source.c:38)
+==358==  Address 0x518c690 is 0 bytes after a block of size 0 alloc&#39;d
+==358==    at 0x4C244E8: malloc (vg_replace_malloc.c:236)
+==358==    by 0x4C24562: realloc (vg_replace_malloc.c:525)
+==358==    by 0x401CE4: add_string (source.c:3)
+==358==    by 0x401579: test_moduli3 (test_source.c:13)
+==358==    by 0x404C90: srunner_run_all (in /tmc/test/test)
+==358==    by 0x401924: tmc_run_tests (tmc-check.c:99)
+==358==    by 0x401678: main (test_source.c:38)
+</pre></div>
+</td></tr></table>
+
+<p>Virheilmoitus kertoo, että <em>strncpy</em> - funktio yrittää kirjoittaa
+virheelliseen muistipaikkaan, jota ei ole asianmukaisesti varattu
+("invalid write of size 1"). Ilmoituksesta käy ilmi myös, että
+<em>strncpy</em>:ä kutsutaan <em>add_string</em> - funktion rivillä 10. Tämä on siis
+otollinen kohta aloittaa virheen etsintä.</p>
+<p><em>size</em> - muuttuja viittaa taulukon nykyisen kokoon (muistiviitteen
+ kautta). Jos esimerkiksi <em>size</em> on 1, taulukolle varataan tilaa 80
+ merkkiä rivillä 3. Rivillä 10 kuitenkin aletaan tällöin kopioida
+ merkkijonoa alkaen 80:stä merkistä, eli kopioitava merkkijono tulee
+ ylittämään varatun muistialueen koon, kun taas muistialueen alkua ei
+ käytetä hyväksi lainkaan. Kenties tarkoitus oli kopioida merkkijono
+ kohtaan <code>&amp;newarray[(*size - 1) * 80]</code>, jolloin muistialuetta ei
+ ylitettäisi.</p>
+<p>Valgrind-ilmoituksessa viitataan myös <em>realloc</em>:iin rivillä 3. Tämä ei
+kuitenkaan tarkoita virhettä, vaan Valgrind kertoo vain, että
+<em>strncpy</em>:n ongelmallinen muistialue on varattu kyseisessä kohtaa
+ohjelmaa. Varsinainen ongelma on kuitenkin <em>strncpy</em>:n virheellinen
+käyttö.</p>
+<p>Valgrindin kanssa on kohtuullisen tavallista, että yksi virhe
+ohjelmassa aiheuttaa ryöpyn virheitä, jotka palautuvat kyseiseen
+virheeseen. Siksi kannattaakin aloittaa Valgrind-ilmoitusten luku
+ensimmäisestä alkaen, ja keskittyä ensimmäisen virheen
+korjaamiseen. Samalla saattaa korjaantua moni muukin virhe.</p>
+<h2>Kertausta osoittimista</h2>
+<p>Edellisessä esimerkissä saattaa häiritä runsas osoitinviittausten
+käyttö. <em>size</em> - muuttuja ei olekaan pelkkä kokonaisluku, vaan
+viittaus kokonaislukuun jossain toisaalla ohjelmassa. Tämä johtuu
+siitä, että <em>add_string</em> - funktio kasvattaa kyseistä kokonaislukua
+yhdellä suorituksensa aikana. Muuttunut arvo halutaan pitää tallessa,
+joten varsinainen muuttuja säilytetään toisaalla ohjelmassa, ja
+funktion täytyy päivittää sitä osoittimen avulla. Muutokset
+paikallisessa muuttujassa häviäisivät heti kun funktiosta poistutaan.</p>
+<p><code>&amp;newarray[*size * 80]</code> on myöskin osoitin. <code>newarray[*size * 80]</code>
+tarkoittaa taulukon erästä alkiota, eli yhtä <em>char</em> - tyyppistä
+arvoa. <em>strncpy</em> haluaa kuitenkin parametrikseen osoittimen, joten
+<code>&amp;</code> - operaattorilla haemme kyseisen alkion osoitteen. Tällöin
+lausekkeen tietotyypiksi tulee <code>char *</code>. <code>&amp;</code> - operaattori lisää
+tietotyyppiin aina yhden "tähden".</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-1-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_arrays_1: Dynaaminen taulukko (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Tulet sinuiksi dynaamisen muistinvarauksen kanssa kokonaislukutaulukon yhteydessä.</p>
+<p>Toteuta funktio <strong>dyn_reader</strong> joka varaa taulukon <em>int</em> - tyyppisille arvoille. Taulukossa tulee olla tilaa <em>n</em>:lle alkiolle. <em>n</em> annetaan funktiolle parametrina. Kun taulukko on varattu, sinun tulee lukea taulukon alkioille arvot käyttäjän syötteestä <em>scanf</em> - funktiota käyttäen. Kun vaadittu määrä kokonaislukuja on luettu, funktio palauttaa osoittimen dynaamisesti varattuun taulukkoon.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-2-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_arrays_2: Lisää taulukkoon (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Harjoittele dynaamisesti varatun taulukon koon kasvattamista.</p>
+<p>Toteuta funktio <strong>add_to_array</strong> joka lisää yhden kokonaisluvun aiemmin dynaamisesti varattuun taulukkoon (<em>arr</em>). Taulukon aiempi koko annetaan parametrissa <em>num</em>, ja uusi lisättävä kokonaisluku kerrotaan parametrissa <em>newval</em>. Varmista että taulukossa on riittävästi tilaa uuden kokonaisluvun lisäämiseksi, ja testaa että funktio toimii, kun sitä kutsutaan useita kertoja peräkkäin.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="03_memfuncs">
+    <h1 class="content-title">Funktioita muistin käsittelyyn</h1>
+    <div class="content-body">
+    
+      <p><em>string.h</em> - otsakkeessa määritellään funktioita muistin sisällön
+ käsittelyyn, esimerkiksi kopiointiin ja tiedon siirtoon
+ liittyen. Näistä saattaa olla joissain tilanteissa hyötyä. Funktiot
+ ovat saman kaltaisia kuin <a href="../Module_2/index.html#strings">modulissa 2</a> esitellyt merkkijonofunktiot,
+ mutta erona on se, että seuraavassa olevat funktiot eivät käsittele
+ 0-merkkiä mitenkään erityisellä tavalla. Toisin sanoen ne eivät oleta
+ että käsiteltävät muistialueet sisältävät merkkijonoja.</p>
+<ul>
+<li>
+<p><strong><a href="http://linux.die.net/man/3/memcpy">memcpy</a></strong> kopioi osan muistista toiseen osoitteeseen. Funktion
+    tarkka muoto on  <code>void *memcpy(void *destination, const void
+    *source, size_t n)</code>. <em>source</em> on osoitin muistialueeseen joka
+    kopoidaan, ja <em>destination</em> kertoo mihin osoitteeseen kyseinen
+    alue kopioidaan. <em>n</em> kertoo kuinka monta tavua kopioidaan. Funktio
+    kopioi aina tämän määrän tavuja, riippumatta siitä kuinka monta
+    nollamerkkiä tulee vastaan. Kannattaa huomioida että argumentit
+    ovat <code>void*</code>- osoittimia, eli niiden paikalla voidaan käyttää mitä
+    tahansa osoittimia. On myös hyvä huolehtia, että kohdeosoitteessa
+    on varattuna riittävästi muistia, eli vähintäänkin <em>n</em> tavua.</p>
+</li>
+<li>
+<p><strong><a href="http://linux.die.net/man/3/memmove">memmove</a></strong> on muuten samanlainen kuin <em>memcpy</em>, mutta se toimii
+    myös silloin kun <em>source</em> ja <em>destination</em> ovat osittain
+    päällekkäiset. <em>memcpy</em> (tai <em>strcpy</em>) eivät sitä salli. Funktion
+    tarkka muoto on <code>void *memmove(void *destination, const void
+    *source, size_t n)</code>.</p>
+</li>
+<li>
+<p><strong><a href="http://linux.die.net/man/3/memcmp">memcmp</a></strong> vertailee kahta muistilohkoa. Tarkka muoto on <code>int
+    memcmp(const void *mem1, const void *mem2, size_t n)</code>. <em>mem1</em> ja
+    <em>mem2</em> ovat kaksi vertailtavaa muistilohkoa, joista <em>n</em> tavua
+    vertaillaan. Funktio palauttaa 0 jos muistilohkot ovat samat, tai
+    erisuuri kuin 0, mikäli ne poikkeavat toisistaan.</p>
+</li>
+<li>
+<p><strong><a href="http://linux.die.net/man/3/memset">memset</a></strong> täyttää muistialueen sisällön annetulla
+    arvolla. Tarkka muoto on <code>void *memset(void *mem, int c, size_t
+    len)</code>. <em>mem</em> viittaa käsiteltävään muistialueeseen, <em>c</em> on
+    8-bittinen arvo, joka muistialueen jokaiseen tavuun kirjoitetaan,
+    ja <em>len</em> kertoo kuinka monta tavua kirjoitetaan. Funktion
+    tyypillinen käyttö on esimerkiksi annetun muistialueen täyttäminen
+    0:lla.</p>
+</li>
+</ul>
+<p>Alla esimerkki jossa näitä funktioita käytetään.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;string.h&gt; </span><span class="c1">// memset, memcpy, memcmp, ...</span>
+<span class="cp">#include &lt;stdlib.h&gt; </span><span class="c1">// malloc, free</span>
+<span class="cp">#include &lt;stdio.h&gt;  </span><span class="c1">// printf</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">mem1</span><span class="p">,</span> <span class="o">*</span><span class="n">mem2</span><span class="p">;</span>
+    <span class="n">mem1</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">mem1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Memory allocation failed</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// no use continuing this program</span>
+    <span class="p">}</span>
+    <span class="n">mem2</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">mem2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Memory allocation failed</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">mem1</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// terminating</span>
+    <span class="p">}</span>
+
+    <span class="n">memset</span><span class="p">(</span><span class="n">mem1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="n">memset</span><span class="p">(</span><span class="n">mem2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">memcmp</span><span class="p">(</span><span class="n">mem1</span><span class="p">,</span> <span class="n">mem2</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;the memory blocks differ</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">memcpy</span><span class="p">(</span><span class="n">mem2</span><span class="p">,</span> <span class="n">mem1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">memcmp</span><span class="p">(</span><span class="n">mem1</span><span class="p">,</span> <span class="n">mem2</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;the memory blocks are same</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">mem1</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">mem2</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-03-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 03_join: Liitä taulukot (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Harjoittele muistinkäsittelyfunktioita. Lisäksi tällä
+kertaa teet oman lähdetiedostosi ja siihen liittyvät otsakemäärittelyt
+itse.</p>
+<p>Toteuta funktio <strong>join_arrays</strong> joka saa parametrikseen kolme
+kokonaislukutaulukkoa, sekä kustakin taulukosta sen alkioiden
+lukumäärän. Kaikkiaan funktio saa siis kuusi parametria, jotka on
+esiteltävä tässä järjestyksessä:</p>
+<ul>
+<li>ensimmäisen taulukon alkioiden lukumäärä (unsigned integer)</li>
+<li>osoitin ensimmäiseen kokonaislukutaulukkoon (alkiot tyyppiä int)</li>
+<li>toisen taulukon alkioiden lukumäärä (unsigned integer)</li>
+<li>osoitin toiseen kokonaislukutaulukkoon (tyyppiä int)</li>
+<li>kolmannen taulukon alkioiden lukumäärä (unsigned integer)</li>
+<li>osoitin kolmanteen kokonaislukutaulukkoon (tyyppiä int)</li>
+</ul>
+<p>Funktion tulee liittää nämä kolme taulukkoa yhdeksi taulukoksi, joka
+sisältää kaikki kolmessa taulukossa listatut kokonaisluvut yllä
+mainitussa järjestyksessä. Uusi yhdistetty taulukko tulee varata
+dynaamisesti ja funktion tulee palauttaa osoitin tähän uuteen
+taulukkoon. Et saa muuttaa alkuperäisiä taulukoita mitenkään.</p>
+<p><em>main.c</em> - tiedoston <em>main</em>-funktiosta näet esimerkin kuinka yllä
+kuvattua funktiota kutsutaan. <em>source.c</em>:n lisäksi sinun pitää
+muokata <em>source.h</em> - tiedostoa, jotta <em>main</em> - funktio ja tehtävän
+testit näkevät toteuttamasi funktion. Muista myös sisällyttää
+tarvitsemasi C-kirjaston otsakkeet. Huomaa että alkutilassa ohjelma ei
+edes käänny, ennenkuin olet toteuttanut vähintäänkin jonkinlaisen
+rungon <em>join_arrays</em> - funktiosta, joka vastaa <em>main.c</em>:n olettamaa funktiorajapintaa.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="04_structures">
+    <h1 class="content-title">Rakenteiset tietotyypit</h1>
+    <div class="content-body">
+    
+      <p>Tosiinsa liittyviä muuttujia voi koota yhteen omaksi koostetuksi
+tietotyypikseen rakenteisten tietotyyppien (<em>struct</em>)
+avulla. Rakenteisella tietotyypillä on nimi, jonka avulla sitä voidaan
+käyttää muuttujissa, sekä funktioiden parametreinä ja
+paluuarvona, tai ylipäätään missä tietotyyppejä normaalistikin
+käytetään. Rakenteista tietotyyppiä voi käyttää osoittimien kanssa
+kyten muitakin tietotyyppejä, ja voipa rakenteinen tietotyyppi olla
+osa jonkin toisen rakenteisen tietotyypin määrittelyä.</p>
+<h2>Rakenteisen tietotyypin määrittely</h2>
+<p>Rakenteinen tietotyyppi määritellään <strong>struct</strong> määreen
+avulla. Rakenteinen tietotyyppi koostuu kentistä, joilla kullakin on
+nimi sekä tietotyyppi, joka on joku C:n perustietotyypeistä, tai jokin
+muu, aiemmin määritelty tietotyyppi. Kentän tietotyyppi voi myös olla
+taulukko tai osoitin.</p>
+<p>Alla on esimerkki rakenteisen tietotyypin "<em>person</em>"
+määrittelystä. Tietotyypin kentät määritellään omassa lohkossaan
+aaltosulkeiden sisällä, ja kunkin kentän määrittely loppuu
+puolipisteeseen. Tietotyypissä <em>person</em> on kaksi kenttää: '<em>name</em>' -
+kenttä on ilmeisestikin merkkijono, eli osoitin <em>char</em> - taulukon
+alkuun. Lisäksi <em>const</em>-määrittely kertoo, että nimi-merkkijonoa ei
+voi muokata sen jälkeen kun se on sijoitettu rakenteiseen
+tietotyyppiin. Tämän lisäksi <em>person</em> - rakenteessa on kenttä '<em>age</em>',
+joka on kokonaisluku. Myös rakenteen määrittelyn lopussa, aaltosulun
+perässä, käytetään puolipistettä.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>Yllä oleva ohjelmanpätkä ei tee muuta kuin määrittelee uuden
+tietotyypin. Yhtään kyseistä rakennetta käyttävää muuttujaa ei ole
+vielä määritelty. Muuttujia voi määritellä tietotyypin määrittelyn
+yhteydessä lisäämällä niitä tietotyyppimäärittelyn perään seuraavasti:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">guyA</span><span class="p">,</span> <span class="n">guyB</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>Nyt meillä on kaksi muuttujaa, <em>guyA</em> ja <em>guyB</em>, jotka molemmat
+tallentavat rakenteista tietotyyppiä vastaavan tietojoukon, eli nimen
+ja iän.</p>
+<p>On myös mahdollista määritellä muuttujat, mutta jättää rakenteinen
+tietotyyppi nimeämättä:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">guyA</span><span class="p">,</span> <span class="n">guyB</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>Tämä on harvinaisempaa, koska useimmiten tietotyypin nimeämisestä on
+hyötyä. Tietotyypin nimen avulla rakenteiseen tietotyyppiin voidaan
+viitata toisaalla ohjelmassa ilman että sen kenttiä tarvitsee jälleen
+uudelleen määritellä. Esimerkiksi <code>struct person jussi;</code> määrittelee
+uuden muuttujan nimeltään <em>jussi</em>, joka noudattaa aiemmin määriteltyä
+rakenteista tietotyyppiä.</p>
+<p>Koska suuret ohjelmistot on usein jaettu useisiin ohjelmamoduleihin
+(eli .c - tyyppisiin lähdetiedostoihin), joissa saattaa olla tarvetta
+käyttää samoja rakenteisia tietotyyppejä, tapana on esitellä
+rakenteiset tietotyypit .h - päätteisissä otsaketiedostoissa, jolloin
+kyseinen tietotyyppi saadaan käyttöön useaan ohjelmamoduliin
+sisällyttämällä otsake ohjelmaan <em>#include</em> - direktiiviä
+käyttäen.</p>
+<h2>Rakenteisen tietotyypin käyttäminen</h2>
+<p>Kun rakenteinen tietotyyppi on määritelty, sitä voidaan käyttää uusien
+muuttujien esittelyyn tai funktioiden parametreina, paljolti kuten C:n
+perustietotyyppejäkin. Kun rakenteista tietotyyppiä käyttävää
+muuttujaa käsitellään, joudutaan usein käsittelemään suoraan tietotyypin
+yksittäisiä kenttiä. Tämä onnistuu piste-notaatiolla: muuttujan nimen
+ja käsiteltävän kentän nimi erotetaan pisteellä. Seuraava esimerkki
+valaisee miten tämä toimii.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">lady</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Kirsi&quot;</span><span class="p">,</span> <span class="mi">22</span> <span class="p">};</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">dude</span><span class="p">;</span>
+    <span class="n">dude</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Pertti&quot;</span><span class="p">;</span> <span class="c1">// note &quot;const char*&quot; in the name field</span>
+    <span class="n">dude</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;name of lady: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">lady</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Esimerkin tapauksessa <em>person</em> - tietotyyppiä ei ole määritelty
+otsakkeessa, vaan C-lähdetiedostossa, mikä on teknisesti ottaen
+mahdollista. Sen jälkeen <em>main</em> - funktiossa esitellään muuttuja
+<em>lady</em>, joka alustetaan muuttujan esittelyn yhteydessä. Tässä
+kannattaa huomioida alustuksessa käytetty notaatio: Rakenteisen
+tietotyypin kenttiin sijoitettavat arvot listataan aaltosulkeiden
+sisällä pilkulla erotettuna. Parametrien tyyppien tulee vastata
+rakenteen määrittelyä, eli tässä tapauksessa ensin annetaan
+merkkijono, ja toiseksi kokonaisluku.</p>
+<p>On myös mahdollista jättää muuttuja alustamatta, kuten tehdään
+muuttujan <em>dude</em> tapauksessa. Tällöin C:lle tyypillisesti tietotyypin
+kenttien sisältö saattaa olla mitä tahansa, kunnes niille on asetettu
+jokin arvo. Riveillä 12 ja 13 nähdään kuinka rakenteisen tietotyypin
+kenttiin sijoitetaan arvot. Ensin kerrotaan mitä muuttujaa
+käsitellään, ja pisteellä erotettuna mitä kenttää
+käsitellään. Rakenteisen tietotyypin kenttiä voi käyttää lausekkeessa
+kuten muitakin muuttujia, kuten nähdään <em>printf</em>:n yhteydessä rivillä 14.</p>
+<p>Taulukoista poiketen rakenteista tietotyyppiä käyttävä muuttuja
+voidaan sijoittaa suoraan toiseen muuttujaan yksinkertaisella
+sijoituslausekkeella, kuten alla olevassa esimerkissä tehdään. Tällöin
+kaikki kentät kopioituvat muuttujasta toiseen. Kuten muistetaan,
+kokonaisia taulukoita ei samalla tavalla voi kopioida, elleivät ne
+sisälly rakenteiseen tietotyyppiin.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">person</span> <span class="n">lady</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Kirsi&quot;</span><span class="p">,</span> <span class="mi">22</span> <span class="p">};</span>
+<span class="k">struct</span> <span class="n">person</span> <span class="n">dude</span><span class="p">;</span>
+<span class="n">dude</span> <span class="o">=</span> <span class="n">lady</span><span class="p">;</span>  <span class="c1">// what??</span>
+</pre></div>
+</td></tr></table>
+
+<p>Yllä olevan sijoituksen voisi tehdä myös <em>memcpy</em>:ä käyttäen:
+<code>memcpy(&amp;dude, &amp;lady, sizeof(struct person));</code>, mutta
+sijoitusoperaattorin käyttö on toki useimmiten helpompaa. <em>person</em> -
+rakenteen tapauksessa on hyvä huomioida, että itse merkkijonoa ei
+kopioida, koska rakenteessa tallennetaan vain osoitin
+merkkijonoon. Sijoituksen jälkeen <em>dude</em> ja <em>lady</em> viittaavaat samaan
+muistiosoitteeseen ja samaan merkkijonoon. Koska tietotyyppi oli
+määritelty muuttumattomaksi <em>const</em> - määreellä, tämä ei
+todennäköisesti haittaa ohjelman toimintaa.</p>
+<p>Rakenteista tietotyyppiä voi käyttää funktion parametrina esimerkiksi
+seuraavaan tyyliin:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">has_enough_age</span><span class="p">(</span><span class="k">struct</span> <span class="n">person</span> <span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">else</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">guy</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Kalle&quot;</span><span class="p">,</span> <span class="mi">22</span> <span class="p">};</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">has_enough_age</span><span class="p">(</span><span class="n">guy</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;You may enter!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Koska C:ssä funktioparametrien arvot kopioidaan funktion käyttöön,
+tietorakenteesta tehdään erillinen kopio <em>has_enough_age</em> - funktion
+pinokehykseen. Mikäli <em>p</em> - muuttujaa muutetaan, muutokset eivät näy
+<em>main</em> - funktiossa. Jos haluttaisiin muutosten heijastuvan myös
+kutsuvalle funktiolle, olisi parempi käyttää osoitinta alkuperäiseen
+<em>guy</em> - muuttujaan.</p>
+<p>Rakenteista tietotyyppiä voidaan käyttää myös funktion paluuarvona,
+jolloin <em>return</em> - lauseessa annettu muuttuja ja sen kaikki kentät
+kopioituvat takaisin kutsujalle.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="nf">has_enough_age</span><span class="p">(</span><span class="k">struct</span> <span class="n">person</span> <span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">person</span> <span class="nf">make_older</span><span class="p">(</span><span class="k">struct</span> <span class="n">person</span> <span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">age</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">guy</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Kalle&quot;</span><span class="p">,</span> <span class="mi">15</span> <span class="p">};</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">has_enough_age</span><span class="p">(</span><span class="n">guy</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;waiting one year...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">guy</span> <span class="o">=</span> <span class="n">make_older</span><span class="p">(</span><span class="n">guy</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;age is now: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">guy</span><span class="p">.</span><span class="n">age</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Yllä oleva ohjelma tulostaa seuraavaa:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre>waiting one year...
+waiting one year...
+waiting one year...
+age is now: 18
+</pre></div>
+</td></tr></table>
+
+<h2>Rakenteinen tietotyyppi ja osoittimet</h2>
+<p>Kuten muitakin tyyppejä, myös rakenteiseen tietotyyppiin voidaan
+viitata osoittimella. Tällöin normaaliin tapaan tietotyypin nimen
+perään annetaan tähtimerkki (<code>*</code>), merkkaamaan että kyseinen
+tietotyyppi sisältää muistiosoitteen.</p>
+<p>Koska rakenteisten tietotyyppien käyttö osoittimien kautta on melko
+yleistä C:ssä, kieli määrittelee "nuolioperaattorin" (<code>-&gt;</code>), jolla viitataan
+tietorakenteen kenttiin silloin kun käytössä on osoitin. Alla oleva
+esimerkki näyttää miten tämä toimii:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">lady</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Kirsi&quot;</span><span class="p">,</span> <span class="mi">15</span> <span class="p">};</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="o">*</span><span class="n">kirsi</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lady</span><span class="p">;</span>
+    <span class="n">kirsi</span><span class="o">-&gt;</span><span class="n">age</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;age: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">lady</span><span class="p">.</span><span class="n">age</span><span class="p">);</span>
+
+    <span class="k">struct</span> <span class="n">person</span> <span class="o">*</span><span class="n">guy</span><span class="p">;</span>
+    <span class="n">guy</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">person</span><span class="p">));</span>
+    <span class="n">guy</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Pertti&quot;</span><span class="p">;</span>
+    <span class="n">guy</span><span class="o">-&gt;</span><span class="n">age</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">guy</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Nuolioperaattori on periaatteessa optionaalinen: vastaavan C-kielisen
+ohjelman voisi kirjoittaa myös ilman tätä operaattoria. Ylläolevan
+ohjelman rivi 7 voitaisiin esittää myös näin: <code>(*kirsi).age =
+18;</code>. Sulut ovat tässä tapauksessa pakollisia, koska pistenotaatio on
+laskujärjestyksessä ennen viittausoperaattoria. Varsinkin
+monimutkaisten tietorakenteiden kanssa tämä notaatio käy hankalaksi,
+joten siksi nuolioperaattoria käytetään selkeyttämään ohjelmaa.</p>
+<p>Ylläolevassa ohjelmassa <em>kirsi</em> on viittaus muuttujaan <em>lady</em>, ja kun
+ensimmäiseen kohdistetaan sijoitusoperaatio, käytännössä muutetaan
+rakenteisen muuttujan <em>lady</em> sisältöä.</p>
+<p>Jälkimmäisessä osassa funktiota muodostamme uuden muuttujan <em>guy</em>,
+jolle varataan muisti dynaamisesti keosta käyttäen <em>malloc</em> -
+funktiota (rivi 11). Tällöin tietoa on pakko käsitellä osoittimen
+kautta, kuten tässä tehdään. Kun rakenteiselle tietotyypille varataan
+tilaa, <em>sizeof</em> - operaattori on käytännössä välttämätön: se kertoo
+kuinka paljon tilaa rakenne kokonaisuudessaan vie. Tätä ei kannata
+yrittää laskea itse, koska kääntäjä saataa lisätä tyhjiä välejä
+kenttien väliin tehostaakseen kenttien käsittelyä. Tietotyypin vaatima
+tila kokonaisuudessaan saattaa siis olla enemmän kuin kenttien kokojen
+yhteenlaskettu summa.</p>
+<p>Osoitearitmetiikka toimii myös rakenteisten tietotyyppien kanssa, mikä
+mahdollistaa taulukoiden muodostamisen rakenteisista
+tietotyypeistä. Kun tällaista osoitinta "lisätään yhdellä", osoitin
+siirtyy eteenpäin suoraan rakenteisen tietotyypin vaatiman tilan
+verran, seuraavaan alkioon oletetussa taulukossa.</p>
+<p>Seuraavassa hieman monimutkaisempi esimerkki, jossa käsitellään
+<em>person</em> - tietotyypistä koostettua taulukkoa. Olemme nyt muuttaneet
+myös hieman rakenteen määritelmää siten, että <em>name</em> - kenttä onkin
+nyt muutettavissa oleva merkkijono, eli <em>const</em> - määre on tiputettu
+pois.</p>
+<p>Funktio määrittelee 10 alkion <em>members</em> taulukon, jossa kukin alkio on
+yksi <em>person</em> - rakenne. Kymmenen alkiota käydään läpi, ja kussakin
+tapauksessa nimelle varataan <em>malloc</em>:ia käyttäen riittävästi tilaa,
+ja sitten generoidaan kullekin henkilölle yksillöllinen (mutta
+mielikuvitukseton) nimi: "guy-A", "guy-B", jne... Kannattaa kiinnittää
+huomiota missä järjestyksessä taulukon indeksointi tapahtuu, ennen
+kuin tietorakenteen kenttiin viitataan. Toisaalta <em>name</em> - kenttä on
+myös itsessään merkkijonotaulukko, eli sitäkin voi indeksoida, kuten
+tässä nimeä generoidessa tehdäänkin.</p>
+<p>Kannattaa myös huomioida varatun muistin vapautus lopussa: se pitää
+tehdä erikseen kullekin taulukon nimelle, koska <em>malloc</em> kutsuttiin
+erikseen jokaiselle nimelle. <em>free</em> - kutsujen määrän pitää vastata
+<em>malloc</em> - kutsujen määrää.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
+
+<span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">members</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="o">*</span><span class="n">current</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">members</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">nameprefix</span> <span class="o">=</span> <span class="s">&quot;guy-&quot;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">NameLen</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+    <span class="cm">/* Need to allocate name separately, because structure does not</span>
+<span class="cm">       reserve space for it */</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">NameLen</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="c1">// if malloc does not succeed, name remains unspecified</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+            <span class="cm">/* Dynamically build unique name for each</span>
+<span class="cm">               member: &quot;guy-A&quot;, &quot;guy-B&quot;, &quot;guy-C&quot;, .... */</span>
+            <span class="n">strcpy</span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">,</span> <span class="n">nameprefix</span><span class="p">);</span>
+            <span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;A&#39;</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span>
+            <span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">[</span><span class="n">NameLen</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">age</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">60</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// find first person who is at least 65 years old</span>
+    <span class="cm">/* could also use:</span>
+<span class="cm">       members[count].age */</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">&amp;&amp;</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">current</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// move to next element in array</span>
+        <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// in principle we might have not succeeded allocating all names</span>
+    <span class="c1">// therefore current-&gt;name could be NULL</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">&amp;&amp;</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;found: %s, age: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">age</span><span class="p">);</span>
+        <span class="c1">// or: printf(&quot;found: %s&quot;, members[count].name);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// remember to release allocated memory</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">free</span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Yksi vaihtoehto olisi ollut määritellä tietorakenne <em>person</em>
+seuraavasti:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>Tällöin erillistä <em>malloc</em> - varausta ei tarvittaisi, koska kullekin
+nimelle varataan 20 merkin verran tilaa osana <em>person</em> -
+tietorakennetta, ja kääntäjä varaa tämän tilan automaattisesti
+(pinosta) samalla kun muuttujaa tai taulukkoa esitellään.</p>
+<h2>Dynaamisesti varattu taulukko</h2>
+<p>Joskus tarvitsemme vaihtelevan määrän tietoalkioita, jotka kaikki
+noudattavat samaa rakenteista tietotyyppiä. Tällöin rakenteet voidaan
+tallentaa taulukkoon, kuten edellä nähtiin, mutta mikäli emme
+ohjelmointivaiheessa tiedä kuinka monta tietoalkiota ohjelma tulee
+tarvitsemaan, tarvittava tila täytyy varata dynaamisesti, ja tilaa
+tulee tarvittaessa kasvattaa kun uusia tietoalkioita tulee saataville.</p>
+<p>Muisti varataan tietysti <em>malloc</em> - kutsulla, mutta pitää olla
+tarkkana sen suhteen kuinka paljon muistia tarvitsemme. Alla oleva
+ohjelma varaa dynaamisesti taulukon tutuksi tulleelle <em>person</em> -
+rakenteelle.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;string.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="o">*</span><span class="n">people</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">num_people</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">defaultname</span> <span class="o">=</span> <span class="s">&quot;John Doe&quot;</span><span class="p">;</span>
+
+    <span class="n">people</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">person</span><span class="p">)</span> <span class="o">*</span> <span class="n">num_people</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num_people</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">defaultname</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">,</span> <span class="n">defaultname</span><span class="p">);</span>
+        <span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">age</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">30</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// do something else</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num_people</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">people</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Rivillä 15 varataan <em>malloc</em>:ia käyttäen riittävästi tilaa 10
+henkilölle. Kukin henkilö vie <em>sizeof(struct person)</em> tavua
+tilaa. Tässä tapauksessa olemme luottavaisa, emmekä testaa onnistuiko
+muistin varaus. Mikäli se ei onnistu, <em>malloc</em> palauttaa
+NULL-osoittimen ja ohjelma kaatuu <em>segmentation fault</em> - virheeseen
+kun yrittämme käyttää <em>people</em> - taulukkoa.</p>
+<p>Muistin varaamisen jälkeen <em>people</em> - muuttujaa voidaan käyttää kuten
+mitä tahansa taulukkoa: sitä voidaan indeksoida normaalisti, ja
+yksittäisiin kenttiin viitataan kuten ennenkin.</p>
+<p>Taulukon varaamisen lisäksi kullekin tietoalkiolle pitää erikseen
+varata tila <em>name</em> - merkkijonolle, koska tietorakenteen määrittely
+sisälsi pelkän osoittimen. Tätä varten kutsumme <em>malloc</em>:ia uudestaan
+jokaisen alkion kohdalla, ja varaamme tilaa riittävästi jotta
+<em>defaultname</em> saadaan kopioitua varattuun paikkaan. Merkkijono pitää
+siis kopioida <em>strcpy</em> - funktiota käyttäen. Suora sijoitus
+aiheuttaisi väärän lopputuloksen.</p>
+<p>Kun taulukkoa ei enää tarvita, sen vaatima tila vapautetaan <em>free</em> -
+funktiota käyttäen. Koska kussakin alkiossa oli dynaamisesti varattu
+merkkijono, myös ne pitää vapauttaa erikseen kustakin
+alkiosta. Lopuksi koko taulukko voidaan vapauttaa yhdellä <em>free</em> -
+kutsulla, koska taulukon varaaminenkin tapahtui yhdellä <em>malloc</em> -
+kutsulla.</p>
+<p>Mikäli taulukkoon tarvitsee myöhemmin lisätä alkiota, sen kokoa täytyy
+kasvattaa <em>realloc</em> - funktiota käyttäen.</p>
+<h2>Etukäteismäärittely</h2>
+<p>On kohtuullisen tavallista, että rakenteisen tietotyypin määrittelyssä
+viitataan toisiin rakenteisiin tietotyyppeihin. Jotta johonkin
+tietotyyppiin voitaisiin viitata, kyseinen tietotyyppi tulee
+määritellä ensiksi. Joskus tulee vastaan kehämäisiä tilanteita, joissa
+tietotyyppien väliset viittaukset menevät ristiin, eikä ole
+mahdollista rakentaa ohjelmaa siten, ettei tarvittaisi viittausta
+tyyppiin jota ei ole vielä esitelty. Tällöin kääntäjälle täytyy
+kertoa, että "tämän nimisen tietotyypin määrittely seuraa hetken perästä,
+mutta tässä vaiheessa riittää tietää, että tämänniminen tyyppi on
+olemassa". Tällaista kutsutaan etukäteismäärittelyksi (forward
+declaration), ja se tehdään alla olevan ohjelman
+rivillä 3. Rakenteiden <em>person</em> ja <em>pet</em> keskinäisen järjestyksen
+vaihtaminen ei ratkaise ongelmaa, että tietorakenteen sisällä on
+viittaus aiemmin määrittelemättömään tietotyyppiin.</p>
+<p>Etukäteismäärittely toimii vain osoittimien yhteydessä: kääntäjä
+tietää, että osoitin vie aina muistiosoitteen verran tilaa, mutta se
+ei pysty varaamaan tilaa varsinaiselle rakenteelle ennenkuin se on
+määritelty.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="k">struct</span> <span class="n">pet</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="o">*</span><span class="n">marriedTo</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">pet</span> <span class="o">*</span><span class="n">myPet</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">pet</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="o">*</span><span class="n">owner</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">man</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Jorma&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span> <span class="p">};</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">lady</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Kirsi&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">man</span><span class="p">,</span> <span class="nb">NULL</span> <span class="p">};</span>
+    <span class="k">struct</span> <span class="n">pet</span> <span class="n">cat</span> <span class="o">=</span> <span class="p">{</span> <span class="o">&amp;</span><span class="n">lady</span><span class="p">,</span> <span class="s">&quot;Kisu&quot;</span> <span class="p">};</span>
+
+    <span class="n">man</span><span class="p">.</span><span class="n">marriedTo</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lady</span><span class="p">;</span>
+    <span class="n">lady</span><span class="p">.</span><span class="n">myPet</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">cat</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Name of the cat: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">man</span><span class="p">.</span><span class="n">marriedTo</span><span class="o">-&gt;</span><span class="n">myPet</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Ylläolevassa ohjelmassa <em>person</em> - rakenteeseen on siis lisätty kaksi
+uutta kenttää: osoitin toiseen henkilöön (<em>marriedTo</em>) ja osoitin
+<em>pet</em> - tyyppiseen rakenteeseen. Molemmissa on pakko käyttää
+osoitinta, koska kyseisessä kohdassa kääntäjä ei vielä tiedä paljonko
+tietorakenteet vaativat tilaa.</p>
+<p>Ohjelman lopussa on <em>main</em> - funktio, joka esittelee pari henkilöä,
+sekä lemmikin, sekä asettaa niiden väliset viitteet. Sisäkkäisten
+tietorakenteiden kenttien välillä voidaan ketjuttaa viittauksia jotta
+päästään käsiksi haluttuun kenttään, kuten ohjelman lopussa olevassa
+<em>printf</em> - lauseessa tehdään. Pystytkö seuraamaan mitä ohjelma
+tulostaa? (sen voi aina kopioida omaan editoriin ja kääntää itse)</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-04-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 04_vessel: Laiva (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><font size=-2><i>Last modified: 2016-03-11 (Lisätty pari sanaa osoittimista ja mallocista)</i></font></p>
+          
+            <p><strong>Tavoite:</strong> Harjoitellaan rakenteisten tietotyyppien määrittelyä ja
+  peruskäyttöä.</p>
+<p>Tässä harjoituksessa sinun tulee toteuttaa kolme asiaa: 1) määrittele
+rakenteinen tietotyyppi <strong>vessel</strong>, joka kuvaa kuvitteellista
+valtamerialusta; 2) toteuta funktio <strong>create_vessel</strong> joka luo uuden
+instanssin määrittelemästäsi <em>vessel</em> - tietotyypistä; 3) toteuta
+funktio <strong>print_vessel</strong> joka tulostaa <em>vessel</em> - rakenteen sisällön.</p>
+<p><em>vessel</em> - tietorakenteessa tulee olla seuraavat kentät. On tärkeää
+ että kenttien nimet ovat kuten alla annettu, koska muuten
+ <em>src/main.c</em> tai tehtävän testikoodit eivät käänny.</p>
+<ul>
+<li>
+<p><em>name</em>: laivan nimi merkkijonona. Merkkijono tulee kopioida
+    <strong>create_vessel</strong> - funktion parametrista <em>p_name</em>. Et voi
+    sijoittaa sitä suoralla sijoitusoperaattorilla. Nimeä tulee voida
+    muokata jälkeenpäin, ja siinä on oltava tilaa 30 merkille (plus 
+    lopetusmerkki). Tila on varattava pinosta (stack) eikä keosta 
+    (heap), eli älä käytä dynaamista muistia tähän. Jos funktion 
+    parametrina annettu nimi on pidempi kuin 30 merkkiä, se tulee 
+    katkaista 30 merkkiin.</p>
+</li>
+<li>
+<p><em>length</em>: laivan pituus double-tyyppisenä liukulukuna. Voit
+    olettaa että pituus ilmaistaan metreinä (tosin asialla ei suurta
+    käytännön merkitystä tässä tehtävässä).</p>
+</li>
+<li>
+<p><em>depth</em>: laivan syväys double-tyyppisenä liukulukuna. Tämänkin
+    osalta voi olettaa että syväys ilmaistaan metreinä.</p>
+</li>
+<li>
+<p><em>crg</em>: laivan lasti. Tämän tulisi vastata yhtä <em>cargo</em> -
+    tietorakennetta, joka on annettu <em>source.h</em> - otsakkeessa.</p>
+</li>
+</ul>
+<p>Sinun tulee määritellä <em>vessel</em> - rakenne <em>source.h</em> -
+otsaketiedostossa, jotta muut lähdetiedostot näkevät sen.</p>
+<p><em>create_vessel</em> saa vastaavat parametrit kuin mitä määriteltävässä
+ <em>vessel</em>-tietorakenteessa on. Sinun tulee sijoittaa nämä arvot
+ luomaasi <em>vessel</em> - tyyppiseen muuttujaan. Kannattaa kiinnittää
+ erityishuomiota siihen miten käsittele merkkijonoparametria
+ <em>name</em>. Merkkijonosta tulee luoda kopio.</p>
+<p><strong>HUOM:</strong> <em>create_vessel</em> palauttaa paluuarvonaan kopion luomastasi
+  vessel-tietorakenteesta, paluuarvo ei siis ole osoitin. Funktion
+  ulkopuolella oleva koodi ei osaa vapauttaa mitään varaamaasi
+  muistia, joten <em>malloc</em>:in käyttö aiheuttaa muistivuodon (ellet
+  vapauta muistia saman tien, missä ei olisi hirveästi
+  järkeä). Kannattaa miettiä tarvitsetko osoittimia lainkaan tässä
+  tehtävässä.</p>
+<p><em>print_vessel</em> tulostaa annetun <em>vessel</em> - rakenteen sisällön siten
+ että jokainen tietorakenteen kenttä tulostuu omalle rivilleen,
+ mukaanlukien <em>cargo</em>-rakenteeseen kuuluvat kentät. Liukuluvut tulee
+ tulostaa siten että niistä näytetään yksi desimaali. Esimerkiksi, kun
+ edellä mainitut funktiot on toteutettu oikein, <em>src/main.c</em>:n
+ esimerkkiohjelman tulisi tulostaa seuraavaa:</p>
+<pre>
+Apinalaiva
+180.0
+8.5
+Bananas
+10000
+1500.0</pre>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="05_abstract">
+    <h1 class="content-title">Abstrakti tietotyyppi</h1>
+    <div class="content-body">
+    
+      <p>Monimutkaisemmat (rakenteiset) tietotyypit, jotka koostuvat useista
+parametreista vaativat tarkkuutta: tietyt parametriyhdistelmät
+saattavat olla "järjettömiä", ja joskus parametrien käsittely vaatii
+tarkkuutta, esimerkiksi kun parametria varten on tarvittu dynaamista
+muistia.</p>
+<p>Hyvä suunnitteluperiaate on eristää tällaiset ohjelman määrittelemät
+omat tietotyypit kukin omaksi ohjelmamodulikseen, ja piilottaa
+tietotyypin sisäinen toteutus ohjelmiston muilta osilta. Sen sijaan
+tietotyyppiä käytetään pelkästään julkisesti määriteltyjen funktioiden
+(eli rajapinnan) avulla, jotka pitävät huolen että tietotyypin
+parametreja käytetään oikein. Kun tämä tehdään oikein, tietotyypin
+toteutus suojautuu paremmin ohjelmointivirheiltä, joiden
+todennäköisyys kasvaa sitä mukaa kun ohjelmiston koko ja sen parissa
+työskentelevien ohjelmoijien määrä kasvaa.</p>
+<p>Tällaista rakennetta kutsutaan <strong>abstraktiksi tietotyypiksi</strong>. Koska
+tietotyypin sisäinen toteutus on piilotettu muulta ohjelmalta, sitä
+voidaan korjata ja parannella ilman että muun ohjelmiston tarvitsee
+asiasta välittää. Kunhan funktiorajapinta on määritelty hyvin, ja
+siihen ei kosketa, muu ohjelmisto jatkaa toimintaansa normaalisti,
+vaikka tietotyypin sisäistä toteutusta muutettaisiinkin.</p>
+<p>Monista muista (esim. olio-pohjaisista) ohjelmointikielistä poiketen
+C:ssä ei ole sisäänrakennettua mekanismia abstraktien tietotyyppien
+toteuttamiseksi, vaan ne pitää toteuttaa funktioiden avulla.</p>
+<p>Tietotyyppiä varten määritellään julkinen otsaketiedosto
+(esim. "vector.h"), jossa kuvataan funktiorajapinta, jonka kautta
+tietotyyppiä käytetään. Otsaketiedostosta ei käy ilmi, miten
+tietotyyppi on oikeasti toteutettu. Toteutus löytyy C-kielisestä
+lähdetiedostosta "vector.c", mutta tietotyypin käyttäjän ei tarvitse
+välittää miten tietotyyppi on toteutettu.</p>
+<p>Alla oleva esimerkki määrittelee uuden abstraktin
+vektoritietotyypin. "vector.h" - otsake voisi näyttää tältä:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#ifndef AALTO_VECTOR_H</span>
+<span class="cp">#define AALTO_VECTOR_H</span>
+
+<span class="cm">/* Define Vector type to be used in interfaces, but don&#39;t show</span>
+<span class="cm">   its internal structure */</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">vector_st</span> <span class="n">Vector</span><span class="p">;</span>
+
+<span class="cm">/* Allocates a new vector from heap, returns pointer to the vector */</span>
+<span class="n">Vector</span><span class="o">*</span> <span class="nf">vectorCreate</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">,</span> <span class="kt">double</span> <span class="n">z</span><span class="p">);</span>
+
+<span class="cm">/* Releases the vector from heap */</span>
+<span class="kt">void</span> <span class="nf">vectorFree</span><span class="p">(</span><span class="n">Vector</span> <span class="o">*</span><span class="n">v</span><span class="p">);</span>
+
+<span class="cm">/* Calculates sum of two vecors. Result is returned in new vector object</span>
+<span class="cm">   allocated from heap */</span>
+<span class="n">Vector</span><span class="o">*</span> <span class="nf">vectorSum</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Vector</span> <span class="o">*</span><span class="n">b</span><span class="p">);</span>
+
+<span class="cm">/* Calculates the length of the vector */</span>
+<span class="kt">double</span> <span class="nf">vectorLength</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span> <span class="o">*</span><span class="n">v</span><span class="p">);</span>
+
+<span class="cm">/* Prints the vector to standard output */</span>
+<span class="kt">void</span> <span class="nf">vectorPrint</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span> <span class="o">*</span><span class="n">v</span><span class="p">);</span>
+
+<span class="cp">#endif </span><span class="c1">// AALTO_VECTOR_H</span>
+</pre></div>
+</td></tr></table>
+
+<p>Otsakkeen alussa on esimerkki myös ns "include-vahdista" (<a href="http://en.wikipedia.org/wiki/Include_guard">include guard</a>),
+joka estää käännösvirheet sellaisissa tilanteissa että kyseiseen
+otsakkeeseen viitataan useaan kertaan samassa käännösyksikössä. Tämä
+saattaa kuulostaa erikoiselta, mutta tilanne on kohtuullisen
+tavallinen suuremmissa ohjelmistoissa, joissa otsakkeet sisältävät
+viittauksia edelleen toisiin otsakkeisiin, ja näinollen muodostavat
+monimutkaisempia vittausketjuja. Palaamme myöhemmin esikääntäjä
+makroihin, ja siihen mitä <em>#define</em> ja <em>#ifndef</em> edellä merkitsevät.</p>
+<p>Julkisessa rajapinnassa on hyvä olla tarkkana määreiden käytössä, ja
+esimerkiksi käyttää <em>const</em> - määrettä johdonmukaisesti ilmaisemaan,
+että funktio ei tule muuttamaan saamiensa parametrien sisältöä.</p>
+<p>Vektorin sisäinen toteutus on tiedostossa "vector.c", joka sisältää
+varsinaisen tietorakenteen määrittelyn (<em>vector_st</em>) sekä sitä
+käyttävien funktioiden toteutuksen. Vektoria käyttävien ohjelman osien
+ei siis esimerkiksi tarvitse tietää kuinka tietorakenne muodostuu,
+koska ne käyttävät vektoria pelkästään funktioiden avulla. Alla osa
+vektorin toteutuksesta.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &amp;lt;assert.h&amp;gt;</span>
+<span class="cp">#include &quot;vector.h&quot; </span><span class="c1">// to ensure that the interface is compatible</span>
+
+<span class="k">struct</span> <span class="n">vector_st</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">Vector</span><span class="o">*</span> <span class="nf">vectorCreate</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">,</span> <span class="kt">double</span> <span class="n">z</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Vector</span> <span class="o">*</span><span class="n">v</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">vector_st</span><span class="p">));</span>
+    <span class="n">v</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+    <span class="n">v</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">v</span><span class="o">-&gt;</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">v</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">vectorFree</span><span class="p">(</span><span class="n">Vector</span> <span class="o">*</span><span class="n">v</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>  <span class="c1">// fails if v is NULL</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">Vector</span><span class="o">*</span> <span class="nf">vectorSum</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Vector</span> <span class="o">*</span><span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="c1">// check that value is not NULL</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">b</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">);</span> <span class="c1">// other way to check that value is not NULL</span>
+    <span class="n">Vector</span> <span class="o">*</span><span class="n">ret</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">vector_st</span><span class="p">));</span>
+    <span class="n">ret</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">;</span>
+    <span class="n">ret</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">+</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">;</span>
+    <span class="n">ret</span><span class="o">-&gt;</span><span class="n">z</span> <span class="o">=</span> <span class="n">a</span><span class="o">-&gt;</span><span class="n">z</span> <span class="o">+</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">z</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/* ...continues with some other Vector management functions... */</span>
+</pre></div>
+</td></tr></table>
+
+<p>Yllä oleva esimerkki käyttää myös <strong>assert</strong> - makroa, jolla voi
+varmistaa pitääkö annettu ehto paikkaansa. <em>assert</em>:ia käytetään
+silloin, kun ohjelman toiminta edellyttää esim. määritellyn osoittimen
+olemassaoloa. <em>assert</em> - ehdon epäonnistuminen keskeyttää ohjelman
+oletusarvoisesti välittömästi. Kun ohjelma toimii oikein, <em>assert</em> -
+ehtojen tulisi siis aina olla tosia, mutta niitä halutaan käyttää
+varmistamaan "vahvoja oletuksia" ohjelman toimintaan liittyen.
+Kehitysvaiheessa halutaan saadaan selkeä varoitus tilanteista, joissa
+nämä vahvat oletukset pettävät, jotta päästään korjaamaan virheen
+syy. <em>assert</em> - makro määritellään "<em>assert.h</em>" - otsakkeessa.</p>
+<p>Kun abstrakti tietotyyppi on määritelty, muualla ohjelmassa on
+sisällytettävä sen määrittävä otsaketiedosto (tässä
+"vector.h"). Varsinaisesta C-lähdetiedostosta emme ole
+kiinnostuneita. Nyt vektoreita voi käsitellä vain annettuja funktioita
+kutsumalla, kuten alla nähdään:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &quot;vector.h&quot;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// create two vectors and calculate their sum into third vector</span>
+    <span class="n">Vector</span> <span class="o">*</span><span class="n">v1</span> <span class="o">=</span> <span class="n">vectorCreate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="n">Vector</span> <span class="o">*</span><span class="n">v2</span> <span class="o">=</span> <span class="n">vectorCreate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">Vector</span> <span class="o">*</span><span class="n">v3</span> <span class="o">=</span> <span class="n">vectorSum</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">);</span>
+
+    <span class="c1">// print the result</span>
+    <span class="n">vectorPrint</span><span class="p">(</span><span class="n">v3</span><span class="p">);</span>
+
+    <span class="c1">// release all three vectors that were allocated</span>
+    <span class="n">vectorFree</span><span class="p">(</span><span class="n">v1</span><span class="p">);</span>
+    <span class="n">vectorFree</span><span class="p">(</span><span class="n">v2</span><span class="p">);</span>
+    <span class="n">vectorFree</span><span class="p">(</span><span class="n">v3</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-05-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 05_fraction: Murtoluku (4 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p>Nyt harjoitellaan abstraktin datatyypin tekemistä toteuttamalla uusi
+numerotyyppi, murtoluku (<a href="http://en.wikipedia.org/wiki/Fraction_(mathematics)">fraction</a>), joka koostuu <em>osoittajasta</em>
+(numerator) ja <em>nimittäjästä</em> (denominator). Esimerkiksi 2/3 ja 4/6
+ovat murtolukuja, joissa 2 ja 4 ovat osittajia, ja 3 ja 6
+nimittäjiä. Nämä murtoluvut ovat myös yhtä suuria. Määrittelemme uuden
+tietotyypin <strong>Fraction</strong> esittämään murtolukuja.</p>
+<p>Tässä tehtävässä sinun tulee toteuttaa seuraavat funktiot. Kustakin
+funktiokokonaisuudesta saa yhden pisteen, ja tehtävä on siten
+kokonaisuudessaan neljän pisteen arvoinen.</p>
+<p>Tehtävässä annetaan otsake <em>fraction.h</em>, joka määrittelee julkisen
+rajapinnan, jonka kautta murtolukuja käsitellään. Sinun tulee
+toteuttaa funktiot ja tarvitsemasi tietorakenteet tiedostoon
+<em>fraction.c</em>.</p>
+<h2>(a) Aseta arvo</h2>
+<p>Toteuta funktio <code>Fraction* setFraction(unsigned int numerator,
+unsigned int denominator)</code> joka varaa uuden murtoluvun dynaamisesti
+keosta ja asettaa sen esittämään lukua, jonka osoittaja ja nimittäjä
+parametreissa annetaan. Funktion tulee palauttaa luotu murtoluku (eli
+osoitin siihen).</p>
+<p>Lisäksi sinun tulee toteuttaa seuraavat yksinkertaiset funktiot:</p>
+<ul>
+<li>
+<p><code>void freeFraction(Fraction* f)</code> joka vapauttaa murtoluvulle
+    varatun muistin.</p>
+</li>
+<li>
+<p><code>unsigned int getNum(const Fraction *f)</code> joka palauttaa annetun
+    murtoluvun osoittajan.</p>
+</li>
+<li>
+<p><code>unsigned int getDenom(const Fraction *f)</code> joka palauttaa annetun
+    murtoluvun nimittäjän.</p>
+</li>
+</ul>
+<h2>(b) Vertaile arvoja</h2>
+<p>Toteuta funktio <code>int compFraction(const Fraction *a, const
+Fraction *b)</code> joka palauttaa -1, mikäli murtoluku <em>a</em> on pienempi kuin
+<em>b</em>, 0 mikäli murtoluvut ovat yhtä suuria, tai 1, mikäli murtoluku <em>a</em>
+on suurempi kuin <em>b</em>. Funktion tulee toimia oikein myös silloin kun
+nimittäjät ovat erisuuria.</p>
+<p><strong>Huom:</strong> Seuraavia tehtäväkohtia koskevat testit
+  käyttävät tätä toteutustasi testaamaan funktioiden toimintaa. Siksi
+  sinun tulee toteuttaa tämä tehtäväkohta oikein, ennenkuin siirryt
+  tehtäväkohtiin (c) ja (d).</p>
+<h2>(c) Summalasku</h2>
+<p>Toteuta funktio <code>Fraction *add(const Fraction *a, Fraction *b)</code> joka
+laskee murtolukujen <em>a</em> ja <em>b</em> summan, ja palauttaa tuloksena syntyvän
+uuden murtoluvun paluuarvonaan. Palautettava tulos on uusi
+murtolukuobjekti, joka varataan dynaamisesti. Funktion tulee toimia
+oikein myös silloin kun summattavien lukujen nimittäjät poikkeavat
+toisistaan. Lopputulosta ei tarvitse supistaa käyttämään pienintä
+mahdollista nimittäjää.</p>
+<p><strong>Vinkki:</strong> kannattaa aloittaa muuntamalla summattavat murtoluvut
+  sellaisiksi, että ne käyttävät samaa nimittäjää.</p>
+<h2>(d) Supista murtoluku</h2>
+<p>Toteuta funktio <code>void reduce(Fraction *val)</code></p>
+<p>joka supistaa annetun murtoluvun pienimpään mahdolliseen
+nimittäjään. Esimerkiksi jos <em>val</em> esittää murtolukua 3/6, sen tulisi
+supistua murtoluvuksi 1/2. Pienimmän nimittäjän etsiminen onnistuu
+hakemalla pienin yhteinen tekijä osoittajalle ja
+nimittäjälle. Tehtäväpohjasta löytyy valmiiksi annettu funktio
+<code>unsigned int gcd(unsigned int u, unsigned int v)</code> jonka avulla tämä
+onnistuu. (funktion toteutus on otettu
+<a href="http://en.wikipedia.org/wiki/Binary_GCD_algorithm">wikipediasta</a>)</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-06-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 06_oodi: Oodi (3 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Harjoittele dynaamisesti varattujen ja kokoaan muuttavien
+  taulukoiden käyttöä tietorakenteista koostetuista alkioista.</p>
+<p>Tässä tehtävässä toteutat yksinkertaisen tietokannan kurssiarvosanojen
+tallentamiseen. Tietokannan jokainen tietue noudattaa <code>struct oodi</code>
+rakennetta, ja tietokanta muodostuu dynaamisesti varatusta taulukosta,
+jossa siis on useita <em>struct oodi</em> - instansseja peräkkäin. Aina kun
+uusi alkio lisätään taulukkoon, pitää varmistua että taulukolle on
+varattu riittävästi muistia uuden alkion tallentamiseen.</p>
+<p><em>struct oodi</em> - määrittely ja sen kenttien kuvaukset löytyvät
+ tiedostosta <em>oodi.h</em>. Kannattaa perehtyä tietorakenteen määrittelyyn
+ ja selvittää itselleen mitkä kentät saavat tarvitsemansa tilan osana
+ tietorakennetta, ja mille kentille tarvittava tila pitää varata
+ erikseen. Esimerkiksi kenttä <em>course</em> on merkkijono, jolle pitää
+ dynaamisesti varata tarvittu tila erikseen.</p>
+<p>Harjoituksessa on kolme kohtaa, joista kustakin saa yhden
+pisteen. Kannattaa toteuttaa tehtäväkohdat annetussa järjestyksessä,
+koska myöhemmät tehtäväkohdat saattavat riippua aiemmin toteutetuista
+funktioista. Kannattaa myös testata ohjelmaasi jokaisen tehtäväkohdan
+välissä, ja mikäli se näyttää toimivan, lähettää pisteytystä varten
+palvelimelle. Vaikka koko tehtävä ei olisikaan valmis, yksittäisistä
+tehtäväkohdista voi silti saada pisteitä.</p>
+<h2>(a) Alusta opiskelijatietue</h2>
+<p>Toteuta funktio '<strong>init_record</strong>' joka alustaa annetun <em>oodi</em> -
+rakenteen osoittimen <em>or</em> osoittamassa paikassa saamiensa parametrien
+(<em>p_student, p_course,</em> jne...) pohjalta. Sinun ei tarvitse varata
+muistia tässä tehtäväkohdassa, vaan voit olettaa että <em>or</em> - osoitin
+viittaa muistialueeseen jossa on riittävästi tilaa varattuna. Sinun
+tulee kuitenkin varata muistia niille rakenteen kentille, joiden
+vaatima tila ei sisälly <em>oodi</em> - rakenteeseen. Kannattaa esimerkiksi
+kiinnittää huomiota merkkijonoihin.</p>
+<p>Funktio palauttaa arvon 1, jos alustus onnistui, tai 0 jos se
+epäonnistui jostain syystä. Funktio epäonnistuu esimerkiksi silloin,
+jos sille annetaan virheellinen opiskelijanumero, jossa on enemmän
+kuin 6 merkkiä. Voit olettaa että mikä tahansa 6 merkkiä pitkä (tai
+lyhyempi) merkkijono on hyväksyttävä opiskelijanumero.</p>
+<h2>(b) Lisää uusi tietue</h2>
+<p>Toteuta funktio '<strong>add_record</strong>' joka lisää uuden <em>oodi</em> -
+tietorakenteen dynaamisesti varatun taulukon loppuun, ja tarvittaessa
+varaa taulukolle lisää tilaa. Osoitin taulukon alkuu tulee
+funktioparametrissa <em>array</em>, ja taulukon nykyinen pituus parametrissa
+<em>length</em>. Lisättävä tieto annetaan parametrissa <em>newrec</em>. On syytä
+huomioida että <em>newrec</em>:n sisältö tulee kopioida taulukkoon oikealle
+paikalle, ja jälleen kannattaa kiinnittää huomiota osoittimien
+käsittelyyn.</p>
+<p>Funktio palauttaa osoittimen taulukkoon lisäyksen jälkeen. Tämähän
+saattaa olla eri osoite kuin se, joka <em>array</em> - parametrissa annettiin
+sisään.</p>
+<h2>(c) Päivitä arvosanaa</h2>
+<p>Toteuta funktio <em>change_grade</em>, joka päivittää arvosanaa (<em>newgrade</em>)
+ja suorituspäivää (<em>newdate</em>) taulukossa olevaan alkioon. Muutettava
+taulukon alkio tunnistetaan opiskelijanumerolla (<em>p_student</em>) ja
+kurssikoodilla (<em>p_course</em>). Molempien pitää täsmätä, jotta muutos
+voidaan tehdä. Mikäli vastaavaa alkiota ei löydy, funktio ei muuta
+mitään. Funktio palauttaa arvon 1, mikäli jotain alkiota muutettiin,
+tai 0, mikäli vastaavaa taulukon alkiota ei löytynyt, eikä muutosta
+näin ollen tehty. Voit olettaa että kukin
+opiskelijanumero/kurssikoodi - yhdistelmä esiintyy taulukossa
+korkeintaan kerran.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="06_linkedlist">
+    <h1 class="content-title">Linkitetty lista</h1>
+    <div class="content-body">
+    
+      <p><a href="http://en.wikipedia.org/wiki/Linked_list">Linkitetty lista</a> on yleinen tietorakenne, jonka avulla dynaamisesti
+varatuista solmuista voidaan tehokkaasti muodostaa järjestetty
+lista. Linkitetty lista poikkeaa taulukosta siinä, että kukin alkio on
+varattu muistista erikseen, eivätkä alkiot välttämättä sijaitse
+peräkkäisissä kohdissa muistia. Sen sijaan alkiot on ketjutettu
+toisiinsa osoittimien avulla.</p>
+<p>Jos oletetaan, että meillä on yksinkertainen linkitetty lista, jonka
+kuhunkin solmuun tallennetaan yksi kokonaisluku, tarvitsemme
+seuraavanlaisen tietorakenteen:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">intlist</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">intlist</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>Varsinaisen kokonaislukualkion lisäksi tarvitaan siis osoitin
+samantyyppiseen <em>intlist</em> rakenteeseen, josta löytyy seuraava listaan
+tallennettu kokonaisluku. Listan voi visualisoida seuraavalla tavalla:</p>
+<div align="center"><img src="../static/pics/linked-base.jpg"></div>
+
+<p>Linkitettyä listaa käyttävällä ohjelmalla on tyypillisesti vain
+osoitin listan ensimmäiseen alkioon. Jos esimerkiksi listasta etsitään
+jotain tiettyä alkiota, ohjelman pitää siis alkaa seuraamaan <em>next</em> -
+osoittimien ketjua listan alkioita eteenpäin. Listan viimeisen alkion
+tunnistaa siitä, että sen <em>next</em> - osoitin on <em>NULL</em>.</p>
+<p>Seuraava ohjelma tulostaa kaikki linkitettyyn listaan tallennetut
+alkiot.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">intlist</span> <span class="o">*</span><span class="n">first</span><span class="p">;</span>
+
+<span class="c1">// alusta linkitetty lista jollain tapaa...</span>
+
+<span class="k">struct</span> <span class="n">intlist</span> <span class="o">*</span><span class="n">current</span> <span class="o">=</span> <span class="n">first</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">current</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// toista, kunnes NULL-osoitin tulee vastaan</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;value: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">);</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Kun linkitetyn listan loppuun lisätään uusi alkio, seuraavat toimenpiteet
+tarvitaan:</p>
+<ol>
+<li>
+<p>Varaa muistia uudelle listan alkiolle: esimerkiksi yllä olevan
+     listan tapauksessa: <code>struct intlist *new =
+     malloc(sizeof(struct intlist));</code>. Alusta varatun tietorakenteen
+     kentät haluamallasi tavalla. Koska uudesta alkiosta tulee listan
+     viimeinen alkio, <em>next</em> - osoittimeksi asetetaan <em>NULL</em>.</p>
+</li>
+<li>
+<p>Etsi tämän hetkisen listan viimeinen alkio etenemällä listaa
+     <em>next</em> - osoittimia käyttäen. Viimeisen alkion tunnistaa siitä,
+     että <em>next</em> - osoitin on <em>NULL</em>  (<code>current-&gt;next == NULL</code>, tms).</p>
+</li>
+<li>
+<p>Muokkaa (aiemman) viimeisen alkion <em>next</em> - osoitinta siten, että
+     se viittaa askelessa 1 varaamaasi uuteen
+     tietosolmuun. (<code>current-&gt;next = new</code>, tms.). Nyt varaamasi uusi
+     alkio on linkitetty listan loppuun.</p>
+</li>
+</ol>
+<p>Sama diagrammin avulla esitettynä:</p>
+<div align="center"><img src="../static/pics/linked-add.jpg"></div>
+
+<p>Kun listasta poistetaan alkio, poistettavaa edeltävä <em>next</em> - osoitin
+tulee päivittää siten, että se "ohittaa" poistettavan alkion, ja
+viittaa sitä seuraavaan alkioon. Tai mikäli poistettava alkio sattuu
+olemaan listan lopussa, edeltäväksi <em>next</em> - osoittimeksi asetetaan
+NULL merkkaamaan listan loppua. Poistettavalle alkiolle varattu muisti
+tulee tietysti tässä vaiheessa vapauttaa <em>free</em> - kutsulla.</p>
+<div align="center"><img src="../static/pics/linked-delete.jpg"></div>
+
+<p>Linkitetyn listan käsittelyssä tulee erityisesti kiinnittää huomiota
+listan alku- ja loppupään käsittelyyn. Miten esimerkiksi toimitaan,
+kun listan ensimmäinen alkio poistetaan?</p>
+<p>On hyvä vertailla edellä esitettyä kahta vaihtoehtoista tapaa
+dynaamisesti kokoaan vaihtavan listan tallentamiseen:</p>
+<ul>
+<li>
+<p>dynaamisesti varattu taulukko vaatii koko taulukon uudelleen
+    varaamisen, kun kokoa tarvitsee muuttaa. Toisaalta taulukon mihin
+    tahansa alkioon on nopea päästä käsiksi taulukkoa normaalisti
+    indeksoimalla.</p>
+</li>
+<li>
+<p>Linkitettyyn listaan on nopea lisätä ja poistaa
+    alkioita. Toisaalta listan keskellä olevaan alkioon pääsee käsiksi
+    vain seuraamalla linkitetyn listan osoittimia, mikä on hitaampaa
+    kuin taulukon indeksointi.</p>
+</li>
+</ul>
+<p>Linkitetty lista on malliesimerkki tietotyypistä, joka olisi hyvä
+esittää abstraktina tietotyyppinä, pelkästään hyvin määritellyn
+rajapinnan kautta, jotta muualta ohjelmasta ei ohjelmointivirheiden
+seurauksena vahingossa sotketa listan rakennetta.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-07-fi">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 07_queue: Harjoitusjono (3 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Tavoite:</strong> Harjoittele tietorakenteiden ja osoittimien pyörittelyä
+  linkitetyn listan avulla.</p>
+<p>Tässä tehtävässä toteutetaan yksikertainen jonotusjärjestelmä
+opiskelijoita varten. Kukin jonon alkio sisältää opiskelijanumeron
+sekä opiskelijan nimen. Jono toteutetaan abstraktina tietotyyppinä
+<strong>Queue</strong>, ja sen käsittelyyn tarvittavat funktiot toteutetaan
+tiedostossa <em>queue.c</em>. <em>queue.h</em> määrittelee julkisen rajapinnan jonon
+käsittelyyn ja <em>queuepriv.h</em> sisältää määrittelyt jotka ovat
+jonototeutuksen sisäisiä, ja jota toisten ohjelmamodulien ei tarvitse
+tuntea. Jono toteutetaan linkitettynä listana.</p>
+<p>Tässä linkitetyn listan variaatiossa ylläpidetään osoitinta sekä
+ensimmäiseen listan alkioon että viimeiseen listan alkioon, sen
+lisäksi että listan alkiot yhdistetään toisiinsa <em>next</em> - osoittimien
+avulla. Listan viimeisen alkion <em>next</em> osoitin on aina <em>NULL</em>.</p>
+<p>Alkutilanteessa osoittimet <em>first</em> ja <em>last</em> ovat
+<em>NULL</em>-osoittimia. Kun listaan lisätään ensimmäinen (ja ainut) alkio, molemmat
+osoittimet siiretään osoittamaan siihen. Tämän jälkeen uudet lisäykset
+listaan aiheuttavat <em>last</em> - osoittimen siirtymisen, mutta <em>first</em> -
+osoitin jää jonon ensimmäisen alkion kohdalle.</p>
+<p>Listaa käydään läpi seuraamalla <em>next</em> - osoittimia alkio
+kerrallaan. Kun lisäät alkion listan loppuun, sinun tulee siis
+päivittää edellisen alkion <em>next</em> - osoitinta (joka sitä ennen oli
+NULL), sekä lisäksi <em>last</em> - osoitinta.</p>
+<p>Listan jokainen alkio varataan erikseen dynaamisesti muistista.</p>
+<p>Jotkut funktiot <em>Queue</em> - tyypin käsittelyksi on jo valmiiksi
+toteutettu, mutta tärkeimmät funktiot sinun tulee toteuttaa. Nämä ovat
+seuraavat:</p>
+<h2>(a) Lisää opiskelija jonoon</h2>
+<p>Toteuta funktio '<strong>Queue_enqueue</strong>' joka lisää uuden opiskelijan jonon
+perään. Funktio saa parametrikseen osoittimen tämän hetkiseen jonoon
+(<em>q</em>), sekä lisättävän opiskelijan opiskelijanumeron (<em>id</em>), sekä
+nimen (<em>name</em>). Funktio palauttaa arvon 1, mikäli lisäys onnistui tai
+0, mikäli se epäonnistui. Mikäli opiskelijanumero on virheellinen
+(enemmän kuin 6 merkkiä), funktion ei tule lisätä mitään, vaan
+palauttaa 0. Koska opiskelijan nimen pituus ei ole tiedossa, eikä sitä
+voida varata osana jonotietorakennetta, se pitää varata erikseen
+dynaamisesti, kuten uuden jonoelementin vaatima tilakin.</p>
+<p>Sinun ei tarvitse tarkistaa löytyykö opiskelija jo ennestään jonosta.</p>
+<p>Testaamisen ja debugaamisen helpottamiseksi kannattaa hyödyntää
+<em>main.c</em> - tiedostoa ja sillä tuotettavaa <em>src/main</em> - ohjelmaa
+ennenkuin tehtävä lähetetään TMC:n tarkistettavaksi.</p>
+<h2>(b) Ota jonon ensimmäinen</h2>
+<p>Toteuta funktio '<strong>Queue_dequeue</strong>' joka poistaa jonon ensimmäisen
+alkion ja vapauttaa sille varatun muistin. Funktio palauttaa arvon 1,
+mikäli jotain otettiin jonon kärjestä pois, tai 0 mikäli mitään ei
+poistettu (esimerkiksi jos jono oli jo ennestään tyhjä).</p>
+<p>Tämä rajapinta mahdollistaa sen, että koko jonon saa kerralla tyhjäksi
+lauseella <code>while (Queue_dequeue(queue));</code>.</p>
+<h2>(c) Tiputa annettu alkio</h2>
+<p>Toteuta funktio '<strong>Queue_drop</strong>' joka poistaa annetun
+opiskelijanumeron jonosta, ja vapauttaa sen tarvitseman
+muistin. Kyseinen alkio voi sijaita missä jonon kohdassa tahansa, ja
+poiston jälkeen jonon pitää säilyä edelleen eheänä ja
+toimintakuntoisena, eli kaikki osoittimet pitää päivittää asiaan
+kuuluvasti.</p>
+<p>Funktio palauttaa arvon 1, mikäli annettua opiskelijanumeroa vastaava
+opiskelija löytyi ja se poistettiin, tai 0, mikäli kyseistä
+opiskelijaa ei löytynyt, eikä mitään poistettu. Kukin funktiokutsu
+poistaa vain yhden alkion: jos opiskelija sattuu olemaan jonossa
+useamman kerran, vain ensimmäinen täsmäävä alkio poistetaan.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+
+
+
+		</div>
+
+		<div class="col-lg-4"></div> <!-- forces middle column narrower -->
+
+	</div>
+
+</div>
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="../static/jquery.min.js"></script>
+<script src="../static/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,1993 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>C-MOOC - C-MOOC
+- Module 3
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/pygments.css">
+
+    <style>
+    #content { margin-bottom: 20px; text-align: justify; }
+    #content img { margin-top: 25px; margin-bottom: 25px; }
+    #content li { margin-top:6px; margin-bottom: 6px; }
+    #content h2 { padding-top: 20px; }
+
+    .codehilitetable { width: 100%; margin-top: 15px; margin-bottom: 15px;}
+    .linenos { width: 20px }
+    .codehilite{ width:100%; height: auto; }
+
+    .task-sidenav-link { padding-left: 0.5em; }
+    .content-sidenav-link { text-decoration: underline; }
+    .content-block, .task-description-block { margin-bottom: 40px; }
+
+    </style>
+</head>
+<body>
+
+<!-- navbar, common to all pages -->
+<div class="navbar navbar-default" role="navigation">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+
+      <li><a href="../home/index.html">Home</a></li>
+
+      
+      <li class="global-links"><a href="https://tmc.mooc.fi/mooc">TMC</a></li>
+      
+      <li class="global-links"><a href="https://wiki.aalto.fi/display/C/C-ohjelmointi+vinkkiwiki">Vinkkiwiki</a></li>
+      
+      <li><a href="../instructions/index.html">Instructions</a></li>
+
+      
+      <li><a href="../Module_1/index.html">M1: Introduction</a></li>
+      
+      <li><a href="../Module_2/index.html">M2: Pointers</a></li>
+      
+      <li><a href="index.html">M3: Dynamic memory</a></li>
+      
+      <li><a href="../Module_4/index.html">M4: Arrays and Bits</a></li>
+      
+      <li><a href="../Module_5/index.html">M5: Advanced features</a></li>
+      
+      <li><a href="../Module_6/index.html">M6: Course summary</a></li>
+      
+
+    </ul>
+  </div>
+</div><!-- navbar -->
+
+
+<!-- Unique content of a page goes here -->
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-lg-3">
+			<div class="sidebar">
+                <ul class="nav">
+
+                    <li><img src="../static/aalto-elec-s.jpg" class="img-responsive"></li>
+                    <li><a href="http://mooc.fi/courses/2016/aalto-c">C-MOOC - MOOC.fi</a></li>
+                </ul>
+                
+
+    
+<ul class="nav bs-sidenav">
+    <b>Jump to:</b>
+    
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#01_memorg">
+        1. Memory organization
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#02_dynamic">
+        2. Dynamic memory management
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-1-en">
+            <b>Task:</b> 02_arrays_1 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-2-en">
+            <b>Task:</b> 02_arrays_2 (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#03_memfuncs">
+        3. Some memory management functions
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-03-en">
+            <b>Task:</b> 03_join (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#04_structures">
+        4. Data Structures
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-04-en">
+            <b>Task:</b> 04_vessel (1)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#05_abstract">
+        5. Abstract Data Types
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-05-en">
+            <b>Task:</b> 05_fraction (4)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-06-en">
+            <b>Task:</b> 06_oodi (3)
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#06_linkedlist">
+        6. Linked list
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="task-sidenav-link">
+        <a href="#desc-07-en">
+            <b>Task:</b> 07_queue (3)
+        </a>
+    </li>
+    
+    </a></li>
+    
+</ul>
+
+
+
+
+			</div>
+		</div>
+
+
+		<div class="col-lg-7" id="content">
+
+		    
+		    
+
+		    
+
+    <p>
+<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+	<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0; float:right;">
+</a>
+</p>
+
+    
+        
+        <div class="content-block" id="01_memorg">
+    <h1 class="content-title">Memory organization</h1>
+    <div class="content-body">
+    
+      <p><font size=-2><i>Last modified: 2016-02-29 (Added a link to stack/heap YouTube video)</i></font></p>
+    
+      <p>The modern computer systems typically use <strong>virtual memory</strong>, that
+provides each process a dedicated memory space: each process sees only
+its own virtual memory space, and cannot access the memory of other
+processes. Even though each process sees a full 64-bit or 32-bit
+address space, typically only small portion of it is in use.  If
+program tries to use an address from the virtual memory that has not
+been allocated for it, segmentation fault follows and the program
+terminates immediately. The virtual memory is divided into different
+segments, as shown below:</p>
+<p><div style="text-align: center;"><img src="../static/pics/virt-memory.jpg"
+align="middle"></div></p>
+
+<p>The program code is loaded from an ELF (Executable and Linking Format)
+formatted executable file into read-only <strong>code segment</strong>. The
+program code is produced as a result of compiling and linking
+process. When the program is started, the operating system starts
+executing the program from the code segment. Unlike with Java, Python
+or some other languages, there is not interpreter software between the
+system and the executable.</p>
+<p>Constant strings are also located in the read-only area of the memory
+space, and initialized when program is loaded. For example, when
+declaring <code>char *name = "Jaska";</code>, string "Jaska" is allocated from
+read-only memory (remember different ways of <a href="../Module_2/index.html#06_strings">initializing a
+string</a>). Trying to modify such strings would raise segmentation fault
+during program execution.</p>
+<p>In addition to the code segment, memory space is allocated for
+<b>initialized global data</b> and <b>uninitialized global
+data</b>. Global data is for the variables that are declared outside
+the program functions, and can be accessed from anywhere in the
+program, or declared with the <code>static</code>qualifier inside the
+functions. The size of these segments are determined in advance, and
+cannot be changed during program execution.</p>
+<p><b>Heap</b> is dynamically allocated memory: its usage varies based on
+the program execution. Program can allocate more memory from heap
+during its execution, and is expected to release the memory after it
+is not needed anymore. We have not yet used heap in our exercises and
+examples, but will see how heap is used in the next section.</p>
+<p>Usage of the <b>stack</b> also varies during program execution, but it
+is allocated automatically by the computer system. Each time the
+execution enters a function, some space from stack is used: the return
+address to which the execution should return from the function is
+stored in stack. The function parameters are placed in stack. The
+space for local variables declared inside a function are also
+allocated from the stack. When function exits, the space it used from
+stack is released automatically. Therefore it is an error to refer to
+such memory from outside the function, even though use of pointers
+would technically allow this. The examples and exercises in Modules 1
+and 2 have mainly used stack for the variables.</p>
+<p><strong>There is a <a href="https://www.youtube.com/watch?v=_8-ht2AKyH4">useful video</a></strong> (approx. 17 min) in YouTube about stack and
+heap dynamics with a C program. It is recommended that you check it
+out at some point.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="02_dynamic">
+    <h1 class="content-title">Dynamic memory management</h1>
+    <div class="content-body">
+    
+      <h2>Allocating and releasing memory</h2>
+<p>New memory from heap can be allocated using the <code>malloc</code>
+function call, that is defined in <b>stdlib.h</b> header (like the
+other memory management functions discussed below). The exact
+definition for the function is <code>void *malloc(size_t size)</code>. <em>malloc()</em>
+takes one parameter that defines how many bytes of memory is
+allocated. The function returns a pointer to the allocated memory. It
+is possible that the return value is NULL (i.e. 0), which means that
+the memory allocation failed. You should always check that the return
+value is not NULL before starting to use the allocated memory. The
+allocated memory is uninitialized, so you cannot assume anything about
+its initial content.</p>
+<p>The <code>void*</code> pointer in malloc return value is a <em>generic pointer</em>,
+that is otherwise as any other pointer, but cannot be directly
+dereferenced or used, because no type has been specified. Neither can
+the pointer arithmetics be applied with <code>void*</code> pointer. However, it
+is easy to assign (without explicit typecast) a generic pointer to
+any typed pointer variable, after which it can be used normally. The
+below example shows how this happens with the malloc return value.</p>
+<p>After memory is successfully allocated using the <em>malloc()</em> call and
+the returned pointer assigned to a typed pointer variable, it can be
+used as any other pointer. For example, if <em>malloc()</em> was used to
+allocate an array of certain type, the normal array operators can be
+used to modify and access the content of the array.</p>
+<p>Below is very simple example that allocates a buffer for 100
+integers from heap, and fills it with numbers decreasing with 100:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">table</span><span class="p">;</span> <span class="c1">// uninitialized at this point</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">table</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>  <span class="c1">// memory allocation failed</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">table</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>It is important to take the data type size into account when
+allocating memory. In this case, we are allocating space for 100
+integers. Therefore the size of the allocated memory needs to be
+multiplied by the data type size, using the <code>sizeof</code>
+operator (on line 6).  Even though the array operator is not visible
+in the <code>table</code> declaration, we are effectively using a
+dynamically allocated array.  In the above, after allocating space for
+an array of 100 integers from heap, the array can be manipulated using
+normal array operators (as on line 12).</p>
+<p>In the end, the allocated memory is released using the
+<code>free</code> function call. The call takes one parameter, the
+pointer to the allocated memory. The allocated memory should always be
+released after it is not needed. Otherwise a memory leak would follow,
+meaning that your program would slowly consume increasing amount of
+memory, leaving less memory for the other processes in the system. When
+program terminates, the allocated memory is released by the operating
+system, but memory leaks can be a problem in long-running processes,
+for example in network servers.</p>
+<p>An earlier allocated memory can be resized using the
+<code>realloc</code> function. The exact definition of the function is
+<code>void <em>realloc(void </em>ptr, size_t size)</code>. <code>ptr</code>
+is the pointer to the earlier allocated memory, <code>size</code> is
+the new size (either smaller or larger than before). As with malloc,
+the function returns pointer to the allocated memory. The returned
+pointer may be different than what was given in the <code>ptr</code>
+parameter. Logically this call is equivalent to 1) allocating a new
+memory space of given size; 2) copying data from the earlier allocated
+memory space to new one; 3) releasing the earlier allocated memory
+space.</p>
+<p>Below example shows how to use the realloc function, to cut the size
+of the earlier allocated array of 100 integers into half:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">table</span><span class="p">;</span> <span class="c1">// uninitialized at this point</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">table</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>  <span class="c1">// memory allocation failed</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="o">*</span><span class="n">newtable</span> <span class="o">=</span> <span class="n">realloc</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">50</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">newtable</span><span class="p">)</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">table</span><span class="p">);</span>  <span class="c1">// realloc failed, old pointer still valid</span>
+    <span class="k">else</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">newtable</span><span class="p">);</span>  <span class="c1">// realloc succeeded, old pointer is released</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<h2>Using Valgrind</h2>
+<p><a href="http://valgrind.org">Valgrind</a> is a toolkit for analysing
+various aspects in a program, and commonly used for finding memory
+management errors. Valgrind will tell about memory leaks, i.e., memory
+blocks that have been allocated but not released, memory access errors
+(e.g., some cases of reading/writing invalid address), and so on.</p>
+<p>Valgrind is used at program run time: first, a C program will be
+compiled and linked normally, to produce executable. Instead of normal
+execution, the executable can be run under Valgrind by typing
+<code>valgrind name-of-executable</code> on the command line. This
+will cause Valgrind to produce output about any memory errors it
+detects. If program is compiled with -g option (the exercise Makefiles
+include this option), Valgrind will be able to point the line numbers
+related to suspected errors. More information and instructions about
+Valgrind memory checks can be found in their <a
+href="http://valgrind.org/docs/manual/mc-manual.html">web
+page</a>.</p>
+<p>Valgrind is commonly available on Linux distributions, but
+unfortunately, its availability on Mac and Windows is limited,
+although some Mac versions support Valgrind. Starting from Module 3
+exercises, the TMC server will test the submitted code with Valgrind,
+and if there are Valgrind errors, the test will not pass, even if it
+had produced seemingly correct output in the local test.</p>
+<p>We will now take a look for a couple of simple Valgrind error
+situations. Consider the following (badly implemented) function that
+will allocate some memory but the program will never release it:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="o">*</span><span class="nf">add_string</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">array</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="o">*</span><span class="n">size</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">string</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">80</span> <span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">array</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">strncpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="o">*</span><span class="n">size</span><span class="p">],</span> <span class="n">string</span><span class="p">,</span> <span class="mi">79</span><span class="p">);</span>
+    <span class="n">array</span><span class="p">[</span><span class="o">*</span><span class="n">size</span> <span class="o">+</span> <span class="mi">79</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">size</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">array</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Valgrind will output:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre>==358== 80 bytes in 1 blocks are definitely lost in loss record 29 of 34
+==358==    at 0x4C244E8: malloc (vg_replace_malloc.c:236)
+==358==    by 0x401C50: add_string (source.c:3)
+==358==    by 0x4014E9: test_moduli3 (test_source.c:13)
+==358==    by 0x404B70: srunner_run_all (in /tmc/test/test)
+==358==    by 0x401894: tmc_run_tests (tmc-check.c:99)
+==358==    by 0x4015E8: main (test_source.c:38)
+</pre></div>
+</td></tr></table>
+
+<p>This message tells about memory leak ("blocks are definitely lost"),
+for a memory that was allocated by malloc function called in
+add_string function on line 3 in source.c. The error also shows the whole
+function call stack that leads to the error. With the TMC tests some
+functions from test_source.c and tmc_check.c are also shown, as in
+above example. This does not mean that these functions have an error,
+they are just functions that are used by the test framework, and were
+called prior to your function. The fix for this error is to free the
+allocated memory in some appropriate place of your code.</p>
+<p>Sometimes freeing memory is not possible even when the code for
+releasing memory is properly implemented, for example if the pointer
+to the earlier allocated memory is lost. If a test fails with invalid
+result, and you hadn't yet implemented the code for freeing the
+memory, the test framework tries to help by releasing the memory for
+you. Sometimes this is not possible, for example, if a linked list is
+broken, and in addition to failure response in test, you will get a
+Valgrind error.</p>
+<p>A slightly modified version of the above example will produce a
+different error:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">char</span> <span class="o">*</span><span class="nf">add_string</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">array</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="o">*</span><span class="n">size</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">string</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">newarray</span> <span class="o">=</span> <span class="n">realloc</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">80</span> <span class="o">*</span> <span class="p">(</span><span class="o">*</span><span class="n">size</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">newarray</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">)</span>
+            <span class="n">free</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">strncpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">newarray</span><span class="p">[</span><span class="o">*</span><span class="n">size</span> <span class="o">*</span> <span class="mi">80</span><span class="p">],</span> <span class="n">string</span><span class="p">,</span> <span class="mi">79</span><span class="p">);</span>
+    <span class="n">newarray</span><span class="p">[(</span><span class="o">*</span><span class="n">size</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span> <span class="o">+</span> <span class="mi">79</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">size</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">newarray</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Now Valgrind will produce the following:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre>==358== Invalid write of size 1
+==358==    at 0x4C25A4F: strncpy (mc_replace_strmem.c:339)
+==358==    by 0x401D33: add_string (source.c:10)
+==358==    by 0x401579: test_moduli3 (test_source.c:13)
+==358==    by 0x404C90: srunner_run_all (in /tmc/test/test)
+==358==    by 0x401924: tmc_run_tests (tmc-check.c:99)
+==358==    by 0x401678: main (test_source.c:38)
+==358==  Address 0x518c690 is 0 bytes after a block of size 0 alloc&#39;d
+==358==    at 0x4C244E8: malloc (vg_replace_malloc.c:236)
+==358==    by 0x4C24562: realloc (vg_replace_malloc.c:525)
+==358==    by 0x401CE4: add_string (source.c:3)
+==358==    by 0x401579: test_moduli3 (test_source.c:13)
+==358==    by 0x404C90: srunner_run_all (in /tmc/test/test)
+==358==    by 0x401924: tmc_run_tests (tmc-check.c:99)
+==358==    by 0x401678: main (test_source.c:38)
+</pre></div>
+</td></tr></table>
+
+<p>The strncpy function called on source.c line 10 in the
+'<strong>add_string</strong>' function writes to an invalid, non-allocated location
+in memory. Indeed, indexing the previously allocated array is done
+wrongly, and strncpy tries to copy a string past the block of memory
+that was allocated in earlier malloc call. (<code>(*size - 1) * 80</code> might
+have been better choice for strncpy, if *size is larger than
+0). Again, Valgrind output shows the call stack of functions that were
+called before the add_string function, that belong to the TMC test
+framework. The error report also tells which malloc call allocated the
+memory block that was invalidly accessed (on add_string, line 3 of
+source.c). This does not mean that the malloc call itself has an
+error, but because the invalid memory access could also be caused
+because of invalid malloc call, this may be useful information.</p>
+<p>It is fairly common that Valgrind shows repeated errors that refer to
+same lines. Once you find the reason for the error, many of the other
+error lines should go away.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-1-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_arrays_1: Dynamic Array Reader (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Practice use of dynamic memory allocation with integer arrays</p>
+<p>Implement function <strong>dyn_reader</strong> that allocates an <em>int</em> array for
+<em>n</em> integers. <em>n</em> is given as argument to the function when it is
+called. After allocating the array, the function should read the given
+number of integers to the array from user, using the <em>scanf</em>
+function. After the right amount of integers have been read, the
+function returns pointer to the dynamically allocated array.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-2-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 02_arrays_2: Add to array (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Practice use of <em>realloc</em> together with array
+  manipulation.</p>
+<p>Implement function <strong>add_to_array</strong> that adds a single integer to the
+existing dynamically allocated array of integers (<em>arr</em>). The length
+of the existing array is <em>num</em>, and the new integer to be added is
+given in parameter <em>newval</em>. You'll need to ensure that array is
+extended to hold the additional integer. Check that the function works
+correctly when called several consecutive times.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="03_memfuncs">
+    <h1 class="content-title">Some memory management functions</h1>
+    <div class="content-body">
+    
+      <p>The <code>string.h</code> header defines some functions for manipulating the
+memory content that may be useful in different situations. The main
+difference to the string functions discussed in <a href="../Module_2/index.html#strings">Module 2</a> is, that
+these functions do not care about the '\0' character that terminates
+strings, and therefore work with any data content.</p>
+<ul>
+<li>
+<p><b>memcpy</b> copies a block of memory to given address. The exact
+    format is <code>void *memcpy(void *destination, const void
+    *source, size_t n)</code>, where <b>source</b> points to the
+    memory to be copied, <b>destination</b> points to where the block
+    is to be copied, and <code>n</code> tells the number of bytes to
+    be copied. The function returns the value of
+    <code>destination</code>. Remember to ensure that the destination
+    memory block is properly allocated, before writing to it, although
+    neither source or destination memory needs to be located in heap:
+    they could be local variables or arrays allocated from stack as
+    well. The source and destination memory areas cannot overlap. If
+    they do, memmove should be used instead.&lt;</p>
+</li>
+<li>
+<p><b>memmove</b> is similar to memcpy, but also works when source
+    and destination buffers overlap. The definition is also similar:
+    <code>void *memmove(void *destination, const void *source, size_t
+    n)</code>.</p>
+</li>
+<li>
+<p><b>memcmp</b> compares the two blocks of memory. The exact format
+    is <code>int memcmp(const void *mem1, const void *mem2, size_t
+    n)</code> where '<strong>mem1</strong>' and '<strong>mem2</strong>' are the
+    two memory blocks to be compared, and '<strong>n</strong>' is the size
+    of the memory blocks in bytes. The function returns 0, if the two
+    blocks are equivalent, or non-zero if they differ.</p></p>
+</li>
+<li>
+<p><b>memset</b> fills the given memory block with given value. The
+    exact form is <code>void *memset(void *mem, int c, size_t
+    len)</code>. Here <code>mem</code> points to the block of memory
+    to be modified, <code>len</code> is the size of the memory block
+    in bytes, and <code>c</code> is the value that is set to every
+    byte in the memory block. This function could be used, for
+    example, to intialize an uninitialized memory block to zeros.</p></p>
+</li>
+</ul>
+<p>Here is an example that shows these functions in action:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;string.h&gt; </span><span class="c1">// memset, memcpy, memcmp, ...</span>
+<span class="cp">#include &lt;stdlib.h&gt; </span><span class="c1">// malloc, free</span>
+<span class="cp">#include &lt;stdio.h&gt;  </span><span class="c1">// printf</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">mem1</span><span class="p">,</span> <span class="o">*</span><span class="n">mem2</span><span class="p">;</span>
+    <span class="n">mem1</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">mem1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Memory allocation failed</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// no use continuing this program</span>
+    <span class="p">}</span>
+    <span class="n">mem2</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">mem2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Memory allocation failed</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">mem1</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// terminating</span>
+    <span class="p">}</span>
+
+    <span class="n">memset</span><span class="p">(</span><span class="n">mem1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="n">memset</span><span class="p">(</span><span class="n">mem2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">memcmp</span><span class="p">(</span><span class="n">mem1</span><span class="p">,</span> <span class="n">mem2</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;the memory blocks differ</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">memcpy</span><span class="p">(</span><span class="n">mem2</span><span class="p">,</span> <span class="n">mem1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">memcmp</span><span class="p">(</span><span class="n">mem1</span><span class="p">,</span> <span class="n">mem2</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;the memory blocks are same</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">mem1</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">mem2</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-03-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 03_join: Join arrays (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Practice use of memory management functions, and
+  creating your source file and the related header definition from
+  scratch.</p>
+<p>Implement function <strong>join_arrays</strong> that gets three integer arrays as
+its arguments, and for each array the number of integers the array
+contains. The six function arguments should be in this order:</p>
+<ul>
+<li>number of integers in the first array (as unsigned integer)</li>
+<li>pointer to first array of integers</li>
+<li>number of integers in the second array (as unsigned integer)</li>
+<li>pointer to second array of integers</li>
+<li>number of integers in the third array (as unsigned integer)</li>
+<li>pointer to third array of integers</li>
+</ul>
+<p>The function should join the three arrays into single array that
+contains all integers from the original arrays in the above
+order. The new array should be allocated dynamically, and the
+function should return the pointer to the created array. You must not
+modify the original arrays.</p>
+<p>See example from <em>main.c</em> about how the function is called. In
+addition to <em>source.c</em> you will also need to modify <em>source.h</em>, so
+that the main function (and the tests) can find your
+function. Remember to include the needed headers. Note that in the
+beginning the code will not even compile, before you have implemented
+at least a some sort of placeholder of the <em>join_arrays</em> function that
+matches the interface that <em>main.c</em> assumes.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="04_structures">
+    <h1 class="content-title">Data Structures</h1>
+    <div class="content-body">
+    
+      <p>Related data can be collected together as structured data
+types. Structured data type can be assigned a name, so that it can be
+used for variables, function parameters, and so on. Structure may at
+first resemble the concept of object in object-oriented languages, but
+in C the functionality and data are separated: structures only contain
+the data, and functionality always happens by functions.</p>
+<h2>Defining structures</h2>
+<p>A new structure is declared using <b>struct</b> keyword. The structure
+contains fields using other datatypes that have been defined
+earlier. These can be the built-in basic data types, arrays, pointers,
+or other structured data types. Below is an example of simple
+structure definition, that contains two members: pointer to constant
+string <b>name</b> (note: this is just pointer, not an array), and
+integer for age. Because <b>name</b> is defined as constant, its
+content cannot be modified, but it can be re-assigned to another
+constant string, if needed.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>The above just declares the structure, but does not yet assign any
+variables to use it. It is also possible to define the variables at
+the same time:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">guyA</span><span class="p">,</span> <span class="n">guyB</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>After this, the program has two variables, <b>guyA</b> and <b>guyB</b>
+allocated, both of which have structured data type <b>person</b> as
+data type. The size of these two variables is (roughly) the sum of the
+members of the structure. The actual size can be checked using the
+<b>sizeof</b> operator.</p>
+<p>Structure does not need to be named, so also the following would be
+possible:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">guyA</span><span class="p">,</span> <span class="n">guyB</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>Named structures can be used later in the program to use
+variables. For our structure "person", the following would then be
+possible later in the code: <code>struct person jussi;</code> This
+defines new variable "jussi", that uses structure person as the data
+type.</p>
+<p>Because in large software structures are often shared by multiple
+components, a common practice is to define the structures in .h header
+files, that could be included from the different .c source files that
+need to use the structure. Strcutures are also an essential element in
+many interfaces in system components. It is rare to define a structure
+inside a function, because that would limit its usability
+significantly.</p>
+<h2>Using structures</h2>
+<p>The records of the stucture are accessed using the member operator
+<code>.</code>. The use of member operator is best clarified by an
+example:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">lady</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Kirsi&quot;</span><span class="p">,</span> <span class="mi">22</span> <span class="p">};</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">dude</span><span class="p">;</span>
+    <span class="n">dude</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Pertti&quot;</span><span class="p">;</span> <span class="c1">// note &quot;const char*&quot; in the name field</span>
+    <span class="n">dude</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;name of lady: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">lady</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>The example shows two different ways of initializing a structure. Like
+other variables, the structure content is undefined before
+initialization (i.e., it is not necessarily 0). Structure can be
+initialized using a initialization list, as in case of variable
+<code>lady</code> above. Unlike with arrays, where the fields of the
+initialization list all follow the same data type, the members in
+structure initialization list must be compatible with the data types
+of the structure members. The list follows the same order as the
+fields in structure declaration.</p>
+<p>The use of the member operator is demonstrated above in setting the
+values for variable <code>dude</code>. In this case, the value of each
+member needs to be assigned separately, otherwise the values of unset
+fields will remain unspecified. Often it is a good idea to initialize
+all fields to some predictable value, such as 0, that will help
+debugging.</p>
+<p>Unlike arrays, structures can be assigned between variables. For
+example the following would be proper code:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">person</span> <span class="n">lady</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Kirsi&quot;</span><span class="p">,</span> <span class="mi">22</span> <span class="p">};</span>
+<span class="k">struct</span> <span class="n">person</span> <span class="n">dude</span><span class="p">;</span>
+<span class="n">dude</span> <span class="o">=</span> <span class="n">lady</span><span class="p">;</span>  <span class="c1">// what??</span>
+</pre></div>
+</td></tr></table>
+
+<p>The above assignment is equivalent to <code>memcpy(&amp;dude, &amp;lady,
+sizeof(struct person));</code>, but more convenient to use. Note that
+the content of string is not copied, because it was defined as a
+pointer. After assignment the two variables just point to the same
+string, but because it is a constant string that will not be modified
+during the program lifecycle, this is ok.</p>
+<p>Structures can also be used as function parameters, similarly to
+other data types. Here is an example of function being called from
+inside the main function.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">has_enough_age</span><span class="p">(</span><span class="k">struct</span> <span class="n">person</span> <span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">else</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">guy</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Kalle&quot;</span><span class="p">,</span> <span class="mi">22</span> <span class="p">};</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">has_enough_age</span><span class="p">(</span><span class="n">guy</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;You may enter!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>In the above example, the structure is passed by value, and there are
+no pointers involved. In other words, the all structure fields of
+variable <b>lady</b> is copied entirely to the function parameter
+<b>p</b>. Therefore, if the function would modify the structure
+content, the changes would not be visible in the main function. If we
+wanted a function that modifies the structure content, a pointer to
+the structure would need to be passed as function parameter, or the
+modified struture would need to be returned as return value.</p>
+<p>Structure can be returned as the return value of the function using
+the return statement. This could be used as a tool to modify the
+structure content:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="nf">has_enough_age</span><span class="p">(</span><span class="k">struct</span> <span class="n">person</span> <span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">person</span> <span class="nf">make_older</span><span class="p">(</span><span class="k">struct</span> <span class="n">person</span> <span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">age</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">guy</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Kalle&quot;</span><span class="p">,</span> <span class="mi">15</span> <span class="p">};</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">has_enough_age</span><span class="p">(</span><span class="n">guy</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;waiting one year...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">guy</span> <span class="o">=</span> <span class="n">make_older</span><span class="p">(</span><span class="n">guy</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;age is now: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">guy</span><span class="p">.</span><span class="n">age</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>The above outputs:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre>waiting one year...
+waiting one year...
+waiting one year...
+age is now: 18
+</pre></div>
+</td></tr></table>
+
+<h2>Pointers to structures</h2>
+<p>As all data types, structures can be used with pointers. When
+structure is used as a pointer, an alternative notation,
+<code>-&gt;</code> has been defined to access the structure
+members. Below is an example of this usage, using the address operator
+normally, as with any other data type.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">lady</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Kirsi&quot;</span><span class="p">,</span> <span class="mi">15</span> <span class="p">};</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="o">*</span><span class="n">kirsi</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lady</span><span class="p">;</span>
+    <span class="n">kirsi</span><span class="o">-&gt;</span><span class="n">age</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;age: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">lady</span><span class="p">.</span><span class="n">age</span><span class="p">);</span>
+
+    <span class="k">struct</span> <span class="n">person</span> <span class="o">*</span><span class="n">guy</span><span class="p">;</span>
+    <span class="n">guy</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">person</span><span class="p">));</span>
+    <span class="n">guy</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Pertti&quot;</span><span class="p">;</span>
+    <span class="n">guy</span><span class="o">-&gt;</span><span class="n">age</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">guy</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>The alternative pointer notation is used just as an easier variant
+to (*kirsi).age, which becomes tedious especially with structures that
+contain references to other structures (parentheses are required
+because of precedence rules). The above function modifies the age in
+variable <b>lady</b>, because 'kirsi' is a pointer to the same
+record. Therefore <code>lady.age</code> shows as 18 in the printf
+call.</p>
+<p>The above example also shows a case of allocating the space for the
+structure from heap instead of stack, as done for Pertti. The sizeof
+operator can be used to determine the size of the structure, which is
+the amount of memory we need to allocate. Note that this operator
+should always be used instead of trying to calculate the size by
+hand. The compiler may add empty spaces between the fields of the
+structure. Therefore <code>sizeof(struct person)</code> may be
+different than the sum of the field member sizes, <code>sizeof(char *)
++ sizeof(int)</code>.</p>
+<p>Pointer arithmetics work normally also with structures: when a pointer
+to structure is increased by one, the address increases by the size of
+the structure. Similarly, an array of structured data types can be
+defined and used as normal. The below code plays with an array of
+<b>person</b> structures. Note that for this example we changed the
+definition of <b>name</b> from <code>const char *</code> to <code>char *</code> so that we
+can dynamically allocate and build a name for each member in the
+array, as done in the below code.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="cp">#include &lt;string.h&gt;</span>
+
+<span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">members</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="o">*</span><span class="n">current</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">members</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">nameprefix</span> <span class="o">=</span> <span class="s">&quot;guy-&quot;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">NameLen</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+    <span class="cm">/* Need to allocate name separately, because structure does not</span>
+<span class="cm">       reserve space for it */</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">NameLen</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="c1">// if malloc does not succeed, name remains unspecified</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+            <span class="cm">/* Dynamically build unique name for each</span>
+<span class="cm">               member: &quot;guy-A&quot;, &quot;guy-B&quot;, &quot;guy-C&quot;, .... */</span>
+            <span class="n">strcpy</span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">,</span> <span class="n">nameprefix</span><span class="p">);</span>
+            <span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;A&#39;</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span>
+            <span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">[</span><span class="n">NameLen</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">age</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">60</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// find first person who is at least 65 years old</span>
+    <span class="cm">/* could also use:</span>
+<span class="cm">       members[count].age */</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">&amp;&amp;</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">current</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// move to next element in array</span>
+        <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// in principle we might have not succeeded allocating all names</span>
+    <span class="c1">// therefore current-&gt;name could be NULL</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">&amp;&amp;</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;found: %s, age: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">age</span><span class="p">);</span>
+        <span class="c1">// or: printf(&quot;found: %s&quot;, members[count].name);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// remember to release allocated memory</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">free</span><span class="p">(</span><span class="n">members</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>The above example creates ten persons, who are named guy-A, guy-B,
+..., guy-J. The space for name string needs to be allocated for each
+person separately, because the structure has not allocated the space:
+it only contains a pointer to the name. If the structure member itself
+had been defined as an array of characters, for example <code>char
+name[20];</code>, the space for the string would have been allocated
+as part of the structures in array, and dynamic allocation would not
+have been needed. The above example also shows different alternative
+ways of accessing the elements in array, either using the indexing
+operator, or a pointer that follows through the array.</p></p>
+<h2>Forward declaration</h2>
+<p>It is possible for structures to refer to other structures. However,
+in order to use a data type, it must have been declared
+before. Sometimes, with more complicated set of cross-references it
+may be impossible to declare everything in the right order. In such
+case a forward reference is needed, to satisfy the compiler and tell
+that the data type definition will be coming. Below is an example of a
+forward reference of structure <b>pet</b>, that is needed, becayse
+<b>person</b> refers to it:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="k">struct</span> <span class="n">pet</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="o">*</span><span class="n">marriedTo</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">pet</span> <span class="o">*</span><span class="n">myPet</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">pet</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="o">*</span><span class="n">owner</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">man</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Jorma&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span> <span class="p">};</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">lady</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;Kirsi&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">man</span><span class="p">,</span> <span class="nb">NULL</span> <span class="p">};</span>
+    <span class="k">struct</span> <span class="n">pet</span> <span class="n">cat</span> <span class="o">=</span> <span class="p">{</span> <span class="o">&amp;</span><span class="n">lady</span><span class="p">,</span> <span class="s">&quot;Kisu&quot;</span> <span class="p">};</span>
+
+    <span class="n">man</span><span class="p">.</span><span class="n">marriedTo</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lady</span><span class="p">;</span>
+    <span class="n">lady</span><span class="p">.</span><span class="n">myPet</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">cat</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Name of the cat: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">man</span><span class="p">.</span><span class="n">marriedTo</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">myPet</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>In the above we extend our person structure by two new fields, that
+are pointers to other structures. Structure <code>pet</code> needs a
+forward declaration, because its actual declaration comes only after
+the person structure. Forward declaration is in the beginning: it
+looks like an empty declaration. Note that changing the order of the
+structure declarations does not help, because pet has pointer also to
+the person structure. With this kind of cyclic declarations only
+pointers can be used, and the example below would be impossible:
+including a full <b>pet</b> structure inside person structure would
+not make sense, because <b>pet</b> structure itself contains the
+person structure, that contains the pet structure, and so on...</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">person</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">marriedTo</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">pet</span> <span class="n">myPet</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">pet</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">person</span> <span class="n">owner</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>This would cause the space of the other structures be allocated from
+inside the person structure, but before the actual structure
+declaration of <b>pet</b> the compiler does not know how much space is
+needed.</p>
+<p>In the main function above, not all values can be included in the
+initialization list: at the time on initializing <code>man</code>, the
+variable <code>lady</code> is yet unknown to the compiler. Therefore
+some of the structure members need to be declared afterwards.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-04-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 04_vessel: Defining a ship (1 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><font size=-2><i>Last modified: 2016-03-11 (Couple of words about pointers and use of malloc)</i></font></p>
+          
+            <p><strong>Objective:</strong> Practice definition of structures, and their basic use.</p>
+<p>In this exercise you will need to implement three things to earn a
+point 1) define a <strong>vessel</strong> structure; 2) implement function
+<strong>create_vessel</strong> that creates a new vessel structure instance; and 3)
+implement function <strong>print_vessel</strong> that prints the contents of the
+vessel structure.</p>
+<p>The vessel structure must have the following fields. It is important
+that the names are correct, otherwise <em>src/main.c</em> nor the test code
+will not compile.</p>
+<ul>
+<li>
+<p><em>name</em>: name of the ship as a string. The string must be copied
+    from function parameter <em>p_name</em>, you cannot directly assign
+    it. The name must be modifiable, and there must be room for up to
+    30 characters in name (plus the ending character '\0'). If the
+    name given as function parameter is longer than 30 characters, it
+    should be truncated to 30 characters long.</p>
+</li>
+<li>
+<p><em>length</em>: length of the ship as double floating point number (you
+    could assume these are meters)</p>
+</li>
+<li>
+<p><em>depth</em>: depth of the ship as double floating point number (you
+    can assume meters, but that's not important)</p>
+</li>
+<li>
+<p><em>crg</em>: cargo of the ship. This is equivalent to the content of one
+    cargo structure that is given in <em>source.h</em></p>
+</li>
+</ul>
+<p>The vessel structure should be defined in <em>source.h</em> so that the other
+source files can find it.</p>
+<p><em>create_vessel</em> gets the same arguments as the vessel struct members,
+ and you should use these when creating a new vessel structure. Pay
+ attention to how the string argument (name) is going to be handled:
+ the string must be copied.</p>
+<p><strong>NOTE:</strong> <em>create_vessel</em> returns a copy of your vessel data
+  structure, which is not a pointer. The code that is outside of the
+  function cannot free any memory that you have allocated, so using
+  <em>malloc</em> will cause a memory leak (unless you release the memory
+  right away, which is not sensible). Think whether you need pointers
+  at all in this exercise.</p>
+<p><em>print_vessel</em> prints the <em>vessel</em> struct contents, each structure
+ member in its own line, including the members of the cargo
+ structure. The double type fields should be printed at the precision
+ of one decimal. For example, after the functions are properly
+ implemented, the example program in <em>src/main.c</em>
+ would print:</p>
+<pre>
+Apinalaiva
+180.0
+8.5
+Bananas
+10000
+1500.0</pre>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="05_abstract">
+    <h1 class="content-title">Abstract Data Types</h1>
+    <div class="content-body">
+    
+      <p>Often a good programming practice is to hide details of data
+management into abstract data types that allow the handling only
+through a published interface, that hides the internal implementation
+is not exposed. This allows different implementations (or different
+algorithms) for operating the data type, while the implementation
+details remain hidden from the users of the interface. This also makes
+evolution of implementations easier, because changes on one side of
+the interface do not require modifications on the other.</p>
+<p>The C language does not provide built-in mechanisms for abstract data
+types, but they are implemented by coding conventions and particular
+use of C headers, together with the <b>typedef</b> declaration that
+allows elegant representation of the types.</p>
+<p>The public header of an abstract data type defines the interface
+(functions, data types, constants) that can be used to access the data
+type, but typically does not have to reveal the internal composition
+or operation of the data, because the user of the interface is
+typically not supposed to access it directly. Below is an example of a
+<b>Vector</b> type that can be used to handle euclidean vectors
+familiar from mathematics. The defintions would be given in a separate
+header file <b>"vector.h"</b>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#ifndef AALTO_VECTOR_H</span>
+<span class="cp">#define AALTO_VECTOR_H</span>
+
+<span class="cm">/* Define Vector type to be used in interfaces, but don&#39;t show</span>
+<span class="cm">   its internal structure */</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">vector_st</span> <span class="n">Vector</span><span class="p">;</span>
+
+<span class="cm">/* Allocates a new vector from heap, returns pointer to the vector */</span>
+<span class="n">Vector</span><span class="o">*</span> <span class="nf">vectorCreate</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">,</span> <span class="kt">double</span> <span class="n">z</span><span class="p">);</span>
+
+<span class="cm">/* Releases the vector from heap */</span>
+<span class="kt">void</span> <span class="nf">vectorFree</span><span class="p">(</span><span class="n">Vector</span> <span class="o">*</span><span class="n">v</span><span class="p">);</span>
+
+<span class="cm">/* Calculates sum of two vecors. Result is returned in new vector object</span>
+<span class="cm">   allocated from heap */</span>
+<span class="n">Vector</span><span class="o">*</span> <span class="nf">vectorSum</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Vector</span> <span class="o">*</span><span class="n">b</span><span class="p">);</span>
+
+<span class="cm">/* Calculates the length of the vector */</span>
+<span class="kt">double</span> <span class="nf">vectorLength</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span> <span class="o">*</span><span class="n">v</span><span class="p">);</span>
+
+<span class="cm">/* Prints the vector to standard output */</span>
+<span class="kt">void</span> <span class="nf">vectorPrint</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span> <span class="o">*</span><span class="n">v</span><span class="p">);</span>
+
+<span class="cp">#endif </span><span class="c1">// AALTO_VECTOR_H</span>
+</pre></div>
+</td></tr></table>
+
+<p>This is also an example of an <a
+href="http://en.wikipedia.org/wiki/Include_guard">include guard</a>:
+the <b>#ifndef</b> and <b>#define</b> precompiler instructions are
+used to ensure that the same definitions are not included multiple
+times during single compilation process, which would lead to compile
+errors due to duplicate declarations. This could happen with larger
+programs with nested include dependencies (the precompiler
+functionality will be discussed in later modules). Then, a forward
+declaration of <b>struct vector_st</b> is done, with a typedef mapping
+to <b>Vector</b> data type. The header also defines function
+interfaces for operating the vector. Note that the public header does
+not tell anything about how <b>struct vector_st</b> is defined, or how
+functions are implemented. The usage of <b>const</b> qualifier is also
+important in function interfaces: it is used to tell the calling
+program that the functions are not going to modify the value of
+vector.</p>
+<p>Next, the implementation of vector is given in C source file (let's
+call it <b>"vector.c"</b>). The users of vector do not need to know
+how operations are implemented, and they might not even have access to
+the source code, although an object file or library of the
+implementatioin is needed in order to build running program. Here is
+part of the vector implementation:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &amp;lt;assert.h&amp;gt;</span>
+<span class="cp">#include &quot;vector.h&quot; </span><span class="c1">// to ensure that the interface is compatible</span>
+
+<span class="k">struct</span> <span class="n">vector_st</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">Vector</span><span class="o">*</span> <span class="nf">vectorCreate</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">,</span> <span class="kt">double</span> <span class="n">z</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Vector</span> <span class="o">*</span><span class="n">v</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">vector_st</span><span class="p">));</span>
+    <span class="n">v</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+    <span class="n">v</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+    <span class="n">v</span><span class="o">-&gt;</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">v</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">vectorFree</span><span class="p">(</span><span class="n">Vector</span> <span class="o">*</span><span class="n">v</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>  <span class="c1">// fails if v is NULL</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">Vector</span><span class="o">*</span> <span class="nf">vectorSum</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Vector</span> <span class="o">*</span><span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="c1">// check that value is not NULL</span>
+    <span class="n">assert</span><span class="p">(</span><span class="n">b</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">);</span> <span class="c1">// other way to check that value is not NULL</span>
+    <span class="n">Vector</span> <span class="o">*</span><span class="n">ret</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">vector_st</span><span class="p">));</span>
+    <span class="n">ret</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">;</span>
+    <span class="n">ret</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">+</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">;</span>
+    <span class="n">ret</span><span class="o">-&gt;</span><span class="n">z</span> <span class="o">=</span> <span class="n">a</span><span class="o">-&gt;</span><span class="n">z</span> <span class="o">+</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">z</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cm">/* ...continues with some other Vector management functions... */</span>
+</pre></div>
+</td></tr></table>
+
+<p>The above implementation uses the <b>assert</b> macro for checking
+that the pointers passed to functions are not NULL (which would
+indicate some sort of error in calling code). The macro is defined in
+"assert.h" header, and can be used to verify given conditions
+(assertions) about the variables. If assert condition fails, the
+program aborts showing the location of failing assertion. Asserts are
+a good tool for verifying strong assumptions about the parameters
+passed to the interface, when failure should be considered an error in
+the program that uses the interface.</p>
+<p>The other parts of C source (in different C source files) can use
+the vector interface as defined in <b>"vector.h"</b>. It is sufficient
+for the other parts of the source to just see the <b>vector.h</b>
+header. After the compiler makes object files of each C source file,
+the linker combines them into single executable. The internal vector
+implementation can be modified in "vector.c", and the other parts of
+the code do not need to be modified, as long as the interface remains
+unchanged.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &quot;vector.h&quot;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// create two vectors and calculate their sum into third vector</span>
+    <span class="n">Vector</span> <span class="o">*</span><span class="n">v1</span> <span class="o">=</span> <span class="n">vectorCreate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="n">Vector</span> <span class="o">*</span><span class="n">v2</span> <span class="o">=</span> <span class="n">vectorCreate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">Vector</span> <span class="o">*</span><span class="n">v3</span> <span class="o">=</span> <span class="n">vectorSum</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">);</span>
+
+    <span class="c1">// print the result</span>
+    <span class="n">vectorPrint</span><span class="p">(</span><span class="n">v3</span><span class="p">);</span>
+
+    <span class="c1">// release all three vectors that were allocated</span>
+    <span class="n">vectorFree</span><span class="p">(</span><span class="n">v1</span><span class="p">);</span>
+    <span class="n">vectorFree</span><span class="p">(</span><span class="n">v2</span><span class="p">);</span>
+    <span class="n">vectorFree</span><span class="p">(</span><span class="n">v3</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-05-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 05_fraction: Fraction (4 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p>We practice abstract data types by implementing a new number type,
+<a href="http://en.wikipedia.org/wiki/Fraction_(mathematics)">fraction</a>, that consists of numerator and denominator. For example
+2/3 and 4/6 are equivalent values, where 2 and 4 are numerators, and 3
+and 6 are denominators. A new data type, <code>Fraction</code> is used to
+represent fractions.</p>
+<p>Implement the following functions. In this exercise, you are only
+given header <strong>fraction.h</strong> that specifies the public
+interface. <strong>fraction.c</strong> is nearly empty, and you will need to
+implement everything, starting from the definition of <strong>struct
+fraction_st</strong>.</p>
+<h2>(a) Set value</h2>
+<p>Implement function <code>Fraction* setFraction(unsigned int numerator,
+unsigned int denominator)</code> that allocates a new Fraction from heap,
+sets its value as given in parameters, and returns the created object.</p>
+<p>In addition, implement also the following simple functions</p>
+<ul>
+<li>
+<p><code>void freeFraction(Fraction* f)</code> that releases the memory used by
+  the Fraction.</p>
+</li>
+<li>
+<p><code>unsigned int getNum(const Fraction *f)</code> that returns the
+  numerator part of the fraction.</p>
+</li>
+<li>
+<p><code>unsigned int getDenom(const Fraction *f)</code> that returns the
+  denominator part of the fraction. </p>
+</li>
+</ul>
+<h2>(b) Compare values</h2>
+<p>Implement function <code>int compFraction(const Fraction *a, const
+Fraction *b)</code> that returns -1 if a &lt; b, 0 if a == b, or 1 if a &gt; b.
+The function should work correctly also when denominators are
+different.</p>
+<p><strong>Note:</strong> The local tests for the following parts of this exercise use
+this function to test the outcome. Therefore it is recommended that
+you implement this part before (c) and (d). If you get silly error
+message incorrectly complaining about wrong result in them, the reason
+might be incorrect compare implementation. The tests on (c) and (d) on
+TMC server do not depend on your comparison code.</p>
+<h2>(c) Add values</h2>
+<p>Implement function <code>Fraction *add(const Fraction *a, Fraction *b)</code>
+that adds values '<strong>a</strong>' and '<strong>b</strong>', and returns the result in a new
+object allocated from heap. Again, the denominators may be different
+in the two numbers. The resulting value does <strong>not</strong> need to be
+reduced to smallest possible denominator.</p>
+<p><strong>Hint:</strong> start by modifying the two numbers such that they have the
+same denominator.</p>
+<h2>(d) Reduce value</h2>
+<p>Implement function <code>void reduce(Fraction *val)</code>, that reduces the
+value to the smallest possible denumerator. For example, using this
+function 3/6 should reduce to 1/2. For doing this, you'll need to find
+the greatest common divisor for the numerator and denominator. The
+exercise template contains function <code>unsigned int gcd(unsigned int u,
+unsigned int v)</code> (source:
+<a href="http://en.wikipedia.org/wiki/Binary_GCD_algorithm">wikipedia</a>), that
+you can use from your function.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-06-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 06_oodi: Oodi (3 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Practice use of data structures, as a member of
+  dynamically allocated (and re-sized) array.</p>
+<p>Implement a simplified database for storing course grades. Each
+database record is specified as <code>struct oodi</code>, and the database is
+built as a dynamically allocated array, that contains a number of
+consecutive <strong>struct oodi</strong> instances in a contiguous positions in
+memory that needs to be dynamically allocated. Every time a new
+element is added to the array, it needs to be reallocated to have
+sufficient space for all entries.</p>
+<p><strong>struct oodi</strong> definition, and the purpose of each field in the
+structure are defined in file <code>oodi.h</code>. Pay attention to which
+structure members are allocated as part of the structure definition,
+and which need to be allocated separately. For example, member
+<code>course</code> is a dynamically allocated string.</p>
+<p>The exercise consists of 4 subtasks, each worth of one exercise point
+as follows. It is recommended that you implement the subtasks in
+order, because tests of later subtasks depend on the earlier
+implemented functions. You can also test and submit the exercise
+after each subtask, to make testing easier, and to gain part of the
+points.</p>
+<h2>(a) Initialize student record</h2>
+<p>Implement function '<strong>init_record</strong>' that initializes an <code>struct oodi</code>
+instance pointed by parameter '<strong>or</strong>'. The structure does not need to
+be allocated from by this function, but the allocation is done
+elsewhere. However, you need to allocate needed memory for those
+structure fields that need to be allocated separately.</p>
+<p>The function returns 1, if initialization was successful, and 0 if it
+did not succeed. Initialization fails if function is called with
+invalid student ID. Invalid student ID has more than 6 characters. You
+can assume that any other other student ID with 6 characters or less
+is valid.</p>
+<h2>(b) Add new record</h2>
+<p>Implement function '<strong>add_record</strong>' that adds a new <strong>struct oodi</strong>
+record to the dynamic array, and reallocates the array as needed. The
+start of the dynamic array is given in parameter '<strong>array</strong>', and the
+current length of the array is given in parameter '<strong>length</strong>'. The
+new information to be added is given as parameter '<strong>newrec</strong>'. Note
+that the content of <strong>newrec</strong> needs to be copied to the array. Pay
+attention to which parameters are pointers and which are not.</p>
+<p>The function returns address to the dynamic array after the
+addition. This may be same or different than the pointer given in
+'<strong>array</strong>' parameter.</p>
+<h2>(c) Change grade</h2>
+<p>Implement function '<strong>change_grade</strong>' that changes the grade
+('<strong>newgrade</strong>') and completion date ('<strong>newdate</strong>') in one of the
+existing records in the array. The record to be changed is identified
+by student ID ('<strong>p_code</strong>') and course code ('<strong>p_course</strong>'). If no
+record with matching student ID and course code are found, nothing is
+changed. The function returns 1, if a change was made, and 0 if no
+matching records were found. You can assume that there are no multiple
+entries with same student ID and code.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+        
+        <div class="content-block" id="06_linkedlist">
+    <h1 class="content-title">Linked list</h1>
+    <div class="content-body">
+    
+      <p><a href="http://en.wikipedia.org/wiki/Linked_list">Linked list</a> is a common data structure based on dynamically allocated
+nodes linked with pointers between the nodes. There are different variants
+of linked lists, but here we discuss a basic list with a pointer to
+the beginning of the list, and each member of the list containing a
+pointer to the next member of the list.</p>
+<p>Let's assume a linked list that stores integer values. Each list
+member is defined by the following structure:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">intlist</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">intlist</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>The list consisting of the above kind of nodes looks like this:</p>
+<div align="center"><img src="../static/pics/linked-base.jpg"></div>
+
+<p>When processing through the list, an implementation has to have a
+pointer to the <em>first member</em> of the list, and then walk through the
+list by following the <strong>next</strong> pointers. For example, the following
+code prints all values in the linked list.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span class="k">struct</span> <span class="n">intlist</span> <span class="o">*</span><span class="n">first</span><span class="p">;</span>
+
+<span class="c1">// do something to initialize the list...</span>
+
+<span class="k">struct</span> <span class="n">intlist</span> <span class="o">*</span><span class="n">current</span> <span class="o">=</span> <span class="n">first</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">current</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;value: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">);</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>When adding a new member to the end of the list, the following steps
+need to be taken:</p>
+<ol>
+<li>
+<p>Allocate memory for a new list node: <code>struct intlist *new =
+     malloc(sizeof(struct intlist));</code>. Initialize the members of the
+     allocated structure. Because the new member will be the last
+     element of the list, the <em>next</em> pointer will be NULL.</p>
+</li>
+<li>
+<p>Find the last member of the list. The last member is the one that
+     has <code>current-&gt;next == NULL</code></p>
+</li>
+<li>
+<p>Modify the <em>next</em> link of the last member to point to the newly
+     allocated member. (<code>current-&gt;next = new</code> or something like
+     that). Now the new member is at the end of the list.</p>
+</li>
+</ol>
+<p>The same illustrated as diagram:</p>
+<div align="center"><img src="../static/pics/linked-add.jpg"></div>
+
+<p>When a list member is removed from the list, the <em>next</em> pointer of the
+previous member needs to be modified to bypass the member to be
+removed, and point to the following list member. Naturally, the memory
+allocated for the removed member needs to be released.</p>
+<div align="center"><img src="../static/pics/linked-delete.jpg"></div>
+
+<p>When processing the linked list, it is good to pay attention to the
+special cases at the first member of the list (or when adding an
+element to empty list) and the last member of the list. Sometimes they
+may need special attention.</p>
+    </div>
+</div>
+
+        
+    
+        
+        <div class="task-description-block" id="desc-07-en">
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            <h3 class="panel-title task-title">
+                Task 07_queue: Exercise queue (3 pts)</h3>
+        </div>
+
+	<div class="panel-body">
+	  
+            <p><strong>Objective:</strong> Practice structure and pointer manipulation together
+with linked list, a common data structure in C programs.</p>
+<p>This exercise implements a simple queue that holds student IDs and
+names. The queue is implemented as an abstract data type '<strong>Queue</strong>',
+and the functions to operate the queue are in file '<strong>queue.c</strong>'.
+'<strong>queue.h</strong>' defines the public interface to the queue, and
+'<strong>queuepriv.h</strong>' contains definitions that are internal to the queue
+and should not be directly accessed from elsewhere than
+'<strong>queue.c</strong>'. The queue is implemented as a linked list.</p>
+<p>This variant of linked list has the pointer to the <strong>first member</strong> of
+the queue, and another pointer to the <strong>last member</strong> of the queue, in
+addition to the <strong>next</strong> pointers with each member that allow
+traversing through the linked list. The <strong>next</strong> pointer of the last
+member in the queue should always be NULL.</p>
+<p>Initially, pointers '<strong>first</strong>' and '<strong>last</strong>' are NULL. When the list
+has only one member, both '<strong>first</strong> and '<strong>last</strong>' point to the same
+address. With longer lists they are different. Each new list member
+should be dynamically allocated, and linked to the end of the list by
+replacing the NULL pointer with the address of the new element (and
+updating the '<strong>last</strong>' pointer. The new element, in turn, will have
+NULL as its next pointer. </p>
+<p>Walking forward along each member of the linked list happens by
+following the '<strong>next</strong>' pointers. After finding the last element
+<code>(q-&gt;next == NULL)</code>, you will need to modify the pointer, to connect
+the newly allocated node to the list (i.e., assigning the pointer you
+received from dynamic memory allocation).</p>
+<p>Some of the functions for handling the '<strong>Queue</strong>' type are already
+implemented, but the most important operations are missing. You should
+implement the following functions for the linked list.</p>
+<h2>(a) Add student to queue</h2>
+<p>Implement function '<strong>Queue_enqueue</strong>' that adds a new student with
+given student ID and name to the end of the queue. The function
+returns 1 if addition was successful, or 0 if not. If student ID is
+invalid (more than 6 characters), the function should not add
+anything, and return 0. Because the length of the name is not known,
+the space for it needs to be allocated dynamically. Also the space for
+the new queue element needs to be dynamically allocated.</p>
+<p>You do not need to check whether the given student is already on the
+queue.</p>
+<p>For easier debugging, it is advised that you test your code first
+using the main.c executable, before giving it to the TMC tester.</p>
+<h2>(b) Remove the head of the queue</h2>
+<p>Implement function '<strong>Queue_dequeue</strong>' that removes the first member
+of the queue, and releases all memory allocated for it. The function
+returns 1, if something was removed; or 0 if nothing was removed,
+i.e., because the queue was already empty. This way, the whole queue
+can be removed by <code>while (Queue_dequeue(queue));</code>.</p>
+<h2>(c) Drop a specific member from queue</h2>
+<p>Implement function '<strong>Queue_drop</strong>' that removes the given student (as
+identified by student ID) from the queue, and releases memory
+allocated for it. This queue member can be located anywhere in the
+queue, and after removal, the queue should remain operational, i.e.,
+all the pointers should be updated accordingly.</p>
+<p>The function returns 1, if student with matching ID was found and
+removed, and 0, if there was no match, and nothing was removed. Each
+call should remove only one queue member: if a student is on the queue
+several times, only the first entry is removed.</p>
+        </div>
+
+    </div>
+</div>
+
+        
+    
+
+
+
+		</div>
+
+		<div class="col-lg-4"></div> <!-- forces middle column narrower -->
+
+	</div>
+
+</div>
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="../static/jquery.min.js"></script>
+<script src="../static/bootstrap.min.js"></script>
+</body>
+</html>

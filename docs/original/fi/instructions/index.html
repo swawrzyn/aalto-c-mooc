@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>C-MOOC - C-MOOC
+- Instructions
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/pygments.css">
+
+    <style>
+    #content { margin-bottom: 20px; text-align: justify; }
+    #content img { margin-top: 25px; margin-bottom: 25px; }
+    #content li { margin-top:6px; margin-bottom: 6px; }
+    #content h2 { padding-top: 20px; }
+
+    .codehilitetable { width: 100%; margin-top: 15px; margin-bottom: 15px;}
+    .linenos { width: 20px }
+    .codehilite{ width:100%; height: auto; }
+
+    .task-sidenav-link { padding-left: 0.5em; }
+    .content-sidenav-link { text-decoration: underline; }
+    .content-block, .task-description-block { margin-bottom: 40px; }
+
+    </style>
+</head>
+<body>
+
+<!-- navbar, common to all pages -->
+<div class="navbar navbar-default" role="navigation">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+    <a class="navbar-brand" href="http://mooc.fi/courses/2016/aalto-c/">C-MOOC</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+
+      <li><a href="../home/index.html">Koti</a></li>
+
+      
+      <li class="global-links"><a href="https://tmc.mooc.fi/mooc">TMC</a></li>
+      
+      <li><a href="index.html">Ohjeet</a></li>
+
+      
+      <li><a href="../Module_1/index.html">M1: Johdanto</a></li>
+      
+      <li><a href="../Module_2/index.html">M2: Osoittimet</a></li>
+      
+      <li><a href="../Module_3/index.html">M3: Dynaaminen muisti</a></li>
+      
+      <li><a href="../Module_4/index.html">M4: Bitit ja taulukot</a></li>
+      
+      <li><a href="../Module_5/index.html">M5: Kehittyneita piirteita</a></li>
+      
+      <li><a href="../Module_6/index.html">M6: Yhteenvetoa</a></li>
+      
+
+    </ul>
+  </div>
+</div><!-- navbar -->
+
+
+<!-- Unique content of a page goes here -->
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-lg-3">
+			<div class="sidebar">
+                <ul class="nav">
+
+                    <li><img src="../static/aalto-elec-s.jpg" class="img-responsive"></li>
+                    <li><a href="http://mooc.fi/courses/2016/aalto-c">C-MOOC - MOOC.fi</a></li>
+                </ul>
+                
+    
+<ul class="nav bs-sidenav">
+    <b>Jump to:</b>
+    
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#01_register">
+        1. Rekisteröityminen TMC-serverille
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#02_aalto">
+        2. Lyhyt yhteenveto
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#03_setup">
+        3. Ohjelmointiympäristön asentaminen
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#04_model">
+        4. Tehtävämalli
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#05_building">
+        5. Ohjelmien kääntäminen ja tarkistaminen
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#06_virtualbox">
+        6. Linux-virtuaalikone
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+    
+    <li class="content-sidenav-link">
+        <a href="#07_pastebin">
+        7. Pastebin
+        
+        </a>
+    </li>
+    
+    </a></li>
+    
+</ul>
+
+
+
+			</div>
+		</div>
+
+
+		<div class="col-lg-7" id="content">
+
+		    
+		    
+
+		     
+
+    <div class="content-block" id="01_register">
+    <h1 class="content-title">Rekisteröityminen TMC-serverille</h1>
+    <div class="content-body">
+    
+      <p>C-kurssilla keskeinen osa on <a href="https://tmc.mooc.fi/mooc">TMC-palvelimella</a> jonne
+harjoitustehtävät lähetetään, ja joka tarkastaa ohjelmoimasi
+tehtävät. Jos sinulla ei ole vielä tunnusta TMC-palvelimelle, sinun
+täytyy luoda sellainen klikkaamalla <a href="https://tmc.mooc.fi/mooc/user/new">"Sign up"</a> - linkkiä aloitussivun
+ylälaidassa.</p>
+<p>Kun olet kirjautunut järjestelmään sisään, näet listan saatavilla
+olevista kursseista TMC-etusivulle. Kun klikkaat kurssin nimeä, pääset
+näkemään kurssin harjoitustehtäväpaketteja, sekä voit tarkastella
+palautuksiasi ja saamiasi pisteitä.</p>
+    </div>
+</div>
+
+
+    <div class="content-block" id="02_aalto">
+    <h1 class="content-title">Lyhyt yhteenveto</h1>
+    <div class="content-body">
+    
+      <p>Seuraavassa käydään lyhyesti läpi mitä sinun tarvitsee tehdä
+päästäksesi suorittamaan ohjelmointitehtäviä. Sinun tulee järjestää
+itsellesi kehitysympäristö C-ohjelmien kirjoittamiseen ja
+kääntämiseen, sekä asentaa työkalut joilla voit lähettää palautukset
+suoraan omalta koneeltasi palvelimelle. Näihin liittyy erilaisia
+haasteita riippuen siitä mitä käyttöjärjestelmää ja
+käyttöjärjestelmäversiota käytät.</p>
+<p>Netbeans on graafinen ympäristö ohjelmien kehittämiseen, joka ei ole
+kovinkaan yleinen C-ohjelmoijien keskuudessa. Netbeansiin on kuitenkin
+kehitetty lisäpalikka, joka mahdollistaa tehtävien lähettämisen
+suoraan editorista TMC-palvelimelle tarkistettavaksi, joten siksi
+käymme sitä hieman tarkemmin alla läpi. Voit toki käyttää mitä tahansa
+muutakin editoria ohjelmien kirjoittamiseen, ja tehtävien
+lähettämiseen komentoriviltä löytyy myös työkalu (kts. alla).</p>
+<p>Mikäli et halua käyttää Netbeansiä, voit käyttää useita muita
+editoreja C-ohjelman kirjoittamiseen, kuten '<em>gedit</em>', '<strong>vim</strong>',
+'<strong>emacs</strong>' tai
+'<em>kate</em>'. Tällöin haluat todennäköisesti lähettää ohjelman
+palvelimelle <strong><a href="#tmc-cli-install">tmc-cli</a></strong> - komentorivityökalulla. Alla löytyy sen
+asentamiseksi tarkemmat ohjeet.</p>
+<p>Jollet halua asentaa mitään omalle koneellesin, voit suoraan hypätä
+osioon, jossa kerrotaan <a href="#model">työkalujen</a> (kuten Netbeans) käytöstä.</p>
+    </div>
+</div>
+
+
+    <div class="content-block" id="03_setup">
+    <h1 class="content-title">Ohjelmointiympäristön asentaminen</h1>
+    <div class="content-body">
+    
+      <p>Seuraavassa käydään läpi työkalujen asentamista eri ympäristöille,
+tarkemmin ottaen seuraavat:</p>
+<ul>
+<li><a href="#linux">Linux</a></li>
+<li><a href="#macos">Mac OS X</a></li>
+<li><a href="#win">Windows</a></li>
+</ul>
+<p>Lyhyt yhteenveto: Jos käytät Linuxia, kaikki tulee olemaan
+helppoa. Mac:llä ja Windows:lla saattaa olla tiettyjä ongelmia, joista
+kerrotaan alla, mutta ohjelmointiympäristön saa toimimaan
+niilläkin. Jos sinulla on Mac tai Windows, Linuxin saa pyörimään myös
+virtuaalikoneen sisälle, mikä saattaa olla hyvä vaihtoehto jos
+koneesi on kohtuullisen uusi ja tukee virtualisointia.</p>
+<p>Mikäli sinulla on tuore, ennalta asennettu NetBeans esim toisen MOOC kurssin
+jäljiltä, voit hyvin asentaa muut tarvittavat paketit ja lopuksi asentaa
+NetBeanssiin C tuen (tools -&gt; plugins).</p>
+<h2>Komentorivi vai graafinen editori?</h2>
+<p>Alla olevat ohjeet koostuvat seuraavista osista:</p>
+<ul>
+<li>
+<p>Sinulla täytyy olla tarvittavat komentorivityökalut C-ohjelmien
+    kääntämiseen ja debugaamiseen, sekä paikallisten yksikkötestausten
+    tekemiseen. Näitä ovat mm. <em>gcc, make, check, pkg-config ja
+    gdb</em>. <strong>On tärkeää että kyseiset työkalut asennetaan ensin,
+    ennenkuin rupeat asentamaan esimerkiksi Netbeansiä</strong>.</p>
+</li>
+<li>
+<p><strong>Vaihtoehto A</strong>: voit käyttää Unix-komentoriviä ohjelmien
+    kääntämiseen ja valitsemaasi tekstieditoria niiden
+    kirjoittamiseen. Tällöin <a href="#tmc-cli-install">asennat</a> <strong>tmc-cli</strong> -
+    työkalun toimivien ohjelmien lähettämiseen palvelimelle suoraan
+    komentoriviltä.</p>
+</li>
+<li>
+<p><strong>Vaihtoehto B</strong>: Käytät Netbeansiä, joka on graafinen IDE, eli se
+    sisältää integroituna pakettina editorin, kääntäjän ja tehtävien
+    lähettämisen palvelimelle. Silloin seuraat <a href="#nb-install">ohjeita</a>
+    Netbeansin asentamiseksi.</p>
+</li>
+<li>
+<p>On myös mahdollista tehdä tehtäväpohjista zip-paketti ja lähettää
+    ne palvelimelle web-selainta käyttäen TMC-palvelimen
+    käyttöliittymän kautta. Tämä on pidemmän päälle hieman työläämpää
+    kuin edellä mainitut vaihtoehdot, ja siksi ei suositeltavaa.</p>
+</li>
+</ul>
+<p>Seuraavat käyttöjärjestelmä-kohtaiset rajoitteet ovat tiedossa:</p>
+<ul>
+<li>
+<p><strong>Windowsilla ja Cygwinillä paikalliset yksikkötestit eivät
+    toimi</strong>. Tällöin voi kuitenkin lähettää tehtäväkoodit palvelimelle
+    tarkistettavaksi. Kukin palvelimen tarkistus kestää n. 5-20 sekuntia.</p>
+</li>
+<li>
+<p><strong>Mac OS 10.10:ssä Netbeans ei löydä pkg-config</strong> - työkalua, vaikka
+    se olisikin asennettuna. Ylipäätään uudet Mac OS-versiot
+    aiheuttavat hankaluuksia.</p>
+</li>
+<li>
+<p><strong>Mac OS 10.6 ja vanhemmissa Netbeansin tarvitsemaa JDK 7 -
+    ympäristöä ei saa asennettua.</strong> Tällöin sinun täytyy sopeutua
+    käyttämään komentorivityökaluja tehtävien tekemiseen.</p>
+</li>
+</ul>
+<h2>Linux</h2>
+<p><a name="linux"></a></p>
+<p>Linux - ympäristöissä perustyökalut, kuten <em>gcc</em> ja <em>make</em>, ovat
+yleensä oletusarvoisesti asennettuina. Niiden lisäksi tarvitset
+kuitenkin muitakin paketteja, jotta tehtävien testaus ja debugaus
+omalla koneella olisi mahdollista. Debianissa tai Ubuntussa seuraavat
+komennot tarvitaan näiden työkalujen asentamiseksi (sekä tietysti
+pääkäyttäjän oikeudet):</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre>sudo apt-get install check
+sudo apt-get install pkg-config
+sudo apt-get install valgrind
+sudo apt-get install gdb
+</pre></div>
+</td></tr></table>
+
+<p>Jotkut paketeista saattavat ollakin jo asennettuina, jolloin saat
+asiasta ilmoituksen.</p>
+<p>Jos haluat käyttää Netbeansiä, <a href="#nb-install">myöhemmin</a> seuraa ohjeet
+sen asentamiseksi</p>
+<h2>Mac OS</h2>
+<p><a name="macos"></a></p>
+<p>Mac OS - järjestelmissä C-kääntäjä tulee XCode-ympäristön
+mukana. XCoden saa App Storen kautta, mutta se ei maksa
+mitään. Lisäksi tarvitset edellä Linuxin yhteydessä mainitut
+komentorivityökalut.</p>
+<ul>
+<li>
+<p>Mac OS 10.8:ssa nämä saa <a href="https://developer.apple.com/downloads/index.action?=Command%20Line%20Tools%20%28OS%20X%20Mountain%20Lion%29#">tällaisesta paketista</a></a>.</p>
+</li>
+<li>
+<p>Mac OS 10.9:ssä sinun tulee kirjoittaa  <code>xcode-select
+    --install</code> komentorivillä ja seurata ohjeita.</p>
+</li>
+<li>
+<p>Myöhempiin käyttöjärjestelmäversioihin ei vielä ole ohjeita, mutta
+    vastaavat toimet tarvitaan niihinkin.</p>
+</li>
+</ul>
+<p>Jotta voit asentaa komentorivityökaluja, tarvitset
+pakettienhallintaohjelman koneeseen. <em>Homebrew</em> on yksi sellainen, ja
+alla olevat ohjeet on tehty sille. Muitakin tällaisia toki on.</p>
+<p>Avaa terminaali-ikkuna (eli komentorivi). Voit asentaa Homebrew:n
+kirjoittamalla</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;
+</pre></div>
+</td></tr></table>
+
+<p>Seuraa ruudule tulevia ohjeita. Lisää tietoa Homebrewstä löytyy
+<a href="http://brew.sh">täältä</a>. Kun Homebrew on asennettu, voit asentaa
+tarvittavat paketit seuraavasti:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre>brew install check
+brew install pkg-config
+</pre></div>
+</td></tr></table>
+
+<p>gdb:n ja valgrindin saaminen toimintaan Mac:llä saattaa olla
+vaikeampaa, mutta ohjeita löytyy esim. <a href="http://wiki.lazarus.freepascal.org/GDB_on_OS_X_Mavericks_and_Xcode_5">täältä</a>.</p>
+<p>OS X 10.9:ssä Netbeansin toimntaan saaminen edellyttää, että kerrot
+tarvittavista poluista graafiselle käyttöliittymälle. Tämä tapahtuu
+muokkaamalla <code>/etc/launchd.conf</code> - tiedostoa esimerkiksi seuraavilla komennoilla:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span class="x">sudo su</span>
+<span class="x">echo &quot;setenv PATH </span><span class="p">$</span><span class="nv">PATH</span><span class="x">&quot; &gt;&gt;/etc/launchd.conf</span>
+<span class="x">exit</span>
+</pre></div>
+</td></tr></table>
+
+<p>Ensimmäinen komento kysyy salasanaasi. Lopuksi sinun tulee käynnistää
+kone uudestaan.</p>
+<p>Valitettavasti myöhemmissä Mac OS - versioissa tämäkin on taas
+muuttunut, mutta käynnistämällä Netbeansin komentoriviltä seuraavaan
+tyyliin sen pitäisi toimia:</p>
+<p><code>/Applications/NetBeans/NetBeans\ 8.1.app/Contents/MacOS/netbeans</code></p>
+<p>Tarkka nimi vaihtelee käytetyn Netbeans-version mukaan.</p>
+<h2>Windows</h2>
+<p><a name="win"></a></p>
+<p><strong>Huomaa, että paikallisten testien ajo ei ole mahdollista
+Käännösvirheiden tunnistamiseksi on kuitenkin tärkeää, että asennat
+allamainitut työkalut.</strong></p>
+<p>Hanki <em>Cygwin</em> osoitteesta
+<a href="http://www.cygwin.com">www.cygwin.com</a>. Cygwin tarjoaa useat
+Linux/Unix - järjestelmissä saatavilla olevat ohjelmat ja
+ohjelmakirjastot Windowsille sovitettuna. Klikkaa webbisivulta
+löytyvää *"Install Cygwin" - linkkiä, ja valitse 32-bittinen tai
+64-bittinen versio sen mukaan mitä oma koneesi tukee. Uudet koneet
+alkavat olla 64-bittisiä, mutta jos olet epävarma, valitsemalla
+32-bittisen ei voi mennä pieleen. Klikkaa setup-....exe - linkkiä sen
+mukaan kumman version haluat asentaa.</p>
+<p>Kun olet klikannut Cygwin-asennuslinkkiä, ruudulle tulee useita
+ikkunoita joissa kysytään konfiguroimiseen liittyviä
+tietoja. Useimmissa kohdissa hyvä vaihtoehto on hyväksyä tarjotut
+oletusarvot, ja vain klikata "Next":iä. Kun tulet kohtaan
+jossa kysytään mitä pakkauksia tulisi asentaa, sinun tulisi valita
+C-ohjelmoinnissa tarvittavat pakkaukset asennettaviksi (klikkaamalla
+"Skip" - painiketta kyseisen pakkauksen kohdalla).</p>
+<p>Tarvitset seuraavat pakkaukset:</p>
+<ul>
+<li><em>Devel/gcc-core</em> -- C-kääntäjä ja siihen liittyvät työkalut</li>
+<li><em>Devel/make</em> -- make-työkalu, jota testit käyttävät</li>
+<li><em>Devel/pkg-config</em> -- jota testiskriptit tarvitsevat</li>
+<li><em>Devel/check</em> -- yksikkötestauskirjasto jota testiskriptit tarvitsevat</li>
+<li><em>Devel/gdb</em> -- joka auttaa ohjelmasi debugauksessa.</li>
+</ul>
+<p>Kun näiden valintojen jälkeen klikkaat "Next", asennusohjelma saattaa
+tyrkyttää muitakin pakkauksia, joita ylläolevat tarvitsevat
+toimiakseen. Tässä kohtaa voit jälleen painaa vain "Next"-nappulaa
+eteenpäin, jolloin pakkausten asennus alkaa.</p>
+<p>Windows-asennuksissa TMC:n paikallisten yksikkötestausten tarvitsema
+<em>check</em>-kirjasto ei toimi parhaalla mahdollisella tavalla, ja siksi
+paikalliset testit eivät käytännössä toimi. Jokatapauksessa tehtävät
+voi kuitenkin aina lähettää palvelimelle, joka tarkastaa niiden oikean
+toiminnan.</p>
+<h2>tmc-cli- komentorivityökalu</h2>
+<p><a name="tmc-cli-install"></a></p>
+<p>Perinteinen tapa kehittää C-ohjelmia on toimia Unix-komentorivillä,
+josta käytät kääntäjää ja testaat ohjelmia. Mikäli komentorivin käyttö
+ei ole aiemmin tuttua, sen opiskelu vaatii hieman vaivaa, mutta on
+toisaalta tehokasta sitten kun olet perusasiat oppinut. Mikäli käytät
+mieluumin Netbeansiä, voit ohittaa tämän luvun.</p>
+<p>TMC:hen on saatavana <strong>tmc-cli</strong> - niminen työkalu, joka mahdollistaa
+tehtävien lähettämisen palvelimelle suoraan komentoriviltä tiettyjä
+komentoja käyttäen. Jotta voit asentaa tämän (Javalla toteutetun)
+työkalun, sinulla tulee olla vähintään Java-versio 7 asennettuina.</p>
+<p>Asenna tmc-cli https://github.com/tmc-cli/tmc-cli#installation ohjeen
+mukaisesti; eli lataa tmc-cli:n uusin versio. Ensimmäisellä
+suorituskerralla ohjelma lisää itsensä <code>.bashrc</code> tiedostoon aliakseski,
+jolloin ohjelma lyötyy aina komentoriviltä. Mikäli käytät muuta
+terminaalia kuin <code>bash</code> voi olla, että joudut päivittämään erikseen
+konfiguraatioitasi, jotta saat <code>tmc</code> komennon helposti suoritettua.</p>
+<p>Kun olet asentanut <em>tmc-cli</em>:n, komenna ensiksi <code>tmc login -s
+https://tmc.mooc.fi/mooc</code>, jotta pääset antamaan login tietosi.
+Tätä ennen sinun tulee olla luonut käyttäjätunnus
+TMC:hen web-liittymän kautta. Tässä kohtaa pääset myös valitsemaan sen
+kurssin jota olet nyt suorittamassa (tunniste kerrotaan
+MyCourses-sivulla). <strong>On tärkeää, että konfiguroit palvelimen osoitteen
+oikein: https://tmc.mooc.fi/mooc</strong>.</p>
+<p>Kun olet konfiguroinut <em>tmc-cli</em>:n, voit ruveta tekemään tehtäviä ja
+käyttää työkalua tehtävien lähettämiseen palvelimelle. Tarkempia
+ohjeita käyttöön löytyy
+<a href="https://github.com/tmc-cli/tmc-cli#tmc-cli">tästä esittelystä</a>.</p>
+<p>Kannattaa kiinnittää huomiota siihen, mihin hakemistoon <em>tmc-cli</em> hakee
+tehtäväpohjat, jotta löydät C-lähdetiedostot joita sinun tulee
+muokata. Oletusarvoisesti tämä hakemisto on
+<code>&lt;kurssi-ID&gt;/&lt;moduli&gt;-&lt;tehtävännimi&gt;</code> siinä kansiossa, mistä lataus
+komennon suoritat.</p>
+<p>Yleisimmät komennot, joita tulet tarvitsemaan, ovat:</p>
+<ul>
+<li><code>tmc download &lt;kurssin nimi&gt;</code>: lataa kaikki saatavilla olevat tehtävät</li>
+<li><code>tmc update</code>: tarkista ovatko tehtävät päivittyneet edellisen
+    kerran jälkeen</li>
+<li><code>tmc run-tests</code>: testaa paikallisesti valittua tehtävää</li>
+<li><code>tmc submit</code>: lähetä valittu tehtävä palvelimelle</li>
+<li><code>tmc paste</code>: lähetää tehtävän TMC-pastebiniin</li>
+</ul>
+<p><em>tmc-cli</em>:ä kehitetään aktiivisesti, ja suosittelemme aina uusimman
+version asentamista.</p>
+<p>Kaikki jatkokehitysehdoitukset <em>tmc-cli</em>:stä otetaan mieluusti vastaan
+joko <a href="https://github.com/tmc-cli/tmc-cli/issues/new">GitHumissa</a> tai
+kurssin IRC kanavalla.</p>
+<h2>Netbeansin ja TMC-pluginin asentaminen</h2>
+<p><a href name="nb-install"></a></p>
+<p>Mikäli haluat käyttää Netbeans-IDE:ä ja siihen liittyvää TMC-pluginia,
+sinun tulee ensin asentaa C-käännöstyökalut järjestelmääsi, kuten yllä
+neuvottiin.</p>
+<p>Netbeans on toteutettu Javalla, ja tarvitsee JDK 7 - ympäristön, jonka
+voi hakea
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">täältä</a>. Valitse
+versio joka sopii omaan järjestelmääsi, ja hae ja asenna
+paketti. Linuxilla tämä tapahtuu purkamalla .tar.gz - paketin
+valitsemaasi paikkaan. Windowsilla ja Macillä on käytössä
+asennuspaketti, jollaisia näissä normaalistikin käytetään. Tällöin
+käynnistät asennuksen ja seuraat ruudulle tulvia ohjeita ja
+kysymyksiä.</p>
+<p>Kun JDK on asennettuna, hae Netbeans osoitteesta
+<a href="https://netbeans.org/downloads/">netbeans.org</a>. Valitse versio joka
+tukee C:tä ja C++:aa. Sivulta latautuu asennuspaketti, jonka avulla
+asennat ohjelman, kun ajat kyseisen paketin.</p>
+<p>Kun Netbeans käynnistyy, pääset asentamaan TMC-pluginia. Se tapahtuu seuraavasti:</p>
+<ul>
+<li>
+<p>Mene "Tools" valikkoon ruudun yläreunassa, ja valitse "Plugins" -
+    valinta. Nyt pitäisi aueta uusi ikkuna.</p>
+</li>
+<li>
+<p>Klikkaa "Settings" - välilehteä ja etsi sieltä "Add" - nappi
+    ikkunan oikeassa laidassa. Jälleen aukeaa uudenlainen ikkuna.</p>
+</li>
+<li>
+<p>Kirjoita nimeksi "TMC" ja anna pluginin osoitteksi
+    "<em>http://update.testmycode.net/tmc-netbeans_mooc/updates.xml</em>". Paina tämän
+    jälkeen "OK"-nappia.</p>
+</li>
+<li>
+<p>Äskeinen ikkuna sulkeutuu, mutta mene nyt "<em>Available plugins</em>"
+    välilehdelle ja etsi sieltä TMC-plugin. Mahdollisia plugineja on
+    paljon, joten voit käyttää hakutoimintoa etsimisen
+    helpottamiseksi: kirjoita "tmc" oikeassa ylälaidassa olevaan
+    hakukenttään. Oikean pluginin kohdalla tulisi lukea "Test My Code
+    plugin". Valitse plugin asennettavaksi (klikka Install
+    valinta-ruutua), ja paina lopusi alalaidassa olevaa "Install" -
+    nappia.</p>
+</li>
+<li>
+<p>Pluginin asennusruutu tulee näkyviin ja pyytää sinua hyväksymään
+    normaalin tavan mukaisesti lisenssiehtoja, jne.</p>
+</li>
+<li>
+<p>Käynnistä asennuksen jälkeen Netbeans uudestaan.</p>
+</li>
+</ul>
+<p>Uudelleenkäynnistyksen jälkeen ylälaidasta tulisi nyt löytyä uusi
+"TMC" - valikko. Sieltö löytyy "Settings" - valinta, jonka kautta
+pääset antamaan palvelimen osoitteen (tulisi olla oikein
+oletusarvoisesti), sekä käyttäjätunnuksesi. Täältä valitset myös
+oikean kurssin nimen (kerrotaan MyCourses - sivulla).</p>
+<p>Palvelimen osoitteen tulisi olla https://tmc.mooc.fi/mooc</p>
+    </div>
+</div>
+
+
+    <div class="content-block" id="04_model">
+    <h1 class="content-title">Tehtävämalli</h1>
+    <div class="content-body">
+    
+      <p><a name="model"></a></p>
+<p>Harjoitustehävät paketoitu pieniksi ohjelmaprojekteiksi, jotka haetaan
+TMC-palvelimelta. Yhdessä paketissa saattaa olla muutama pieni
+tehtävä, tai hieman isompi tehtävä joka koostuu muutamasta
+osasta. Tehtäväpaketti on nimetty numerolla ja lyhyellä nimellä
+(esim. "<em>02_intro</em>"), joka näkyy kurssimateriaalin ohessa.</p>
+<p>Kussakin paketissa on joukko C-lähdetiedostoja sekä muutamia muita
+tiedostoja, joita tarvitaan ohjelmien kääntämiseen, testaamiseen, ja
+niiden esittämiseen Netbeans-projektina. Alla oleva kuva esittää
+kustakin paketista löytyvän tiedostohierarkian, sekä muutaman
+tärkeimmän tiedoston.</p>
+<hr />
+<div align="center"><img src="../static/pics/project_files.jpg" align="center"></div>
+
+<hr />
+<p>Kukin tehtäväpaketti sijoittuu hakemistoon, jonka nimi on muotoa
+"<em>Module_N-(tehtävätunniste)</em>". Harjoitustehtävät tehdään "<em>src</em>" -
+alihakemistossa sijaitsevissa lähdetiedostoissa. Ensimmäisissä
+tehtävissä sinun tulee muokata "<em>source.c</em>" - tiedostoa, joka sisältää
+valmiiksi jo funktioiden määrittelyt, mutta ei välttämättä vielä
+toteutusta. Myöhemmissä tehtävissä lähdetiedsto voi olla eri niminen,
+tai lähdetiedostoja voi olla useita.</p>
+<p>Tehtäväsi on siis muokata "<em>source.c</em>" - tiedostoa tehtävänannossa
+kerrotulla tavalla. Kun ohjelmasi näyttää mielestäsi hyvältä, voit
+kääntää sen ja testata sitä (mikäli käännös sujui
+ongelmitta). Testaamiseen voi käyttää "<em>src</em>" - hakemistossa olevaa
+"<em>main.c</em>" - tiedostoa, joka sisältää <em>main</em> - funktion, josta
+ohjelman suoritus aina alkaa. Voit muokata tätä tiedosta miten haluat,
+eikä TMC tarkista sen sisältöä, ja sitä kannattaa käyttää funktioidesi
+testaamiseen eri syötteillä.</p>
+<p>Kun ohjelma käännetään esimerkiksi "<em>make</em>" - komennolla, syntyy
+"<em>src</em>" - hakemistoon "<em>main</em>" - niminen suoritettava ohjelma, joka
+ajaa <em>main</em> - funktion. Tätä ohjelmaa käytät siis koodisi itsenäiseen testaamiseen.</p>
+<p>Lisäksi harjoituspohjassa on "<em>test</em>" - hakemisto, joka sisältää
+tehtävien testaamisessa käytetyn ohjelmakoodin. Varsinaiset testit on
+myös toteutettu C:llä, ja ne löytyvät tiedostosta "<em>test_source.c</em>",
+mikäli haluat perehtyä testien toteutukseen. Sinun ei kuitenkaan
+välttämättä tarvitse välittää "<em>test</em>" - hakemiston sisällöstä.</p>
+<p>"<em>nbproject</em>" - hakemisto sisältää Netbeansin tarvitsemia
+tiedostoja. Tähänkään hakemistoon sinun ei tarvitse koskea.</p>
+<p>Lyhyt yhteenveto: <strong>Alkupään tehtävissä src/source.c on ainoa
+tiedosto, jota sinun tulee muokata tehtävien ratkaisemiseksi.</strong> Joskin
+src/main.c:n käyttö on hyödyllistä ohjelmiesi testaamiseksi.</p>
+    </div>
+</div>
+
+
+    <div class="content-block" id="05_building">
+    <h1 class="content-title">Ohjelmien kääntäminen ja tarkistaminen</h1>
+    <div class="content-body">
+    
+      <h2>Netbeans</h2>
+<p>Netbeansin TMC-plugin tarjoaa automaattisesti koneellesi
+harjoitustehtäviä jotka ovat päivittyneet tai ovat uusia edellisen
+käyttökerran jälkeen. Voit hakea tehtävät itse TMC-valikon
+"<em>Download/update exercises</em>" - kohdasta. Kun tehtäväpaketit on haettu,
+ne näkyvät Netbeans-ikkunan vasemassa laidassa olevassa
+projektinäkymässä. Kun klikkaat projektin nimen kohdalta, näet yllä
+kuvatun hakemistohierarkian, jonka alta pitäisi löytyä "<em>source.c</em> -
+tiedosto, jota sinun tulee muokata. Kun tuplaklikkaat tiedoston nimen
+kohdalla, pääset muokkaamaan sitä.</p>
+<p>Kun olet kirjoittanut ohjelmaa siihen pisteeseen, että haluat testata
+sitä, ensimmäinen vaihe on tarkistaa että se kääntyy ilman virheitä
+tai varoituksia. Ohjelmaa voi toki testata ennenkuin se on täysin
+valmis, mikä on hyödyllistäkin varsinkin isommissa
+ohjelmissa. Netbeansissä kääntäminen tapahtuu "vasara"-ikonia
+("Compile") painamalla (katso alla oleva kuva). Tarkista tämän jälkeen
+kääntäjän tuottamat ilmoitukset, ja huomaa että niitä saattaa olla
+enemmän kuin mitä kerrallaan Netbeansin pieneen tulostenäkymään
+mahtuu. Mikäli käännös onnistuu ilman virheitä, src-hakemistoon syntyy
+ajettava <em>main</em> - tiedosto, jota voit käyttää testaamiseen. Mikäli
+käännöksessä tuli virheitä tai varoituksia, korjaa ohjelmaasi ja
+käännä se uudestaan.</p>
+<hr />
+<div align="center"><img src="../static/pics/netbeans-buttons.jpg" align="middle"></div>
+
+<hr />
+<p>Kun käännös on onnistunut, voit suorittaa ohjelmasi (eli <em>src/main</em> -
+tiedoston) painamalla vihreää nuolta ("Run"). Ohjelman tuottama
+tuloste (esim. printf-komennoista) tulee näkyville Netbeansin
+tulosteikkunaan. Näitä tulosteita käyttämällä voit nyt pyrkiä
+päättelemään toimiiko ohjelmasi oikein. <strong>Muista, että
+C-ohjelmoinnissa sinun tulee aina kääntää ohjelma uudestaan kun teet
+lähdekoodiin muutoksia.</strong> Muuten muutoksesi eivät vaikuta ohjelman
+toimintaan millään tavalla (koska <em>src/main</em> - tiedosto ei ole
+muuttunut).</p>
+<p>Kun olet tyytyväinen ohjelmasi toimintaan, voit testata sitä
+tehtäväpaketin mukana tulevilla yksikkötesteillä, jotka ovat pitkälti
+samat kuin palvelimen käyttämät testit, vaikka eroja voi olla. Tämä
+tapahtuu painamalla "Silmä"-nappia (eli "Test locally"). Ruutuun tulee
+ilmoitus mikä kertoo menivätkö testit läpi, vai oliko niissä
+virheitä. Lue virheilmoitus ja korjaa ohjelmaasi sen
+mukaisesti. Paikalliset testit eivät toimi Windows-koneilla, joten
+tehtävät on lähetettävä suoraan palvelimelle tarkistettavaksi.</p>
+<p>Lopuksi lähetät tehtävät TMC-palvelimelle käyttämällä "Submit to
+server" - nappia. Palvelin tarkistaa tehtävät vielä kerran, ja mikäli
+yksikkötesteissä ei tullut virheitä, saat tehtävän hyväksytyksi ja
+voit siirtyä seuraavaan tehtävään. Netbeans tarjoaa vielä lopuksi
+mahdollisuuden jättää palautetta tehtävästä. Toivomme että jätät
+palautetta, koska se auttaa tehtävien edelleenkehittämisessä.</p>
+<p>Huomaa että kussakin tehtäväpaketissa on yleensä useampi tehtäväkohta,
+ja tällöin osa paketin tehtäväkohdista voi mennä läpi, kun taas
+toisissa on edelleen virheitä. Netbeansin tulosteikkunasta näet mitkä
+kohdat toimivat, ja mitkä eivät.</p>
+<h2>Komentorivi</h2>
+<p>Seuraavassa olevat ohjeet olettavat, että käytät <strong>tmc-cli</strong> - työkalua
+tehtäväpakettien lataamiseksi omalle koneelle.</p>
+<p>Komenna "<em>tmc update</em>" hakeaksesi tuoreimmat versiot
+tehtäväpohjista. Kunkin tehtävän hakemistohierarkia on samanlainen
+kuin Netbeans:inkin kanssa, eli kukin tehtäväpaketti on omassa
+"<em>Module_N-(tehtävätunniste)</em>" - hakemistossaan, jonka alta löytyy
+src-hakemisto, jossa ovat tiedostot joita sinun tulee muokata,
+ennenkaikkea "<em>source.c</em>".</p>
+<p>Valitse aluksi tehtävä jota haluat tehdä komennolla "<em>tmc
+select</em>". Sen jälkeen avaa C-lähdetiedosto suosimassasi
+tekstieditorissa ja toteuta ohjelma tehtävänannon mukaisesti. Voit
+kokeilla ohjeman kääntämistä "<em>make</em>" - komennolla, joka toimii
+tehtäväpohjan ylimmältä hakemistotasolta ajettuna. Ruudulle tulevat
+kääntäjät mahdolliset virheilmoitukset ja varoitukset, ja mikäli näin
+on, sinun tulee korjata ohjelmaasi. Mikäli virheitä ei tule,
+"<em>src</em>"-hakemistoon on syntynyt tiedosto "<em>main</em>", jonka ajamalla voit
+testata ohjelmaa. komennolla "<em>make run-main</em>" voit ajaa kyseisen
+tiedoston.</p>
+<p>Mikäli ohjelma vaikuttaa toimivan, voit ajaa yksikkötestit
+paikallisesti komennolla "<em>tmc test</em>", jolloin ruudulle tulee tieto
+siitä menivätkö testit läpi, vai oliko toteutuksessa virheitä. Mikäli
+virheitä on, pyri korjaamaan ohjelmaa ja aja testit uudestaan.</p>
+<p>Lopuksi voit lähettä tehtävän takaisin TMC-palvelimelle komennolla
+"<em>tmc submit</em>". Palvelimen tekemien testien tulokset ilmestyvät hetken
+päästä ruudulle, ja mikäli kaikki tehtäväkohdat menivät hyväksytysti
+läpi, voit siirtyä seuraavaan tehtäväpakettiin "<em>tmc select</em>" -
+komennon kautta.</p>
+    </div>
+</div>
+
+
+    <div class="content-block" id="06_virtualbox">
+    <h1 class="content-title">Linux-virtuaalikone</h1>
+    <div class="content-body">
+    
+      <p>Olemme laatineet virtualisoidun Linux-ympäristön perustuen
+Ubuntu 16.04, johon on valmiiksi asennettu kehityksessä ja
+testauksessa tarvittavat työkalut, kuten <em>Netbeans TMC-pluginilla</em> sekä <em>valgrind</em> jota tarvitaan kurssin myöhemmillä
+kierroksilla. Mikäli siis asennuksissa varsinaiseen ympäristöösi on
+ongelmia, voit kokeilla tätä vaihtoehtoa. Virtualisoidun ympäristön
+mahdollisena haittapuolena on, että se vaatii kohtuullisen paljon
+tilaa levyltäsi (imuroitava paketti on reilu 3 GB, ja vaatii
+asennettuna n. 8 GB levytilaa), ja se saattaa joissain järjestelmissä
+olla hidas. Olisi myös hyvä että järjestelmäsi tukee virtualisointia,
+jottei virtualisoitu ympäristö olisi kovin hidas.</p>
+<p><strong>VirtualBox</strong> on kohtuullisen helppokäyttöinen, ilmainen ympäristö
+virtuaalikoneiden pyörittämiseen. Voit hakea sen
+VirtualBox-<a href="https://www.virtualbox.org/wiki/Downloads">webbisivulta</a>. Seuraa
+asennusohjeita ympäristön asentamiseksi.</p>
+<p>Kun olet asentanut VirtualBoxin, voit hakea tallentamamme levyimagen
+<a href="http://mooc.tmchq.co/mooc.ova">kurssin palvelimelta</a>. Huomioi,
+että se on kooltaan aika iso, ja imuroinnissa voi kestää tovi, mikäli
+sinulla ei ole nopeaa verkkoyhteyttä. Kun olet saanut tiedoston
+koneellesi, valitse VirtualBoxin File-ylävalikosta "Import
+Appliance". Ruudulle aukeaa ikkuna, jossa sinun tulisi valita juuri
+imuroineesi tiedosto, sekä klikkailla "Ok" tai "Continue" muutaman
+kerran. Tämän jälkeen VirtualBox:iin ilmestyy uusi virtuaalikone,
+nimeltään "mooc". Valitse se, ja paina "Start" -
+nappia. Linux-virtuaalikoneen pitäisi nyt käynnistyä.</p>
+<p>Linux-järjestelässä on käyttäjä "mooc", jonka salasana on
+"mooc". Ubuntu ohittaa normaalin login-ruudun, mutta salasana saatta
+silti joskus tulla tarpeeseen, esimerkiksi ohjelmien
+päivittämiseksi. Voit käynnistää Netbeansin työpöydältä löytyvän
+ikonin kautta, tai vaihtoehtoisesti käyttää Linuxin
+komentorivityökaluja. Järjestelmään on jo valmiiksi asennettu
+TMC-plugin, mutta sinun täytyy syöttää järjestelmään oma
+TMC-käyttäjätunnuksesi ja salasanasi.</p>
+    </div>
+</div>
+
+
+    <div class="content-block" id="07_pastebin">
+    <h1 class="content-title">Pastebin</h1>
+    <div class="content-body">
+    
+      <p>Mikäli sinulla on haasteita tehtävien kanssa, voit kysyä neuvoa
+esimerkiksi IRC-kanavalla, tai kurssin keskustelufoorumilla. Tällöin
+on usein tarpeellista pystyä näyttämään ohjelmaasi kysymyksen mukana
+muille, jotta sinua osataan neuvoa. Tätä tarkoitusta varten käytetään
+<strong>pastebiniä</strong> joka on palvelu pienten koodinpätkien jakamiseen
+muille. Kun lähetät ohjelmasi pastebiniin, saat webbilinkin jonka
+kautta toiset näkevät koodisi.</p>
+<p>Koodin kopioiminen toisilta suoraan on kiellettyä, joten siksi
+pastebin-webbilinkin voivat avata kurssihenkilökunnan lisäksi vain ne
+opiskelijat jotka ovat jo ratkaisseet kyseisen tehtävän. Tästä syystä
+on sallittua käyttää vain kurssin omaa, TMC:n tarjoamaa
+pastebiniä. Vastaavien julkisten ratkaisujen käyttö on kiellettyä.</p>
+<p>Kurssin oman pastebinin käyttö on helppoa:</p>
+<ul>
+<li>
+<p><em>Netbeansin</em> kautta voit valita TMC-valikosta "Submit to pastebin"
+    valinnan, joka lähettää kyseisellä hetkellä auki olevan tehtävän
+    pastebiniin.</p>
+</li>
+<li>
+<p><em>tmc-cli</em> - työkalussa vastaava komento on "<em>tmc paste</em>".</p>
+</li>
+</ul>
+<p>Kummassakin tapauksessa saat takaisin web-linkin, jonka voit jakaa
+toisille kysymyksesi mukana. Pelkkä linkin jakaminen ei yleensä ole
+sellaisenaan hyödyllistä, vaan jos haluat saada apua, kannattaa
+saatteena kertoa mikä on ongelmasi.</p>
+    </div>
+</div>
+
+
+
+
+		</div>
+
+		<div class="col-lg-4"></div> <!-- forces middle column narrower -->
+
+	</div>
+
+</div>
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+-->
+<script src="../static/jquery.min.js"></script>
+<script src="../static/bootstrap.min.js"></script>
+</body>
+</html>
